@@ -1,10 +1,30 @@
-[![Build Status](https://travis-ci.org/avanzosc/odoo-addons.svg?branch=8.0)](https://travis-ci.org/avanzosc/odoo-addons)
-[![Code Health](https://landscape.io/github/avanzosc/odoo-addons/8.0/landscape.svg?style=flat)](https://landscape.io/github/avanzosc/odoo-addons/8.0)
-[![Coverage Status](https://coveralls.io/repos/avanzosc/odoo-addons/badge.svg?branch=8.0)](https://coveralls.io/r/avanzosc/odoo-addons?branch=8.0)
-[![Codacy Badge](https://www.codacy.com/project/badge/5c3b8125c017437f9f208bdd6f984915)](https://www.codacy.com/public/oihanecruce/odoo-addons)
-[![codecov](https://codecov.io/gh/avanzosc/odoo-addons/branch/8.0/graph/badge.svg)](https://codecov.io/gh/avanzosc/odoo-addons)
+[![Build Status](https://travis-ci.org/avanzosc/project-addons.svg?branch=8.0)](https://travis-ci.org/avanzosc/project-addons)
+[![Coverage Status](https://coveralls.io/repos/github/avanzosc/project-addons/badge.svg?branch=8.0)](https://coveralls.io/github/avanzosc/project-addons?branch=8.0)
 
-Odoo addons
-===========
+Project Odoo addons
+===================
 
-Modules for Odoo / OpenERP
+Project modules for Odoo
+
+[//]: # (addons)
+
+Available addons
+----------------
+addon | version | summary
+--- | --- | ---
+project_claims
+project_events
+project_events_copy
+project_events_operations
+project_fix_price
+project_issue_ext
+project_partner_event_registration
+project_report
+project_task_deadline_visible
+project_task_ending
+project_task_generated_with_product_performance
+project_task_tag
+project_user_product
+task_delegation_wizard
+
+[//]: # (end addons)
