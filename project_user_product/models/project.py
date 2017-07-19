@@ -81,3 +81,25 @@ class HrAnalyticTimesheet(models.Model):
             res['value']['product_id'] = user_product.product_id.id
             res['value']['product_uom_id'] = user_product.product_id.uom_id.id
         return res
+
+
+class AccountAnalyticLine(models.Model):
+
+    _inherit = 'account.analytic.line'
+
+    @api.model
+    def create(self, vals):
+        if ('task_id' in vals or 'account_id' in vals) and 'user_id' in vals:
+            task = self.env['project.task'].browse(vals.get('task_id', False))
+            project = task and task.project_id or False
+            if not task:
+                acc_project = self.env['project.project'].search(
+                    [('analytic_account_id', '=', vals.get('account_id',
+                                                           False))], limit=1)
+                project = acc_project
+            user_products = project.user_product_ids.filtered(
+                lambda x: x.user_id.id == vals.get('user_id'))
+            if (user_products and user_products.product_id.id !=
+                    vals.get('product_id', False)):
+                vals['product_id'] = user_products.product_id.id
+        return super(AccountAnalyticLine, self).create(vals)
