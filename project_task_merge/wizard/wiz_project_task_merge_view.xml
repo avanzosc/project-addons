@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<openerp>
+    <data>
+        <record model="ir.ui.view" id="wiz_project_task_merge_view">
+            <field name="name">wiz.project.task.merge.view</field>
+            <field name="model">wiz.project.task.merge</field>
+            <field name="arch" type="xml">
+                <form string="Task merge">
+                    <group colspan="4" col="8">
+                        <field name="name" colspan="8" invisible="1" />
+                        <p>You are going to merge tasks</p>
+                    </group>
+                    <footer>
+                        <button name="merge_tasks" type="object" 
+                                string="Merge" class="oe_highlight" />
+                        or
+                        <button string="Cancel" class="oe_link"
+                                special="cancel" />
+                    </footer>
+                </form>
+            </field>
+        </record>
+    </data>
+</openerp>
