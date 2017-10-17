@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+        <record id="view_task_work_form_inh_estimated_time" model="ir.ui.view">
+            <field name="name">view.task.work.form.inh.estimated.time</field>
+            <field name="model">project.task.work</field>
+            <field name="inherit_id" ref="project.view_task_work_form" />
+            <field name="arch" type="xml">
+                <field name="hours" position="before">
+                    <field name="estimated_time" widget="float_time"/>
+                </field>
+            </field>
+        </record>
+        <record id="view_task_work_tree_inh_estimated_time" model="ir.ui.view">
+            <field name="name">view.task.work.tree.inh.estimated.time</field>
+            <field name="model">project.task.work</field>
+            <field name="inherit_id" ref="project.view_task_work_tree" />
+            <field name="arch" type="xml">
+                <field name="hours" position="before">
+                    <field name="estimated_time" widget="float_time"/>
+                </field>
+            </field>
+        </record>
+    </data>
+</openerp>
