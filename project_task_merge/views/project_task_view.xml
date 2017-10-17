@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+        <act_window id="action_project_task_merge"
+                    key2="client_action_multi" name="Tasks merge"
+                    res_model="wiz.project.task.merge" src_model="project.task"
+                    view_mode="form" target="new" />
+    </data>
+</openerp>
