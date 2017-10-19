@@ -14,6 +14,8 @@ class ProjectTask(models.Model):
             tasks._merge_tasks()
 
     def _merge_tasks(self):
+        task_types = self.env['project.task.type'].search([])
+        task_type = min(task_types, key=lambda x: x.sequence)
         min_task = min(self, key=lambda x: x.id)
         name = min_task.name
         description = u'{}: {}'.format(min_task.name, min_task.description)
@@ -30,7 +32,7 @@ class ProjectTask(models.Model):
                 'date_end': False,
                 'date_last_stage_update': fields.Datetime.now(),
                 'planned_hours': sum(self.mapped('planned_hours')),
-                'stage_id': self.env.ref('project.project_tt_analysis').id,
+                'stage_id': task_type.id,
                 'categ_ids': [(6, 0, categs.ids)] if categs else [(6, 0, [])]}
         deadline_tasks = self.filtered(lambda x: x.date_deadline)
         if deadline_tasks:

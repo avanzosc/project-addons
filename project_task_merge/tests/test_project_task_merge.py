@@ -10,6 +10,8 @@ class TestProjectTaskMerge(common.TransactionCase):
         super(TestProjectTaskMerge, self).setUp()
         self.project_model = self.env['project.project']
         self.wiz_model = self.env['wiz.project.task.merge']
+        task_types = self.env['project.task.type'].search([])
+        self.task_type = min(task_types, key=lambda x: x.sequence)
         project_vals = {'name': 'Project task merge 1',
                         'use_tasks': True}
         task_vals = {'name': 'Project task merge 1 - task 1',
@@ -35,8 +37,7 @@ class TestProjectTaskMerge(common.TransactionCase):
         self.assertEqual(
             len(task), 1, 'Canceled task not found.')
         task = self.project1.mapped('tasks').filtered(
-            lambda x: x.stage_id.id ==
-            self.env.ref('project.project_tt_analysis').id)
+            lambda x: x.stage_id.id == self.task_type.id)
         self.assertEqual(
             len(task), 1, 'Task not found with analysis state.')
         self.assertEqual(
