@@ -1,0 +1,27 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+#	* project_picking_shortcut
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 11.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2018-01-16 14:27+0000\n"
+"PO-Revision-Date: 2018-01-16 14:27+0000\n"
+"Last-Translator: <>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: project_picking_shortcut
+#: model:ir.ui.view,arch_db:project_picking_shortcut.view_project_form_inh_with_analytic
+msgid "Pickings"
+msgstr "Albaranes"
+
+#. module: project_picking_shortcut
+#: model:ir.model,name:project_picking_shortcut.model_project_project
+msgid "Project"
+msgstr "Proyecto"
+
