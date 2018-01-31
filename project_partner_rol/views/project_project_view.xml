@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data>
+        <record id="edit_project_inh_partner_rol" model="ir.ui.view">
+            <field name="name">edit.project.inh.partner.rol</field>
+            <field name="model">project.project</field>
+            <field name="inherit_id" ref="project.edit_project"/>
+            <field name="arch" type="xml">
+               <field name="partner_id" position="after">
+                    <field name="project_location_id" />
+                    <field name="code" string="Analytic account code"/>
+               </field>
+               <page name="emails" position="after">
+                  <page name="participants" string="Participants">
+                      <field name="participant_ids" nolabel="1" context="{'default_project_id':active_id}">
+                        <tree string="Project participants">
+                            <field name="project_id" invisible="1" />
+                            <field name="partner_id" />
+                            <field name="rol_id" />
+                        </tree>
+                      </field>
+                  </page>
+               </page>
+            </field>
+        </record>
+        <record id="view_project_project_filter_inh_partner_rol" model="ir.ui.view">
+            <field name="name">view.project.project.filter.inh.partner.rol</field>
+            <field name="model">project.project</field>
+            <field name="inherit_id" ref="project.view_project_project_filter"/>
+            <field name="arch" type="xml">
+               <field name="name" position="after">
+                    <field name="project_location_id" />
+                    <field name="code" string="Analytic account code"/>
+               </field>
+               <filter name="Partner" position="after">
+                    <filter string="Location" name="project_location" context="{'group_by':'project_location_id'}"/>
+                    <filter string="Analytic account code" name="analytic_account_code" context="{'group_by':'code'}"/>
+               </filter>
+            </field>
+        </record>
+        <record id="view_project_tree_inh_partner_rol" model="ir.ui.view">
+            <field name="name">view.project.tree.inh.partner.rol</field>
+            <field name="model">project.project</field>
+            <field name="inherit_id" ref="project.view_project"/>
+            <field name="arch" type="xml">
+               <field name="partner_id" position="after">
+                    <field name="project_location_id" />
+                    <field name="code" string="Analytic account code"/>
+               </field>
+            </field>
+        </record>
+    </data>
+</odoo>
