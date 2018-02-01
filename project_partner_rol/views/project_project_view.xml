@@ -10,7 +10,7 @@
                     <field name="project_location_id" />
                     <field name="code" string="Analytic account code"/>
                </field>
-               <page name="emails" position="after">
+               <page name="settings" position="before">
                   <page name="participants" string="Participants">
                       <field name="participant_ids" nolabel="1" context="{'default_project_id':active_id}">
                         <tree string="Project participants">
