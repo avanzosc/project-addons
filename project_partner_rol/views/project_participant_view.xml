@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data>
+        <record id="project_participant_tree_view" model="ir.ui.view">
+            <field name="name">project.participant.tree.view</field>
+            <field name="model">project.participant</field>
+            <field name="arch" type="xml">
+                <tree string="Project participants">
+                    <field name="project_id" />
+                    <field name="partner_id" />
+                    <field name="rol_id" />
+                </tree>
+            </field>
+        </record>
+        <record id="project_participant_search_view" model="ir.ui.view">
+            <field name="name">project.participant.search.view</field>
+            <field name="model">project.participant</field>
+            <field name="arch" type="xml">
+                <search string="Search project participants">
+                    <field name="project_id" />
+                    <field name="partner_id" />
+                    <field name="rol_id" />
+                    <group expand="1" string="Group By">
+                        <filter string="Project" name="project_id"
+                                domain="[]" context="{'group_by':'project_id'}"/>
+                        <filter string="Partner" name="partner_id"
+                                domain="[]" context="{'group_by':'partner_id'}"/>
+                        <filter string="Role" name="rol_id"
+                                domain="[]" context="{'group_by':'rol_id'}"/>
+                    </group>
+                </search>
+            </field>
+        </record>
+        <record id="project_participant_form_view" model="ir.ui.view">
+            <field name="name">project.participant.form.view</field>
+            <field name="model">project.participant</field>
+            <field name="arch" type="xml">
+                <form string="Project participant">
+                    <sheet>
+                        <group name="head">
+                            <field name="project_id" colspan="4" />
+                            <field name="partner_id" colspan="4" />
+                            <field name="rol_id" colspan="4" />
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+        <record id="action_project_participant_view" model="ir.actions.act_window">
+            <field name="name">Project participants</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">project.participant</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+        <menuitem id="project_participant_option_view" name="Project participants"
+                  action="action_project_participant_view" 
+                  parent="project.menu_project_config" sequence="11"/>
+    </data>
+</odoo>

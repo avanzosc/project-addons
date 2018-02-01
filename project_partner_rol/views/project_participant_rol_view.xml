@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data>
+        <record id="project_participant_rol_tree_view" model="ir.ui.view">
+            <field name="name">project.participant.rol.tree.view</field>
+            <field name="model">project.participant.rol</field>
+            <field name="arch" type="xml">
+                <tree string="Roles of project participants">
+                    <field name="name" />
+                </tree>
+            </field>
+        </record>
+        <record id="project_participant_rol_search_view" model="ir.ui.view">
+            <field name="name">project.participant.rol.search.view</field>
+            <field name="model">project.participant.rol</field>
+            <field name="arch" type="xml">
+                <search string="Search roles of project participants">
+                    <field name="name" />
+                </search>
+            </field>
+        </record>
+        <record id="project_participant_rol_form_view" model="ir.ui.view">
+            <field name="name">project.participant.rol.form.view</field>
+            <field name="model">project.participant.rol</field>
+            <field name="arch" type="xml">
+                <form string="Role of project participants">
+                    <sheet>
+                        <label string="Role of project participants" />
+                        <h1>
+                            <field name="name" class="oe_inline" />
+                        </h1>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+        <record id="action_project_participant_rol_view" model="ir.actions.act_window">
+            <field name="name">Roles of project participants</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">project.participant.rol</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+        <menuitem id="project_participant_rol_option_view" name="Roles of project participants"
+                  action="action_project_participant_rol_view" 
+                  parent="project.menu_project_config" sequence="12"/>
+    </data>
+</odoo>
