@@ -93,9 +93,9 @@ class AccountAnalyticLine(models.Model):
             task = self.env['project.task'].browse(vals.get('task_id', False))
             project = task and task.project_id or False
             if not task:
-                acc_project = self.env['project.project'].search(
-                    [('analytic_account_id', '=', vals.get('account_id',
-                                                           False))], limit=1)
+                acc_project = self.env['project.project'].sudo().search(
+                    [('analytic_account_id', '=',
+                      vals.get('account_id', False))], limit=1)
                 project = acc_project
             user_products = project.user_product_ids.filtered(
                 lambda x: x.user_id.id == vals.get('user_id'))
