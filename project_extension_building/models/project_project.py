@@ -5,10 +5,7 @@ from odoo import fields, models
 
 class ProjectProject(models.Model):
     _inherit = 'project.project'
-    # _rec_name = 'project_id'
-    #
-    # project_id = fields.Many2one(
-    #     comodel_name='project.project', string='Project')
+
     management_type = fields.Selection(
         selection=[
             ('assessment', 'Risk assessment'),

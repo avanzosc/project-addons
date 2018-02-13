@@ -15,8 +15,11 @@
                         <field name="builded_surface" />
                         <field name="building_height" />
                         <field name="budget_material" />
-                        <field name="init_date" />
-                        <field name="init_date_unit_id" />
+                        <label for="init_date" />
+                        <div>
+                            <field name="init_date" class="oe_inline" />
+                            <field name="init_date_unit_id" nolabel="1" class="oe_inline" />
+                        </div>
                         <label for="duration_time" />
                         <div>
                             <field name="duration_time" class="oe_inline" />
