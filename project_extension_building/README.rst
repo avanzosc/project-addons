@@ -6,7 +6,7 @@
 Project extension building
 ==========================
 
-    * Adds a link in project to a center data
+This module extends project to include information about the building.
 
 
 Bug Tracker

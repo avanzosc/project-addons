@@ -13,7 +13,7 @@
     ],
     "data": [
         "security/ir.model.access.csv",
-        "views/center_data_view.xml",
+        "views/project_project_view.xml",
         "views/work_type_view.xml",
     ],
     "installable": True,
