@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <record model="ir.ui.view" id="project_project_building_form_view">
+        <field name="name">project.project.building.form</field>
+        <field name="model">project.project</field>
+        <field name="inherit_id" ref="project.edit_project" />
+        <field name="arch" type="xml">
+            <page name="settings" position="after">
+                <page name="building" string="Building Info">
+                    <group>
+                        <field name="management_type" />
+                        <field name="workers_qty" />
+                        <field name="max_male_workers_qty" />
+                        <field name="max_female_workers_qty" />
+                        <field name="builded_surface" />
+                        <field name="building_height" />
+                        <field name="budget_material" />
+                        <label for="init_date" />
+                        <div>
+                            <field name="init_date" class="oe_inline" />
+                            <field name="init_date_unit_id" nolabel="1" class="oe_inline" />
+                        </div>
+                        <label for="duration_time" />
+                        <div>
+                            <field name="duration_time" class="oe_inline" />
+                            <field name="duration_time_unit_id" nolabel="1" class="oe_inline"/>
+                        </div>
+                        <label for="work_workers" />
+                        <div>
+                            <field name="work_workers" class="oe_inline" />
+                            <field name="work_workers_unit_id" nolabel="1" class="oe_inline" />
+                        </div>
+                        <field name="freelance_qty" />
+                        <field name="center_open_date" />
+                        <label for="waste_estimation" />
+                        <div>
+                            <field name="waste_estimation" class="oe_inline" />
+                            <field name="waste_estimation_unit_id" nolabel="1" class="oe_inline" />
+                        </div>
+                        <field name="freelance_tax" />
+                        <field name="work_type_id" />
+                        <field name="license_number" />
+                    </group>
+                </page>
+            </page>
+        </field>
+    </record>
+</odoo>
