@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <record model="ir.ui.view" id="project_project_custom_gaia2_form">
+        <field name="name">project.project.characterization.form</field>
+        <field name="model">project.project</field>
+        <field name="inherit_id" ref="project.edit_project" />
+        <field name="arch" type="xml">
+            <page name="settings" position="after">
+                <page name="characterization" string="Characterization">
+                    <group>
+                        <group>
+                            <field name="project_team_id" />
+                            <field name="project_nature_id" />
+                            <field name="project_sector_objetive_id" />
+                            <field name="project_area_id" />
+                            <field name="department_id"
+                                   options="{'no_create': True}" />
+                            <field name="alias_user_id" />
+                        </group>
+                        <group>
+                            <field name="project_space_id" />
+                            <field name="funding_source_id"
+                                   options="{'no_create': True}"/>
+                            <field name="date_start" />
+                            <field name="date" />
+                            <field name="justification_deadline" />
+                        </group>
+                    </group>
+                </page>
+             </page>
+        </field>
+    </record>
+
+    <record model="ir.ui.view" id="project_task_custom_gaia2_form">
+        <field name="name">project.task.gaia.form</field>
+        <field name="model">project.task.type</field>
+        <field name="inherit_id" ref="project.task_type_edit" />
+        <field name="arch" type="xml">
+            <field name='mail_template_id' position='after'>
+                <group>
+                    <field name="task_phase"/>
+                    <field name="partner_ids"/>
+                    <field name="user_id"/>
+                </group>
+            </field>
+        </field>
+    </record>
+
+</odoo>
