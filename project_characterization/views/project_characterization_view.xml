@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <menuitem id="project_characterization_config_menuitem"
+              parent="project.menu_project_config"
+              name="Characterization" />
+    <menuitem id="funding_source_menuitem"
+              parent="project_characterization_config_menuitem"
+              action="funding_source_action" />
+    <menuitem id="funding_source_type_menuitem"
+              parent="project_characterization_config_menuitem"
+              action="funding_source_type_action" />
+    <menuitem id="project_area_menuitem"
+              parent="project_characterization_config_menuitem"
+              action="project_area_action" />
+    <menuitem id="project_area_type_menuitem"
+              parent="project_characterization_config_menuitem"
+              action="project_area_type_action" />
+    <menuitem id="project_character_menuitem"
+              parent="project_characterization_config_menuitem"
+              action="project_character_action" />
+    <menuitem id="project_space_menuitem"
+              parent="project_characterization_config_menuitem"
+              action="project_space_action" />
+    <menuitem id="project_target_menuitem"
+              parent="project_characterization_config_menuitem"
+              action="project_target_action" />
+    <menuitem id="project_team_menuitem"
+              parent="project_characterization_config_menuitem"
+              action="project_team_action" />
+</odoo>

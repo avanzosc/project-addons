@@ -10,8 +10,8 @@
                 <group>
                     <group>
                         <field name="project_team_id" />
-                        <field name="project_nature_id" />
-                        <field name="project_sector_objetive_id" />
+                        <field name="project_character_id" />
+                        <field name="project_target_id" />
                         <field name="project_area_id" />
                         <field name="department_id"
                                options="{'no_create': True}" />
@@ -24,6 +24,26 @@
                     </group>
                 </group>
             </group>
+        </field>
+    </record>
+
+    <record id="account_analytic_account_tree_view"
+            model="ir.ui.view">
+        <field name="name">account.analytic.account.tree</field>
+        <field name="model">account.analytic.account</field>
+        <field name="inherit_id"
+               ref="analytic.view_account_analytic_account_list" />
+        <field name="arch" type="xml">
+            <field name="debit" position="before">
+                <field name="project_team_id" />
+                <field name="project_character_id" />
+                <field name="project_target_id" />
+                <field name="project_area_id" />
+                <field name="department_id" />
+                <field name="project_space_id" />
+                <field name="funding_source_id" />
+                <field name="justification_deadline" />
+            </field>
         </field>
     </record>
 </odoo>

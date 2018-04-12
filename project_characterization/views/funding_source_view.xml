@@ -86,10 +86,4 @@
                ref="funding_source_type_search_view"/>
     </record>
 
-    <menuitem id="funding_source_menuitem" parent="project.menu_project_config"
-              action="funding_source_action" />
-    <menuitem id="funding_source_type_menuitem"
-              parent="project.menu_project_config"
-              action="funding_source_type_action" />
-
 </odoo>

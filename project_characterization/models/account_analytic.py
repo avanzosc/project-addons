@@ -8,20 +8,19 @@ class AccountAnalyticAccount(models.Model):
     _inherit = 'account.analytic.account'
 
     project_area_id = fields.Many2one(
-        comodel_name='project.area', string='Project Area')
+        comodel_name='project.area', string='Area')
     project_space_id = fields.Many2one(
-        comodel_name='project.space', string='Project Space')
-    project_id = fields.Many2one(
-        comodel_name='project.id', string='Project Id')
-    project_pe_id = fields.Many2one(
-        comodel_name='project.pe',  string='Project PE')
+        comodel_name='project.space', string='Space')
+    # project_id = fields.Many2one(
+    #     comodel_name='project.id', string='Project Id')
+    # project_pe_id = fields.Many2one(
+    #     comodel_name='project.pe',  string='Project PE')
     project_team_id = fields.Many2one(
-        comodel_name='project.teams', string='Project Teams')
-    project_nature_id = fields.Many2one(
-        comodel_name='project.nature', string='Project Nature')
-    project_sector_objetive_id = fields.Many2one(
-        comodel_name='project.sector_objetive',
-        string='Project Sector Objetive')
+        comodel_name='project.team', string='Teams')
+    project_character_id = fields.Many2one(
+        comodel_name='project.character', string='Character')
+    project_target_id = fields.Many2one(
+        comodel_name='project.target', string='Target')
     funding_source_id = fields.Many2one(
         comodel_name='funding.source', string='Funding Source')
     department_id = fields.Many2one(

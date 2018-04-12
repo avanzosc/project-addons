@@ -1,4 +1,5 @@
 # Copyright 2018 Maite Esnal - AvanzOSC
+# Copyright 2018 Oihane Crucelaegui - AvanzOSC
 # License AGPL-3 - See http://www.gnu.org/licenses/agpl-3.0.html
 
 from odoo import fields, models
@@ -7,48 +8,41 @@ from odoo import fields, models
 class ProjectArea(models.Model):
     _name = 'project.area'
 
-    name = fields.Char(string='Name')
-    description = fields.Char(string='Description')
+    name = fields.Char(string='Name', required=True)
+    description = fields.Text(string='Description')
+    type_id = fields.Many2one(comodel_name='project.area.type', string='Type')
+
+
+class ProjectAreaType(models.Model):
+    _name = 'project.area.type'
+
+    name = fields.Char(string='Name', required=True)
+    description = fields.Text(string='Description')
 
 
 class ProjectEspaces(models.Model):
     _name = 'project.space'
 
-    name = fields.Char(string='Name')
-    description = fields.Char(string='Description')
+    name = fields.Char(string='Name', required=True)
+    description = fields.Text(string='Description')
 
 
-class ProjectId(models.Model):
-    _name = 'project.id'
+class ProjectTeam(models.Model):
+    _name = 'project.team'
 
-    name = fields.Char(string='Name')
-    description = fields.Char(string='Description')
-
-
-class ProjectPE(models.Model):
-    _name = 'project.pe'
-
-    name = fields.Char(string='Name')
-    oportunity_id = fields.Integer(string='Id')
-    description = fields.Char(string='Description')
+    name = fields.Char(string='Name', required=True)
+    description = fields.Text(string='Description')
 
 
-class ProjectTeams(models.Model):
-    _name = 'project.teams'
+class ProjectCharacter(models.Model):
+    _name = 'project.character'
 
-    name = fields.Char(string='Name')
-    description = fields.Char(string='Description')
-
-
-class ProjectNature(models.Model):
-    _name = 'project.nature'
-
-    name = fields.Char(string='Name')
-    description = fields.Char(string='Description')
+    name = fields.Char(string='Name', required=True)
+    description = fields.Text(string='Description')
 
 
-class ProjectSectorObjetive(models.Model):
-    _name = 'project.sector_objetive'
+class ProjectTarget(models.Model):
+    _name = 'project.target'
 
-    name = fields.Char(string='Name')
-    description = fields.Char(string='Description')
+    name = fields.Char(string='Name', required=True)
+    description = fields.Text(string='Description')

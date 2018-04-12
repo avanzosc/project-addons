@@ -6,6 +6,7 @@ from odoo import fields, models
 
 class FundingSource(models.Model):
     _name = 'funding.source'
+    _description = 'Funding Source'
 
     name = fields.Char(string='Name')
     description = fields.Text(string='Description')
@@ -26,5 +27,6 @@ class FundingSource(models.Model):
 
 class FundingSourceType(models.Model):
     _name = 'funding.source.type'
+    _description = 'Funding Source Type'
 
     name = fields.Char(string='Name')

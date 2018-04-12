@@ -7,6 +7,11 @@ Project characterization
 ========================
 
 With this module you can characterize a project.
+* Area
+* Team
+* Character
+* Espace
+* Target
 
 Credits
 =======

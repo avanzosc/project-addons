@@ -5,19 +5,14 @@ from odoo import fields, models
 
 
 class ProjectTask(models.Model):
-    _inherit = 'project.task.type'
+    _inherit = 'project.task'
 
-    task_phase = fields.Many2one(
-        comodel_name='task.phase', string='Task Phase')
-    # anak nahi du many2many bat partner(otros clientesea)
-    partner_ids = fields.Many2many(
-        comodel_name='res.partner', string='Attendances')
-    user_id = fields.Many2one(
-        comodel_name='res.users', string='Responsible')
+    type_id = fields.Many2one(
+        comodel_name='project.task.type2', string='Type')
 
 
-class TaskPhase(models.Model):
-    _name = 'task.phase'
+class ProjectTaskType2(models.Model):
+    _name = 'project.task.type2'
 
-    name = fields.Char(string='name')
-    description = fields.Char(string='description')
+    name = fields.Char(string='Name', required=True)
+    description = fields.Text(string='Description')
