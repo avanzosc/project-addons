@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <record id="project_budget_action" model="ir.actions.act_window">
+        <field name="name">Budgets</field>
+        <field name="res_model">crossovered.budget</field>
+        <field name="view_mode">tree,kanban,form</field>
+        <field name="context">{
+            'search_default_project_id': [active_id],
+            'default_project_id': active_id,
+        }</field>
+        <field name="view_id"
+               ref="account_budget.crossovered_budget_view_tree" />
+        <field name="search_view_id"
+               ref="account_budget.view_crossovered_budget_search"/>
+            <field name="help" type="html">
+                <p class="oe_view_nocontent_create">
+                    Click to create a new budget.
+                </p>
+                <p>
+                    A budget is a forecast of your company's income and/or expenses expected for a period in the future. A budget is defined on some financial accounts and/or analytic accounts (that may represent projects, departments, categories of products, etc.)
+                </p>
+                <p>
+                    By keeping track of where your money goes, you may be less likely to overspend, and more likely to meet your financial goals. Forecast a budget by detailing the expected revenue per analytic account and monitor its evolution based on the actuals realised during that period.
+                </p>
+            </field>
+    </record>
+
+    <record id="project_project_form_view" model="ir.ui.view">
+        <field name="name">project.project.form</field>
+        <field name="model">project.project</field>
+        <field name="inherit_id" ref="project.edit_project" />
+        <field name="arch" type="xml">
+            <button name="toggle_active" position="before">
+                <button class="oe_stat_button" type="action"
+                        name="%(project_budget_action)d" icon="fa-tasks">
+                    <field string="Budgets" name="budget_count"
+                           widget="statinfo"/>
+                </button>
+            </button>
+        </field>
+    </record>
+
+    <record id="action_create_initial_project_budget"
+            model="ir.actions.server">
+        <field name="name">Create Initial Budget</field>
+        <field name="type">ir.actions.server</field>
+        <field name="state">code</field>
+        <field name="model_id" ref="project.model_project_project" />
+        <field name="binding_model_id" ref="project.model_project_project" />
+        <field name="code">
+records.create_initial_project_budget()
+        </field>
+    </record>
+
+</odoo>
