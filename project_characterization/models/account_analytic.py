@@ -11,10 +11,6 @@ class AccountAnalyticAccount(models.Model):
         comodel_name='project.area', string='Area')
     project_space_id = fields.Many2one(
         comodel_name='project.space', string='Space')
-    # project_id = fields.Many2one(
-    #     comodel_name='project.id', string='Project Id')
-    # project_pe_id = fields.Many2one(
-    #     comodel_name='project.pe',  string='Project PE')
     project_team_id = fields.Many2one(
         comodel_name='project.team', string='Teams')
     project_character_id = fields.Many2one(

@@ -19,10 +19,6 @@ class FundingSource(models.Model):
         comodel_name='account.account', string='Funding Source Account')
     type_id = fields.Many2one(
         comodel_name='funding.source.type', string='Funding Type')
-    # external_attendees = fields.Many2many(
-    #     comodel_name='res.partner', string='External attendees')
-    # internal_attendees = fields.Many2many(
-    #     comodel_name='res.users', string='Internal attendees')
 
 
 class FundingSourceType(models.Model):

@@ -83,10 +83,6 @@
         <field name="view_mode">tree,form</field>
         <field name="context">{
         }</field>
-        <!--<field name="view_id"-->
-               <!--ref="funding_source_type_tree_view" />-->
-        <!--<field name="search_view_id"-->
-               <!--ref="funding_source_type_search_view"/>-->
     </record>
 
     <record id="project_area_type_action" model="ir.actions.act_window">
@@ -95,10 +91,6 @@
         <field name="view_mode">tree,form</field>
         <field name="context">{
         }</field>
-        <!--<field name="view_id"-->
-               <!--ref="funding_source_type_tree_view" />-->
-        <!--<field name="search_view_id"-->
-               <!--ref="funding_source_type_search_view"/>-->
     </record>
 
     <record id="project_character_action" model="ir.actions.act_window">
@@ -107,10 +99,6 @@
         <field name="view_mode">tree,form</field>
         <field name="context">{
         }</field>
-        <!--<field name="view_id"-->
-               <!--ref="funding_source_type_tree_view" />-->
-        <!--<field name="search_view_id"-->
-               <!--ref="funding_source_type_search_view"/>-->
     </record>
 
     <record id="project_space_action" model="ir.actions.act_window">
@@ -119,10 +107,6 @@
         <field name="view_mode">tree,form</field>
         <field name="context">{
         }</field>
-        <!--<field name="view_id"-->
-               <!--ref="funding_source_type_tree_view" />-->
-        <!--<field name="search_view_id"-->
-               <!--ref="funding_source_type_search_view"/>-->
     </record>
 
     <record id="project_target_action" model="ir.actions.act_window">
@@ -131,10 +115,6 @@
         <field name="view_mode">tree,form</field>
         <field name="context">{
         }</field>
-        <!--<field name="view_id"-->
-               <!--ref="funding_source_type_tree_view" />-->
-        <!--<field name="search_view_id"-->
-               <!--ref="funding_source_type_search_view"/>-->
     </record>
 
     <record id="project_team_action" model="ir.actions.act_window">
@@ -143,9 +123,5 @@
         <field name="view_mode">tree,form</field>
         <field name="context">{
         }</field>
-        <!--<field name="view_id"-->
-               <!--ref="funding_source_type_tree_view" />-->
-        <!--<field name="search_view_id"-->
-               <!--ref="funding_source_type_search_view"/>-->
     </record>
 </odoo>
