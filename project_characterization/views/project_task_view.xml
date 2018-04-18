@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <record id="project_task_form_view" model="ir.ui.view">
+        <field name="name">project.task.form</field>
+        <field name="model">project.task</field>
+        <field name="inherit_id" ref="project.view_task_form2" />
+        <field name="arch" type="xml">
+            <field name="tag_ids" position="after">
+                <field name="type_id" />
+            </field>
+            <field name="date_deadline" position="before">
+                <label for="date_from" string="Period"/>
+                <div>
+                    <field name="date_start" class="oe_inline" /> -
+                    <field name="date_end" class="oe_inline" nolabel="1"/>
+                </div>
+            </field>
+        </field>
+    </record>
+
+    <record id="project_task_type2_form_view" model="ir.ui.view">
+        <field name="name">project.task.type2.form</field>
+        <field name="model">project.task.type2</field>
+        <field name="arch" type="xml">
+            <form string="Project Task Type">
+                <sheet>
+                    <h1>
+                        <field name="name" />
+                    </h1>
+                    <field name="description" />
+                </sheet>
+            </form>
+        </field>
+    </record>
+</odoo>
