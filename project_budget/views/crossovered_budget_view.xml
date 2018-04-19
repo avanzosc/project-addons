@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <record id="crossovered_budget_form_view" model="ir.ui.view">
+        <field name="name">crossovered.budget.form</field>
+        <field name="model">crossovered.budget</field>
+        <field name="inherit_id"
+               ref="account_budget.crossovered_budget_view_form" />
+        <field name="arch" type="xml">
+            <button name="action_budget_confirm" position="before">
+                <button string="Create Lines" name="action_create_period"
+                        type="object"
+                        attrs="{'invisible': ['|','|',('state','not in',['draft']),('project_id','=',False),'!',('crossovered_budget_line','=',[])]}" />
+            </button>
+            <field name="company_id" position="before">
+                <field name="project_id" groups="project.group_project_user"
+                       options="{'no_create': True}"/>
+                <field name="initial" readonly="True" invisible="True" />
+                <field name="active" />
+            </field>
+        </field>
+    </record>
+
+    <record id="crossovered_budget_tree_view" model="ir.ui.view">
+        <field name="name">crossovered.budget.tree</field>
+        <field name="model">crossovered.budget</field>
+        <field name="inherit_id"
+               ref="account_budget.crossovered_budget_view_tree" />
+        <field name="arch" type="xml">
+            <tree position="attributes">
+                <attribute name="decoration-danger">initial</attribute>
+            </tree>
+            <field name="company_id" position="before">
+                <field name="project_id" />
+                <field name="initial" invisible="True" />
+            </field>
+        </field>
+    </record>
+
+    <record id="crossovered_budget_search_view" model="ir.ui.view">
+        <field name="name">crossovered.budget.search</field>
+        <field name="model">crossovered.budget</field>
+        <field name="inherit_id"
+               ref="account_budget.view_crossovered_budget_search" />
+        <field name="arch" type="xml">
+            <field name="state" position="before">
+                <separator />
+                <filter name="initial_filter" string="Initial"
+                        domain="[('initial','=',True)]"
+                        help="Initial Budgets"/>
+                <field name="project_id"/>
+            </field>
+        </field>
+    </record>
+</odoo>
