@@ -6,6 +6,7 @@
         <field name="inherit_id" ref="project_partner_rol.edit_project_inh_partner_rol" />
         <field name="arch" type="xml">
             <field name="participant_ids" position="after">
+                <label for="favorite_user_ids" string="Favorite user Id"/>
                 <field name="favorite_user_ids" />
             </field>
         </field>
