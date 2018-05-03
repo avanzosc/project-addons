@@ -1,19 +1,37 @@
 # Translation of Odoo Server.
 # This file contains the translation of the following modules:
-#	* project_characterization
+# 	* project_characterization
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 11.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-04-13 10:13+0000\n"
-"PO-Revision-Date: 2018-04-13 10:13+0000\n"
+"POT-Creation-Date: 2018-05-03 08:47+0000\n"
+"PO-Revision-Date: 2018-05-03 10:50+0200\n"
 "Last-Translator: <>\n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
-"Content-Transfer-Encoding: \n"
+"Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: \n"
+"Language: es\n"
+"X-Generator: Poedit 1.8.7.1\n"
+
+#. module: project_characterization
+#: model:ir.actions.act_window,name:project_characterization.action_funding_source_from_partner
+msgid " Funding Sources"
+msgstr "Programas de financiación"
+
+#. module: project_characterization
+#: model:ir.ui.view,arch_db:project_characterization.view_funding_source_from_partner
+msgid "# Fuding Source"
+msgstr "# Programa de Financiación"
+
+#. module: project_characterization
+#: model:ir.model.fields,field_description:project_characterization.field_res_partner_funding_source_count
+#: model:ir.model.fields,field_description:project_characterization.field_res_users_funding_source_count
+msgid "#Funding Sources"
+msgstr "#Programa de Financiación"
 
 #. module: project_characterization
 #: model:ir.model,name:project_characterization.model_account_analytic_account
@@ -23,16 +41,43 @@ msgstr "Cuenta analítica"
 #. module: project_characterization
 #: model:ir.actions.act_window,name:project_characterization.project_area_action
 #: model:ir.model.fields,field_description:project_characterization.field_account_analytic_account_project_area_id
+#: model:ir.model.fields,field_description:project_characterization.field_project_area_type_area_id
 #: model:ir.model.fields,field_description:project_characterization.field_project_project_project_area_id
 #: model:ir.ui.menu,name:project_characterization.project_area_menuitem
+#: model:ir.ui.view,arch_db:project_characterization.project_area_tree_view
 msgid "Area"
 msgstr "Area"
 
 #. module: project_characterization
+#: model:ir.actions.act_window,name:project_characterization.project_area_specialization_action
+#: model:ir.ui.menu,name:project_characterization.project_area_specialization_menuitem
+msgid "Area Specialization"
+msgstr "Área de especialización"
+
+#. module: project_characterization
 #: model:ir.actions.act_window,name:project_characterization.project_area_type_action
 #: model:ir.ui.menu,name:project_characterization.project_area_type_menuitem
+#: model:ir.ui.view,arch_db:project_characterization.project_area_type_form_view
+#: model:ir.ui.view,arch_db:project_characterization.project_area_type_tree_view
 msgid "Area Type"
-msgstr "Tipo de area"
+msgstr "Tipo de proyecto"
+
+#. module: project_characterization
+#: model:ir.model.fields,field_description:project_characterization.field_project_area_type_ids
+msgid "Area Types"
+msgstr "Tipos de proyectos"
+
+#. module: project_characterization
+#: model:ir.model.fields,field_description:project_characterization.field_account_analytic_account_project_area_type_id
+#: model:ir.model.fields,field_description:project_characterization.field_project_project_project_area_type_id
+#: model:ir.ui.view,arch_db:project_characterization.project_area_type_form_view
+msgid "Area type"
+msgstr "Tipo de proyecto"
+
+#. module: project_characterization
+#: model:ir.ui.view,arch_db:project_characterization.view_account_analytic_account_search_inh_project_char
+msgid "Areas"
+msgstr "Areas"
 
 #. module: project_characterization
 #: model:ir.actions.act_window,name:project_characterization.project_character_action
@@ -49,12 +94,32 @@ msgid "Characterization"
 msgstr "Caracterización"
 
 #. module: project_characterization
+#: model:ir.ui.view,arch_db:project_characterization.view_account_analytic_account_search_inh_project_char
+msgid "Characters"
+msgstr "Naturaleza"
+
+#. module: project_characterization
+#: model:ir.actions.act_window,name:project_characterization.project_committee_action
+#: model:ir.ui.menu,name:project_characterization.project_committee_menuitem
+msgid "Committee"
+msgstr "Comité GAIA"
+
+#. module: project_characterization
+#: model:ir.model,name:project_characterization.model_res_partner
+msgid "Contact"
+msgstr "Contacto"
+
+#. module: project_characterization
 #: model:ir.model.fields,field_description:project_characterization.field_funding_source_create_uid
 #: model:ir.model.fields,field_description:project_characterization.field_funding_source_type_create_uid
 #: model:ir.model.fields,field_description:project_characterization.field_project_area_create_uid
+#: model:ir.model.fields,field_description:project_characterization.field_project_area_specialization_create_uid
 #: model:ir.model.fields,field_description:project_characterization.field_project_area_type_create_uid
 #: model:ir.model.fields,field_description:project_characterization.field_project_character_create_uid
+#: model:ir.model.fields,field_description:project_characterization.field_project_committee_create_uid
+#: model:ir.model.fields,field_description:project_characterization.field_project_oportunity_spaces_create_uid
 #: model:ir.model.fields,field_description:project_characterization.field_project_space_create_uid
+#: model:ir.model.fields,field_description:project_characterization.field_project_structures_create_uid
 #: model:ir.model.fields,field_description:project_characterization.field_project_target_create_uid
 #: model:ir.model.fields,field_description:project_characterization.field_project_task_type2_create_uid
 #: model:ir.model.fields,field_description:project_characterization.field_project_team_create_uid
@@ -65,9 +130,13 @@ msgstr "Creado por"
 #: model:ir.model.fields,field_description:project_characterization.field_funding_source_create_date
 #: model:ir.model.fields,field_description:project_characterization.field_funding_source_type_create_date
 #: model:ir.model.fields,field_description:project_characterization.field_project_area_create_date
+#: model:ir.model.fields,field_description:project_characterization.field_project_area_specialization_create_date
 #: model:ir.model.fields,field_description:project_characterization.field_project_area_type_create_date
 #: model:ir.model.fields,field_description:project_characterization.field_project_character_create_date
+#: model:ir.model.fields,field_description:project_characterization.field_project_committee_create_date
+#: model:ir.model.fields,field_description:project_characterization.field_project_oportunity_spaces_create_date
 #: model:ir.model.fields,field_description:project_characterization.field_project_space_create_date
+#: model:ir.model.fields,field_description:project_characterization.field_project_structures_create_date
 #: model:ir.model.fields,field_description:project_characterization.field_project_target_create_date
 #: model:ir.model.fields,field_description:project_characterization.field_project_task_type2_create_date
 #: model:ir.model.fields,field_description:project_characterization.field_project_team_create_date
@@ -75,12 +144,22 @@ msgid "Created on"
 msgstr "Creado en"
 
 #. module: project_characterization
+#: model:ir.ui.view,arch_db:project_characterization.view_account_analytic_account_search_inh_project_char
+msgid "Departments"
+msgstr "Departamentos"
+
+#. module: project_characterization
 #: model:ir.model.fields,field_description:project_characterization.field_funding_source_description
 #: model:ir.model.fields,field_description:project_characterization.field_project_area_description
+#: model:ir.model.fields,field_description:project_characterization.field_project_area_specialization_description
 #: model:ir.model.fields,field_description:project_characterization.field_project_area_type_description
 #: model:ir.model.fields,field_description:project_characterization.field_project_character_description
+#: model:ir.model.fields,field_description:project_characterization.field_project_committee_description
+#: model:ir.model.fields,field_description:project_characterization.field_project_oportunity_spaces_description
 #: model:ir.model.fields,field_description:project_characterization.field_project_space_description
+#: model:ir.model.fields,field_description:project_characterization.field_project_structures_description
 #: model:ir.model.fields,field_description:project_characterization.field_project_target_description
+#: model:ir.model.fields,field_description:project_characterization.field_project_task_type2_description
 #: model:ir.model.fields,field_description:project_characterization.field_project_team_description
 msgid "Description"
 msgstr "Descripción"
@@ -89,14 +168,25 @@ msgstr "Descripción"
 #: model:ir.model.fields,field_description:project_characterization.field_funding_source_display_name
 #: model:ir.model.fields,field_description:project_characterization.field_funding_source_type_display_name
 #: model:ir.model.fields,field_description:project_characterization.field_project_area_display_name
+#: model:ir.model.fields,field_description:project_characterization.field_project_area_specialization_display_name
 #: model:ir.model.fields,field_description:project_characterization.field_project_area_type_display_name
 #: model:ir.model.fields,field_description:project_characterization.field_project_character_display_name
+#: model:ir.model.fields,field_description:project_characterization.field_project_committee_display_name
+#: model:ir.model.fields,field_description:project_characterization.field_project_oportunity_spaces_display_name
 #: model:ir.model.fields,field_description:project_characterization.field_project_space_display_name
+#: model:ir.model.fields,field_description:project_characterization.field_project_structures_display_name
 #: model:ir.model.fields,field_description:project_characterization.field_project_target_display_name
 #: model:ir.model.fields,field_description:project_characterization.field_project_task_type2_display_name
 #: model:ir.model.fields,field_description:project_characterization.field_project_team_display_name
 msgid "Display Name"
 msgstr "Nombre mostrado"
+
+#. module: project_characterization
+#: model:ir.ui.view,arch_db:project_characterization.project_project_form_view
+#: model:ir.ui.view,arch_db:project_characterization.project_project_search_view
+#: model:ir.ui.view,arch_db:project_characterization.project_project_tree_view
+msgid "End Date"
+msgstr "Fecha Fin"
 
 #. module: project_characterization
 #: model:ir.actions.act_window,name:project_characterization.funding_source_action
@@ -128,17 +218,24 @@ msgstr "Funding Source Tree"
 #: model:ir.model,name:project_characterization.model_funding_source_type
 #: model:ir.ui.menu,name:project_characterization.funding_source_type_menuitem
 msgid "Funding Source Type"
-msgstr "Funding Source Type"
+msgstr "Tipos de programas de financiación"
 
 #. module: project_characterization
 #: model:ir.ui.view,arch_db:project_characterization.funding_source_type_search_view
 msgid "Funding Source Type Search"
-msgstr "Funding Source Type Search"
+msgstr "Buscar Tipo de Fuente de Financiación"
 
 #. module: project_characterization
 #: model:ir.ui.view,arch_db:project_characterization.funding_source_type_tree_view
 msgid "Funding Source Type Tree"
 msgstr "Funding Source Type Tree"
+
+#. module: project_characterization
+#: model:ir.model.fields,field_description:project_characterization.field_res_partner_funding_source_id
+#: model:ir.model.fields,field_description:project_characterization.field_res_users_funding_source_id
+#: model:ir.ui.view,arch_db:project_characterization.view_account_analytic_account_search_inh_project_char
+msgid "Funding Sources"
+msgstr "Programas de Financiación"
 
 #. module: project_characterization
 #: model:ir.model.fields,field_description:project_characterization.field_funding_source_type_id
@@ -152,11 +249,15 @@ msgstr "Grant"
 
 #. module: project_characterization
 #: model:ir.model.fields,field_description:project_characterization.field_funding_source_id
-#: model:ir.model.fields,field_description:project_characterization.field_funding_source_type_id_4792
+#: model:ir.model.fields,field_description:project_characterization.field_funding_source_type_id_4300
 #: model:ir.model.fields,field_description:project_characterization.field_project_area_id
-#: model:ir.model.fields,field_description:project_characterization.field_project_area_type_id
+#: model:ir.model.fields,field_description:project_characterization.field_project_area_specialization_id
+#: model:ir.model.fields,field_description:project_characterization.field_project_area_type_id_4329
 #: model:ir.model.fields,field_description:project_characterization.field_project_character_id
+#: model:ir.model.fields,field_description:project_characterization.field_project_committee_id
+#: model:ir.model.fields,field_description:project_characterization.field_project_oportunity_spaces_id
 #: model:ir.model.fields,field_description:project_characterization.field_project_space_id
+#: model:ir.model.fields,field_description:project_characterization.field_project_structures_id
 #: model:ir.model.fields,field_description:project_characterization.field_project_target_id
 #: model:ir.model.fields,field_description:project_characterization.field_project_task_type2_id
 #: model:ir.model.fields,field_description:project_characterization.field_project_team_id
@@ -179,9 +280,13 @@ msgstr "Fecha límite de justificación"
 #: model:ir.model.fields,field_description:project_characterization.field_funding_source___last_update
 #: model:ir.model.fields,field_description:project_characterization.field_funding_source_type___last_update
 #: model:ir.model.fields,field_description:project_characterization.field_project_area___last_update
+#: model:ir.model.fields,field_description:project_characterization.field_project_area_specialization___last_update
 #: model:ir.model.fields,field_description:project_characterization.field_project_area_type___last_update
 #: model:ir.model.fields,field_description:project_characterization.field_project_character___last_update
+#: model:ir.model.fields,field_description:project_characterization.field_project_committee___last_update
+#: model:ir.model.fields,field_description:project_characterization.field_project_oportunity_spaces___last_update
 #: model:ir.model.fields,field_description:project_characterization.field_project_space___last_update
+#: model:ir.model.fields,field_description:project_characterization.field_project_structures___last_update
 #: model:ir.model.fields,field_description:project_characterization.field_project_target___last_update
 #: model:ir.model.fields,field_description:project_characterization.field_project_task_type2___last_update
 #: model:ir.model.fields,field_description:project_characterization.field_project_team___last_update
@@ -191,10 +296,14 @@ msgstr "Última modificación en"
 #. module: project_characterization
 #: model:ir.model.fields,field_description:project_characterization.field_funding_source_type_write_uid
 #: model:ir.model.fields,field_description:project_characterization.field_funding_source_write_uid
+#: model:ir.model.fields,field_description:project_characterization.field_project_area_specialization_write_uid
 #: model:ir.model.fields,field_description:project_characterization.field_project_area_type_write_uid
 #: model:ir.model.fields,field_description:project_characterization.field_project_area_write_uid
 #: model:ir.model.fields,field_description:project_characterization.field_project_character_write_uid
+#: model:ir.model.fields,field_description:project_characterization.field_project_committee_write_uid
+#: model:ir.model.fields,field_description:project_characterization.field_project_oportunity_spaces_write_uid
 #: model:ir.model.fields,field_description:project_characterization.field_project_space_write_uid
+#: model:ir.model.fields,field_description:project_characterization.field_project_structures_write_uid
 #: model:ir.model.fields,field_description:project_characterization.field_project_target_write_uid
 #: model:ir.model.fields,field_description:project_characterization.field_project_task_type2_write_uid
 #: model:ir.model.fields,field_description:project_characterization.field_project_team_write_uid
@@ -204,10 +313,14 @@ msgstr "Última actualización de"
 #. module: project_characterization
 #: model:ir.model.fields,field_description:project_characterization.field_funding_source_type_write_date
 #: model:ir.model.fields,field_description:project_characterization.field_funding_source_write_date
+#: model:ir.model.fields,field_description:project_characterization.field_project_area_specialization_write_date
 #: model:ir.model.fields,field_description:project_characterization.field_project_area_type_write_date
 #: model:ir.model.fields,field_description:project_characterization.field_project_area_write_date
 #: model:ir.model.fields,field_description:project_characterization.field_project_character_write_date
+#: model:ir.model.fields,field_description:project_characterization.field_project_committee_write_date
+#: model:ir.model.fields,field_description:project_characterization.field_project_oportunity_spaces_write_date
 #: model:ir.model.fields,field_description:project_characterization.field_project_space_write_date
+#: model:ir.model.fields,field_description:project_characterization.field_project_structures_write_date
 #: model:ir.model.fields,field_description:project_characterization.field_project_target_write_date
 #: model:ir.model.fields,field_description:project_characterization.field_project_task_type2_write_date
 #: model:ir.model.fields,field_description:project_characterization.field_project_team_write_date
@@ -223,13 +336,25 @@ msgstr "Mixed Credit"
 #: model:ir.model.fields,field_description:project_characterization.field_funding_source_name
 #: model:ir.model.fields,field_description:project_characterization.field_funding_source_type_name
 #: model:ir.model.fields,field_description:project_characterization.field_project_area_name
+#: model:ir.model.fields,field_description:project_characterization.field_project_area_specialization_name
 #: model:ir.model.fields,field_description:project_characterization.field_project_area_type_name
 #: model:ir.model.fields,field_description:project_characterization.field_project_character_name
+#: model:ir.model.fields,field_description:project_characterization.field_project_committee_name
+#: model:ir.model.fields,field_description:project_characterization.field_project_oportunity_spaces_name
 #: model:ir.model.fields,field_description:project_characterization.field_project_space_name
+#: model:ir.model.fields,field_description:project_characterization.field_project_structures_name
 #: model:ir.model.fields,field_description:project_characterization.field_project_target_name
+#: model:ir.model.fields,field_description:project_characterization.field_project_task_type2_name
 #: model:ir.model.fields,field_description:project_characterization.field_project_team_name
 msgid "Name"
 msgstr "Nombre"
+
+#. module: project_characterization
+#: model:ir.actions.act_window,name:project_characterization.project_oportunity_spaces_action
+#: model:ir.model.fields,field_description:project_characterization.field_project_area_specialization_oportunity_spaces_id
+#: model:ir.ui.menu,name:project_characterization.project_oportunity_spaces_menuitem
+msgid "Oportunity Spaces"
+msgstr "Espacios de oportunidad"
 
 #. module: project_characterization
 #: model:ir.model.fields,field_description:project_characterization.field_funding_source_partner_id
@@ -242,9 +367,25 @@ msgid "Period"
 msgstr "Período"
 
 #. module: project_characterization
+#: model:ir.model,name:project_characterization.model_project_project
+#: model:ir.model.fields,field_description:project_characterization.field_project_area_type_project_id
+msgid "Project"
+msgstr "Proyecto"
+
+#. module: project_characterization
 #: model:ir.ui.view,arch_db:project_characterization.project_task_type2_form_view
 msgid "Project Task Type"
 msgstr "Tipo de tarea"
+
+#. module: project_characterization
+#: model:ir.ui.view,arch_db:project_characterization.project_area_search_view
+msgid "Search area"
+msgstr "Buscar área"
+
+#. module: project_characterization
+#: model:ir.ui.view,arch_db:project_characterization.project_area_type_search_view
+msgid "Search area type"
+msgstr "Search area type"
 
 #. module: project_characterization
 #: model:ir.model.fields,field_description:project_characterization.field_funding_source_soft_credit
@@ -260,6 +401,17 @@ msgid "Space"
 msgstr "Espacio"
 
 #. module: project_characterization
+#: model:ir.ui.view,arch_db:project_characterization.view_account_analytic_account_search_inh_project_char
+msgid "Spaces"
+msgstr "Espacios"
+
+#. module: project_characterization
+#: model:ir.actions.act_window,name:project_characterization.project_structures_action
+#: model:ir.ui.menu,name:project_characterization.project_structures_menuitem
+msgid "Structures"
+msgstr "Estructuras GAIA"
+
+#. module: project_characterization
 #: model:ir.actions.act_window,name:project_characterization.project_target_action
 #: model:ir.model.fields,field_description:project_characterization.field_account_analytic_account_project_target_id
 #: model:ir.model.fields,field_description:project_characterization.field_project_project_project_target_id
@@ -268,14 +420,14 @@ msgid "Target"
 msgstr "Sector Objetivo"
 
 #. module: project_characterization
+#: model:ir.ui.view,arch_db:project_characterization.view_account_analytic_account_search_inh_project_char
+msgid "Targets"
+msgstr "Sectores Objetivos"
+
+#. module: project_characterization
 #: model:ir.model,name:project_characterization.model_project_task
 msgid "Task"
 msgstr "Tarea"
-
-#. module: project_characterization
-#: model:ir.model,name:project_characterization.model_project_task_type
-msgid "Task Stage"
-msgstr "Etapa de la tarea"
 
 #. module: project_characterization
 #: model:ir.actions.act_window,name:project_characterization.project_team_action
@@ -286,68 +438,29 @@ msgstr "Equipo"
 #. module: project_characterization
 #: model:ir.model.fields,field_description:project_characterization.field_account_analytic_account_project_team_id
 #: model:ir.model.fields,field_description:project_characterization.field_project_project_project_team_id
+#: model:ir.ui.view,arch_db:project_characterization.view_account_analytic_account_search_inh_project_char
 msgid "Teams"
 msgstr "Equipo"
 
 #. module: project_characterization
-#: model:ir.model.fields,field_description:project_characterization.field_project_task_type_id_4801
+#: model:ir.model.fields,field_description:project_characterization.field_project_task_type_id_4307
 msgid "Type"
 msgstr "Tipo"
 
 #. module: project_characterization
-#: model:ir.model,name:project_characterization.model_account_area
-msgid "account.area"
-msgstr "account.area"
-
-#. module: project_characterization
-#: model:ir.model,name:project_characterization.model_account_espaces
-msgid "account.espaces"
-msgstr "account.espaces"
-
-#. module: project_characterization
-#: model:ir.model,name:project_characterization.model_account_financiation
-msgid "account.financiation"
-msgstr "account.financiation"
-
-#. module: project_characterization
-#: model:ir.model,name:project_characterization.model_account_nature
-msgid "account.nature"
-msgstr "account.nature"
-
-#. module: project_characterization
-#: model:ir.model,name:project_characterization.model_account_opportunity
-msgid "account.opportunity"
-msgstr "account.opportunity"
-
-#. module: project_characterization
-#: model:ir.model,name:project_characterization.model_account_pe
-msgid "account.pe"
-msgstr "account.pe"
-
-#. module: project_characterization
-#: model:ir.model,name:project_characterization.model_account_sector_objetive
-msgid "account.sector_objetive"
-msgstr "account.sector_objetive"
-
-#. module: project_characterization
-#: model:ir.model,name:project_characterization.model_account_teams
-msgid "account.teams"
-msgstr "account.teams"
-
-#. module: project_characterization
-#: model:ir.model.fields,field_description:project_characterization.field_project_task_type2_description
-msgid "description"
-msgstr "description"
-
-#. module: project_characterization
-#: model:ir.model.fields,field_description:project_characterization.field_project_task_type2_name
+#: model:ir.ui.view,arch_db:project_characterization.project_area_type_form_view
 msgid "name"
-msgstr "name"
+msgstr "Nombre"
 
 #. module: project_characterization
 #: model:ir.model,name:project_characterization.model_project_area
 msgid "project.area"
 msgstr "project.area"
+
+#. module: project_characterization
+#: model:ir.model,name:project_characterization.model_project_area_specialization
+msgid "project.area.specialization"
+msgstr "project.area.specialization"
 
 #. module: project_characterization
 #: model:ir.model,name:project_characterization.model_project_area_type
@@ -360,39 +473,24 @@ msgid "project.character"
 msgstr "project.character"
 
 #. module: project_characterization
-#: model:ir.model,name:project_characterization.model_project_espaces
-msgid "project.espaces"
-msgstr "project.espaces"
+#: model:ir.model,name:project_characterization.model_project_committee
+msgid "project.committee"
+msgstr "project.committee"
 
 #. module: project_characterization
-#: model:ir.model,name:project_characterization.model_project_financiation
-msgid "project.financiation"
-msgstr "project.financiation"
-
-#. module: project_characterization
-#: model:ir.model,name:project_characterization.model_project_id
-msgid "project.id"
-msgstr "project.id"
-
-#. module: project_characterization
-#: model:ir.model,name:project_characterization.model_project_nature
-msgid "project.nature"
-msgstr "project.nature"
-
-#. module: project_characterization
-#: model:ir.model,name:project_characterization.model_project_pe
-msgid "project.pe"
-msgstr "project.pe"
-
-#. module: project_characterization
-#: model:ir.model,name:project_characterization.model_project_sector_objetive
-msgid "project.sector_objetive"
-msgstr "project.sector_objetive"
+#: model:ir.model,name:project_characterization.model_project_oportunity_spaces
+msgid "project.oportunity.spaces"
+msgstr "project.oportunity.spaces"
 
 #. module: project_characterization
 #: model:ir.model,name:project_characterization.model_project_space
 msgid "project.space"
 msgstr "project.space"
+
+#. module: project_characterization
+#: model:ir.model,name:project_characterization.model_project_structures
+msgid "project.structures"
+msgstr "project.structures"
 
 #. module: project_characterization
 #: model:ir.model,name:project_characterization.model_project_target
@@ -408,14 +506,3 @@ msgstr "project.task.type2"
 #: model:ir.model,name:project_characterization.model_project_team
 msgid "project.team"
 msgstr "project.team"
-
-#. module: project_characterization
-#: model:ir.model,name:project_characterization.model_project_teams
-msgid "project.teams"
-msgstr "project.teams"
-
-#. module: project_characterization
-#: model:ir.model,name:project_characterization.model_task_phase
-msgid "task.phase"
-msgstr "task.phase"
-

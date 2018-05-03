@@ -85,5 +85,4 @@
         <field name="search_view_id"
                ref="funding_source_type_search_view"/>
     </record>
-
 </odoo>

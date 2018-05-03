@@ -20,3 +20,4 @@ Contributors
 ------------
 * Maite Esnal <maiteesnal@avanzosc.es>
 * Ana Juaristi <anajuaristi@avanzosc.es>
+* Xanti Pablo <xantipablo@avanzosc.es>

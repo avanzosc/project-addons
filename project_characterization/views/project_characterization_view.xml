@@ -27,4 +27,16 @@
     <menuitem id="project_team_menuitem"
               parent="project_characterization_config_menuitem"
               action="project_team_action" />
+    <menuitem id="project_committee_menuitem"
+              parent="project_characterization_config_menuitem"
+              action="project_committee_action" />
+    <menuitem id="project_structures_menuitem"
+              parent="project_characterization_config_menuitem"
+              action="project_structures_action" />
+    <menuitem id="project_oportunity_spaces_menuitem"
+              parent="project_characterization_config_menuitem"
+              action="project_oportunity_spaces_action" />
+    <menuitem id="project_area_specialization_menuitem"
+              parent="project_characterization_config_menuitem"
+              action="project_area_specialization_action" />
 </odoo>

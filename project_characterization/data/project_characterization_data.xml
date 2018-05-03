@@ -1,0 +1,242 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data noupdate="1">
+
+        <!-- project.area -->
+    <record id="project_area_direccion_general" model="project.area">
+        <field name="name">Dirección General</field>
+    </record>
+    <record id="project_area_comercial" model="project.area">
+        <field name="name">Comercial</field>
+    </record>
+    <record id="project_area_tecnica" model="project.area">
+        <field name="name">Técnica</field>
+    </record>
+    <record id="project_area_administracion" model="project.area">
+        <field name="name">Administración</field>
+    </record>
+    <record id="project_area_rrhh" model="project.area">
+        <field name="name">RRHH</field>
+    </record>
+    <record id="project_area_calidad" model="project.area">
+        <field name="name">Calidad</field>
+    </record>
+
+        <!-- project.committee -->
+    <record id="project_committee_junta_directiva" model="project.committee">
+        <field name="name">Junta Directiva</field>
+    </record>
+    <record id="project_committee_sistemas_imformacion" model="project.committee">
+        <field name="name">Sistemas Información</field>
+    </record>
+    <record id="project_committee_subcomite_erp" model="project.committee">
+        <field name="name">Subcomité ERP</field>
+    </record>
+    <record id="project_committee_micropymes" model="project.committee">
+        <field name="name">MicroPymes</field>
+    </record>
+    <record id="project_committee_comite_videojuegos_gamificacion" model="project.committee">
+        <field name="name">Comité Videojuegos Gamificación</field>
+    </record>
+    <record id="project_committee_comite_electronica" model="project.committee">
+        <field name="name">Comité Electrónica</field>
+    </record>
+    <record id="project_committee_comite_ingenieria_electronica" model="project.committee">
+        <field name="name">Comité Ingeniería-Electrónica</field>
+    </record>
+    <record id="project_committee_comite_ingenieria" model="project.committee">
+        <field name="name">Comité Ingeniería</field>
+    </record>
+    <record id="project_committee_comite_electronica" model="project.committee">
+        <field name="name">Comité Electrónica</field>
+    </record>
+
+        <!-- project.structures -->
+    <record id="project_structures_gne" model="project.structures">
+        <field name="name">GNE</field>
+    </record>
+    <record id="project_structures_basquelabgame" model="project.structures">
+        <field name="name">BASQUEGAMELAB</field>
+    </record>
+    <record id="project_structures_isare" model="project.structures">
+        <field name="name">ISARE</field>
+    </record>
+    
+        <!-- project.oportunity.spaces -->
+    <record id="project_oportunity_spaces_smart_industry" model="project.oportunity.spaces">
+        <field name="name">Smart Industry</field>
+    </record>
+    <record id="project_oportunity_spaces_smart_territory" model="project.oportunity.spaces">
+        <field name="name">Smart Territory</field>
+    </record>
+    <record id="project_oportunity_spaces_smart_society" model="project.oportunity.spaces">
+        <field name="name">Smart Society</field>
+    </record>
+    
+        <!-- project.area.specialization -->
+    <record id="project_area_specialization_gestion_avanzada" model="project.area.specialization">
+        <field name="name">Gestión Avanzada</field>
+        <field name="oportunity_spaces_id">1</field>
+    </record>
+    <record id="project_area_specialization_asistencia_a_profesionales" model="project.area.specialization">
+        <field name="name">Asistencia a profesionales</field>
+        <field name="oportunity_spaces_id">1</field>
+    </record>
+    <record id="project_area_specialization_gestion_servicios_40" model="project.area.specialization">
+        <field name="name">Gestión Servicios 4.0</field>
+        <field name="oportunity_spaces_id">1</field>
+    </record>
+    <record id="project_area_specialization_tecnologias_digitalizacion" model="project.area.specialization">
+        <field name="name">Tecnoligías de Digitalización</field>
+        <field name="oportunity_spaces_id">1</field>
+    </record>
+    <record id="project_area_specialization_transferencia_conocimiento" model="project.area.specialization">
+        <field name="name">Transferancia de Conocimiento</field>
+        <field name="oportunity_spaces_id">1</field>
+    </record>
+    <record id="project_area_specialization_customizacion_visualizacion" model="project.area.specialization">
+        <field name="name">Customización y Visualización</field>
+        <field name="oportunity_spaces_id">1</field>
+    </record>
+    <record id="project_area_specialization_eficiencia_energetica" model="project.area.specialization">
+        <field name="name">Eficiencia Energética</field>
+        <field name="oportunity_spaces_id">1</field>
+    </record>
+    <record id="project_area_specialization_eficiencia_otros_recursos" model="project.area.specialization">
+        <field name="name">Eficiencia otros Recursos</field>
+        <field name="oportunity_spaces_id">1</field>
+    </record>
+    <record id="project_area_specialization_eficiencia_reciclado" model="project.area.specialization">
+        <field name="name">Eficiencia en Reciclado</field>
+        <field name="oportunity_spaces_id">1</field>
+    </record>
+    <record id="project_area_specialization_gestion_informacion" model="project.area.specialization">
+        <field name="name">Gestión de la Información</field>
+        <field name="oportunity_spaces_id">1</field>
+    </record>
+    <record id="project_area_specialization_asistencia_tecnologica" model="project.area.specialization">
+        <field name="name">Asistencia Tecnológica</field>
+        <field name="oportunity_spaces_id">1</field>
+    </record>
+    <record id="project_area_specialization_mantenimiento_inteligente_sat" model="project.area.specialization">
+        <field name="name">Mantenimiento Inteligente y SAT</field>
+        <field name="oportunity_spaces_id">1</field>
+    </record>
+    <record id="project_area_specialization_gestion_consumibles_repuestos" model="project.area.specialization">
+        <field name="name">Gestión de Consumibles y Repuestos</field>
+        <field name="oportunity_spaces_id">1</field>
+    </record>
+    <record id="project_area_specialization_inteligancia_producto" model="project.area.specialization">
+        <field name="name">Inteligencia a Producto</field>
+        <field name="oportunity_spaces_id">1</field>
+    </record>
+    <record id="project_area_specialization_inteligencia_proceso" model="project.area.specialization">
+        <field name="name">Inteligencia en Proceso</field>
+        <field name="oportunity_spaces_id">1</field>
+    </record>
+    <record id="project_area_specialization_inteligencia_logistica" model="project.area.specialization">
+        <field name="name">Inteligencia en Logística</field>
+        <field name="oportunity_spaces_id">1</field>
+    </record>
+    <record id="project_area_specialization_ciberseguridad" model="project.area.specialization">
+        <field name="name">Ciberseguridad</field>
+        <field name="oportunity_spaces_id">1</field>
+    </record>
+    <record id="project_area_specialization_otros" model="project.area.specialization">
+        <field name="name">Otros (especificar)</field>
+        <field name="oportunity_spaces_id">1</field>
+    </record>
+    <record id="project_area_specialization_reciclado_residuos" model="project.area.specialization">
+        <field name="name">Reciclado-Residuos</field>
+        <field name="oportunity_spaces_id">2</field>
+    </record>
+    <record id="project_area_specialization_agua_sistemas_inteligentes_gestion" model="project.area.specialization">
+        <field name="name">Agua. Sistemas inteligentes de gestión</field>
+        <field name="oportunity_spaces_id">2</field>
+    </record>
+    <record id="project_area_specialization_redes_telecomunicaciones_avanzadas" model="project.area.specialization">
+        <field name="name">Redes Telecomunicaciones Avanzadas</field>
+        <field name="oportunity_spaces_id">2</field>
+    </record>
+    <record id="project_area_specialization_aire_ruido" model="project.area.specialization">
+        <field name="name">Aire-Ruido. Sistemas inteligentes de Gestión</field>
+        <field name="oportunity_spaces_id">2</field>
+    </record>
+    <record id="project_area_specialization_movilidad" model="project.area.specialization">
+        <field name="name">Movilidad. Redes de transporte, Parking, Transporte Público, Infraestructuras</field>
+        <field name="oportunity_spaces_id">2</field>
+    </record>
+    <record id="project_area_specialization_seguridad" model="project.area.specialization">
+        <field name="name">Seguridad. Infraestructuras y Gestión Avanzada</field>
+        <field name="oportunity_spaces_id">2</field>
+    </record>
+    <record id="project_area_specialization_salud" model="project.area.specialization">
+        <field name="name">Salud. Evolución Redes Sanitarias, Hospitales, Servicios Geriátricos</field>
+        <field name="oportunity_spaces_id">2</field>
+    </record>
+    <record id="project_area_specialization_educacion" model="project.area.specialization">
+        <field name="name">Educación. Acompañamiento a Centros Educativos en su evolución</field>
+        <field name="oportunity_spaces_id">2</field>
+    </record>
+    <record id="project_area_specialization_urbanismo" model="project.area.specialization">
+        <field name="name">Urbanismo. Sistemas inteligentes de Gestión</field>
+        <field name="oportunity_spaces_id">2</field>
+    </record>
+    <record id="project_area_specialization_economia_impuestos" model="project.area.specialization">
+        <field name="name">Economía e Impuestos. Marcos para la Nueva Economía</field>
+        <field name="oportunity_spaces_id">2</field>
+    </record>
+    <record id="project_area_specialization_otros" model="project.area.specialization">
+        <field name="name">Otros (esoecificar)</field>
+        <field name="oportunity_spaces_id">2</field>
+    </record>
+    <record id="project_area_specialization_talento_educacion" model="project.area.specialization">
+        <field name="name">Talento y Educación</field>
+        <field name="oportunity_spaces_id">3</field>
+    </record>
+    <record id="project_area_specialization_legislacion_normas" model="project.area.specialization">
+        <field name="name">Legislación y Normas</field>
+        <field name="oportunity_spaces_id">3</field>
+    </record>
+    <record id="project_area_specialization_modelos_economicos" model="project.area.specialization">
+        <field name="name">Modelos Económicos - Trabajo</field>
+        <field name="oportunity_spaces_id">3</field>
+    </record>
+    <record id="project_area_specialization_innovacion_emprendizaje" model="project.area.specialization">
+        <field name="name">Innovación y emprendizaje </field>
+        <field name="oportunity_spaces_id">3</field>
+    </record>
+    <record id="project_area_specialization_rrss_participacion_ciudadana" model="project.area.specialization">
+        <field name="name">Redes Sociales y Participación Ciudadana</field>
+        <field name="oportunity_spaces_id">3</field>
+    </record>
+    <record id="project_area_specialization_concienciacion_medio_ambiente" model="project.area.specialization">
+        <field name="name">Concienciación Medio Ambiente</field>
+        <field name="oportunity_spaces_id">3</field>
+    </record>
+    <record id="project_area_specialization_movilidad_compartida_sostenible" model="project.area.specialization">
+        <field name="name">Movilidad. Compartida y Sostenible</field>
+        <field name="oportunity_spaces_id">3</field>
+    </record>
+    <record id="project_area_specialization_seguridad_ciudadana" model="project.area.specialization">
+        <field name="name">Seguridad Ciudadana</field>
+        <field name="oportunity_spaces_id">3</field>
+    </record>
+    <record id="project_area_specialization_salud_hogar" model="project.area.specialization">
+        <field name="name">Salud en el hogar. Cultura de la salud</field>
+        <field name="oportunity_spaces_id">3</field>
+    </record>
+    <record id="project_area_specialization_economia_plateada" model="project.area.specialization">
+        <field name="name">Economía Plateada</field>
+        <field name="oportunity_spaces_id">3</field>
+    </record>
+    <record id="project_area_specialization_gobernanza_participativa" model="project.area.specialization">
+        <field name="name">Gobernanza Participativa</field>
+        <field name="oportunity_spaces_id">3</field>
+    </record>
+    <record id="project_area_specialization_otros" model="project.area.specialization">
+        <field name="name">Otros (especificar)</field>
+        <field name="oportunity_spaces_id">3</field>
+    </record>
+    </data>
+</odoo>

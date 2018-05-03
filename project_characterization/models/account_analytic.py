@@ -1,7 +1,7 @@
 # Copyright 2018 Maite Esnal - AvanzOSC
 # License AGPL-3 - See http://www.gnu.org/licenses/agpl-3.0.html
 
-from odoo import fields, models
+from odoo import api, fields, models
 
 
 class AccountAnalyticAccount(models.Model):
@@ -22,3 +22,8 @@ class AccountAnalyticAccount(models.Model):
     department_id = fields.Many2one(
         comodel_name='hr.department', string='Internal Services Department')
     justification_deadline = fields.Date(string='Justification Deadline')
+    project_area_type_id = fields.Many2one(
+        comodel_name='project.area.type', string='Area type',
+        domain="[('area_id','=',project_area_id)]",
+        ondelete='cascade')
+
