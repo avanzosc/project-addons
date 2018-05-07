@@ -1,7 +1,7 @@
 # Copyright 2018 Maite Esnal - AvanzOSC
 # License AGPL-3 - See http://www.gnu.org/licenses/agpl-3.0.html
 
-from odoo import fields, models
+from odoo import api, fields, models
 
 
 class FundingSource(models.Model):
@@ -26,3 +26,24 @@ class FundingSourceType(models.Model):
     _description = 'Funding Source Type'
 
     name = fields.Char(string='Name')
+
+
+class ResPartner(models.Model):
+    _inherit = 'res.partner'
+
+    @api.depends
+    def _funding_source_count(self):
+        for partner in self:
+            partner.funding_source_count = len(partner.funding_source_ids)
+
+    funding_source_ids = fields.One2many(comodel_name='funding.source',
+                                         string='Funding Sources',
+                                         inverse_name='partner_id')
+    funding_source_count = fields.Integer(string='Funding Sources',
+                                          compute=_funding_source_count)
+    areas = fields.Many2many(
+        string="Areas", comodel_name="project.area",
+        relation="partner_area_relation", columm1="partner_idproject_area_id",
+        columm2='project_area_id', copy=False)
+
+

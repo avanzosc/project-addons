@@ -8,7 +8,8 @@ class AccountAnalyticAccount(models.Model):
     _inherit = 'account.analytic.account'
 
     project_area_id = fields.Many2one(
-        comodel_name='project.area', string='Area')
+        comodel_name='project.area', string='Area', 
+        related='project_area_type_id.area_id', store=True)
     project_space_id = fields.Many2one(
         comodel_name='project.space', string='Space')
     project_team_id = fields.Many2one(
@@ -22,3 +23,5 @@ class AccountAnalyticAccount(models.Model):
     department_id = fields.Many2one(
         comodel_name='hr.department', string='Internal Services Department')
     justification_deadline = fields.Date(string='Justification Deadline')
+    project_area_type_id = fields.Many2one(
+        comodel_name='project.area.type', string='Area type')

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<odoo>
+<odoo noupdate="True">
     <record id="project_project_form_view" model="ir.ui.view">
         <field name="name">project.project.form</field>
         <field name="model">project.project</field>
@@ -16,7 +16,8 @@
                             <field name="project_team_id" />
                             <field name="project_character_id" />
                             <field name="project_target_id" />
-                            <field name="project_area_id" />
+                            <field name="project_area_type_id"/>
+                            <field name="project_area_id" readonly="True"/>
                             <field name="department_id"
                                    options="{'no_create': True}" />
                             <field name="alias_user_id" />
@@ -26,7 +27,7 @@
                             <field name="funding_source_id"
                                    options="{'no_create': True}"/>
                             <field name="date_start" />
-                            <field name="date" />
+                            <field name="date" string="End Date"/>
                             <field name="justification_deadline" />
                         </group>
                     </group>
@@ -50,12 +51,78 @@
                 <field name="project_space_id" />
                 <field name="funding_source_id" />
                 <field name="date_start" />
-                <field name="date" />
+                <field name="date" string="End Date"/>
                 <field name="justification_deadline" />
             </tree>
         </field>
     </record>
 
+<!--Nuevas vistas para el modelo project.area.type-->
+    <record id="project_area_type_tree_view" model="ir.ui.view">
+        <field name="name">project.area.type.tree.view</field>
+        <field name="model">project.area.type</field>
+        <field name="arch" type="xml">
+            <tree string="Area Type">
+                <field name="name"/>
+                <field name="description"/>
+                <field name="area_id"/>
+            </tree>
+        </field>
+    </record>
+    
+    <record id="project_area_type_search_view" model="ir.ui.view">
+        <field name="name">project.area.type.search</field>
+        <field name="model">project.area.type</field>
+        <field name="arch" type="xml">
+            <search string="Search area type">
+                <field name="name" />
+                <field name="description" />
+                <field name="area_id" />
+            </search>
+        </field>
+    </record>
+    
+    <record id="project_area_tree_view" model="ir.ui.view">
+        <field name="name">project.area.tree.view</field>
+        <field name="model">project.area</field>
+        <field name="arch" type="xml">
+            <tree string="Area">
+                <field name="name"/>
+                <field name="description"/>
+            </tree>
+        </field>
+    </record>
+    
+    <record id="project_area_search_view" model="ir.ui.view">
+        <field name="name">project.area.search</field>
+        <field name="model">project.area</field>
+        <field name="arch" type="xml">
+            <search string="Search area">
+                <field name="name" />
+                <field name="description" />
+            </search>
+        </field>
+    </record>
+    
+    <record id="project_area_type_form_view" model="ir.ui.view">
+       <field name="name">project.area.type.form.view</field>
+       <field name="model">project.area.type</field>
+       <field name="arch" type="xml">
+           <form string="Area type">
+               <sheet>
+                   <h1>
+                       <label string="Area Type" />
+                       <field name="name" class="oe_inline" string="name"/>
+                   </h1>
+                   <group name="head" colspan="4" col="8" >
+                       <field name="description" colspan="8" />
+                       <field name="area_id" colspan="6"/>
+                    </group>
+                </sheet>
+           </form>
+        </field>
+    </record>
+    
     <record id="project_project_search_view" model="ir.ui.view">
         <field name="name">project.project.search</field>
         <field name="model">project.project</field>
@@ -71,7 +138,7 @@
                 <field name="project_space_id" />
                 <field name="funding_source_id" />
                 <field name="date_start" />
-                <field name="date" />
+                <field name="date" string="End Date"/>
                 <field name="justification_deadline" />
             </search>
         </field>
@@ -124,4 +191,100 @@
         <field name="context">{
         }</field>
     </record>
+
+    <record id="res_committee_action" model="ir.actions.act_window">
+        <field name="name">Committee</field>
+        <field name="res_model">res.committee</field>
+        <field name="view_mode">tree,form</field>
+        <field name="context">{
+        }</field>
+    </record>
+
+    <record id="res_structure_action" model="ir.actions.act_window">
+        <field name="name">Structures</field>
+        <field name="res_model">res.structure</field>
+        <field name="view_mode">tree,form</field>
+        <field name="context">{
+        }</field>
+    </record>
+
+    <record id="res_oportunity_space_action" model="ir.actions.act_window">
+        <field name="name">Oportunity Spaces</field>
+        <field name="res_model">res.oportunity.space</field>
+        <field name="view_mode">tree,form</field>
+        <field name="context">{
+        }</field>
+    </record>
+
+    <record id="res_area_specialization_action" model="ir.actions.act_window">
+        <field name="name">Area Specialization</field>
+        <field name="res_model">res.area.specialization</field>
+        <field name="view_mode">tree,form</field>
+        <field name="context">{
+        }</field>
+    </record>
+    
+        
+    <record id="res_area_specialization_tree_view" model="ir.ui.view">
+        <field name="name">res.area.specialization.tree.view</field>
+        <field name="model">res.area.specialization</field>
+        <field name="arch" type="xml">
+            <tree string="Area">
+                <field name="name"/>
+                <field name="description"/>
+                <field name="oportunity_space_id"/>
+            </tree>
+        </field>
+    </record>
+
+    
+    <record id="res_area_specialization_search_view" model="ir.ui.view">
+        <field name="name">res.area.specialization.search</field>
+        <field name="model">res.area.specialization</field>
+        <field name="arch" type="xml">
+            <search string="Search area">
+                <field name="name" />
+                <field name="oportunity_space_id"/>
+            </search>
+        </field>
+    </record>
+
+    <record id="res_activity_action" model="ir.actions.act_window">
+        <field name="name">Activity</field>
+        <field name="res_model">res.activity</field>
+        <field name="view_mode">tree,form</field>
+        <field name="context">{
+        }</field>
+    </record>
+
+    <record id="res_activity_type_action" model="ir.actions.act_window">
+        <field name="name">Activity type</field>
+        <field name="res_model">res.activity.type</field>
+        <field name="view_mode">tree,form</field>
+        <field name="context">{
+        }</field>
+    </record>
+    
+    <record id="res_activity_type_tree_view" model="ir.ui.view">
+        <field name="name">res.activity.type.tree.view</field>
+        <field name="model">res.activity.type</field>
+        <field name="arch" type="xml">
+            <tree string="Area">
+                <field name="name"/>
+                <field name="activity_id"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="res_activity_type_search_view" model="ir.ui.view">
+        <field name="name">res.activity.type.search</field>
+        <field name="model">res.activity.type</field>
+        <field name="arch" type="xml">
+            <search string="Search area">
+                <field name="name" />
+                <field name="activity_id"/>
+            </search>
+        </field>
+    </record>
 </odoo>
+

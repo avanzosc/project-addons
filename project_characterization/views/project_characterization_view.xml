@@ -27,4 +27,22 @@
     <menuitem id="project_team_menuitem"
               parent="project_characterization_config_menuitem"
               action="project_team_action" />
+    <menuitem id="res_committee_menuitem"
+              parent="project_characterization_config_menuitem"
+              action="res_committee_action" />
+    <menuitem id="res_structure_menuitem"
+              parent="project_characterization_config_menuitem"
+              action="res_structure_action" />
+    <menuitem id="res_oportunity_space_menuitem"
+              parent="project_characterization_config_menuitem"
+              action="res_oportunity_space_action" />
+    <menuitem id="res_area_specialization_menuitem"
+              parent="project_characterization_config_menuitem"
+              action="res_area_specialization_action" />
+    <menuitem id="res_activity_menuitem"
+              parent="project_characterization_config_menuitem"
+              action="res_activity_action" />
+    <menuitem id="res_activity_type_menuitem"
+              parent="project_characterization_config_menuitem"
+              action="res_activity_type_action" />
 </odoo>

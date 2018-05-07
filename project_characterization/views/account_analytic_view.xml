@@ -46,4 +46,31 @@
             </field>
         </field>
     </record>
+
+    <record id="view_account_analytic_account_search_inh_project_char" model="ir.ui.view">
+        <field name="name">view.account.analytic.account.search.inh.project.char</field>
+        <field name="model">account.analytic.account</field>
+        <field name="inherit_id"
+               ref="analytic.view_account_analytic_account_search" />
+        <field name="arch" type="xml">
+            <field name="partner_id" position="after">
+                    <field name="project_team_id" />
+                    <field name="project_character_id" />
+                    <field name="project_target_id" />
+                    <field name="project_area_id" />
+                    <field name="department_id" />
+                    <field name="project_space_id" />
+                    <field name="funding_source_id" />
+            </field>
+            <group position="inside">
+                <filter name="group_teams" string="Teams" domain="[]" context="{'group_by':'project_team_id'}"/>
+                <filter name="group_character" string="Characters" domain="[]" context="{'group_by':'project_character_id'}"/>
+                <filter name="group_target" string="Targets" domain="[]" context="{'group_by':'project_target_id'}"/>
+                <filter name="group_area" string="Areas" domain="[]" context="{'group_by':'project_area_id'}"/>
+                <filter name="group_department" string="Departments" domain="[]" context="{'group_by':'department_id'}"/>
+                <filter name="group_space" string="Spaces" domain="[]" context="{'group_by':'project_space_id'}"/>
+                <filter name="group_funding_source" string="Funding Sources" domain="[]" context="{'group_by':'funding_source_id'}"/>
+            </group>
+        </field>
+    </record>
 </odoo>
