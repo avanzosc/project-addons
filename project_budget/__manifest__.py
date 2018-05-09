@@ -4,7 +4,7 @@
 {
     "name": "Project Bugdet",
     "summary": "",
-    "version": "11.0.1.0.0",
+    "version": "11.0.2.0.0",
     "category": "Custom Module",
     "license": "AGPL-3",
     "author": "AvanzOSC",
@@ -20,7 +20,10 @@
     "data": [
         "data/project_budget_data.xml",
         "views/crossovered_budget_view.xml",
+        "views/crossovered_budget_line_view.xml",
         "views/project_project_view.xml",
+        "views/account_analytic_account_view.xml",
+        "views/account_analytic_line_view.xml",
     ],
     "installable": True,
 }

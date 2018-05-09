@@ -42,3 +42,10 @@ class TestProjectBudget(common.SavepointCase):
         new_budget.action_create_period()
         self.assertEquals(len(
             new_budget.crossovered_budget_line), 24)
+        new_budget.crossovered_budget_line[0].planned_amount = 50.00
+        new_line = new_budget.crossovered_budget_line[0].copy()
+        self.assertEquals(new_line.initial_planned_amount, 50.00,
+                          'Bad initial planned amount')
+        analytic_account = new_budget.project_id.analytic_account_id
+        self.assertEquals(len(
+            analytic_account.crossovered_last_budget_line), 25)
