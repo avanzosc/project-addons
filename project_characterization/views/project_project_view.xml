@@ -13,20 +13,21 @@
                 <page name="characterization" string="Characterization">
                     <group>
                         <group>
-                            <field name="project_team_id" />
-                            <field name="project_character_id" />
-                            <field name="project_target_id" />
-                            <field name="project_area_id" />
+                            <field name="res_team_id" />
+                            <field name="res_character_id" />
+                            <field name="res_target_id" />
+                            <field name="res_area_type_id"/>
+                            <field name="res_area_id" readonly="True"/>
                             <field name="department_id"
                                    options="{'no_create': True}" />
                             <field name="alias_user_id" />
                         </group>
                         <group>
-                            <field name="project_space_id" />
+                            <field name="res_space_id" />
                             <field name="funding_source_id"
                                    options="{'no_create': True}"/>
                             <field name="date_start" />
-                            <field name="date" />
+                            <field name="date" string="End Date"/>
                             <field name="justification_deadline" />
                         </group>
                     </group>
@@ -41,16 +42,16 @@
         <field name="inherit_id" ref="project.view_project" />
         <field name="arch" type="xml">
             <tree position="inside">
-                <field name="project_team_id" />
-                <field name="project_character_id" />
-                <field name="project_target_id" />
-                <field name="project_area_id" />
+                <field name="res_team_id" />
+                <field name="res_character_id" />
+                <field name="res_target_id" />
+                <field name="res_area_id" />
                 <field name="department_id" />
                 <field name="alias_user_id" />
-                <field name="project_space_id" />
+                <field name="res_space_id" />
                 <field name="funding_source_id" />
                 <field name="date_start" />
-                <field name="date" />
+                <field name="date" string="End Date"/>
                 <field name="justification_deadline" />
             </tree>
         </field>
@@ -62,66 +63,20 @@
         <field name="inherit_id" ref="project.view_project_project_filter" />
         <field name="arch" type="xml">
             <search position="inside">
-                <field name="project_team_id" />
-                <field name="project_character_id" />
-                <field name="project_target_id" />
-                <field name="project_area_id" />
+                <field name="res_team_id" />
+                <field name="res_character_id" />
+                <field name="res_target_id" />
+                <field name="res_area_id" />
                 <field name="department_id" />
                 <field name="alias_user_id" />
-                <field name="project_space_id" />
+                <field name="res_space_id" />
                 <field name="funding_source_id" />
                 <field name="date_start" />
-                <field name="date" />
+                <field name="date" string="End Date"/>
                 <field name="justification_deadline" />
             </search>
         </field>
     </record>
 
-    <record id="project_area_action" model="ir.actions.act_window">
-        <field name="name">Area</field>
-        <field name="res_model">project.area</field>
-        <field name="view_mode">tree,form</field>
-        <field name="context">{
-        }</field>
-    </record>
-
-    <record id="project_area_type_action" model="ir.actions.act_window">
-        <field name="name">Area Type</field>
-        <field name="res_model">project.area.type</field>
-        <field name="view_mode">tree,form</field>
-        <field name="context">{
-        }</field>
-    </record>
-
-    <record id="project_character_action" model="ir.actions.act_window">
-        <field name="name">Character</field>
-        <field name="res_model">project.character</field>
-        <field name="view_mode">tree,form</field>
-        <field name="context">{
-        }</field>
-    </record>
-
-    <record id="project_space_action" model="ir.actions.act_window">
-        <field name="name">Space</field>
-        <field name="res_model">project.space</field>
-        <field name="view_mode">tree,form</field>
-        <field name="context">{
-        }</field>
-    </record>
-
-    <record id="project_target_action" model="ir.actions.act_window">
-        <field name="name">Target</field>
-        <field name="res_model">project.target</field>
-        <field name="view_mode">tree,form</field>
-        <field name="context">{
-        }</field>
-    </record>
-
-    <record id="project_team_action" model="ir.actions.act_window">
-        <field name="name">Team</field>
-        <field name="res_model">project.team</field>
-        <field name="view_mode">tree,form</field>
-        <field name="context">{
-        }</field>
-    </record>
 </odoo>
+

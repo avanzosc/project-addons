@@ -3,12 +3,13 @@
 
 {
     "name": "Project Characterization",
-    "version": "11.0.1.0.0",
+    "version": "11.0.2.0.0",
     "license": "AGPL-3",
     "depends": [
         "project",
         "account",
         "hr",
+        "base_characterization",
     ],
     "author": "AvanzOSC",
     "website": "http://www.avanzosc.es",
@@ -20,6 +21,7 @@
         "views/project_project_view.xml",
         "views/project_task_view.xml",
         "views/project_characterization_view.xml",
+        "views/res_partner_view.xml",
     ],
     "installable": True,
     "auto_install": False,
