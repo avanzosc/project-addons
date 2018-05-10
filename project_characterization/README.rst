@@ -6,12 +6,14 @@
 Project characterization
 ========================
 
-With this module you can characterize a project.
+With this module you can characterize a project or an analytic account with:
+
 * Area
 * Team
 * Character
 * Espace
 * Target
+* and more...
 
 Credits
 =======
@@ -20,3 +22,4 @@ Contributors
 ------------
 * Maite Esnal <maiteesnal@avanzosc.es>
 * Ana Juaristi <anajuaristi@avanzosc.es>
+* Xanti Pablo <xantipablo@avanzosc.es>
