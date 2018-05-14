@@ -19,8 +19,11 @@ class AccountAnalyticAccount(models.Model):
         comodel_name='hr.department', string='Internal Services Department')
     justification_deadline = fields.Date(string='Justification Deadline')
     res_area_type_id = fields.Many2one(
-        comodel_name='res.area.type', string='Area type')
+        comodel_name='res.area.type', string='Area type',
+        domain="[('area_ids', 'in', res_area_id)]")
     res_team_id = fields.Many2one(
-        comodel_name='res.team', string='Teams')
+        comodel_name='res.team', string='Team')
+    crm_team_id = fields.Many2one(
+        comodel_name='crm.team', string='Team (CRM)')
     res_target_id = fields.Many2one(
         comodel_name='res.target', string='Target')
