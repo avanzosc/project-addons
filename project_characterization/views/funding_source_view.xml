@@ -96,4 +96,42 @@
         <field name="context">{'default_partner':active_id,'search_default_partner':active_id}</field>
         <field name="domain">[('partner_id','=',active_id)]</field>
     </record>
+
+    <record id="funding_source_project_tree_view" model="ir.ui.view">
+        <field name="name">funding.source.project.tree</field>
+        <field name="model">funding.source.project</field>
+        <field name="arch" type="xml">
+            <tree string="Funding Source Project" editable="top">
+                <field name="project_id" />
+                <field name="source_id" />
+                <field name="year" />
+                <field name="yearly_amount" />
+                <field name="percentage" />
+                <field name="account_id" />
+            </tree>
+        </field>
+    </record>
+
+    <record id="funding_source_project_search_view" model="ir.ui.view">
+        <field name="name">funding.source.project.search</field>
+        <field name="model">funding.source.project</field>
+        <field name="arch" type="xml">
+            <search string="Search Funding Source Project">
+                <field name="project_id" />
+                <field name="source_id" />
+            </search>
+        </field>
+    </record>
+
+    <record id="funding_source_project_action" model="ir.actions.act_window">
+        <field name="name">Funding Source Project</field>
+        <field name="res_model">funding.source.project</field>
+        <field name="view_mode">tree</field>
+        <field name="context">{
+        }</field>
+        <field name="view_id"
+               ref="funding_source_project_tree_view" />
+        <field name="search_view_id"
+               ref="funding_source_project_search_view"/>
+    </record>
 </odoo>
