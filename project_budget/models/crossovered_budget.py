@@ -50,12 +50,12 @@ class CrossoveredBudget(models.Model):
                     'general_budget_id': postcome.id,
                 })
                 line = budget_line_obj.create(vals)
-                line.parent_budget_line_id = line.id
+                line.initial_budget_line_id = line.id
                 vals.update({
                     'general_budget_id': income.id,
                 })
                 line = budget_line_obj.create(vals)
-                line.parent_budget_line_id = line.id
+                line.initial_budget_line_id = line.id
                 ds = ds + relativedelta(months=1)
             if to_string(final_date) < budget.date_to:
                 vals.update({
@@ -64,12 +64,12 @@ class CrossoveredBudget(models.Model):
                     'general_budget_id': postcome.id,
                 })
                 line = budget_line_obj.create(vals)
-                line.parent_budget_line_id = line.id
+                line.initial_budget_line_id = line.id
                 vals.update({
                     'general_budget_id': income.id,
                 })
                 line = budget_line_obj.create(vals)
-                line.parent_budget_line_id = line.id
+                line.initial_budget_line_id = line.id
         return True
 
     @api.multi
@@ -86,29 +86,13 @@ class CrossoveredBudget(models.Model):
 
 class CrossoveredBudgetLines(models.Model):
     _inherit = "crossovered.budget.lines"
-    _description = "Budget Line"
 
-    @api.multi
-    @api.depends('analytic_account_id',
-                 'analytic_account_id.crossovered_budget_line')
-    def _compute_show_line(self):
-        for line in self:
-            line.show_line = False
-            budget_line = max(
-                line.analytic_account_id.mapped('crossovered_budget_line'),
-                key=lambda x: x.crossovered_budget_id.id)
-            if (budget_line and line.crossovered_budget_id.id ==
-                    budget_line.crossovered_budget_id.id):
-                line.show_line = True
-
-    parent_budget_line_id = fields.Many2one(
-        comodel_name='crossovered.budget.lines', string='Parent budget line',
+    initial_budget_line_id = fields.Many2one(
+        comodel_name='crossovered.budget.lines', string='Initial Budget Line',
         copy=True)
     initial_planned_amount = fields.Float(
-        'Initial planned amount', digits=0, store=True,
-        related='parent_budget_line_id.planned_amount')
-    show_line = fields.Boolean(
-        string='Show line', compute='_compute_show_line', store=True)
+        string='Initial Planned Amount', digits=0, store=True,
+        related='initial_budget_line_id.planned_amount')
     notes = fields.Text(string='Notes')
     project_id = fields.Many2one(
         comodel_name='project.project', string='Project',

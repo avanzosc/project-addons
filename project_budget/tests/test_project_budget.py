@@ -42,10 +42,41 @@ class TestProjectBudget(common.SavepointCase):
         new_budget.action_create_period()
         self.assertEquals(len(
             new_budget.crossovered_budget_line), 24)
-        new_budget.crossovered_budget_line[0].planned_amount = 50.00
-        new_line = new_budget.crossovered_budget_line[0].copy()
-        self.assertEquals(new_line.initial_planned_amount, 50.00,
-                          'Bad initial planned amount')
-        analytic_account = new_budget.project_id.analytic_account_id
-        self.assertEquals(len(
-            analytic_account.crossovered_last_budget_line), 25)
+
+    def test_initial_budget_duplication(self):
+        analytic_account = self.project.analytic_account_id
+        old_budget = self.project.budget_ids[:1]
+        self.assertEquals(
+            old_budget.crossovered_budget_line[:1],
+            old_budget.crossovered_budget_line[:1].initial_budget_line_id)
+        self.assertEquals(
+            old_budget.crossovered_budget_line,
+            analytic_account.crossovered_budget_line)
+        old_budget.crossovered_budget_line[:1].write({
+            'planned_amount': 50.0,
+        })
+        self.assertEquals(
+            old_budget.crossovered_budget_line[:1].planned_amount,
+            old_budget.crossovered_budget_line[:1].initial_planned_amount)
+        new_budget = old_budget.copy()
+        self.assertEquals(
+            len(old_budget.crossovered_budget_line),
+            len(new_budget.crossovered_budget_line))
+        self.assertEquals(
+            new_budget.crossovered_budget_line,
+            analytic_account.crossovered_budget_line)
+        new_budget.crossovered_budget_line[:1].write({
+            'planned_amount': 150.0,
+        })
+        self.assertNotEquals(
+            new_budget.crossovered_budget_line[:1],
+            new_budget.crossovered_budget_line[:1].initial_budget_line_id)
+        self.assertEquals(
+            old_budget.crossovered_budget_line[:1],
+            new_budget.crossovered_budget_line[:1].initial_budget_line_id)
+        self.assertEquals(
+            old_budget.crossovered_budget_line[:1].planned_amount,
+            new_budget.crossovered_budget_line[:1].initial_planned_amount)
+        self.assertNotEquals(
+            new_budget.crossovered_budget_line[:1].planned_amount,
+            new_budget.crossovered_budget_line[:1].initial_planned_amount)

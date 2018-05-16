@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 11.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-05-10 06:53+0000\n"
-"PO-Revision-Date: 2018-05-10 06:53+0000\n"
+"POT-Creation-Date: 2018-05-16 14:55+0000\n"
+"PO-Revision-Date: 2018-05-16 14:55+0000\n"
 "Last-Translator: <>\n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -27,24 +27,20 @@ msgstr "Activo"
 
 #. module: project_budget
 #: model:ir.model,name:project_budget.model_account_analytic_account
-#: model:ir.ui.view,arch_db:project_budget.view_crossovered_budget_line_search_inh_project_budget
+#: model:ir.ui.view,arch_db:project_budget.crossovered_budget_line_search_view
 msgid "Analytic Account"
 msgstr "Cuenta analítica"
 
 #. module: project_budget
 #: model:ir.model,name:project_budget.model_account_analytic_line
 msgid "Analytic Line"
-msgstr "Línea analítica"
+msgstr "Línea Analítica"
 
 #. module: project_budget
 #: model:ir.model,name:project_budget.model_crossovered_budget
+#: model:ir.ui.view,arch_db:project_budget.crossovered_budget_line_search_view
 msgid "Budget"
 msgstr "Presupuesto"
-
-#. module: project_budget
-#: model:ir.ui.view,arch_db:project_budget.view_account_analytic_account_form_inh_project_budget
-msgid "Budget Items"
-msgstr "Elementos de presupuesto"
 
 #. module: project_budget
 #: model:ir.model,name:project_budget.model_crossovered_budget_lines
@@ -52,17 +48,18 @@ msgid "Budget Line"
 msgstr "Línea de presupuesto"
 
 #. module: project_budget
+#: model:ir.ui.view,arch_db:project_budget.crossovered_budget_line_search_view
+msgid "Budgetary Position"
+msgstr "Posición Presupuestaria"
+
+#. module: project_budget
 #: model:ir.actions.act_window,name:project_budget.project_budget_action
 #: model:ir.model.fields,field_description:project_budget.field_project_project_budget_count
 #: model:ir.model.fields,field_description:project_budget.field_project_project_budget_ids
+#: model:ir.ui.menu,name:project_budget.menu_act2_crossovered_budget_lines_view
 #: model:ir.ui.view,arch_db:project_budget.project_project_form_view
 msgid "Budgets"
 msgstr "Presupuestos"
-
-#. module: project_budget
-#: model:ir.ui.menu,name:project_budget.menu_act2_crossovered_budget_lines_view
-msgid "Budgets lines"
-msgstr "Líneas de presupuesto"
 
 #. module: project_budget
 #: model:ir.actions.act_window,help:project_budget.project_budget_action
@@ -82,20 +79,10 @@ msgstr "Crear presupuesto inicial"
 #. module: project_budget
 #: model:ir.ui.view,arch_db:project_budget.crossovered_budget_form_view
 msgid "Create Lines"
-msgstr "Crear líneas"
+msgstr "Crear elementos"
 
 #. module: project_budget
-#: model:ir.ui.view,arch_db:project_budget.view_crossovered_budget_line_search_inh_project_budget
-msgid "Crossovered budget"
-msgstr "Presupuesto cruzado"
-
-#. module: project_budget
-#: model:ir.ui.view,arch_db:project_budget.view_crossovered_budget_line_search_inh_project_budget
-msgid "General budget"
-msgstr "Presupuesto general"
-
-#. module: project_budget
-#: model:ir.ui.view,arch_db:project_budget.view_crossovered_budget_line_search_inh_project_budget
+#: model:ir.ui.view,arch_db:project_budget.crossovered_budget_line_search_view
 msgid "Group By"
 msgstr "Agrupar por"
 
@@ -106,14 +93,23 @@ msgid "Initial"
 msgstr "Inicial"
 
 #. module: project_budget
+#: model:ir.model.fields,field_description:project_budget.field_crossovered_budget_lines_initial_budget_line_id
+msgid "Initial Budget Line"
+msgstr "Elemento de presupuesto inicial"
+
+#. module: project_budget
 #: model:ir.ui.view,arch_db:project_budget.crossovered_budget_search_view
 msgid "Initial Budgets"
 msgstr "Presupuestos iniciales"
 
 #. module: project_budget
 #: model:ir.model.fields,field_description:project_budget.field_crossovered_budget_lines_initial_planned_amount
-#: model:ir.ui.view,arch_db:project_budget.view_account_analytic_account_form_inh_project_budget
-#: model:ir.ui.view,arch_db:project_budget.view_crossovered_budget_line_tree_inh_project_budget
+#: model:ir.ui.view,arch_db:project_budget.crossovered_budget_form_view
+msgid "Initial Planned Amount"
+msgstr "Importe planificado inicial"
+
+#. module: project_budget
+#: model:ir.ui.view,arch_db:project_budget.account_analytic_account_last_budget_lines_form_view
 msgid "Initial planned amount"
 msgstr "Importe planificado inicial"
 
@@ -125,66 +121,26 @@ msgstr "Presupuesto inicial {}: {}"
 
 #. module: project_budget
 #: model:ir.model.fields,field_description:project_budget.field_account_analytic_line_invoice_id
-#: model:ir.ui.view,arch_db:project_budget.view_account_analytic_line_filter_inh_project_budget
 msgid "Invoice"
 msgstr "Factura"
 
 #. module: project_budget
-#: model:ir.model.fields,field_description:project_budget.field_account_analytic_account_crossovered_last_budget_line
-#: model:ir.model.fields,field_description:project_budget.field_project_project_crossovered_last_budget_line
-msgid "Last budget lines"
-msgstr "Líneas último presupuesto"
-
-#. module: project_budget
-#: model:ir.model.fields,field_description:project_budget.field_account_analytic_account_last_budget
-#: model:ir.model.fields,field_description:project_budget.field_project_project_max_budget
-msgid "Max. budget"
-msgstr "Presupuesto máximo"
-
-#. module: project_budget
 #: model:ir.model.fields,field_description:project_budget.field_crossovered_budget_lines_notes
-#: model:ir.ui.view,arch_db:project_budget.view_crossovered_budget_line_form_inh_project_budget
+#: model:ir.ui.view,arch_db:project_budget.crossovered_budget_line_form_view
 msgid "Notes"
 msgstr "Notas"
-
-#. module: project_budget
-#: model:ir.model.fields,field_description:project_budget.field_crossovered_budget_lines_parent_budget_line_id
-msgid "Parent budget line"
-msgstr "Línea de presupuesto padre"
-
-#. module: project_budget
-#: model:ir.ui.view,arch_db:project_budget.view_account_analytic_account_form_inh_project_budget
-#: model:ir.ui.view,arch_db:project_budget.view_crossovered_budget_line_tree_inh_project_budget
-msgid "Planned Amount"
-msgstr "Importe planificado"
-
-#. module: project_budget
-#: model:ir.ui.view,arch_db:project_budget.view_account_analytic_account_form_inh_project_budget
-#: model:ir.ui.view,arch_db:project_budget.view_crossovered_budget_line_tree_inh_project_budget
-msgid "Practical Amount"
-msgstr "Importe real"
 
 #. module: project_budget
 #: model:ir.model,name:project_budget.model_project_project
 #: model:ir.model.fields,field_description:project_budget.field_crossovered_budget_lines_project_id
 #: model:ir.model.fields,field_description:project_budget.field_crossovered_budget_project_id
-#: model:ir.ui.view,arch_db:project_budget.view_crossovered_budget_line_search_inh_project_budget
+#: model:ir.ui.view,arch_db:project_budget.crossovered_budget_line_search_view
 msgid "Project"
 msgstr "Proyecto"
 
 #. module: project_budget
-#: model:ir.model.fields,field_description:project_budget.field_crossovered_budget_lines_show_line
-msgid "Show line"
-msgstr "Mostrar línea"
-
-#. module: project_budget
-#: model:ir.ui.view,arch_db:project_budget.view_account_analytic_account_form_inh_project_budget
-#: model:ir.ui.view,arch_db:project_budget.view_crossovered_budget_line_tree_inh_project_budget
-msgid "Theoritical Amount"
-msgstr "Importe teórico"
-
-#. module: project_budget
 #: code:addons/project_budget/models/crossovered_budget.py:79
+#: code:addons/project_budget/models/crossovered_budget.py:83
 #, python-format
 msgid "There can only be one initial budget per project and year."
 msgstr "Sólo puede haber un presupuesto inicial por proyecto y año."
