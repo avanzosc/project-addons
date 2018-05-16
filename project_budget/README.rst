@@ -8,6 +8,7 @@ Project Budget
 
 This module extends the functionality of budgets for projects. When a
 project is created it will create a budget for current year with:
+
 * 12 lines of outgoings (one per month)
 * 12 lines of incomings (one per month)
 * 1 line on december 30th for outgoings

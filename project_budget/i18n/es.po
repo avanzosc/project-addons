@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 11.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-04-13 09:46+0000\n"
-"PO-Revision-Date: 2018-04-13 09:46+0000\n"
+"POT-Creation-Date: 2018-05-16 14:55+0000\n"
+"PO-Revision-Date: 2018-05-16 14:55+0000\n"
 "Last-Translator: <>\n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -26,14 +26,37 @@ msgid "Active"
 msgstr "Activo"
 
 #. module: project_budget
+#: model:ir.model,name:project_budget.model_account_analytic_account
+#: model:ir.ui.view,arch_db:project_budget.crossovered_budget_line_search_view
+msgid "Analytic Account"
+msgstr "Cuenta analítica"
+
+#. module: project_budget
+#: model:ir.model,name:project_budget.model_account_analytic_line
+msgid "Analytic Line"
+msgstr "Línea Analítica"
+
+#. module: project_budget
 #: model:ir.model,name:project_budget.model_crossovered_budget
+#: model:ir.ui.view,arch_db:project_budget.crossovered_budget_line_search_view
 msgid "Budget"
 msgstr "Presupuesto"
+
+#. module: project_budget
+#: model:ir.model,name:project_budget.model_crossovered_budget_lines
+msgid "Budget Line"
+msgstr "Línea de presupuesto"
+
+#. module: project_budget
+#: model:ir.ui.view,arch_db:project_budget.crossovered_budget_line_search_view
+msgid "Budgetary Position"
+msgstr "Posición Presupuestaria"
 
 #. module: project_budget
 #: model:ir.actions.act_window,name:project_budget.project_budget_action
 #: model:ir.model.fields,field_description:project_budget.field_project_project_budget_count
 #: model:ir.model.fields,field_description:project_budget.field_project_project_budget_ids
+#: model:ir.ui.menu,name:project_budget.menu_act2_crossovered_budget_lines_view
 #: model:ir.ui.view,arch_db:project_budget.project_project_form_view
 msgid "Budgets"
 msgstr "Presupuestos"
@@ -56,7 +79,12 @@ msgstr "Crear presupuesto inicial"
 #. module: project_budget
 #: model:ir.ui.view,arch_db:project_budget.crossovered_budget_form_view
 msgid "Create Lines"
-msgstr "Crear líneas"
+msgstr "Crear elementos"
+
+#. module: project_budget
+#: model:ir.ui.view,arch_db:project_budget.crossovered_budget_line_search_view
+msgid "Group By"
+msgstr "Agrupar por"
 
 #. module: project_budget
 #: model:ir.model.fields,field_description:project_budget.field_crossovered_budget_initial
@@ -65,9 +93,25 @@ msgid "Initial"
 msgstr "Inicial"
 
 #. module: project_budget
+#: model:ir.model.fields,field_description:project_budget.field_crossovered_budget_lines_initial_budget_line_id
+msgid "Initial Budget Line"
+msgstr "Elemento de presupuesto inicial"
+
+#. module: project_budget
 #: model:ir.ui.view,arch_db:project_budget.crossovered_budget_search_view
 msgid "Initial Budgets"
 msgstr "Presupuestos iniciales"
+
+#. module: project_budget
+#: model:ir.model.fields,field_description:project_budget.field_crossovered_budget_lines_initial_planned_amount
+#: model:ir.ui.view,arch_db:project_budget.crossovered_budget_form_view
+msgid "Initial Planned Amount"
+msgstr "Importe planificado inicial"
+
+#. module: project_budget
+#: model:ir.ui.view,arch_db:project_budget.account_analytic_account_last_budget_lines_form_view
+msgid "Initial planned amount"
+msgstr "Importe planificado inicial"
 
 #. module: project_budget
 #: code:addons/project_budget/models/project_project.py:33
@@ -76,13 +120,27 @@ msgid "Initial {} budget: {}"
 msgstr "Presupuesto inicial {}: {}"
 
 #. module: project_budget
+#: model:ir.model.fields,field_description:project_budget.field_account_analytic_line_invoice_id
+msgid "Invoice"
+msgstr "Factura"
+
+#. module: project_budget
+#: model:ir.model.fields,field_description:project_budget.field_crossovered_budget_lines_notes
+#: model:ir.ui.view,arch_db:project_budget.crossovered_budget_line_form_view
+msgid "Notes"
+msgstr "Notas"
+
+#. module: project_budget
 #: model:ir.model,name:project_budget.model_project_project
+#: model:ir.model.fields,field_description:project_budget.field_crossovered_budget_lines_project_id
 #: model:ir.model.fields,field_description:project_budget.field_crossovered_budget_project_id
+#: model:ir.ui.view,arch_db:project_budget.crossovered_budget_line_search_view
 msgid "Project"
 msgstr "Proyecto"
 
 #. module: project_budget
 #: code:addons/project_budget/models/crossovered_budget.py:79
+#: code:addons/project_budget/models/crossovered_budget.py:83
 #, python-format
 msgid "There can only be one initial budget per project and year."
 msgstr "Sólo puede haber un presupuesto inicial por proyecto y año."

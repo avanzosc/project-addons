@@ -17,6 +17,19 @@
                 <field name="initial" readonly="True" invisible="True" />
                 <field name="active" />
             </field>
+            <xpath expr="//field[@name='crossovered_budget_line']/tree//field[@name='planned_amount']" position="before">
+                <field name="initial_planned_amount" widget="monetary"
+                       sum="Initial Planned Amount"/>
+            </xpath>
+            <xpath expr="//field[@name='crossovered_budget_line']/tree//field[@name='paid_date']" position="attributes">
+                <attribute name="invisible">True</attribute>
+            </xpath>
+            <xpath expr="//field[@name='crossovered_budget_line']/tree//field[@name='theoritical_amount']" position="attributes">
+                <attribute name="invisible">True</attribute>
+            </xpath>
+            <xpath expr="//field[@name='crossovered_budget_line']/tree//field[@name='percentage']" position="attributes">
+                <attribute name="invisible">True</attribute>
+            </xpath>
         </field>
     </record>
 

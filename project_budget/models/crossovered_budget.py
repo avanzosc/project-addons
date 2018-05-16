@@ -34,7 +34,7 @@ class CrossoveredBudget(models.Model):
                                     b.state == 'draft'):
             vals = {
                 'analytic_account_id':
-                    budget.project_id.analytic_account_id.id,
+                budget.project_id.analytic_account_id.id,
                 'crossovered_budget_id': budget.id,
                 'planned_amount': 0.0,
             }
@@ -49,11 +49,13 @@ class CrossoveredBudget(models.Model):
                     'date_to': to_string(de),
                     'general_budget_id': postcome.id,
                 })
-                budget_line_obj.create(vals)
+                line = budget_line_obj.create(vals)
+                line.initial_budget_line_id = line.id
                 vals.update({
                     'general_budget_id': income.id,
                 })
-                budget_line_obj.create(vals)
+                line = budget_line_obj.create(vals)
+                line.initial_budget_line_id = line.id
                 ds = ds + relativedelta(months=1)
             if to_string(final_date) < budget.date_to:
                 vals.update({
@@ -61,11 +63,13 @@ class CrossoveredBudget(models.Model):
                     'date_to': to_string(final_date),
                     'general_budget_id': postcome.id,
                 })
-                budget_line_obj.create(vals)
+                line = budget_line_obj.create(vals)
+                line.initial_budget_line_id = line.id
                 vals.update({
                     'general_budget_id': income.id,
                 })
-                budget_line_obj.create(vals)
+                line = budget_line_obj.create(vals)
+                line.initial_budget_line_id = line.id
         return True
 
     @api.multi
@@ -78,3 +82,18 @@ class CrossoveredBudget(models.Model):
                 raise exceptions.ValidationError(
                     _("There can only be one initial budget per project and "
                       "year."))
+
+
+class CrossoveredBudgetLines(models.Model):
+    _inherit = "crossovered.budget.lines"
+
+    initial_budget_line_id = fields.Many2one(
+        comodel_name='crossovered.budget.lines', string='Initial Budget Line',
+        copy=True)
+    initial_planned_amount = fields.Float(
+        string='Initial Planned Amount', digits=0, store=True,
+        related='initial_budget_line_id.planned_amount')
+    notes = fields.Text(string='Notes')
+    project_id = fields.Many2one(
+        comodel_name='project.project', string='Project',
+        related='crossovered_budget_id.project_id', store=True)
