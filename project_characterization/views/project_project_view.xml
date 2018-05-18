@@ -9,6 +9,11 @@
                 <attribute name="invisible">False</attribute>
                 <attribute name="class">oe_read_only</attribute>
             </field>
+            <div name="button_box" position="inside">
+                <button name="show_analytic_account_from_project" type="object"
+                        class="oe_stat_button" icon="fa-book"
+                        string="Analytic Account" />
+            </div>
             <page name="settings" position="after">
                 <page name="characterization" string="Characterization">
                     <group>
@@ -32,6 +37,8 @@
                             <field name="date" string="End Date"/>
                             <field name="justification_deadline" />
                         </group>
+                        <label for="funding_ids" />
+                        <field name="funding_ids" context="{'default_project_id':active_id}"/>
                     </group>
                 </page>
              </page>

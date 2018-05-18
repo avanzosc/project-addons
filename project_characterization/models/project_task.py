@@ -13,6 +13,7 @@ class ProjectTask(models.Model):
 
 class ProjectTaskType2(models.Model):
     _name = 'project.task.type2'
+    _description = 'Task Type'
 
     name = fields.Char(string='Name', required=True)
     description = fields.Text(string='Description')
