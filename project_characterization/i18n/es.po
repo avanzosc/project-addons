@@ -4,10 +4,10 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: Odoo Server 11.0+e\n"
+"Project-Id-Version: Odoo Server 11.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-05-15 15:11+0000\n"
-"PO-Revision-Date: 2018-05-15 15:11+0000\n"
+"POT-Creation-Date: 2018-05-28 11:05+0000\n"
+"PO-Revision-Date: 2018-05-28 11:05+0000\n"
 "Last-Translator: <>\n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -23,7 +23,7 @@ msgstr "Programas de financiación"
 #. module: project_characterization
 #: model:ir.ui.view,arch_db:project_characterization.view_project_characterization_from_partner
 msgid "# Funding Source"
-msgstr "# Programa Financiación"
+msgstr "Programa Financiación"
 
 #. module: project_characterization
 #: model:ir.ui.menu,name:project_characterization.res_activity_menuitem
@@ -56,7 +56,7 @@ msgstr "Área de especialización"
 #. module: project_characterization
 #: model:ir.ui.menu,name:project_characterization.res_area_type_menuitem
 msgid "Area Type"
-msgstr "Tipo de área"
+msgstr "Tipo"
 
 #. module: project_characterization
 #: model:ir.model.fields,field_description:project_characterization.field_account_analytic_account_res_area_type_id
@@ -67,9 +67,10 @@ msgstr "Tipo"
 #. module: project_characterization
 #: model:ir.model,name:project_characterization.model_res_area_type
 msgid "Area types"
-msgstr "Tipos de áreas"
+msgstr "Tipos"
 
 #. module: project_characterization
+#: model:ir.model,name:project_characterization.model_res_area
 #: model:ir.model.fields,field_description:project_characterization.field_res_partner_area_ids
 #: model:ir.model.fields,field_description:project_characterization.field_res_users_area_ids
 #: model:ir.ui.view,arch_db:project_characterization.view_account_analytic_account_search_inh_project_char
@@ -98,7 +99,7 @@ msgstr "Naturalezas"
 #. module: project_characterization
 #: model:ir.ui.menu,name:project_characterization.res_committee_menuitem
 msgid "Committee"
-msgstr "Comités GAIA"
+msgstr "Comité"
 
 #. module: project_characterization
 #: model:ir.model,name:project_characterization.model_res_partner
@@ -119,7 +120,7 @@ msgstr "Creado por"
 #: model:ir.model.fields,field_description:project_characterization.field_funding_source_type_create_date
 #: model:ir.model.fields,field_description:project_characterization.field_project_task_type2_create_date
 msgid "Created on"
-msgstr "Creado el"
+msgstr "Creado en"
 
 #. module: project_characterization
 #: model:ir.ui.view,arch_db:project_characterization.view_account_analytic_account_search_inh_project_char
@@ -145,7 +146,7 @@ msgstr "Nombre mostrado"
 #: model:ir.ui.view,arch_db:project_characterization.project_project_search_view
 #: model:ir.ui.view,arch_db:project_characterization.project_project_tree_view
 msgid "End Date"
-msgstr "Fecha Fin"
+msgstr "Fecha final"
 
 #. module: project_characterization
 #: model:ir.actions.act_window,name:project_characterization.funding_source_action
@@ -221,7 +222,7 @@ msgstr "Grant"
 #. module: project_characterization
 #: model:ir.model.fields,field_description:project_characterization.field_funding_source_id
 #: model:ir.model.fields,field_description:project_characterization.field_funding_source_project_id
-#: model:ir.model.fields,field_description:project_characterization.field_funding_source_type_id_6614
+#: model:ir.model.fields,field_description:project_characterization.field_funding_source_type_id_6720
 #: model:ir.model.fields,field_description:project_characterization.field_project_task_type2_id
 msgid "ID"
 msgstr "ID (identificación)"
@@ -244,7 +245,7 @@ msgstr "Justificación Fecha límite"
 #: model:ir.model.fields,field_description:project_characterization.field_funding_source_type___last_update
 #: model:ir.model.fields,field_description:project_characterization.field_project_task_type2___last_update
 msgid "Last Modified on"
-msgstr "Última modificación en"
+msgstr "Última modificación el"
 
 #. module: project_characterization
 #: model:ir.model.fields,field_description:project_characterization.field_funding_source_project_write_uid
@@ -252,7 +253,7 @@ msgstr "Última modificación en"
 #: model:ir.model.fields,field_description:project_characterization.field_funding_source_write_uid
 #: model:ir.model.fields,field_description:project_characterization.field_project_task_type2_write_uid
 msgid "Last Updated by"
-msgstr "Última actualización de"
+msgstr "Última actualización por"
 
 #. module: project_characterization
 #: model:ir.model.fields,field_description:project_characterization.field_funding_source_project_write_date
@@ -260,7 +261,7 @@ msgstr "Última actualización de"
 #: model:ir.model.fields,field_description:project_characterization.field_funding_source_write_date
 #: model:ir.model.fields,field_description:project_characterization.field_project_task_type2_write_date
 msgid "Last Updated on"
-msgstr "Última actualización en"
+msgstr "Última Actualización el"
 
 #. module: project_characterization
 #: model:ir.model.fields,field_description:project_characterization.field_funding_source_mixed_credit
@@ -282,7 +283,18 @@ msgstr "Receptores Boletín"
 #. module: project_characterization
 #: model:ir.ui.view,arch_db:project_characterization.view_project_characterization_from_partner
 msgid "Newsletters and Committees"
-msgstr "Receptores Boletín"
+msgstr "Receptores boletín"
+
+#. module: project_characterization
+#: model:ir.model.fields,field_description:project_characterization.field_res_area_nonoperative
+#: model:ir.ui.view,arch_db:project_characterization.res_area_operative_search_view
+msgid "Non Operative"
+msgstr "No operativo"
+
+#. module: project_characterization
+#: model:ir.ui.view,arch_db:project_characterization.res_area_operative_search_view
+msgid "Operative"
+msgstr "Operativo"
 
 #. module: project_characterization
 #: model:ir.ui.menu,name:project_characterization.res_opportunity_space_menuitem
@@ -301,12 +313,14 @@ msgstr "Porcentaje (%)"
 
 #. module: project_characterization
 #: code:addons/project_characterization/models/funding_source.py:56
+#: code:addons/project_characterization/models/funding_source.py:57
 #, python-format
 msgid "Percentage must be bigger than 0"
 msgstr "El porcentaje debe ser mayor que 0"
 
 #. module: project_characterization
 #: code:addons/project_characterization/models/funding_source.py:59
+#: code:addons/project_characterization/models/funding_source.py:60
 #, python-format
 msgid "Percentage should be less or equal to 100"
 msgstr "El porcentaje debe ser menor o igual a 100"
@@ -333,6 +347,11 @@ msgid "Projects"
 msgstr "Proyectos"
 
 #. module: project_characterization
+#: model:ir.model.fields,field_description:project_characterization.field_res_area_related_operative_area_ids
+msgid "Related Operative Area"
+msgstr "Areas Operativas"
+
+#. module: project_characterization
 #: model:ir.ui.view,arch_db:project_characterization.funding_source_project_search_view
 msgid "Search Funding Source Project"
 msgstr "Search Funding Source Project"
@@ -352,7 +371,7 @@ msgstr "Espacio"
 #. module: project_characterization
 #: model:ir.ui.view,arch_db:project_characterization.view_account_analytic_account_search_inh_project_char
 msgid "Spaces"
-msgstr "Espaces"
+msgstr "Espacios"
 
 #. module: project_characterization
 #: model:ir.ui.menu,name:project_characterization.res_structure_menuitem
@@ -400,7 +419,7 @@ msgid "Teams"
 msgstr "Equipos"
 
 #. module: project_characterization
-#: model:ir.model.fields,field_description:project_characterization.field_project_task_type_id_6621
+#: model:ir.model.fields,field_description:project_characterization.field_project_task_type_id_6727
 msgid "Type"
 msgstr "Tipo"
 

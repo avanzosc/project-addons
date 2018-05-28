@@ -29,3 +29,13 @@ class ResAreaType(models.Model):
     project_ids = fields.One2many(
         comodel_name='project.project', inverse_name='res_area_type_id',
         string='Projects')
+
+
+class ResArea(models.Model):
+    _inherit = 'res.area'
+
+    nonoperative = fields.Boolean(string='Non Operative')
+    related_operative_area_ids = fields.Many2many(
+        comodel_name='res.area', relation='rel_nonop2op_area',
+        column1='nonop_area_id', column2='op_area_id',
+        domain="[('nonoperative', '=', False)]")
