@@ -27,3 +27,12 @@ class AccountAnalyticAccount(models.Model):
         comodel_name='crm.team', string='Team (CRM)')
     res_target_id = fields.Many2one(
         comodel_name='res.target', string='Target')
+    nonoperative = fields.Boolean(
+        string='Non Operative', related='res_area_id.nonoperative', store=True)
+
+
+class AccountAnalyticLine(models.Model):
+    _inherit = 'account.analytic.line'
+
+    nonoperative = fields.Boolean(
+        string='Non Operative', related='account_id.nonoperative', store=True)
