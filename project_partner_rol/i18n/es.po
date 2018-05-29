@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 11.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-01-31 14:49+0000\n"
-"PO-Revision-Date: 2018-01-31 14:49+0000\n"
+"POT-Creation-Date: 2018-05-29 13:37+0000\n"
+"PO-Revision-Date: 2018-05-29 13:37+0000\n"
 "Last-Translator: <>\n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -52,7 +52,7 @@ msgstr "Agrupar por"
 
 #. module: project_partner_rol
 #: model:ir.model.fields,field_description:project_partner_rol.field_project_participant_id
-#: model:ir.model.fields,field_description:project_partner_rol.field_project_participant_rol_id_2704
+#: model:ir.model.fields,field_description:project_partner_rol.field_project_participant_rol_id_6766
 msgid "ID"
 msgstr "ID (identificación)"
 
@@ -81,6 +81,11 @@ msgid "Location"
 msgstr "Ubicación"
 
 #. module: project_partner_rol
+#: model:ir.model.fields,field_description:project_partner_rol.field_project_participant_partner_id
+msgid "Participant"
+msgstr "Participante"
+
+#. module: project_partner_rol
 #: model:ir.model.fields,field_description:project_partner_rol.field_project_project_participant_ids
 #: model:ir.ui.view,arch_db:project_partner_rol.edit_project_inh_partner_rol
 msgid "Participants"
@@ -99,7 +104,6 @@ msgid "Project"
 msgstr "Proyecto"
 
 #. module: project_partner_rol
-#: model:ir.model.fields,field_description:project_partner_rol.field_project_participant_partner_id
 #: model:ir.ui.view,arch_db:project_partner_rol.project_participant_form_view
 msgid "Project participant"
 msgstr "Participante en proyecto"
