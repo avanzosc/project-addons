@@ -104,6 +104,7 @@
             <tree string="Funding Source Project" editable="top">
                 <field name="project_id" />
                 <field name="source_id" />
+                <field name="funding_date" />
                 <field name="year" />
                 <field name="yearly_amount" />
                 <field name="percentage" />

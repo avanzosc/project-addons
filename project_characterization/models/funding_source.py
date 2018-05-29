@@ -44,6 +44,7 @@ class FundingSourceProject(models.Model):
     percentage = fields.Float(
         string='Percentage (%)', digits=dp.get_precision('Discount'),
         group_operator='sum')
+    funding_date = fields.Date(string='Funding Date')
     year = fields.Integer(string='Year')
     yearly_amount = fields.Float(string='Yearly Amount', digits=0)
 
