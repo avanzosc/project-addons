@@ -12,6 +12,7 @@
            </field>
            <page name="settings" position="before">
               <page name="participants" string="Participants">
+                  <label for="participant_ids" />
                   <field name="participant_ids" nolabel="1"
                          context="{'default_project_id':active_id}">
                     <tree string="Project participants">

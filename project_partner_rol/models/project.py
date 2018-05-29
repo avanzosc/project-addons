@@ -1,5 +1,4 @@
-# -*- coding: utf-8 -*-
-# Copyright (c) 2018 Alfredo de la fuente <alfredodelafuente@avanzosc.es>
+# Copyright 2018 Alfredo de la Fuente <alfredodelafuente@avanzosc.es>
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl).
 from odoo import models, fields
 
@@ -22,8 +21,7 @@ class ProjectParticipant(models.Model):
     project_id = fields.Many2one(
         comodel_name='project.project', string='Project', required=True)
     partner_id = fields.Many2one(
-        comodel_name='res.partner', string='Project participant',
-        required=True)
+        comodel_name='res.partner', string='Participant', required=True)
     rol_id = fields.Many2one(
         comodel_name='project.participant.rol', string='Role')
 
