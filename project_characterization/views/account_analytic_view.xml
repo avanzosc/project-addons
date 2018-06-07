@@ -9,19 +9,14 @@
                 <group>
                     <group>
                         <field name="res_team_id" />
-                        <field name="crm_team_id" />
                         <field name="res_character_id" />
                         <field name="res_target_id" />
                         <field name="res_area_id" />
                         <field name="res_area_type_id"
                                options="{'no_create': True}"/>
-                        <field name="department_id"
-                               options="{'no_create': True}" />
                     </group>
                     <group>
-                        <field name="res_space_id" />
-                        <field name="funding_source_id"
-                               options="{'no_create': True}"/>
+                        <field name="op_space_id" />
                         <field name="justification_deadline" />
                     </group>
                 </group>
@@ -40,9 +35,7 @@
                 <field name="res_character_id" />
                 <field name="res_target_id" />
                 <field name="res_area_id" />
-                <field name="department_id" />
-                <field name="res_space_id" />
-                <field name="funding_source_id" />
+                <field name="op_space_id" />
                 <field name="justification_deadline" />
             </field>
         </field>
@@ -59,9 +52,7 @@
                 <field name="res_character_id" />
                 <field name="res_target_id" />
                 <field name="res_area_id" />
-                <field name="department_id" />
-                <field name="res_space_id" />
-                <field name="funding_source_id" />
+                <field name="op_space_id" />
             </field>
             <filter name="inactive" position="after">
                 <separator />
@@ -75,9 +66,7 @@
                 <filter name="group_character" string="Characters" domain="[]" context="{'group_by':'res_character_id'}"/>
                 <filter name="group_target" string="Targets" domain="[]" context="{'group_by':'res_target_id'}"/>
                 <filter name="group_area" string="Areas" domain="[]" context="{'group_by':'res_area_id'}"/>
-                <filter name="group_department" string="Departments" domain="[]" context="{'group_by':'department_id'}"/>
-                <filter name="group_space" string="Spaces" domain="[]" context="{'group_by':'res_space_id'}"/>
-                <filter name="group_funding_source" string="Funding Sources" domain="[]" context="{'group_by':'funding_source_id'}"/>
+                <filter name="group_opspace" string="Opportunity Spaces" domain="[]" context="{'group_by':'op_space_id'}"/>
             </group>
         </field>
     </record>
