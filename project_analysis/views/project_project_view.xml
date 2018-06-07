@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <record id="project_project_form_view" model="ir.ui.view">
+        <field name="name">project.project.form</field>
+        <field name="model">project.project</field>
+        <field name="inherit_id" ref="project.edit_project" />
+        <field name="arch" type="xml">
+            <notebook position="inside">
+                <page name="summary" string="Summary">
+                    <field name="resume_id">
+                        <tree>
+                            <field name="timesheet_date" />
+                            <field name="employee_id" />
+                            <field name="unit_amount" widget="float_time" />
+                            <field name="monthly_amount" widget="float_time" />
+                        </tree>
+                    </field>
+                </page>
+            </notebook>
+        </field>
+    </record>
+
+    <record id="project_analytic_summary_tree_view" model="ir.ui.view">
+        <field name="name">project.analytic.summary.tree</field>
+        <field name="model">project.analytic.summary</field>
+        <field name="arch" type="xml">
+            <tree string="Summary">
+                <field name="timesheet_date" />
+                <field name="project_id" />
+                <field name="employee_id" />
+                <field name="unit_amount" widget="float_time" />
+                <field name="monthly_amount" widget="float_time" />
+            </tree>
+        </field>
+    </record>
+</odoo>
