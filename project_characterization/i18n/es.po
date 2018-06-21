@@ -79,7 +79,6 @@ msgstr "Tipos de proyecto"
 #: model:ir.model.fields,field_description:project_characterization.field_res_partner_area_ids
 #: model:ir.model.fields,field_description:project_characterization.field_res_users_area_ids
 #: model:ir.ui.view,arch_db:project_characterization.view_account_analytic_account_search_inh_project_char
-#: model:ir.ui.view,arch_db:project_characterization.view_project_characterization_from_partner
 msgid "Areas"
 msgstr "Áreas"
 
@@ -271,16 +270,6 @@ msgstr "Crédito mixto"
 #: model:ir.model.fields,field_description:project_characterization.field_project_task_type2_name
 msgid "Name"
 msgstr "Nombre"
-
-#. module: project_characterization
-#: model:ir.ui.view,arch_db:project_characterization.view_project_characterization_from_partner
-msgid "Newsletter receivers"
-msgstr "Receptores Boletín"
-
-#. module: project_characterization
-#: model:ir.ui.view,arch_db:project_characterization.view_project_characterization_from_partner
-msgid "Newsletters and Committees"
-msgstr "Receptores boletín"
 
 #. module: project_characterization
 #: model:ir.model.fields,field_description:project_characterization.field_account_analytic_account_nonoperative

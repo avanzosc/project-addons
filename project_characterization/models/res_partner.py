@@ -12,10 +12,6 @@ class ResPartner(models.Model):
     funding_source_ids = fields.One2many(
         comodel_name='funding.source', string='Funding Sources',
         inverse_name='partner_id')
-    area_ids = fields.Many2many(
-        string='Areas', comodel_name='res.area',
-        relation='rel_partner_area', columm1='partner_id',
-        columm2='res_area_id', copy=False)
 
     @api.depends('funding_source_ids')
     def _compute_funding_source_count(self):
