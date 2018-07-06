@@ -12,7 +12,11 @@
                             <field name="timesheet_date" />
                             <field name="employee_id" />
                             <field name="unit_amount" widget="float_time" />
+                            <field name="percent_amount" />
                             <field name="monthly_amount" widget="float_time" />
+                            <field name="payroll" />
+                            <field name="percent_payroll" />
+                            <field name="monthly_payroll" />
                         </tree>
                     </field>
                 </page>
@@ -29,8 +33,23 @@
                 <field name="project_id" />
                 <field name="employee_id" />
                 <field name="unit_amount" widget="float_time" />
+                <field name="percent_amount" />
                 <field name="monthly_amount" widget="float_time" />
+                <field name="payroll" />
+                <field name="percent_payroll" />
+                <field name="monthly_payroll" />
             </tree>
         </field>
     </record>
+
+    <record id="action_compute_summary" model="ir.actions.server"
+            forcecreate="True">
+        <field name="name">Compute Summary</field>
+        <field name="type">ir.actions.server</field>
+        <field name="state">code</field>
+        <field name="model_id" ref="project_analysis.model_project_analytic_summary" />
+        <field name="code">model.compute_all()</field>
+        <field name="binding_model_id" ref="project_analysis.model_project_analytic_summary"/>
+    </record>
+
 </odoo>
