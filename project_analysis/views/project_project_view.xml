@@ -7,6 +7,45 @@
         <field name="arch" type="xml">
             <notebook position="inside">
                 <page name="summary" string="Summary">
+                    <button type="object" name="button_compute_monthly_hour"
+                            string="Get monthly hours"/>
+                    <button type="object" name="button_compute_monthly_line"
+                            string="Get monthly lines"/>
+                    <button type="object" name="button_compute_monthly_nonoperative"
+                            string="Get monthly nonoperative"/>
+                    <group>
+                        <group>
+                            <field name="monthly_hour_ids"
+                                   context="{'default_project_id': active_id}">
+                                <tree>
+                                    <field name="timesheet_date" />
+                                    <field name="employee_id" />
+                                    <field name="unit_amount" />
+                                </tree>
+                            </field>
+                        </group>
+                        <group>
+                            <field name="monthly_line_ids"
+                                   context="{'default_project_id': active_id}">
+                                <tree>
+                                    <field name="timesheet_date" />
+                                    <field name="amount" />
+                                    <field name="payroll" />
+                                </tree>
+                            </field>
+                        </group>
+                        <group>
+                            <field name="monthly_nonoperative_ids"
+                                   context="{'default_project_id': active_id}">
+                                <tree>
+                                    <field name="timesheet_date" />
+                                    <field name="amount" />
+                                </tree>
+                            </field>
+                        </group>
+                    </group>
+                    <button type="object" name="button_compute_summary"
+                            string="Get monthly hours"/>
                     <field name="resume_id">
                         <tree>
                             <field name="timesheet_date" />
@@ -36,7 +75,6 @@
                 <field name="percent_amount" />
                 <field name="monthly_amount" widget="float_time" />
                 <field name="payroll" />
-                <field name="percent_payroll" />
                 <field name="monthly_payroll" />
             </tree>
         </field>
