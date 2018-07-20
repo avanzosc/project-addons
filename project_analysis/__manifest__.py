@@ -9,7 +9,6 @@
     "author": "AvanzOSC",
     "website": "http://www.avanzosc.es",
     "depends": [
-        "l10n_es",
         "project",
         "hr_timesheet",
         "project_characterization",
@@ -17,6 +16,7 @@
     "data": [
         # "security/ir.model.access.csv",
         "data/employee_payroll_data.xml",
+        "views/hr_employee_view.xml",
         "views/project_project_view.xml",
 
     ],
