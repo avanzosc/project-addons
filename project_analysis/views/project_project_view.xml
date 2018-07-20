@@ -7,15 +7,11 @@
         <field name="arch" type="xml">
             <notebook position="inside">
                 <page name="summary" string="Summary">
-                    <button type="object" name="button_compute_monthly_hour"
-                            string="Get monthly hours"/>
-                    <button type="object" name="button_compute_monthly_line"
-                            string="Get monthly lines"/>
-                    <button type="object" name="button_compute_monthly_nonoperative"
-                            string="Get monthly nonoperative"/>
                     <group>
-                        <group>
-                            <field name="monthly_hour_ids"
+                        <group string="Monthly Hours" name="monthly_hour_group">
+                            <button type="object" name="button_compute_monthly_hour"
+                                    string="Get monthly hours"/>
+                            <field name="monthly_hour_ids" nolabel="1" colspan="4"
                                    context="{'default_project_id': active_id}">
                                 <tree>
                                     <field name="timesheet_date" />
@@ -24,8 +20,10 @@
                                 </tree>
                             </field>
                         </group>
-                        <group>
-                            <field name="monthly_line_ids"
+                        <group string="Monthly Cost/Revenue" name="monthly_line_group">
+                            <button type="object" name="button_compute_monthly_line"
+                                    string="Get monthly lines"/>
+                            <field name="monthly_line_ids" nolabel="1" colspan="4"
                                    context="{'default_project_id': active_id}">
                                 <tree>
                                     <field name="timesheet_date" />
@@ -34,8 +32,10 @@
                                 </tree>
                             </field>
                         </group>
-                        <group>
-                            <field name="monthly_nonoperative_ids"
+                        <group string="Non Operative Monthly Cost/Revenue" name="monthly_nonoperative">
+                            <button type="object" name="button_compute_monthly_nonoperative"
+                                    string="Get monthly nonoperative"/>
+                            <field name="monthly_nonoperative_ids" nolabel="1" colspan="4"
                                    context="{'default_project_id': active_id}">
                                 <tree>
                                     <field name="timesheet_date" />
@@ -46,7 +46,8 @@
                     </group>
                     <button type="object" name="button_compute_summary"
                             string="Get monthly hours"/>
-                    <field name="resume_id">
+                    <field name="resume_ids"
+                           context="{'default_project_id': active_id}">
                         <tree>
                             <field name="timesheet_date" />
                             <field name="employee_id" />
@@ -88,6 +89,69 @@
         <field name="model_id" ref="project_analysis.model_project_analytic_summary" />
         <field name="code">model.compute_all()</field>
         <field name="binding_model_id" ref="project_analysis.model_project_analytic_summary"/>
+    </record>
+
+    <record id="action_compute_monthly_hour" model="ir.actions.server">
+        <field name="name">Compute Monthly Hour</field>
+        <field name="type">ir.actions.server</field>
+        <field name="state">code</field>
+        <field name="model_id" ref="project.model_project_project" />
+        <field name="binding_model_id" ref="project.model_project_project" />
+        <field name="code">
+if records:
+    action = records.button_compute_all_monthly_hour()
+        </field>
+    </record>
+
+    <record id="action_compute_monthly_line" model="ir.actions.server">
+        <field name="name">Compute Monthly Line</field>
+        <field name="type">ir.actions.server</field>
+        <field name="state">code</field>
+        <field name="model_id" ref="project.model_project_project" />
+        <field name="binding_model_id" ref="project.model_project_project" />
+        <field name="code">
+if records:
+    action = records.button_compute_all_monthly_line()
+        </field>
+    </record>
+
+    <record id="action_compute_monthly_nonoperative" model="ir.actions.server">
+        <field name="name">Compute Monthly Line</field>
+        <field name="type">ir.actions.server</field>
+        <field name="state">code</field>
+        <field name="model_id" ref="project.model_project_project" />
+        <field name="binding_model_id" ref="project.model_project_project" />
+        <field name="code">
+if records:
+    action = records.button_compute_all_monthly_nonoperative()
+        </field>
+    </record>
+
+    <record id="action_compute_all_summary" model="ir.actions.server">
+        <field name="name">Compute All Summary</field>
+        <field name="type">ir.actions.server</field>
+        <field name="state">code</field>
+        <field name="model_id" ref="project.model_project_project" />
+        <field name="binding_model_id" ref="project.model_project_project" />
+        <field name="code">
+if records:
+    action = records.button_compute_all_summary()
+        </field>
+    </record>
+
+    <record id="action_compute_all" model="ir.actions.server">
+        <field name="name">Compute All</field>
+        <field name="type">ir.actions.server</field>
+        <field name="state">code</field>
+        <field name="model_id" ref="project.model_project_project" />
+        <field name="binding_model_id" ref="project.model_project_project" />
+        <field name="code">
+if records:
+    action = records.button_compute_all_monthly_hour()
+    action = records.button_compute_all_monthly_line()
+    action = records.button_compute_all_monthly_nonoperative()
+    action = records.button_compute_all_summary()
+        </field>
     </record>
 
 </odoo>

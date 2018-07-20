@@ -23,7 +23,7 @@ def get_month_startdate_enddate(date=None):
 class ProjectProject(models.Model):
     _inherit = 'project.project'
 
-    resume_id = fields.One2many(
+    resume_ids = fields.One2many(
         comodel_name='project.analytic.summary', inverse_name='project_id',
         string='Summary', readonly=True)
     monthly_hour_ids = fields.One2many(
@@ -69,6 +69,17 @@ class ProjectProject(models.Model):
             for line in lines:
                 hours |= hour_obj.create(line)
 
+    def button_compute_all_monthly_hour(self):
+        lines = self.env['account.analytic.line'].search([
+            ('project_id', 'in', self.ids),
+            ('employee_id', '!=', False),
+        ], limit=1, order='date ASC')
+        today = str2date(fields.Date.today())
+        date = str2date(lines[:1].date) or today
+        while date < today:
+            self.compute_monthly_hour(date=date)
+            date += relativedelta(months=1)
+
     @api.multi
     def button_compute_monthly_line(self):
         self.compute_monthly_line()
@@ -106,6 +117,17 @@ class ProjectProject(models.Model):
                     'timesheet_date': startdate,
                 })
 
+    def button_compute_all_monthly_line(self):
+        lines = self.env['account.analytic.line'].search([
+            ('project_id', 'in', self.ids),
+            ('employee_id', '=', False),
+        ], limit=1, order='date ASC')
+        today = str2date(fields.Date.today())
+        date = str2date(lines[:1].date) or today
+        while date < today:
+            self.compute_monthly_line(date=date)
+            date += relativedelta(months=1)
+
     @api.multi
     def button_compute_monthly_nonoperative(self):
         self.compute_monthly_nonoperative()
@@ -125,7 +147,7 @@ class ProjectProject(models.Model):
                 ('related_operative_area_ids', 'in', project.res_area_id.id)])
             nonop_projects = self.search([
                 ('res_area_id', 'in', areas.ids)])
-            nonop_projects.button_compute_monthly_line()
+            nonop_projects.button_compute_monthly_line(date=date)
             lines = nonop_projects.mapped('monthly_line_ids').filtered(
                 lambda l: l.timesheet_date == date2str(startdate))
             amount = sum(lines.mapped('amount'))
@@ -135,12 +157,29 @@ class ProjectProject(models.Model):
                 'amount': amount,
             })
 
+    def button_compute_all_monthly_nonoperative(self):
+        lines = self.env['account.analytic.line'].search([
+            ('project_id', 'in', self.ids),
+            ('employee_id', '=', False),
+        ], limit=1, order='date ASC')
+        today = str2date(fields.Date.today())
+        date = str2date(lines[:1].date) or today
+        while date < today:
+            self.compute_monthly_nonoperative(date=date)
+            date += relativedelta(months=1)
+
     @api.multi
     def button_compute_summary(self):
-        startdate, enddate = get_month_startdate_enddate()
+        self.compute_summary()
+        return True
+
+    def compute_summary(self, date=None):
+        if not date:
+            date = fields.Date.today()
+        startdate, enddate = get_month_startdate_enddate(date)
         summary_obj = summaries = self.env['project.analytic.summary']
         for project in self:
-            project.button_compute_monthly_hour()
+            project.compute_monthly_hour(date=date)
             self.env.cr.execute("""
                 SELECT
                   date_trunc('month', date) AS timesheet_date,
@@ -161,6 +200,16 @@ class ProjectProject(models.Model):
                 summaries |= summary_obj.create(line)
         return True
 
+    def button_compute_all_summary(self):
+        lines = self.env['account.analytic.line'].search([
+            ('project_id', 'in', self.ids),
+        ], limit=1, order='date ASC')
+        today = str2date(fields.Date.today())
+        date = str2date(lines[:1].date) or today
+        while date < today:
+            self.compute_summary(date=date)
+            date += relativedelta(months=1)
+
 
 class ProjectAnalyticMonthlyHours(models.Model):
     _name = 'project.analytic.monthly_hour'
@@ -173,6 +222,12 @@ class ProjectAnalyticMonthlyHours(models.Model):
     timesheet_date = fields.Date(string='Date')
     unit_amount = fields.Float(string='Quantity')
 
+    _sql_constraints = [
+        ('project_employee_hour_unique',
+         'unique(timesheet_date, project_id, employee_id)',
+         'There can only be one hour line per employee and project per month'),
+    ]
+
 
 class ProjectAnalyticMonthlyLine(models.Model):
     _name = 'project.analytic.monthly_line'
@@ -184,6 +239,12 @@ class ProjectAnalyticMonthlyLine(models.Model):
     amount = fields.Float(string='Amount')
     payroll = fields.Float(string='Payroll', compute='_compute_payroll')
 
+    _sql_constraints = [
+        ('project_employee_hour_unique',
+         'unique(timesheet_date, project_id)',
+         'There can only be one line per project per month'),
+    ]
+
     @api.depends('timesheet_date')
     def _compute_payroll(self):
         account = self.env.ref('project_analysis.employee_payroll_account')
@@ -192,7 +253,8 @@ class ProjectAnalyticMonthlyLine(models.Model):
             startdate, enddate = get_month_startdate_enddate(
                 line.timesheet_date)
             analytic_lines = analytic_line_obj.search([
-                ('date', '>=', startdate), ('date', '<=', enddate),
+                ('date', '>=', startdate),
+                ('date', '<=', enddate),
                 ('account_id', '=', account.id),
             ])
             line.payroll = sum(analytic_lines.mapped('amount'))
@@ -205,6 +267,13 @@ class ProjectAnalyticMonthlyNonoperative(models.Model):
         comodel_name='project.project', string='Project', required=True)
     timesheet_date = fields.Date(string='Date')
     amount = fields.Float(string='Amount')
+
+
+    _sql_constraints = [
+        ('project_month_unique',
+         'unique(timesheet_date, project_id)',
+         'There can only be one line per project per month'),
+    ]
 
 
 class ProjectAnalyticSummary(models.Model):
@@ -232,7 +301,13 @@ class ProjectAnalyticSummary(models.Model):
         # store=True, group_operator='avg')
     percent_payroll = fields.Float(
         string='Payroll Percent', compute='_compute_monthly_payroll',)
-    #     # store=True, group_operator='sum')
+        # store=True, group_operator='sum')
+
+    _sql_constraints = [
+        ('project_employee_summary_unique',
+         'unique(timesheet_date, project_id, employee_id)',
+         'There can only be one line per project and employee per month'),
+    ]
 
     def compute_all(self):
         created = self
@@ -272,8 +347,6 @@ class ProjectAnalyticSummary(models.Model):
     def _compute_payroll(self):
         account = self.env.ref('project_analysis.employee_payroll_account')
         analytic_line_obj = self.env['account.analytic.line']
-        account_group = self.env.ref('l10n_es.account_group_64')
-        move_line_obj = self.env['account.move.line']
         for line in self.filtered('monthly_amount'):
             startdate, enddate = get_month_startdate_enddate(
                 line.timesheet_date)
@@ -281,18 +354,9 @@ class ProjectAnalyticSummary(models.Model):
                 ('date', '>=', startdate), ('date', '<=', enddate),
                 ('move_id.partner_id', '=', line.employee_id.address_id.id),
                 ('account_id', '=', account.id),
-                # '|', ('general_account_id.group_id', '=', account_group.id),
-                # ('general_account_id.group_id', 'child_of', account_group.id),
             ])
-            # move_lines = move_line_obj.search([
-            #     ('date', '=', line.timesheet_date),
-            #     ('partner_id', '=', line.employee_id.address_id.id),
-            #     '|', ('account_id.group_id', '=', account_group.id),
-            #     ('account_id.group_id', 'child_of', account_group.id),
-            # ])
             percent = line.unit_amount / line.monthly_amount
             line.payroll = sum(analytic_lines.mapped('amount')) * percent
-            # line.payroll = sum(move_lines.mapped('debit')) * percent
 
     @api.depends('timesheet_date', 'payroll', 'project_id.monthly_line_ids',
                  'project_id.monthly_line_ids.payroll')
