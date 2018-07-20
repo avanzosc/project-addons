@@ -27,14 +27,14 @@ class ProjectProject(models.Model):
         comodel_name='project.analytic.summary', inverse_name='project_id',
         string='Summary', readonly=True)
     monthly_hour_ids = fields.One2many(
-        comodel_name='project.analytic.monthly_hour', inverse_name='project_id',
-        string='Monthly Hours')
+        comodel_name='project.analytic.monthly_hour',
+        inverse_name='project_id', string='Monthly Hours')
     monthly_line_ids = fields.One2many(
-        comodel_name='project.analytic.monthly_line', inverse_name='project_id',
-        string='Monthly Cost/Revenue')
+        comodel_name='project.analytic.monthly_line',
+        inverse_name='project_id', string='Monthly Cost/Revenue')
     monthly_nonoperative_ids = fields.One2many(
-        comodel_name='project.analytic.nonoperative', inverse_name='project_id',
-        string='Non Operative Monthly Cost/Revenue')
+        comodel_name='project.analytic.nonoperative',
+        inverse_name='project_id', string='Non Operative Monthly Cost/Revenue')
 
     @api.multi
     def button_compute_monthly_hour(self):
@@ -268,7 +268,6 @@ class ProjectAnalyticMonthlyNonoperative(models.Model):
     timesheet_date = fields.Date(string='Date')
     amount = fields.Float(string='Amount')
 
-
     _sql_constraints = [
         ('project_month_unique',
          'unique(timesheet_date, project_id)',
@@ -295,13 +294,13 @@ class ProjectAnalyticSummary(models.Model):
         store=True, group_operator='sum')
     payroll = fields.Float(
         string='Payroll', compute='_compute_payroll',)
-        # store=True, group_operator='sum')
+    # store=True, group_operator='sum')
     monthly_payroll = fields.Float(
         string='Monthly Payroll', compute='_compute_monthly_payroll',)
-        # store=True, group_operator='avg')
+    # store=True, group_operator='avg')
     percent_payroll = fields.Float(
         string='Payroll Percent', compute='_compute_monthly_payroll',)
-        # store=True, group_operator='sum')
+    # store=True, group_operator='sum')
 
     _sql_constraints = [
         ('project_employee_summary_unique',
@@ -330,7 +329,8 @@ class ProjectAnalyticSummary(models.Model):
         created._compute_monthly_amount()
         return True
 
-    @api.depends('timesheet_date', 'unit_amount', 'project_id.monthly_hour_ids',
+    @api.depends('timesheet_date', 'unit_amount',
+                 'project_id.monthly_hour_ids',
                  'project_id.monthly_hour_ids.unit_amount', 'employee_id')
     def _compute_monthly_amount(self):
         hour_obj = self.env['project.analytic.monthly_hour']
