@@ -59,7 +59,7 @@ class ProjectParticipant(models.Model):
             if (record.planned_hours_percentage < 0.0 or
                     record.planned_hours_percentage > 100.0):
                 raise ValidationError(
-                    _('Percentages for must be between 0 and 100.'))
+                    _('Percentages must be between 0 and 100.'))
 
     @api.multi
     @api.depends('project_id', 'project_id.planned_hours',
@@ -78,6 +78,7 @@ class ProjectParticipant(models.Model):
             participant.task_planned_hours = (
                 participant.project_id.task_planned_hours *
                 (participant.planned_hours_percentage / 100.0))
+
 
 class ProjectParticipantRol(models.Model):
     _name = 'project.participant.rol'
