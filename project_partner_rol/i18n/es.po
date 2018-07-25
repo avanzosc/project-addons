@@ -53,7 +53,7 @@ msgstr "Tiempo estimado para realizar la tarea, normalmente fijado por el respon
 #. module: project_partner_rol
 #: model:ir.model.fields,help:project_partner_rol.field_project_project_planned_hours
 msgid "Estimated time to do the task, usually set by the project manager."
-msgstr "Estimated time to do the task, usually set by the project manager."
+msgstr "Tiempo estimado para realizar la tarea, normalmente fijado por el responsable del proyecto."
 
 #. module: project_partner_rol
 #: model:ir.ui.view,arch_db:project_partner_rol.project_participant_search_view
@@ -117,7 +117,7 @@ msgstr "Empresa"
 #. module: project_partner_rol
 #: model:ir.ui.view,arch_db:project_partner_rol.project_project_planned_hours_form_view
 msgid "Percentage"
-msgstr "Percentage"
+msgstr "Porcentaje"
 
 #. module: project_partner_rol
 #: model:ir.model.fields,field_description:project_partner_rol.field_project_participant_planned_hours_percentage
@@ -133,7 +133,7 @@ msgstr "El porcentaje debe estar entre 0 y 100."
 #. module: project_partner_rol
 #: model:ir.model.fields,field_description:project_partner_rol.field_res_config_settings_group_planned_hours_project
 msgid "Planned Hours"
-msgstr "Horas planeadas"
+msgstr "Horas planificadas"
 
 #. module: project_partner_rol
 #: model:ir.model,name:project_partner_rol.model_project_project

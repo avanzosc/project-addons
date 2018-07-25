@@ -2,13 +2,18 @@
    :target: https://www.gnu.org/licenses/agpl-3.0-standalone.html
    :alt: License: AGPL-3
 
-===================
-Project partner rol
-===================
+=======================
+Project - Partner roles
+=======================
 
- * Two new objects "Project participants", "Roles of project participants".
- * In project form show new fields: location, participants, Analytic account
-   code.
+With this module you can configure different participants for project assigning
+them a role into the project. You can define different roles, and a participant
+can have different role in each project.
+
+This module makes also visible in project:
+ * Location
+ * Code from analytic account
+
 
 Bug Tracker
 ===========

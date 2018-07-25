@@ -4,6 +4,19 @@ from odoo import _, api, fields, models
 from odoo.exceptions import ValidationError
 from odoo.addons import decimal_precision as dp
 
+from dateutil import relativedelta
+
+str2datetime = fields.Datetime.from_string
+
+
+def relativedelta2months(delta):
+    if not delta:
+        return 0.0
+    months = delta.months or 0.0
+    months += (delta.years or 0.0) * 12
+    months += (delta.days or 0.0) / 30
+    return months
+
 
 class ProjectProject(models.Model):
     _inherit = 'project.project'
@@ -22,14 +35,47 @@ class ProjectProject(models.Model):
         help='Estimated time to do the task, usually set by the project '
              'manager when the task is in draft state.',
         compute='_compute_task_planned_hours')
+    planned_date_start = fields.Datetime()
+    planned_date_end = fields.Datetime()
+    planned_date_margin = fields.Float(compute='_compute_planned_dates')
+    task_date_start = fields.Datetime(compute='_compute_task_dates')
+    task_date_end = fields.Datetime(compute='_compute_task_dates')
+    task_date_margin = fields.Float(compute='_compute_task_dates')
 
     @api.multi
     def _compute_task_planned_hours(self):
-        tasks = self.env['project.task'].search([])
+        tasks = self.env['project.task'].search([
+            ('project_id', 'in', self.ids)])
         for project in self:
             project.task_planned_hours = sum(
                 tasks.filtered(lambda t: t.project_id.id == project.id).mapped(
                     'planned_hours'))
+
+    @api.multi
+    @api.depends('planned_date_start', 'planned_date_end')
+    def _compute_planned_dates(self):
+        for project in self.filtered(
+                lambda p: p.planned_date_start and p.planned_date_end):
+            project.planned_date_margin = relativedelta2months(
+                relativedelta.relativedelta(
+                    str2datetime(project.planned_date_end),
+                    str2datetime(project.planned_date_start)))
+
+    @api.multi
+    def _compute_task_dates(self):
+        tasks = self.env['project.task'].search([
+            ('project_id', 'in', self.ids)])
+        for project in self:
+            project.task_date_start = min(
+                tasks.filtered(lambda t: t.project_id.id == project.id and
+                               t.date_start).mapped('date_start'))
+            project.task_date_end = max(
+                tasks.filtered(lambda t: t.project_id.id == project.id and
+                               t.date_end).mapped('date_end'))
+            project.task_date_margin = relativedelta2months(
+                relativedelta.relativedelta(
+                    str2datetime(project.task_date_end),
+                    str2datetime(project.task_date_start)))
 
 
 class ProjectParticipant(models.Model):
@@ -51,6 +97,10 @@ class ProjectParticipant(models.Model):
     task_planned_hours = fields.Float(
         string='Initially Planned Hours',
         compute='_compute_task_planned_hours')
+    monthly_planned_hours = fields.Float(
+        compute='_compute_monthly_planned_hours')
+    monthly_task_planned_hours = fields.Float(
+        compute='_compute_monthly_task_planned_hours')
 
     @api.multi
     @api.constrains('planned_hours_percentage')
@@ -78,6 +128,24 @@ class ProjectParticipant(models.Model):
             participant.task_planned_hours = (
                 participant.project_id.task_planned_hours *
                 (participant.planned_hours_percentage / 100.0))
+
+    @api.multi
+    @api.depends('project_planned_hours', 'project_id',
+                 'project_id.planned_date_margin')
+    def _compute_monthly_planned_hours(self):
+        for participant in self:
+            participant.monthly_planned_hours = (
+                participant.project_planned_hours /
+                participant.project_id.planned_date_margin)
+
+    @api.multi
+    @api.depends('task_planned_hours', 'project_id',
+                 'project_id.task_date_margin')
+    def _compute_monthly_task_planned_hours(self):
+        for participant in self:
+            participant.monthly_task_planned_hours = (
+                participant.task_planned_hours /
+                participant.project_id.task_date_margin)
 
 
 class ProjectParticipantRol(models.Model):
