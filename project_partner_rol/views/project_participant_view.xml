@@ -12,6 +12,19 @@
         </field>
     </record>
 
+    <record id="project_participant_planned_hour_tree_view" model="ir.ui.view">
+        <field name="name">project.participant.planned_hour.tree</field>
+        <field name="model">project.participant</field>
+        <field name="inherit_id" ref="project_partner_rol.project_participant_tree_view" />
+        <field name="arch" type="xml">
+            <field name="rol_id" position="after">
+                <field name="planned_hours_percentage" />
+                <field name="project_planned_hours" widget="float_time" sum="Project Hours"/>
+                <field name="task_planned_hours" widget="float_time" sum="Task Hours"/>
+            </field>
+        </field>
+    </record>
+
     <record id="project_participant_search_view" model="ir.ui.view">
         <field name="name">project.participant.search</field>
         <field name="model">project.participant</field>
@@ -39,12 +52,25 @@
             <form string="Project participant">
                 <sheet>
                     <group name="head">
-                        <field name="project_id" colspan="4" />
-                        <field name="partner_id" colspan="4" />
-                        <field name="rol_id" colspan="4" />
+                        <field name="project_id" />
+                        <field name="partner_id"  />
+                        <field name="rol_id" />
                     </group>
                 </sheet>
             </form>
+        </field>
+    </record>
+
+    <record id="project_participant_planned_hour_form_view" model="ir.ui.view">
+        <field name="name">project.participant.planned_hour.form</field>
+        <field name="model">project.participant</field>
+        <field name="inherit_id" ref="project_partner_rol.project_participant_form_view" />
+        <field name="arch" type="xml">
+            <field name="rol_id" position="after">
+                <field name="planned_hours_percentage" />
+                <field name="project_planned_hours" widget="float_time" />
+                <field name="task_planned_hours" widget="float_time" />
+            </field>
         </field>
     </record>
 
