@@ -22,6 +22,8 @@
                 <field name="planned_hours_percentage" />
                 <field name="project_planned_hours" widget="float_time" sum="Project Hours"/>
                 <field name="task_planned_hours" widget="float_time" sum="Task Hours"/>
+                <field name="monthly_planned_hours" widget="float_time" />
+                <field name="monthly_task_planned_hours" widget="float_time" />
             </field>
         </field>
     </record>

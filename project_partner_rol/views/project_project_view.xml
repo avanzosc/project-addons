@@ -32,13 +32,11 @@
         <field name="inherit_id" ref="project_partner_rol.edit_project_inh_partner_rol" />
         <field name="groups_id" eval="[(4, ref('project_partner_rol.group_planned_hours_project'))]"/>
         <field name="arch" type="xml">
-            <xpath expr="//div[@name='options_active']" position="after">
+            <xpath expr="//div[@class='oe_title']" position="after">
                 <group>
                     <group string="Planned Hours">
-                        <label for="planned_hours" string="By Project" />
-                        <field name="planned_hours" class="oe_inline" widget="float_time" />
-                        <label for="task_planned_hours" string="By Tasks" />
-                        <field name="task_planned_hours" widget="float_time" />
+                        <field name="planned_hours" string="By Project" widget="float_time" />
+                        <field name="task_planned_hours" string="By Tasks" widget="float_time" />
                     </group>
                     <group string="Periods">
                         <label for="planned_date_start" string="By Project"/>
@@ -46,13 +44,13 @@
                             <field name="planned_date_start" class="oe_inline" /> -
                             <field name="planned_date_end" class="oe_inline" nolabel="1"/>
                         </div>
-                        <field name="planned_date_margin" />
+                        <field name="planned_date_margin" invisible="True"/>
                         <label for="task_date_start" string="By Tasks"/>
                         <div>
                             <field name="task_date_start" class="oe_inline" /> -
                             <field name="task_date_end" class="oe_inline" nolabel="1"/>
                         </div>
-                        <field name="task_date_margin" />
+                        <field name="task_date_margin" invisible="True"/>
                     </group>
                 </group>
             </xpath>
@@ -63,8 +61,8 @@
                        widget="float_time" sum="Project Hours" />
                 <field name="task_planned_hours" string="By Tasks"
                        widget="float_time" sum="Task Hours" />
-                <field name="monthly_planned_hours" />
-                <field name="monthly_task_planned_hours" />
+                <field name="monthly_planned_hours" widget="float_time" sum=""/>
+                <field name="monthly_task_planned_hours" widget="float_time" />
             </xpath>
         </field>
     </record>

@@ -98,8 +98,10 @@ class ProjectParticipant(models.Model):
         string='Initially Planned Hours',
         compute='_compute_task_planned_hours')
     monthly_planned_hours = fields.Float(
+        string='Monthly Hours',
         compute='_compute_monthly_planned_hours')
     monthly_task_planned_hours = fields.Float(
+        string='Monthly Hours',
         compute='_compute_monthly_task_planned_hours')
 
     @api.multi
