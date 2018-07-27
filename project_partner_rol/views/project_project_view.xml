@@ -32,7 +32,7 @@
         <field name="inherit_id" ref="project_partner_rol.edit_project_inh_partner_rol" />
         <field name="groups_id" eval="[(4, ref('project_partner_rol.group_planned_hours_project'))]"/>
         <field name="arch" type="xml">
-            <xpath expr="//div[@class='oe_title']" position="after">
+            <xpath expr="//div[hasclass('oe_title')]" position="after">
                 <group>
                     <group string="Planned Hours">
                         <field name="planned_hours" string="By Project" widget="float_time" />

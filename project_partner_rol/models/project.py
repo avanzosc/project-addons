@@ -65,7 +65,7 @@ class ProjectProject(models.Model):
     def _compute_task_dates(self):
         tasks = self.env['project.task'].search([
             ('project_id', 'in', self.ids)])
-        for project in self:
+        for project in self.filtered('task_ids'):
             project.task_date_start = min(
                 tasks.filtered(lambda t: t.project_id.id == project.id and
                                t.date_start).mapped('date_start'))
