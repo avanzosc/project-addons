@@ -138,7 +138,8 @@ class ProjectParticipant(models.Model):
         for participant in self:
             participant.monthly_planned_hours = (
                 participant.project_planned_hours /
-                participant.project_id.planned_date_margin)
+                participant.project_id.planned_date_margin
+                if participant.project_id.planned_date_margin else 0.0)
 
     @api.multi
     @api.depends('task_planned_hours', 'project_id',
@@ -147,7 +148,8 @@ class ProjectParticipant(models.Model):
         for participant in self:
             participant.monthly_task_planned_hours = (
                 participant.task_planned_hours /
-                participant.project_id.task_date_margin)
+                participant.project_id.task_date_margin
+                if participant.project_id.task_date_margin else 0.0)
 
 
 class ProjectParticipantRol(models.Model):
