@@ -14,6 +14,9 @@ This module makes also visible in project:
  * Location
  * Code from analytic account
 
+There is a new view in order to view different time configurations, that is only
+visible for a group. You can configure it in settings or select only those users
+that will be allowed to see it. This info is only for planning purposes.
 
 Bug Tracker
 ===========
