@@ -66,12 +66,16 @@ class ProjectProject(models.Model):
         tasks = self.env['project.task'].search([
             ('project_id', 'in', self.ids)])
         for project in self.filtered('task_ids'):
-            project.task_date_start = min(
-                tasks.filtered(lambda t: t.project_id.id == project.id and
-                               t.date_start).mapped('date_start'))
-            project.task_date_end = max(
-                tasks.filtered(lambda t: t.project_id.id == project.id and
-                               t.date_end).mapped('date_end'))
+            project_tasks = tasks.filtered(
+                lambda t: t.project_id.id == project.id)
+            start_dates = (
+                project_tasks.filtered('date_start').mapped('date_start'))
+            if start_dates:
+                project.task_date_start = min(start_dates)
+            end_dates = (
+                project_tasks.filtered('date_end').mapped('date_end'))
+            if end_dates:
+                project.task_date_end = max(end_dates)
             project.task_date_margin = relativedelta2months(
                 relativedelta.relativedelta(
                     str2datetime(project.task_date_end),

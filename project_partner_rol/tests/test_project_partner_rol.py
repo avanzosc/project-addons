@@ -41,6 +41,13 @@ class TestProjectPartnerRol(SavepointCase):
                 participant.project_planned_hours,
                 (participant.project_id.planned_hours *
                  (participant.planned_hours_percentage / 100.0)))
+        self.project.task_ids.create({
+            'project_id': self.project.id,
+            'name': 'Test Task',
+        })
+        self.project.invalidate_cache()
+        self.assertTrue(self.project.task_date_start)
+        self.assertFalse(self.project.task_date_end)
 
     def test_project_task_data(self):
         task = self.project.task_ids.create({
