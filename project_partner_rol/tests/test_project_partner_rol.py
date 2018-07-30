@@ -87,3 +87,9 @@ class TestProjectPartnerRol(SavepointCase):
         participant.write({
             'planned_hours_percentage': 0.0,
         })
+
+    def test_start_end_same_date(self):
+        self.project.write({
+            'planned_date_end': self.project.planned_date_start,
+        })
+        self.assertFalse(self.project.planned_date_margin)
