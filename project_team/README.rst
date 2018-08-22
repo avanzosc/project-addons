@@ -6,6 +6,16 @@
 Project Team
 ============
 
+This module is intended to define a team for the project. A team is composed
+of system users, each of them can take part with a percent of the time that
+the project is going to take.
+
+The project time can be defined by project or taken from the planned time of
+the project tasks.
+
+To compute how many hours a member is going to spend working on the project
+there also are start and end dates, that can be defined per project or they
+can be taken from its tasks.
 
 Bug Tracker
 ===========
