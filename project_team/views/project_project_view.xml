@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <record id="project_project_members_form_view" model="ir.ui.view">
+        <field name="name">project.project.members.form</field>
+        <field name="model">project.project</field>
+        <field name="priority">25</field>
+        <field name="inherit_id" ref="project.edit_project"/>
+        <field name="arch" type="xml">
+            <xpath expr="//div[hasclass('oe_title')]" position="after">
+                <group>
+                    <group string="Planned Hours">
+                        <field name="planned_hours" string="By Project" widget="float_time" />
+                        <field name="task_planned_hours" string="By Tasks" widget="float_time" />
+                    </group>
+                    <group string="Periods">
+                        <label for="planned_date_start" string="By Project"/>
+                        <div>
+                            <field name="planned_date_start" class="oe_inline" /> -
+                            <field name="planned_date_end" class="oe_inline" nolabel="1"/>
+                        </div>
+                        <field name="planned_date_margin" invisible="True"/>
+                        <label for="task_date_start" string="By Tasks"/>
+                        <div>
+                            <field name="task_date_start" class="oe_inline" /> -
+                            <field name="task_date_end" class="oe_inline" nolabel="1"/>
+                        </div>
+                        <field name="task_date_margin" invisible="True"/>
+                    </group>
+                </group>
+            </xpath>
+            <page name="settings" position="before">
+                <page name="project_team" string="Members">
+                    <label for="member_ids" />
+                    <field name="member_ids" nolabel="1"
+                           context="{'default_project_id':active_id}">
+                        <tree string="Project Team">
+                            <field name="project_id" invisible="1" />
+                            <field name="user_id" />
+                            <field name="planned_hours_percentage" sum="Percentage" />
+                            <field name="project_planned_hours" string="By Project"
+                                   widget="float_time" sum="Project Hours" />
+                            <field name="task_planned_hours" string="By Tasks"
+                                   widget="float_time" sum="Task Hours" />
+                            <field name="monthly_planned_hours" widget="float_time" />
+                            <field name="monthly_task_planned_hours" widget="float_time" />
+                        </tree>
+                    </field>
+                </page>
+             </page>
+        </field>
+    </record>
+</odoo>
