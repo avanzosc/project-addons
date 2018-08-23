@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 11.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-05-29 13:37+0000\n"
-"PO-Revision-Date: 2018-05-29 13:37+0000\n"
+"POT-Creation-Date: 2018-07-25 10:10+0000\n"
+"PO-Revision-Date: 2018-07-25 10:10+0000\n"
 "Last-Translator: <>\n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -46,15 +46,33 @@ msgid "Display Name"
 msgstr "Nombre mostrado"
 
 #. module: project_partner_rol
+#: model:ir.model.fields,help:project_partner_rol.field_project_project_task_planned_hours
+msgid "Estimated time to do the task, usually set by the project manager when the task is in draft state."
+msgstr "Tiempo estimado para realizar la tarea, normalmente fijado por el responsable del proyecto cuando la tarea está en estado borrador."
+
+#. module: project_partner_rol
+#: model:ir.model.fields,help:project_partner_rol.field_project_project_planned_hours
+msgid "Estimated time to do the task, usually set by the project manager."
+msgstr "Tiempo estimado para realizar la tarea, normalmente fijado por el responsable del proyecto."
+
+#. module: project_partner_rol
 #: model:ir.ui.view,arch_db:project_partner_rol.project_participant_search_view
 msgid "Group By"
 msgstr "Agrupar por"
 
 #. module: project_partner_rol
 #: model:ir.model.fields,field_description:project_partner_rol.field_project_participant_id
-#: model:ir.model.fields,field_description:project_partner_rol.field_project_participant_rol_id_6766
+#: model:ir.model.fields,field_description:project_partner_rol.field_project_participant_rol_id_5203
 msgid "ID"
 msgstr "ID (identificación)"
+
+#. module: project_partner_rol
+#: model:ir.model.fields,field_description:project_partner_rol.field_project_participant_project_planned_hours
+#: model:ir.model.fields,field_description:project_partner_rol.field_project_participant_task_planned_hours
+#: model:ir.model.fields,field_description:project_partner_rol.field_project_project_planned_hours
+#: model:ir.model.fields,field_description:project_partner_rol.field_project_project_task_planned_hours
+msgid "Initially Planned Hours"
+msgstr "Horas iniciales planificadas"
 
 #. module: project_partner_rol
 #: model:ir.model.fields,field_description:project_partner_rol.field_project_participant___last_update
@@ -97,11 +115,38 @@ msgid "Partner"
 msgstr "Empresa"
 
 #. module: project_partner_rol
+#: model:ir.ui.view,arch_db:project_partner_rol.project_project_planned_hours_form_view
+msgid "Percentage"
+msgstr "Porcentaje"
+
+#. module: project_partner_rol
+#: model:ir.model.fields,field_description:project_partner_rol.field_project_participant_planned_hours_percentage
+msgid "Percentage (%)"
+msgstr "Porcentaje (%)"
+
+#. module: project_partner_rol
+#: code:addons/project_partner_rol/models/project.py:62
+#, python-format
+msgid "Percentages must be between 0 and 100."
+msgstr "El porcentaje debe estar entre 0 y 100."
+
+#. module: project_partner_rol
+#: model:ir.model.fields,field_description:project_partner_rol.field_res_config_settings_group_planned_hours_project
+msgid "Planned Hours"
+msgstr "Horas planificadas"
+
+#. module: project_partner_rol
 #: model:ir.model,name:project_partner_rol.model_project_project
 #: model:ir.model.fields,field_description:project_partner_rol.field_project_participant_project_id
 #: model:ir.ui.view,arch_db:project_partner_rol.project_participant_search_view
 msgid "Project"
 msgstr "Proyecto"
+
+#. module: project_partner_rol
+#: model:ir.ui.view,arch_db:project_partner_rol.project_participant_planned_hour_tree_view
+#: model:ir.ui.view,arch_db:project_partner_rol.project_project_planned_hours_form_view
+msgid "Project Hours"
+msgstr "Horas de proyecto"
 
 #. module: project_partner_rol
 #: model:ir.ui.view,arch_db:project_partner_rol.project_participant_form_view
@@ -145,4 +190,25 @@ msgstr "Buscar participantes en proyectos"
 #: model:ir.ui.view,arch_db:project_partner_rol.project_participant_rol_search_view
 msgid "Search roles of project participants"
 msgstr "Buscar roles de participantes de proyectos"
+
+#. module: project_partner_rol
+#: model:res.groups,name:project_partner_rol.group_planned_hours_project
+msgid "See Project Planned Hours"
+msgstr "Ver horas planificadas"
+
+#. module: project_partner_rol
+#: model:ir.ui.view,arch_db:project_partner_rol.res_config_settings_project_form_view
+msgid "See planned hours of project and assign time percentage to participants"
+msgstr "Ver las horas planificadas de proyecto y asignar porcentaje de participación"
+
+#. module: project_partner_rol
+#: model:ir.ui.view,arch_db:project_partner_rol.project_participant_planned_hour_tree_view
+#: model:ir.ui.view,arch_db:project_partner_rol.project_project_planned_hours_form_view
+msgid "Task Hours"
+msgstr "Horas de tareas"
+
+#. module: project_partner_rol
+#: model:ir.model,name:project_partner_rol.model_res_config_settings
+msgid "res.config.settings"
+msgstr "res.config.settings"
 

@@ -2,37 +2,38 @@
    :target: https://www.gnu.org/licenses/agpl-3.0-standalone.html
    :alt: License: AGPL-3
 
-===================
-Project partner rol
-===================
+=======================
+Project - Partner roles
+=======================
 
- * Two new objects "Project participants", "Roles of project participants".
- * In project form show new fields: location, participants, Analytic account
-   code.
+With this module you can configure different participants for project assigning
+them a role into the project. You can define different roles, and a participant
+can have different role in each project.
 
-Configuration
-=============
+This module makes also visible in project:
+ * Location
+ * Code from analytic account
 
-
-Usage
-=====
-
-.. image:: https://odoo-community.org/website/image/ir.attachment/5784_f2813bd/datas
-   :alt: Try me on Runbot
-   :target: https://runbot.odoo-community.org/runbot/134/11.0
+There is a new view in order to view different time configurations, that is only
+visible for a group. You can configure it in settings or select only those users
+that will be allowed to see it. This info is only for planning purposes.
 
 Bug Tracker
 ===========
 
+Bugs are tracked on `GitHub Issues
+<https://github.com/avanzosc/project-addons/issues>`_. In case of trouble, please
+check there if your issue has already been reported. If you spotted it first,
+help us smash it by providing detailed and welcomed feedback.
 
 Credits
 =======
 
-Images
-------
-
 Contributors
 ------------
 
-* Ana Juaristi <ajuaristio@gmail.com>
+* Ana Juaristi <anajuaristi@avanzosc.es>
 * Alfredo de la Fuente <alfredodelafuente@avanzosc.es>
+* Oihane Crucelaegui <oihanecrucelaegi@avanzosc.es>
+
+Do not contact contributors directly about support or help with technical issues.
