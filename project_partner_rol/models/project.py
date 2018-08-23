@@ -91,6 +91,9 @@ class ProjectParticipant(models.Model):
         comodel_name='project.project', string='Project', required=True)
     partner_id = fields.Many2one(
         comodel_name='res.partner', string='Participant', required=True)
+    partner_user_ids = fields.One2many(
+        comodel_name='res.users', string='Users',
+        related='partner_id.user_ids')
     rol_id = fields.Many2one(
         comodel_name='project.participant.rol', string='Role')
     planned_hours_percentage = fields.Float(
