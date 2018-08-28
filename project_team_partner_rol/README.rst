@@ -6,6 +6,7 @@
 Project Team Partner Rol
 ========================
 
+This is a glue module between project_partner_rol and project_team.
 
 Bug Tracker
 ===========
@@ -25,4 +26,3 @@ Contributors
 * Ana Juaristi <anajuaristi@avanzosc.es>
 
 Do not contact contributors directly about support or help with technical issues.
-

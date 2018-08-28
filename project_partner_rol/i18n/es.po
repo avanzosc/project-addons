@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 11.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-07-25 10:10+0000\n"
-"PO-Revision-Date: 2018-07-25 10:10+0000\n"
+"POT-Creation-Date: 2018-08-28 08:25+0000\n"
+"PO-Revision-Date: 2018-08-28 08:25+0000\n"
 "Last-Translator: <>\n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -21,6 +21,16 @@ msgstr ""
 #: model:ir.ui.view,arch_db:project_partner_rol.view_project_tree_inh_partner_rol
 msgid "Analytic account code"
 msgstr "Código cuenta analítica"
+
+#. module: project_partner_rol
+#: model:ir.ui.view,arch_db:project_partner_rol.project_project_planned_hours_form_view
+msgid "By Project"
+msgstr "Por proyecto"
+
+#. module: project_partner_rol
+#: model:ir.ui.view,arch_db:project_partner_rol.project_project_planned_hours_form_view
+msgid "By Tasks"
+msgstr "Por tarea"
 
 #. module: project_partner_rol
 #: model:ir.model.fields,field_description:project_partner_rol.field_project_participant_create_uid
@@ -62,7 +72,7 @@ msgstr "Agrupar por"
 
 #. module: project_partner_rol
 #: model:ir.model.fields,field_description:project_partner_rol.field_project_participant_id
-#: model:ir.model.fields,field_description:project_partner_rol.field_project_participant_rol_id_5203
+#: model:ir.model.fields,field_description:project_partner_rol.field_project_participant_rol_id_2863
 msgid "ID"
 msgstr "ID (identificación)"
 
@@ -99,6 +109,12 @@ msgid "Location"
 msgstr "Ubicación"
 
 #. module: project_partner_rol
+#: model:ir.model.fields,field_description:project_partner_rol.field_project_participant_monthly_planned_hours
+#: model:ir.model.fields,field_description:project_partner_rol.field_project_participant_monthly_task_planned_hours
+msgid "Monthly Hours"
+msgstr "Horas por mes"
+
+#. module: project_partner_rol
 #: model:ir.model.fields,field_description:project_partner_rol.field_project_participant_partner_id
 msgid "Participant"
 msgstr "Participante"
@@ -125,13 +141,34 @@ msgid "Percentage (%)"
 msgstr "Porcentaje (%)"
 
 #. module: project_partner_rol
-#: code:addons/project_partner_rol/models/project.py:62
+#: code:addons/project_partner_rol/models/project.py:121
 #, python-format
 msgid "Percentages must be between 0 and 100."
 msgstr "El porcentaje debe estar entre 0 y 100."
 
 #. module: project_partner_rol
+#: model:ir.ui.view,arch_db:project_partner_rol.project_project_planned_hours_form_view
+msgid "Periods"
+msgstr "Periodos"
+
+#. module: project_partner_rol
+#: model:ir.model.fields,field_description:project_partner_rol.field_project_project_planned_date_end
+msgid "Planned Date End"
+msgstr "Fecha final planificada"
+
+#. module: project_partner_rol
+#: model:ir.model.fields,field_description:project_partner_rol.field_project_project_planned_date_margin
+msgid "Planned Date Margin"
+msgstr "Margen entre fechas planificadas"
+
+#. module: project_partner_rol
+#: model:ir.model.fields,field_description:project_partner_rol.field_project_project_planned_date_start
+msgid "Planned Date Start"
+msgstr "Fecha inicial planificada"
+
+#. module: project_partner_rol
 #: model:ir.model.fields,field_description:project_partner_rol.field_res_config_settings_group_planned_hours_project
+#: model:ir.ui.view,arch_db:project_partner_rol.project_project_planned_hours_form_view
 msgid "Planned Hours"
 msgstr "Horas planificadas"
 
@@ -202,10 +239,30 @@ msgid "See planned hours of project and assign time percentage to participants"
 msgstr "Ver las horas planificadas de proyecto y asignar porcentaje de participación"
 
 #. module: project_partner_rol
+#: model:ir.model.fields,field_description:project_partner_rol.field_project_project_task_date_end
+msgid "Task Date End"
+msgstr "Fecha final de tareas"
+
+#. module: project_partner_rol
+#: model:ir.model.fields,field_description:project_partner_rol.field_project_project_task_date_margin
+msgid "Task Date Margin"
+msgstr "Margen entre fechas de tareas"
+
+#. module: project_partner_rol
+#: model:ir.model.fields,field_description:project_partner_rol.field_project_project_task_date_start
+msgid "Task Date Start"
+msgstr "Fecha inicial de tareas"
+
+#. module: project_partner_rol
 #: model:ir.ui.view,arch_db:project_partner_rol.project_participant_planned_hour_tree_view
 #: model:ir.ui.view,arch_db:project_partner_rol.project_project_planned_hours_form_view
 msgid "Task Hours"
 msgstr "Horas de tareas"
+
+#. module: project_partner_rol
+#: model:ir.model.fields,field_description:project_partner_rol.field_project_participant_partner_user_ids
+msgid "Users"
+msgstr "Usuarios"
 
 #. module: project_partner_rol
 #: model:ir.model,name:project_partner_rol.model_res_config_settings

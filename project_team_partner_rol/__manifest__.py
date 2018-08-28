@@ -13,10 +13,8 @@
         "project_partner_rol",
     ],
     "data": [
-        # "security/project_security.xml",
         "views/project_project_view.xml",
-        # "views/res_config_settings_view.xml",
     ],
     "installable": True,
-    "auto_install": False,
+    "auto_install": True,
 }
