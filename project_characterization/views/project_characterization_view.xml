@@ -21,9 +21,6 @@
     <menuitem id="res_team_menuitem"
               parent="project_characterization_config_menuitem"
               action="base_characterization.res_team_action" />
-    <menuitem id="res_space_menuitem"
-              parent="project_characterization_config_menuitem"
-              action="base_characterization.res_space_action" />
     <menuitem id="res_target_menuitem"
               parent="project_characterization_config_menuitem"
               action="base_characterization.res_target_action" />
