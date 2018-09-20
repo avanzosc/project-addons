@@ -93,4 +93,17 @@
             </search>
         </field>
     </record>
+
+    <record model="ir.ui.view" id="crossovered_budget_line_pivot_view">
+        <field name="model">crossovered.budget.lines</field>
+        <field name="arch" type="xml">
+            <pivot string="Budget Lines">
+                <field name="project_id" type="row"/>
+                <field name="general_budget_id" type="col" />
+                <field name="planned_amount" type="measure"/>
+                <field name="initial_planned_amount" type="measure" />
+                <field name="practical_amount" type="measure" />
+            </pivot>
+        </field>
+    </record>
 </odoo>
