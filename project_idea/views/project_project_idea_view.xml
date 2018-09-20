@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <record model="ir.ui.view" id="project_project_idea_form_view">
+        <field name="name">project.project.idea.form</field>
+        <field name="model">project.project</field>
+        <field name="inherit_id" ref="project.edit_project" />
+        <field name="arch" type="xml">
+            <page name="settings" position="before">
+                <page name="IDEA" string="IDEA">
+                    <group name="ident_opt" string="Identificación de la Oportunidad">
+                        <group name="idea_left">
+                            <field name="author_id" />
+                            <field name="idea_date" />
+                            <field name="internal_goal" />
+                            <field name="customer_goal" />
+                            <field name="technical_approach" />
+                        </group>
+                        <group name="idea_right">
+                            <field name="idea_type"/>
+                            <field name="idea_origin"/>
+                            <field name="customer_id"/>
+                            <field name="financing"/>
+                            <field name="potential_customers"/>
+                        </group>
+                    </group>
+                </page>
+            </page>
+        </field>
+    </record>
+</odoo>
