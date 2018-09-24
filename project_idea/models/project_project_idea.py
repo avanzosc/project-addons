@@ -21,9 +21,6 @@ class ProjectProject(models.Model):
     idea_origin = fields.Selection(
         selection=[('internal', 'Internal'),
                    ('customer', 'Customer')], string='Origin')
-    customer_id = fields.Many2one(
-        string='Customer', comodel_name='res.partner',
-        domain="[('customer','=',True),('is_company','=',True)]")
     financing = fields.Selection(
         selection=[('industrial', 'Industrial'),
                    ('institutional', 'Institutional'),

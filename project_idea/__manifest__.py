@@ -3,13 +3,13 @@
 
 {
     "name": "Project Idea",
-    "version": "11.0.3.1.0",
+    "version": "11.0.1.0.0",
     "license": "AGPL-3",
     "depends": [
         "project",
     ],
     "author": "AvanzOSC",
-    "website": " http://www.avanzosc.es",
+    "website": "http://www.avanzosc.es",
     "category": "Project",
     "data": [
         "views/project_project_idea_view.xml",
