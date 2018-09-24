@@ -18,7 +18,6 @@
                         <group name="idea_right">
                             <field name="idea_type"/>
                             <field name="idea_origin"/>
-                            <field name="customer_id"/>
                             <field name="financing"/>
                             <field name="potential_customers"/>
                         </group>
