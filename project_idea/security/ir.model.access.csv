@@ -1,0 +1,3 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_project_idea_resource_human,access_project_idea_resource_human,model_project_idea_resource_human,base.group_user,1,0,0,0
+access_project_idea_resource_material,access_project_idea_resource_material,model_project_idea_resource_material,base.group_user,1,0,0,0

@@ -7,7 +7,7 @@
         <field name="arch" type="xml">
             <page name="settings" position="before">
                 <page name="IDEA" string="IDEA">
-                    <group name="ident_opt" string="Identificación de la Oportunidad">
+                    <group name="ident_opt" string="Identification of the Opportunity">
                         <group name="idea_left">
                             <field name="author_id" />
                             <field name="idea_date" />
@@ -21,7 +21,15 @@
                             <field name="financing"/>
                             <field name="potential_customers"/>
                         </group>
-                    </group>
+                   </group>
+                   <group name="human_resources"
+                       string= "Human Resources">
+                       <field name="human_resources_id"  nolabel="1"/>
+                   </group>
+                   <group name="material_resources"
+                       string="Material Resources">
+                       <field name="material_resources_id"  nolabel="1"/>
+                   </group>
                 </page>
             </page>
         </field>
