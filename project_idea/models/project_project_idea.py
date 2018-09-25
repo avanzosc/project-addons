@@ -26,3 +26,10 @@ class ProjectProject(models.Model):
                    ('institutional', 'Institutional'),
                    ('internal', 'Internal')], string='Financing Source')
     potential_customers = fields.Char(string='Potential Customers')
+    human_resources_id = fields.One2many(
+        string='Human Resources', comodel_name='project.idea.resource.human',
+        inverse_name='project_id')
+    material_resources_id = fields.One2many(
+        string='Material Resources',
+        comodel_name='project.idea.resource.material',
+        inverse_name='project_id')

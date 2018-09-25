@@ -12,7 +12,10 @@
     "website": "http://www.avanzosc.es",
     "category": "Project",
     "data": [
+        "security/ir.model.access.csv",
         "views/project_project_idea_view.xml",
+        "views/project_idea_resource_material_view.xml",
+        "views/project_idea_resource_human_view.xml",
     ],
     "installable": True,
 }

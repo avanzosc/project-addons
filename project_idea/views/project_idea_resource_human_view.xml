@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+<!--  VISTA DE LISTA -->
+    <record model="ir.ui.view" id="project_idea_resource_human_tree_view">
+        <field name="name">project.idea.resource.human.tree.view</field>
+        <field name="model">project.idea.resource.human</field>
+        <field name="arch" type="xml">
+            <tree string="Human_Resources">
+                <field name="project_id"/>
+                <field name="human_department_id"/>
+                <field name="human_level"/>
+                <field name="human_intensity"/>
+            </tree>
+        </field>
+    </record>
+</odoo>
