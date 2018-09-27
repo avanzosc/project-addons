@@ -4,3 +4,6 @@
 from . import project_project_idea
 from . import project_idea_resource_human
 from . import project_idea_resource_material
+from . import project_idea_line_viability
+from . import project_idea_cat_viability
+from . import project_idea_viability_categorie

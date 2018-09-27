@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+<!--  VISTA DE LISTA -->
+    <record model="ir.ui.view" id="project_idea_cat_viability_tree_view">
+        <field name="name">project.idea.cat.viability.tree.view</field>
+        <field name="model">project.idea.cat.viability</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="project_id"/>
+                <field name="category_id"/>
+                <field name="cat_percentage"/>
+                <field name="cat_punctuation"/>
+                <field name="cat_pondered"/>
+            </tree>
+        </field>
+    </record>
+</odoo>

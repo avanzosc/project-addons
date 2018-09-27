@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+<!--  VISTA DE LISTA -->
+    <record model="ir.ui.view" id="project_idea_line_viability_tree_view">
+        <field name="name">project.idea.line.viability.tree.view</field>
+        <field name="model">project.idea.line.viability</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="project_id"/>
+                <field name="feasibility_id"/>
+                <field name="name"/>
+                <field name="percentage"/>
+                <field name="line_punctuation"/>
+                <field name="weighted_score"/>
+                <field name="formula_punctuation"/>
+            </tree>
+        </field>
+    </record>
+</odoo>

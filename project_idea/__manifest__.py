@@ -16,6 +16,9 @@
         "views/project_project_idea_view.xml",
         "views/project_idea_resource_material_view.xml",
         "views/project_idea_resource_human_view.xml",
+        "views/project_idea_cat_viability_view.xml",
+        "views/project_idea_line_viability_view.xml",
+        "views/project_idea_viability_categorie_view.xml",
     ],
     "installable": True,
 }
