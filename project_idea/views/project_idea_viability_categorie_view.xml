@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+<!--  VISTA DE FORMULARIO -->
+    <record model="ir.ui.view" id="project_idea_viability_categorie_tree_view">
+        <field name="name">project.idea.viability.categorie.view</field>
+        <field name="model">project.idea.viability.categorie</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group>
+                        <field name="name" />
+                    </group>
+                </sheet>
+            </form>
+         </field>
+    </record>
+</odoo>

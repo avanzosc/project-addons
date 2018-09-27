@@ -24,11 +24,19 @@
                    </group>
                    <group name="human_resources"
                        string= "Human Resources">
-                       <field name="human_resources_id"  nolabel="1"/>
+                       <field name="human_resources_ids"  nolabel="1"/>
                    </group>
                    <group name="material_resources"
                        string="Material Resources">
-                       <field name="material_resources_id"  nolabel="1"/>
+                       <field name="material_resources_ids"  nolabel="1"/>
+                   </group>
+                    <group name="lines_viability"
+                       string="Feasibility Lines">
+                       <field name="lines_viability_ids"  nolabel="1"/>
+                   </group>
+                   <group name="cat_viability"
+                       string="Viability by Category">
+                       <field name="cat_viability_ids"  nolabel="1"/>
                    </group>
                 </page>
             </page>
