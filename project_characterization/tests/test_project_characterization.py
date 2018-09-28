@@ -11,8 +11,9 @@ class TestProjectCharacterization(common.TransactionCase):
         super(TestProjectCharacterization, self).setUp()
         res_partner_model = self.env['res.partner']
         funding_src_model = self.env['funding.source']
-        project_model = self.env['project.project']
+        self.project_model = self.env['project.project']
         area_model = self.env['res.area']
+        area_type_model = self.env['res.area.type']
         self.funding_project_model = self.env['funding.source.project']
         self.partner = res_partner_model.create({
             'name': 'Test Partner',
@@ -20,12 +21,17 @@ class TestProjectCharacterization(common.TransactionCase):
         self.funding_src = funding_src_model.create({
             'name': 'Test Funding Source',
         })
-        self.project = project_model.create({
+        self.project = self.project_model.create({
             'name': 'Test Project',
         })
         self.area = area_model.create({
+            'code': 'TA',
             'name': 'Test Area',
             'nonoperative': True,
+        })
+        self.type = area_type_model.create({
+            'code': 'TAT',
+            'name': 'Test Area Type',
         })
 
     def test_computed_field_funding_source_count(self):
@@ -69,3 +75,17 @@ class TestProjectCharacterization(common.TransactionCase):
         self.assertEquals(
             self.project.nonoperative, self.project.res_area_id.nonoperative)
         self.assertTrue(self.project.nonoperative)
+
+    def test_create_new_project(self):
+        new_project = self.project_model.create({
+            'name': 'New Project',
+            'res_area_id': self.area.id,
+            'res_area_type_id': self.type.id,
+        })
+        count = self.project_model.search_count([
+            ('res_area_id', '=', self.area.id),
+            ('res_area_type_id', '=', self.type.id),
+        ])
+        self.assertEquals(
+            new_project.code,
+            '{}.{}.{}'.format(self.area.code, self.type.code, count))
