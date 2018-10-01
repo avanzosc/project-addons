@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+<!--  VISTA DE  -->
+    <record model="ir.ui.view" id="project_risk_impact_value_tree_view">
+        <field name="name">project.project.risk.form.view</field>
+        <field name="model">project.project</field>
+        <field name="inherit_id" ref="project.edit_project" />
+        <field name="arch" type="xml">
+            <page name="settings" position="before">
+                <page name="tech_def" string="Technical Definition">
+                    <group>
+                    <field name='customer_goal'/>
+                    <field name='internal_goal'/>
+                    <field name='work_scope'/>
+                    <field name='definition'/>
+                    <field name='task_description'/>
+                    </group>
+                </page>
+            </page>
+        </field>
+    </record>
+</odoo>
