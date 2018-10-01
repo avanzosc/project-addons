@@ -10,8 +10,8 @@ class ProjectProject(models.Model):
     author_id = fields.Many2one(
         string='Author', comodel_name='res.users')
     idea_date = fields.Date(string='Date')
-    internal_goal = fields.Char(string='Internal Goal')
-    customer_goal = fields.Char(string="Customer's Goal")
+    internal_idea_goal = fields.Char(string='Internal Goal')
+    customer_idea_goal = fields.Char(string="Customer's Goal")
     technical_approach = fields.Text(string='Technical Approach')
     idea_type = fields.Selection(
         selection=[('training', 'Training'),

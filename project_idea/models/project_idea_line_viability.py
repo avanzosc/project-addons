@@ -6,9 +6,10 @@ from odoo import fields, models
 
 class ProjectIdeaLineViability(models.Model):
     _name = 'project.idea.line.viability'
+    _description = 'Viability Line'
 
     project_id = fields.Many2one(
-        string='Project', comodel_name='project.project')
+        string='Project', comodel_name='project.project', required=True)
     feasibility_id = fields.Many2one(
         string='Feasibility Category',
         comodel_name='project.idea.viability.category')

@@ -7,13 +7,14 @@
     "license": "AGPL-3",
     "depends": [
         "project",
+        "hr",
     ],
     "author": "AvanzOSC",
     "website": "http://www.avanzosc.es",
     "category": "Project",
     "data": [
         "security/ir.model.access.csv",
-        "views/project_project_idea_view.xml",
+        "views/project_project_view.xml",
         "views/project_idea_resource_material_view.xml",
         "views/project_idea_resource_human_view.xml",
         "views/project_idea_cat_viability_view.xml",

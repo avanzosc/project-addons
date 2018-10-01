@@ -6,9 +6,10 @@ from odoo import fields, models
 
 class ProjectIdeaCatViability(models.Model):
     _name = 'project.idea.cat.viability'
+    _description = 'Project Viability per Category'
 
     project_id = fields.Many2one(
-        string='Project', comodel_name='project.project')
+        string='Project', comodel_name='project.project', required=True)
     category_id = fields.Many2one(
         string='Category', comodel_name='project.idea.viability.category')
     cat_percentage = fields.Char(string='Percentage')

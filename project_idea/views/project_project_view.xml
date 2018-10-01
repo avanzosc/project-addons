@@ -1,18 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <odoo>
+    <menuitem id="project_idea_menuitem" name="Idea Summary"
+              parent="project.menu_project_config" />
+
     <record model="ir.ui.view" id="project_project_idea_form_view">
         <field name="name">project.project.idea.form.view</field>
         <field name="model">project.project</field>
         <field name="inherit_id" ref="project.edit_project" />
         <field name="arch" type="xml">
             <page name="settings" position="before">
-                <page name="IDEA" string="IDEA">
+                <page name="idea_page" string="IDEA">
                     <group name="ident_opt" string="Identification of the Opportunity">
                         <group name="idea_left">
                             <field name="author_id" />
                             <field name="idea_date" />
-                            <field name="internal_goal" />
-                            <field name="customer_goal" />
+                            <field name="internal_idea_goal" />
+                            <field name="customer_idea_goal" />
                             <field name="technical_approach" />
                         </group>
                         <group name="idea_right">
@@ -23,20 +26,24 @@
                         </group>
                    </group>
                    <group name="human_resources"
-                       string= "Human Resources">
-                       <field name="human_resources_ids"  nolabel="1"/>
+                          string="Human Resources">
+                       <field name="human_resources_ids" nolabel="1"
+                              context="{'default_project_id': active_id}"/>
                    </group>
                    <group name="material_resources"
-                       string="Material Resources">
-                       <field name="material_resources_ids"  nolabel="1"/>
+                          string="Material Resources">
+                       <field name="material_resources_ids" nolabel="1"
+                              context="{'default_project_id': active_id}"/>
                    </group>
                     <group name="lines_viability"
-                       string="Feasibility Lines">
-                       <field name="lines_viability_ids"  nolabel="1"/>
+                           string="Feasibility Lines">
+                       <field name="lines_viability_ids"  nolabel="1"
+                              context="{'default_project_id': active_id}"/>
                    </group>
                    <group name="cat_viability"
-                       string="Viability by Category">
-                       <field name="cat_viability_ids"  nolabel="1"/>
+                          string="Viability by Category">
+                       <field name="cat_viability_ids"  nolabel="1"
+                              context="{'default_project_id': active_id}"/>
                    </group>
                 </page>
             </page>
