@@ -1,5 +1,9 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <odoo>
+    <record id="account_budget.act_crossovered_budget_lines_view" model="ir.actions.act_window">
+        <field name="view_mode">tree,form,pivot</field>
+    </record>
+
     <menuitem id="menu_act2_crossovered_budget_lines_view" string="Budget Items"
               parent="account.menu_finance_entries_management"
               action="account_budget.act_crossovered_budget_lines_view"
@@ -13,6 +17,9 @@
             <field name="planned_amount" position="before">
                 <field name="initial_planned_amount" widget="monetary"
                        readonly="True"/>
+            </field>
+            <field name="practical_amount" position="after">
+                <field name="sum_amount" />
             </field>
             <field name="general_budget_id" position="after">
                 <field name="project_id" readonly="True" />
@@ -64,6 +71,9 @@
             <field name="percentage" position="attributes">
                 <attribute name="invisible">True</attribute>
             </field>
+            <field name="practical_amount" position="after">
+                <field name="sum_amount" />
+            </field>
         </field>
     </record>
 
@@ -103,6 +113,7 @@
                 <field name="planned_amount" type="measure"/>
                 <field name="initial_planned_amount" type="measure" />
                 <field name="practical_amount" type="measure" />
+                <field name="sum_amount" type="measure" />
             </pivot>
         </field>
     </record>
