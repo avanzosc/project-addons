@@ -4,7 +4,7 @@
 from odoo import fields, models
 
 
-class ProjectProjectTechnical(models.Model):
+class ProjectProject(models.Model):
     _inherit = 'project.project'
 
     customer_goal = fields.Char(string="Customer's Goal")

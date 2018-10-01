@@ -12,7 +12,7 @@
     "website": "http://www.avanzosc.es",
     "category": "Project",
     "data": [
-        "views/project_project_technical_view.xml",
+        "views/project_project_view.xml",
     ],
     "installable": True,
 }
