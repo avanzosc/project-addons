@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+<!--  VISTA DE  -->
+    <record model="ir.ui.view" id="project_risk_probability_value_tree_view">
+        <field name="name">project.risk.probability.value.tree.view</field>
+        <field name="model">project.risk.probability.value</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="name"/>
+                <field name="rating"/>
+            </tree>
+        </field>
+    </record>
+</odoo>
