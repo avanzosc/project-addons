@@ -58,6 +58,10 @@ class TestProjectBudget(common.SavepointCase):
         self.assertEquals(
             old_budget.crossovered_budget_line[:1].planned_amount,
             old_budget.crossovered_budget_line[:1].initial_planned_amount)
+        self.assertEquals(
+            old_budget.crossovered_budget_line[:1].sum_amount,
+            old_budget.crossovered_budget_line[:1].planned_amount +
+            old_budget.crossovered_budget_line[:1].practical_amount)
         new_budget = old_budget.copy()
         self.assertEquals(
             len(old_budget.crossovered_budget_line),
@@ -80,3 +84,10 @@ class TestProjectBudget(common.SavepointCase):
         self.assertNotEquals(
             new_budget.crossovered_budget_line[:1].planned_amount,
             new_budget.crossovered_budget_line[:1].initial_planned_amount)
+        self.assertEquals(
+            new_budget.crossovered_budget_line[:1].sum_amount,
+            new_budget.crossovered_budget_line[:1].planned_amount +
+            new_budget.crossovered_budget_line[:1].practical_amount)
+        self.assertNotEquals(
+            old_budget.crossovered_budget_line[:1].sum_amount,
+            new_budget.crossovered_budget_line[:1].sum_amount)
