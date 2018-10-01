@@ -97,3 +97,11 @@ class CrossoveredBudgetLines(models.Model):
     project_id = fields.Many2one(
         comodel_name='project.project', string='Project',
         related='crossovered_budget_id.project_id', store=True)
+    sum_amount = fields.Float(
+        string='Amount Sum', compute='_compute_sum_amount')
+
+    @api.depends('planned_amount', 'practical_amount')
+    def _compute_sum_amount(self):
+        for record in self:
+            record.sum_amount = (
+                record.planned_amount + record.practical_amount)
