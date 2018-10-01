@@ -1,0 +1,333 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+#	* project_idea
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 11.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2018-10-01 14:05+0000\n"
+"PO-Revision-Date: 2018-10-01 14:05+0000\n"
+"Last-Translator: <>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: project_idea
+#: model:ir.model.fields,field_description:project_idea.field_project_project_author_id
+msgid "Author"
+msgstr "Autor"
+
+#. module: project_idea
+#: model:ir.model.fields,field_description:project_idea.field_project_idea_cat_viability_category_id
+msgid "Category"
+msgstr "Categoría"
+
+#. module: project_idea
+#: model:ir.model.fields,field_description:project_idea.field_project_idea_cat_viability_create_uid
+#: model:ir.model.fields,field_description:project_idea.field_project_idea_line_viability_create_uid
+#: model:ir.model.fields,field_description:project_idea.field_project_idea_resource_human_create_uid
+#: model:ir.model.fields,field_description:project_idea.field_project_idea_resource_material_create_uid
+#: model:ir.model.fields,field_description:project_idea.field_project_idea_viability_category_create_uid
+msgid "Created by"
+msgstr "Creado por"
+
+#. module: project_idea
+#: model:ir.model.fields,field_description:project_idea.field_project_idea_cat_viability_create_date
+#: model:ir.model.fields,field_description:project_idea.field_project_idea_line_viability_create_date
+#: model:ir.model.fields,field_description:project_idea.field_project_idea_resource_human_create_date
+#: model:ir.model.fields,field_description:project_idea.field_project_idea_resource_material_create_date
+#: model:ir.model.fields,field_description:project_idea.field_project_idea_viability_category_create_date
+msgid "Created on"
+msgstr "Creado en"
+
+#. module: project_idea
+#: selection:project.project,idea_origin:0
+msgid "Customer"
+msgstr "Cliente"
+
+#. module: project_idea
+#: model:ir.model.fields,field_description:project_idea.field_project_project_customer_goal
+msgid "Customer's Goal"
+msgstr "Objetivo del cliente"
+
+#. module: project_idea
+#: model:ir.model.fields,field_description:project_idea.field_project_project_idea_date
+msgid "Date"
+msgstr "Fecha"
+
+#. module: project_idea
+#: model:ir.model.fields,field_description:project_idea.field_project_idea_resource_human_human_department_id
+msgid "Department"
+msgstr "Departamento"
+
+#. module: project_idea
+#: model:ir.model.fields,field_description:project_idea.field_project_idea_cat_viability_display_name
+#: model:ir.model.fields,field_description:project_idea.field_project_idea_line_viability_display_name
+#: model:ir.model.fields,field_description:project_idea.field_project_idea_resource_human_display_name
+#: model:ir.model.fields,field_description:project_idea.field_project_idea_resource_material_display_name
+#: model:ir.model.fields,field_description:project_idea.field_project_idea_viability_category_display_name
+msgid "Display Name"
+msgstr "Nombre mostrado"
+
+#. module: project_idea
+#: model:ir.model.fields,field_description:project_idea.field_project_idea_line_viability_feasibility_id
+msgid "Feasibility Category"
+msgstr "Categoria de viabilidad"
+
+#. module: project_idea
+#: model:ir.model.fields,field_description:project_idea.field_project_project_lines_viability_ids
+#: model:ir.ui.view,arch_db:project_idea.project_project_idea_form_view
+msgid "Feasibility Lines"
+msgstr "Lineas de viabilidad"
+
+#. module: project_idea
+#: model:ir.model.fields,field_description:project_idea.field_project_project_financing
+msgid "Financing Source"
+msgstr "Fuente de financiación"
+
+#. module: project_idea
+#: model:ir.model.fields,field_description:project_idea.field_project_idea_line_viability_formula_punctuation
+msgid "Formulated Score"
+msgstr "Puntuación de formula"
+
+#. module: project_idea
+#: selection:project.idea.resource.human,human_intensity:0
+#: selection:project.idea.resource.material,product_intensity:0
+msgid "High"
+msgstr "Alto"
+
+#. module: project_idea
+#: model:ir.model.fields,field_description:project_idea.field_project_project_human_resources_ids
+#: model:ir.ui.view,arch_db:project_idea.project_project_idea_form_view
+msgid "Human Resources"
+msgstr "Recursos humanos"
+
+#. module: project_idea
+#: model:ir.ui.view,arch_db:project_idea.project_idea_resource_human_tree_view
+msgid "Human_Resources"
+msgstr "Human_Resources"
+
+#. module: project_idea
+#: model:ir.model.fields,field_description:project_idea.field_project_idea_cat_viability_id
+#: model:ir.model.fields,field_description:project_idea.field_project_idea_line_viability_id
+#: model:ir.model.fields,field_description:project_idea.field_project_idea_resource_human_id
+#: model:ir.model.fields,field_description:project_idea.field_project_idea_resource_material_id
+#: model:ir.model.fields,field_description:project_idea.field_project_idea_viability_category_id
+msgid "ID"
+msgstr "ID (identificación)"
+
+#. module: project_idea
+#: model:ir.ui.view,arch_db:project_idea.project_project_idea_form_view
+msgid "IDEA"
+msgstr "IDEA"
+
+#. module: project_idea
+#: model:ir.ui.view,arch_db:project_idea.project_project_idea_form_view
+msgid "Identification of the Opportunity"
+msgstr "Identificación de la oportunidad"
+
+#. module: project_idea
+#: selection:project.project,financing:0
+msgid "Industrial"
+msgstr "Industrial"
+
+#. module: project_idea
+#: selection:project.project,financing:0
+msgid "Institutional"
+msgstr "Institucional"
+
+#. module: project_idea
+#: model:ir.model.fields,field_description:project_idea.field_project_idea_resource_human_human_intensity
+#: model:ir.model.fields,field_description:project_idea.field_project_idea_resource_material_product_intensity
+msgid "Intensity"
+msgstr "Intensidad"
+
+#. module: project_idea
+#: selection:project.project,financing:0
+#: selection:project.project,idea_origin:0
+#: selection:project.project,idea_type:0
+msgid "Internal"
+msgstr "Interno"
+
+#. module: project_idea
+#: model:ir.model.fields,field_description:project_idea.field_project_project_internal_goal
+msgid "Internal Goal"
+msgstr "Objetivo interno"
+
+#. module: project_idea
+#: model:ir.model.fields,field_description:project_idea.field_project_idea_cat_viability___last_update
+#: model:ir.model.fields,field_description:project_idea.field_project_idea_line_viability___last_update
+#: model:ir.model.fields,field_description:project_idea.field_project_idea_resource_human___last_update
+#: model:ir.model.fields,field_description:project_idea.field_project_idea_resource_material___last_update
+#: model:ir.model.fields,field_description:project_idea.field_project_idea_viability_category___last_update
+msgid "Last Modified on"
+msgstr "Última modificación en"
+
+#. module: project_idea
+#: model:ir.model.fields,field_description:project_idea.field_project_idea_cat_viability_write_uid
+#: model:ir.model.fields,field_description:project_idea.field_project_idea_line_viability_write_uid
+#: model:ir.model.fields,field_description:project_idea.field_project_idea_resource_human_write_uid
+#: model:ir.model.fields,field_description:project_idea.field_project_idea_resource_material_write_uid
+#: model:ir.model.fields,field_description:project_idea.field_project_idea_viability_category_write_uid
+msgid "Last Updated by"
+msgstr "Última actualización de"
+
+#. module: project_idea
+#: model:ir.model.fields,field_description:project_idea.field_project_idea_cat_viability_write_date
+#: model:ir.model.fields,field_description:project_idea.field_project_idea_line_viability_write_date
+#: model:ir.model.fields,field_description:project_idea.field_project_idea_resource_human_write_date
+#: model:ir.model.fields,field_description:project_idea.field_project_idea_resource_material_write_date
+#: model:ir.model.fields,field_description:project_idea.field_project_idea_viability_category_write_date
+msgid "Last Updated on"
+msgstr "Última actualización en"
+
+#. module: project_idea
+#: model:ir.model.fields,field_description:project_idea.field_project_idea_resource_human_human_level
+msgid "Level"
+msgstr "Nivel"
+
+#. module: project_idea
+#: selection:project.idea.resource.human,human_intensity:0
+#: selection:project.idea.resource.material,product_intensity:0
+msgid "Low"
+msgstr "Bajo"
+
+#. module: project_idea
+#: model:ir.model.fields,field_description:project_idea.field_project_project_material_resources_ids
+#: model:ir.ui.view,arch_db:project_idea.project_project_idea_form_view
+msgid "Material Resources"
+msgstr "Recursos materiales"
+
+#. module: project_idea
+#: model:ir.ui.view,arch_db:project_idea.project_idea_resource_material_tree_view
+msgid "Material_Resources"
+msgstr "Material_Resources"
+
+#. module: project_idea
+#: selection:project.idea.resource.human,human_intensity:0
+#: selection:project.idea.resource.material,product_intensity:0
+msgid "Medium"
+msgstr "Medio"
+
+#. module: project_idea
+#: model:ir.model.fields,field_description:project_idea.field_project_idea_line_viability_name
+#: model:ir.model.fields,field_description:project_idea.field_project_idea_viability_category_name
+msgid "Name"
+msgstr "Nombre"
+
+#. module: project_idea
+#: model:ir.model.fields,field_description:project_idea.field_project_project_idea_origin
+msgid "Origin"
+msgstr "Origen"
+
+#. module: project_idea
+#: selection:project.project,idea_type:0
+msgid "Other"
+msgstr "Otro"
+
+#. module: project_idea
+#: model:ir.model.fields,field_description:project_idea.field_project_idea_cat_viability_cat_percentage
+#: model:ir.model.fields,field_description:project_idea.field_project_idea_line_viability_percentage
+msgid "Percentage"
+msgstr "Porcentaje"
+
+#. module: project_idea
+#: model:ir.model.fields,field_description:project_idea.field_project_project_potential_customers
+msgid "Potential Customers"
+msgstr "Clientes potenciales"
+
+#. module: project_idea
+#: model:ir.model.fields,field_description:project_idea.field_project_idea_resource_material_product_id
+msgid "Product"
+msgstr "Producto"
+
+#. module: project_idea
+#: model:ir.model.fields,field_description:project_idea.field_project_idea_resource_material_product_name
+msgid "Product Name"
+msgstr "Nombre del producto"
+
+#. module: project_idea
+#: model:ir.model,name:project_idea.model_project_project
+#: model:ir.model.fields,field_description:project_idea.field_project_idea_cat_viability_project_id
+#: model:ir.model.fields,field_description:project_idea.field_project_idea_line_viability_project_id
+#: model:ir.model.fields,field_description:project_idea.field_project_idea_resource_human_project_id
+#: model:ir.model.fields,field_description:project_idea.field_project_idea_resource_material_project_id
+msgid "Project"
+msgstr "Proyecto"
+
+#. module: project_idea
+#: model:ir.model.fields,field_description:project_idea.field_project_idea_cat_viability_cat_punctuation
+#: model:ir.model.fields,field_description:project_idea.field_project_idea_line_viability_line_punctuation
+msgid "Punctuation"
+msgstr "Puntuación"
+
+#. module: project_idea
+#: model:ir.model.fields,field_description:project_idea.field_project_project_technical_approach
+msgid "Technical Approach"
+msgstr "Objetivo técnico"
+
+#. module: project_idea
+#: selection:project.project,idea_type:0
+msgid "Training"
+msgstr "Formación"
+
+#. module: project_idea
+#: selection:project.project,idea_type:0
+msgid "Transference"
+msgstr "Transferencia"
+
+#. module: project_idea
+#: model:ir.model.fields,field_description:project_idea.field_project_project_idea_type
+msgid "Type"
+msgstr "Tipo"
+
+#. module: project_idea
+#: model:ir.model.fields,field_description:project_idea.field_project_project_cat_viability_ids
+#: model:ir.ui.view,arch_db:project_idea.project_project_idea_form_view
+msgid "Viability by Category"
+msgstr "Viabilidad por categoría"
+
+#. module: project_idea
+#: model:ir.model.fields,field_description:project_idea.field_project_idea_cat_viability_cat_pondered
+#: model:ir.model.fields,field_description:project_idea.field_project_idea_line_viability_weighted_score
+msgid "Weighted Score"
+msgstr "Resultado ponderado"
+
+#. module: project_idea
+#: model:ir.model,name:project_idea.model_project_idea_cat_viability
+msgid "project.idea.cat.viability"
+msgstr "project.idea.cat.viability"
+
+#. module: project_idea
+#: model:ir.model,name:project_idea.model_project_idea_line_viability
+msgid "project.idea.line.viability"
+msgstr "project.idea.line.viability"
+
+#. module: project_idea
+#: model:ir.model,name:project_idea.model_project_idea_resource_human
+msgid "project.idea.resource.human"
+msgstr "project.idea.resource.human"
+
+#. module: project_idea
+#: model:ir.model,name:project_idea.model_project_idea_resource_material
+msgid "project.idea.resource.material"
+msgstr "project.idea.resource.material"
+
+#. module: project_idea
+#: model:ir.model,name:project_idea.model_project_idea_viability_categorie
+msgid "project.idea.viability.categorie"
+msgstr "project.idea.viability.categorie"
+
+#. module: project_idea
+#: model:ir.model,name:project_idea.model_project_idea_viability_categories
+msgid "project.idea.viability.categories"
+msgstr "project.idea.viability.categories"
+
+#. module: project_idea
+#: model:ir.model,name:project_idea.model_project_idea_viability_category
+msgid "project.idea.viability.category"
+msgstr "project.idea.viability.category"
+
