@@ -11,7 +11,7 @@ class ProjectIdeaLineViability(models.Model):
         string='Project', comodel_name='project.project')
     feasibility_id = fields.Many2one(
         string='Feasibility Category',
-        comodel_name='project.idea.viability.categorie')
+        comodel_name='project.idea.viability.category')
     name = fields.Text(string='Name')
     percentage = fields.Float(string='Percentage')
     line_punctuation = fields.Selection(
