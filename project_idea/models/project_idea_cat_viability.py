@@ -10,7 +10,7 @@ class ProjectIdeaCatViability(models.Model):
     project_id = fields.Many2one(
         string='Project', comodel_name='project.project')
     category_id = fields.Many2one(
-        string='Category', comodel_name='project.idea.viability.categorie')
+        string='Category', comodel_name='project.idea.viability.category')
     cat_percentage = fields.Char(string='Percentage')
     cat_punctuation = fields.Selection(
         selection=[('1', '1'),
