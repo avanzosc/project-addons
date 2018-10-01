@@ -11,4 +11,23 @@
             </tree>
         </field>
     </record>
+    <record model="ir.ui.view" id="project_risk_impact_value_form_view">
+        <field name="name">project.risk.impact.value.form.view</field>
+        <field name="model">project.risk.impact.value</field>
+        <field name="arch" type="xml">
+            <form string="impact value">
+                <sheet>
+                    <field name="name"/>
+                    <field name="rating"/>
+                </sheet>
+            </form>
+        </field>
+    </record>
+    <record id="project_risk_impact_value_action" model="ir.actions.act_window">
+        <field name="name">Risk Impact</field>
+        <field name="res_model">project.risk.impact.value</field>
+        <field name="view_mode">tree,form</field>
+        <field name="context">{
+        }</field>
+    </record>
 </odoo>

@@ -16,4 +16,16 @@
             </page>
         </field>
     </record>
+    <menuitem id="project_risk_menuitem"
+              parent="project.menu_project_config"
+              name="Risk" />
+    <menuitem id="project_risk_impact_value_menuitem"
+              parent="project_risk_menuitem"
+              action="project_risk_impact_value_action" />
+    <menuitem id="project_risk_probability_value_menuitem"
+              parent="project_risk_menuitem"
+              action="project_risk_probability_value_action" />
+    <menuitem id="project_risk_table_menuitem"
+              parent="project_risk_menuitem"
+              action="project_risk_table_action" />
 </odoo>
