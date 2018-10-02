@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <odoo>
 <!--  VISTA DE FORMULARIO -->
-    <record model="ir.ui.view" id="project_risk_impact_value_form_view">
+    <record model="ir.ui.view" id="project_project_risk_form_view">
         <field name="name">project.project.risk.form.view</field>
         <field name="model">project.project</field>
         <field name="inherit_id" ref="project.edit_project" />

@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 11.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-10-01 15:06+0000\n"
-"PO-Revision-Date: 2018-10-01 15:06+0000\n"
+"POT-Creation-Date: 2018-10-02 08:50+0000\n"
+"PO-Revision-Date: 2018-10-02 08:50+0000\n"
 "Last-Translator: <>\n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -100,8 +100,15 @@ msgstr "Calificación"
 
 #. module: project_risk
 #: model:ir.model.fields,field_description:project_risk.field_project_risk_table_risk
+#: model:ir.ui.menu,name:project_risk.project_risk_menuitem
 msgid "Risk"
 msgstr "Riesgo"
+
+#. module: project_risk
+#: model:ir.actions.act_window,name:project_risk.project_risk_impact_value_action
+#: model:ir.ui.menu,name:project_risk.project_risk_impact_value_menuitem
+msgid "Risk Impact"
+msgstr "Impactos del riesgo"
 
 #. module: project_risk
 #: model:ir.model.fields,field_description:project_risk.field_project_risk_table_risk_level
@@ -109,13 +116,21 @@ msgid "Risk Level"
 msgstr "Nivel de riesgo"
 
 #. module: project_risk
+#: model:ir.actions.act_window,name:project_risk.project_risk_probability_value_action
+#: model:ir.ui.menu,name:project_risk.project_risk_probability_value_menuitem
+msgid "Risk Probability"
+msgstr "Probabilidades del riesgo"
+
+#. module: project_risk
+#: model:ir.actions.act_window,name:project_risk.project_risk_table_action
 #: model:ir.model.fields,field_description:project_risk.field_project_project_risk_table_ids
-#: model:ir.ui.view,arch_db:project_risk.project_risk_impact_value_form_view
+#: model:ir.ui.menu,name:project_risk.project_risk_table_menuitem
+#: model:ir.ui.view,arch_db:project_risk.project_project_form_view
 msgid "Risk Table"
 msgstr "Tabla de riesgo"
 
 #. module: project_risk
-#: model:ir.ui.view,arch_db:project_risk.project_risk_impact_value_form_view
+#: model:ir.ui.view,arch_db:project_risk.project_project_form_view
 msgid "Risks and Expectations"
 msgstr "Riesgos y expectaciones"
 
