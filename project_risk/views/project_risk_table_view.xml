@@ -7,11 +7,11 @@
         <field name="arch" type="xml">
             <tree>
                 <field name="project_id"/>
-                <field name="risk"/>
+                <field name="risk_id"/>
                 <field name="probability_id"/>
                 <field name="impact_id"/>
                 <field name="risk_level"/>
-                <field name="action"/>
+                <field name="action_id"/>
                 <field name="manager"/>
                 <field name="term"/>
                 <field name="tracing"/>

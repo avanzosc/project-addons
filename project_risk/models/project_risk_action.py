@@ -4,8 +4,8 @@
 from odoo import fields, models
 
 
-class ProjectRiskProbabilityValue(models.Model):
-    _name = 'project.risk.probability.value'
+class ProjectRiskAction(models.Model):
+    _name = 'project.risk.action'
 
     name = fields.Char(string='Name')
-    rating = fields.Float(string='Rating')
+    description = fields.Char(string='Description')

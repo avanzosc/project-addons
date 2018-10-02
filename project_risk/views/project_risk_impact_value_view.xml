@@ -15,7 +15,7 @@
         <field name="name">project.risk.impact.value.form.view</field>
         <field name="model">project.risk.impact.value</field>
         <field name="arch" type="xml">
-            <form string="impact value">
+            <form>
                 <sheet>
                     <field name="name"/>
                     <field name="rating"/>
