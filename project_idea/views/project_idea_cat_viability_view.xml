@@ -6,11 +6,7 @@
         <field name="model">project.idea.cat.viability</field>
         <field name="arch" type="xml">
             <tree>
-<<<<<<< HEAD
-                <field name="project_id"/>
-=======
                 <field name="project_id" invisible="context.get('hide_project_id',True)"/>
->>>>>>> 27dcfc0f2fa144bfc3a89df3e483bb2045c4b28d
                 <field name="category_id"/>
                 <field name="cat_percentage"/>
                 <field name="cat_punctuation"/>
@@ -18,8 +14,6 @@
             </tree>
         </field>
     </record>
-<<<<<<< HEAD
-=======
 
     <record model="ir.ui.view" id="project_idea_cat_viability_form_view">
         <field name="model">project.idea.cat.viability</field>
@@ -71,5 +65,4 @@
               parent="project_idea_menuitem"
               action="project_idea_cat_viability_action"
               sequence="30" />
->>>>>>> 27dcfc0f2fa144bfc3a89df3e483bb2045c4b28d
 </odoo>

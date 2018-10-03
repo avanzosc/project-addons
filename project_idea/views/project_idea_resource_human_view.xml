@@ -5,21 +5,15 @@
         <field name="name">project.idea.resource.human.tree.view</field>
         <field name="model">project.idea.resource.human</field>
         <field name="arch" type="xml">
-<<<<<<< HEAD
-            <tree string="Human_Resources">
-                <field name="project_id"/>
-=======
+
             <tree string="Human Resources">
                 <field name="project_id" invisible="context.get('hide_project_id',True)"/>
->>>>>>> 27dcfc0f2fa144bfc3a89df3e483bb2045c4b28d
                 <field name="human_department_id"/>
                 <field name="human_level"/>
                 <field name="human_intensity"/>
             </tree>
         </field>
     </record>
-<<<<<<< HEAD
-=======
 
     <record model="ir.ui.view" id="project_idea_resource_human_form_view">
         <field name="model">project.idea.resource.human</field>
@@ -70,5 +64,4 @@
               parent="project_idea_menuitem"
               action="project_idea_resource_human_action"
               sequence="5" />
->>>>>>> 27dcfc0f2fa144bfc3a89df3e483bb2045c4b28d
 </odoo>

@@ -20,6 +20,7 @@
         "views/project_idea_cat_viability_view.xml",
         "views/project_idea_line_viability_view.xml",
         "views/project_idea_viability_category_view.xml",
+        "views/hr_department_view.xml",
     ],
     "installable": True,
 }

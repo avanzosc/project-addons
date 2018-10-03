@@ -26,6 +26,10 @@ class ProjectProject(models.Model):
                    ('institutional', 'Institutional'),
                    ('internal', 'Internal')], string='Financing Source')
     potential_customers = fields.Char(string='Potential Customers')
+    spec_line_ids = fields.Many2many(
+        string='Specialization Lines', comodel_name='hr.department',
+        relation='rel_project_department', column1='project_id',
+        column2='department_id', domain="[('randd','=',True)]")
     human_resources_ids = fields.One2many(
         string='Human Resources', comodel_name='project.idea.resource.human',
         inverse_name='project_id')

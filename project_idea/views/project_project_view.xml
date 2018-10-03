@@ -10,6 +10,8 @@
         <field name="arch" type="xml">
             <page name="settings" position="before">
                 <page name="idea_page" string="IDEA">
+                    <label for="spec_line_ids"/>
+                    <field name="spec_line_ids" widget="many2many_tags"/>
                     <group name="ident_opt" string="Identification of the Opportunity">
                         <group name="idea_left">
                             <field name="author_id" />

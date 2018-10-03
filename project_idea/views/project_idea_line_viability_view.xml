@@ -6,11 +6,7 @@
         <field name="model">project.idea.line.viability</field>
         <field name="arch" type="xml">
             <tree>
-<<<<<<< HEAD
-                <field name="project_id"/>
-=======
                 <field name="project_id" invisible="context.get('hide_project_id',True)"/>
->>>>>>> 27dcfc0f2fa144bfc3a89df3e483bb2045c4b28d
                 <field name="feasibility_id"/>
                 <field name="name"/>
                 <field name="percentage"/>
@@ -20,8 +16,6 @@
             </tree>
         </field>
     </record>
-<<<<<<< HEAD
-=======
 
     <record model="ir.ui.view" id="project_idea_line_viability_form_view">
         <field name="model">project.idea.line.viability</field>
@@ -76,5 +70,4 @@
               parent="project_idea_menuitem"
               action="project_idea_line_viability_action"
               sequence="20" />
->>>>>>> 27dcfc0f2fa144bfc3a89df3e483bb2045c4b28d
 </odoo>
