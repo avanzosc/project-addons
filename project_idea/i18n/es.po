@@ -363,13 +363,3 @@ msgstr "Viabilidad por categoría"
 msgid "Weighted Score"
 msgstr "Resultado ponderado"
 
-#. module: project_idea
-#: model:ir.model,name:project_idea.model_project_idea_viability_categorie
-msgid "project.idea.viability.categorie"
-msgstr "project.idea.viability.categorie"
-
-#. module: project_idea
-#: model:ir.model,name:project_idea.model_project_idea_viability_categories
-msgid "project.idea.viability.categories"
-msgstr "project.idea.viability.categories"
-

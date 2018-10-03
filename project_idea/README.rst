@@ -23,7 +23,7 @@ Credits
 Contributors
 ------------
 
-* Oihane Crucelaegui <oihanecrucelaegi@avanzosc.es>
+* Gontzal Gomez <gontzalgomez@avanzosc.es>
 * Ana Juaristi <anajuaristi@avanzosc.es>
 
 Do not contact contributors directly about support or help with technical issues.
