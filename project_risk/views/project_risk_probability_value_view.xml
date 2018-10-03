@@ -11,6 +11,20 @@
             </tree>
         </field>
     </record>
+    <record model="ir.ui.view" id="project_risk_probability_value_form_view">
+        <field name="name">project.risk.probability.value.form.view</field>
+        <field name="model">project.risk.probability.value</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group name="main">
+                        <field name="name"/>
+                        <field name="rating"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
     <record id="project_risk_probability_value_action" model="ir.actions.act_window">
         <field name="name">Risk Probability</field>
         <field name="res_model">project.risk.probability.value</field>

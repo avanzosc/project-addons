@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo noupdate="True">
+
+    <record id="impact1" model="project.risk.impact.value"
+            forcecreate="True">
+        <field name="name">Null</field>
+        <field name="rating">0.05</field>
+    </record>
+    <record id="impact2" model="project.risk.impact.value"
+            forcecreate="True">
+        <field name="name">Low</field>
+        <field name="rating">0.10</field>
+    </record>
+    <record id="impact3" model="project.risk.impact.value"
+            forcecreate="True">
+        <field name="name">Medium</field>
+        <field name="rating">0.20</field>
+    </record>
+    <record id="impact4" model="project.risk.impact.value"
+            forcecreate="True">
+        <field name="name">High</field>
+        <field name="rating">0.40</field>
+    </record>
+    <record id="impact5" model="project.risk.impact.value"
+            forcecreate="True">
+        <field name="name">Very High</field>
+        <field name="rating">0.80</field>
+    </record>
+
+    <record id="probab1" model="project.risk.probability.value"
+            forcecreate="True">
+        <field name="name">It can not happen</field>
+        <field name="rating">0.1</field>
+    </record>
+    <record id="probab2" model="project.risk.probability.value"
+            forcecreate="True">
+        <field name="name">Unlikely to happen</field>
+        <field name="rating">0.3</field>
+    </record>
+    <record id="probab3" model="project.risk.probability.value"
+            forcecreate="True">
+        <field name="name">May happen</field>
+        <field name="rating">0.5</field>
+    </record>
+    <record id="probab4" model="project.risk.probability.value"
+            forcecreate="True">
+        <field name="name">Likely to happen</field>
+        <field name="rating">0.7</field>
+    </record>
+    <record id="probab5" model="project.risk.probability.value"
+            forcecreate="True">
+        <field name="name">Very likely to happen</field>
+        <field name="rating">0.9</field>
+    </record>
+</odoo>

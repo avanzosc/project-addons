@@ -6,6 +6,7 @@ from odoo import fields, models
 
 class ProjectRiskProbabilityValue(models.Model):
     _name = 'project.risk.probability.value'
+    _description = 'Risk Probability Value'
 
-    name = fields.Char(string='Probability')
+    name = fields.Char(string='Name', translate=True, required=True)
     rating = fields.Float(string='Rating')

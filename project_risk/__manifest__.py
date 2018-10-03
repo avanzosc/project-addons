@@ -17,6 +17,7 @@
         "views/project_risk_probability_value_view.xml",
         "views/project_risk_table_view.xml",
         "views/project_project_risk_view.xml",
+        "data/project_risk_data.xml"
     ],
     "installable": True,
 }

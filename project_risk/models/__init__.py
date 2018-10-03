@@ -5,3 +5,5 @@ from . import project_risk_impact_value
 from . import project_risk_probability_value
 from . import project_risk_table
 from . import project_project_risk
+from . import project_risk_risk
+from . import project_risk_action
