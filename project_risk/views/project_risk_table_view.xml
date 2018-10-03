@@ -6,13 +6,13 @@
         <field name="model">project.risk.table</field>
         <field name="arch" type="xml">
             <tree>
-                <field name="project_id"/>
+                <field name="project_id" invisible="context.get('hide_project_id',True)"/>
                 <field name="risk_id"/>
                 <field name="probability_id"/>
                 <field name="impact_id"/>
                 <field name="risk_level"/>
                 <field name="action_id"/>
-                <field name="manager"/>
+                <field name="responsible_id"/>
                 <field name="term"/>
                 <field name="tracing"/>
                 
@@ -24,6 +24,7 @@
         <field name="res_model">project.risk.table</field>
         <field name="view_mode">tree,form</field>
         <field name="context">{
+        'hide_project_id': False,
         }</field>
     </record>
 </odoo>

@@ -2,3 +2,5 @@ id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
 access_project_risk_impact_value,access_project_risk_impact_value,model_project_risk_impact_value,,1,0,0,0
 access_project_risk_probability_value,access_project_risk_probability_value,model_project_risk_probability_value,,1,0,0,0
 access_project_risk_table,access_project_risk_table,model_project_risk_table,,1,0,0,0
+access_project_risk_risk,access_project_risk_risk,model_project_risk_risk,base.group_user,1,0,0,0
+access_project_risk_action,access_project_risk_action,model_project_risk_action,base.group_user,1,0,0,0

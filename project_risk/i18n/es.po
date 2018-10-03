@@ -132,7 +132,7 @@ msgstr "Tabla de riesgo"
 #. module: project_risk
 #: model:ir.ui.view,arch_db:project_risk.project_project_form_view
 msgid "Risks and Expectations"
-msgstr "Riesgos y expectaciones"
+msgstr "Riesgos y expectativas"
 
 #. module: project_risk
 #: model:ir.model.fields,field_description:project_risk.field_project_risk_table_term
