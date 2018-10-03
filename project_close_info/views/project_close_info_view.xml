@@ -7,17 +7,15 @@
         <field name="arch" type="xml">
             <page name="settings" position="before">
                 <page name="close_info" string="Closing">
-                    <group name="tech">
+                    <group>
                         <field name='tech_close'/>
                         <field name='tech_date'/>
                         <field name='tech_user'/>
                         <field name='tech_file'/>
-                    </group>
-                    <group name="eco">
-                        <field name='eco_close'/>
-                        <field name='eco_date'/>
-                        <field name='eco_user'/>
-                        <field name='eco_file'/>
+                        <field name='economic_close'/>
+                        <field name='economic_date'/>
+                        <field name='economic_user'/>
+                        <field name='economic_file'/>
                     </group>
                 </page>
             </page>

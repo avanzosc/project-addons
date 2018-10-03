@@ -12,8 +12,8 @@ class ProjectCloseInfo(models.Model):
     tech_user = fields.Many2one(
         string='Technical Closing User', comodel_name='res.users')
     tech_file = fields.Binary(string='Technical Closing File')
-    eco_close = fields.Boolean(string='Economic Closing')
-    eco_date = fields.Date(string='Economic Close Date')
-    eco_user = fields.Many2one(
+    economic_close = fields.Boolean(string='Economic Closing')
+    economic_date = fields.Date(string='Economic Close Date')
+    economic_user = fields.Many2one(
         string='Economic Closing User', comodel_name='res.users')
-    eco_file = fields.Binary(string='Economic Closing File')
+    economic_file = fields.Binary(string='Economic Closing File')

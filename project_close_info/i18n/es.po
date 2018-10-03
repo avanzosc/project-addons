@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 11.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-10-02 17:45+0000\n"
-"PO-Revision-Date: 2018-10-02 17:45+0000\n"
+"POT-Creation-Date: 2018-10-03 09:07+0000\n"
+"PO-Revision-Date: 2018-10-03 09:07+0000\n"
 "Last-Translator: <>\n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -21,22 +21,22 @@ msgid "Closing"
 msgstr "Cierre"
 
 #. module: project_close_info
-#: model:ir.model.fields,field_description:project_close_info.field_project_project_eco_date
+#: model:ir.model.fields,field_description:project_close_info.field_project_project_economic_date
 msgid "Economic Close Date"
 msgstr "Fecha de cierre económico"
 
 #. module: project_close_info
-#: model:ir.model.fields,field_description:project_close_info.field_project_project_eco_close
+#: model:ir.model.fields,field_description:project_close_info.field_project_project_economic_close
 msgid "Economic Closing"
 msgstr "Cierre económico"
 
 #. module: project_close_info
-#: model:ir.model.fields,field_description:project_close_info.field_project_project_eco_file
+#: model:ir.model.fields,field_description:project_close_info.field_project_project_economic_file
 msgid "Economic Closing File"
 msgstr "Archivo de cierre económico"
 
 #. module: project_close_info
-#: model:ir.model.fields,field_description:project_close_info.field_project_project_eco_user
+#: model:ir.model.fields,field_description:project_close_info.field_project_project_economic_user
 msgid "Economic Closing User"
 msgstr "Usuario de cierre económico"
 
