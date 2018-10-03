@@ -23,7 +23,7 @@ class ProjectRiskTable(models.Model):
         string='Responsible', comodel_name='res.users')
     term = fields.Float(string='Term')
     tracing = fields.Text(string='Tracing')
-    
+
     @api.depends('probability_id', 'probability_id.rating',
                  'impact_id', 'impact_id.rating')
     def _compute_risk_level(self):

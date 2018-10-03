@@ -6,6 +6,7 @@ from odoo import fields, models
 
 class ProjectRiskImpactValue(models.Model):
     _name = 'project.risk.impact.value'
+    _description = 'Risk Impact Values'
 
-    name = fields.Char(string='Name')
+    name = fields.Char(string='Name', translate=True, required=True)
     rating = fields.Float(string='Rating')

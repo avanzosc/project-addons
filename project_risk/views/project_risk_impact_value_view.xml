@@ -17,8 +17,10 @@
         <field name="arch" type="xml">
             <form>
                 <sheet>
-                    <field name="name"/>
-                    <field name="rating"/>
+                    <group name="main">
+                        <field name="name"/>
+                        <field name="rating"/>
+                    </group>
                 </sheet>
             </form>
         </field>
