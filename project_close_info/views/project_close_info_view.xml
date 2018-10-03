@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <record model="ir.ui.view" id="project_close_info_form_view">
+        <field name="name">project.close.info.form.view</field>
+        <field name="model">project.project</field>
+        <field name="inherit_id" ref="project.edit_project" />
+        <field name="arch" type="xml">
+            <page name="settings" position="before">
+                <page name="closing_info" string="Closing">
+                    <group name="close_data">
+                        <group name="tech_closure">
+                            <field name="tech_close"/>
+                            <field name="tech_date"/>
+                            <field name="tech_user"/>
+                            <field name="tech_file"/>
+                        </group>
+                        <group name="economic_closure">
+                            <field name="economic_close"/>
+                            <field name="economic_date"/>
+                            <field name="economic_user"/>
+                            <field name="economic_file"/>
+                        </group>
+                    </group>
+                </page>
+            </page>
+        </field>
+    </record>
+</odoo>
