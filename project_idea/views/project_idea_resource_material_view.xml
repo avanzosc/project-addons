@@ -5,12 +5,71 @@
         <field name="name">project.idea.resource.material.tree.view</field>
         <field name="model">project.idea.resource.material</field>
         <field name="arch" type="xml">
+<<<<<<< HEAD
             <tree string="Material_Resources">
                 <field name="project_id"/>
+=======
+            <tree string="Material Resources">
+                <field name="project_id" invisible="context.get('hide_project_id',True)"/>
+>>>>>>> 27dcfc0f2fa144bfc3a89df3e483bb2045c4b28d
                 <field name="product_id"/>
                 <field name="product_name"/>
                 <field name="product_intensity"/>
             </tree>
         </field>
     </record>
+<<<<<<< HEAD
+=======
+
+    <record model="ir.ui.view" id="project_idea_resource_material_form_view">
+        <field name="model">project.idea.resource.material</field>
+        <field name="arch" type="xml">
+            <form string="Material Resources">
+                <sheet>
+                    <group name="mr_group">
+                        <group name="mr_group_left">
+                            <field name="project_id" invisible="context.get('hide_project_id',True)"/>
+                            <field name="product_name"/>
+                        </group>
+                        <group name="mr_group_right">
+                            <field name="product_id"/>
+                            <field name="product_intensity"/>
+                        </group>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record model="ir.ui.view" id="project_idea_resource_material_search_view">
+        <field name="model">project.idea.resource.material</field>
+        <field name="arch" type="xml">
+            <search string="Material Resources">
+                <field name="project_id"/>
+                <field name="product_id"/>
+                <field name="product_name"/>
+                <group name="group_by" expand="0">
+                    <filter name="group_project" string="Project"
+                            context="{'group_by': 'project_id'}" />
+                    <filter name="group_product" string="Product"
+                            context="{'group_by': 'product_id'}" />
+                </group>
+            </search>
+        </field>
+    </record>
+
+    <record id="project_idea_resource_material_action" model="ir.actions.act_window">
+        <field name="name">Material Resources</field>
+        <field name="res_model">project.idea.resource.material</field>
+        <field name="view_mode">tree,form</field>
+        <field name="context">{
+            'hide_project_id': False,
+        }</field>
+    </record>
+
+    <menuitem id="project_idea_resource_material_menuitem"
+              parent="project_idea_menuitem"
+              action="project_idea_resource_material_action"
+              sequence="10" />
+>>>>>>> 27dcfc0f2fa144bfc3a89df3e483bb2045c4b28d
 </odoo>

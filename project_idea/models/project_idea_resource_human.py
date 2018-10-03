@@ -6,6 +6,7 @@ from odoo import fields, models
 
 class HumanResources(models.Model):
     _name = 'project.idea.resource.human'
+    _description = 'Idea Human Resource'
 
     project_id = fields.Many2one(
         string='Project', comodel_name='project.project', required=True)

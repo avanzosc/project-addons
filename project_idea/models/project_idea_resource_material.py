@@ -1,11 +1,12 @@
 # Copyright 2018 Gontzal Gomez - AvanzOSC
 # License AGPL-3 - See http://www.gnu.org/licenses/agpl-3.0.html
 
-from odoo import fields, models, api
+from odoo import api, fields, models
 
 
 class MaterialResources(models.Model):
     _name = 'project.idea.resource.material'
+    _description = 'Idea Material Resource'
 
     project_id = fields.Many2one(
         string='Project', comodel_name='project.project', required=True)

@@ -2,7 +2,7 @@
 # License AGPL-3 - See http://www.gnu.org/licenses/agpl-3.0.html
 
 from odoo.tools.safe_eval import safe_eval
-from odoo import fields, models
+from odoo import api, fields, models
 from odoo.osv import expression
 
 
@@ -21,6 +21,11 @@ class ProjectProject(models.Model):
         action_dict['domain'] = expression.AND(
             [new_domain, safe_eval(action_dict.get('domain') or '[]')])
         return action_dict
+
+    @api.onchange('res_area_id')
+    def _onchange_area_id(self):
+        self.ensure_one()
+        self.nonoperative = self.res_area_id.nonoperative
 
 
 class ResAreaType(models.Model):

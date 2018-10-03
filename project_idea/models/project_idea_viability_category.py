@@ -6,5 +6,6 @@ from odoo import fields, models
 
 class ProjectIdeaViabilityCategory(models.Model):
     _name = 'project.idea.viability.category'
+    _description = 'Viability Category'
 
     name = fields.Char(string='Name')
