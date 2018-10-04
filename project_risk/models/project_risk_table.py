@@ -11,6 +11,7 @@ class ProjectRiskTable(models.Model):
         string='Project', comodel_name='project.project', required=True)
     risk_id = fields.Many2one(
         string='Risk', comodel_name='project.risk.risk')
+    risk = fields.Char(string='Risk')
     probability_id = fields.Many2one(
         string='Probability', comodel_name='project.risk.probability.value')
     impact_id = fields.Many2one(
@@ -19,10 +20,12 @@ class ProjectRiskTable(models.Model):
                               compute='_compute_risk_level')
     action_id = fields.Many2one(
         string='Action', comodel_name='project.risk.action')
+    action = fields.Char(string='Action')
     responsible_id = fields.Many2one(
         string='Responsible', comodel_name='res.users')
-    term = fields.Float(string='Term')
-    tracing = fields.Text(string='Tracing')
+    causes = fields.Text(string='Causes of Risk')
+    consec = fields.Text(string='Consequences')
+    date_due = fields.Date(string='Term')
 
     @api.depends('probability_id', 'probability_id.rating',
                  'impact_id', 'impact_id.rating')
@@ -30,3 +33,11 @@ class ProjectRiskTable(models.Model):
         for record in self:
             record.risk_level = (
                 record.probability_id.rating * record.impact_id.rating)
+
+    @api.onchange('risk_id')
+    def onchange_risk_id(self):
+        self.risk = self.risk_id.name
+
+    @api.onchange('action_id')
+    def onchange_action_id(self):
+        self.action = self.action_id.name
