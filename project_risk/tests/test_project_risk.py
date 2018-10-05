@@ -15,6 +15,11 @@ class TestProjectRisk(common.SavepointCase):
         cls.project = cls.env['project.project'].create({
             'name': 'Test Project',
         })
+        cls.risk = cls.env['project.risk.risk'].create({
+            'name': 'Test Risk',
+        })
+        cls.action = cls.env['project.risk.action'].create({
+            'name': 'Test Action'})
 
     def test_risk_table(self):
         table = self.table_model.create({
@@ -39,3 +44,23 @@ class TestProjectRisk(common.SavepointCase):
         self.assertEquals(
             round(table.risk_level, 4),
             round(self.impact.rating * self.probability.rating, 4))
+
+    def test_onchange_risk_id(self):
+        table = self.table_model.create({
+            'project_id': self.project.id,
+            'risk_id': self.risk.id,
+        })
+        self.assertFalse(table.risk)
+        table.onchange_risk_id()
+        self.assertEquals(table.risk,
+                          table.risk_id.name)
+
+    def test_onchange_action_id(self):
+        table = self.table_model.create({
+            'project_id': self.project.id,
+            'action_id': self.action.id,
+        })
+        self.assertFalse(table.action)
+        table.onchange_action_id()
+        self.assertEquals(table.action,
+                          table.action_id.name)
