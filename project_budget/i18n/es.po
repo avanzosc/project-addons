@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 11.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-10-01 10:21+0000\n"
-"PO-Revision-Date: 2018-10-01 10:21+0000\n"
+"POT-Creation-Date: 2018-10-05 11:00+0000\n"
+"PO-Revision-Date: 2018-10-05 11:00+0000\n"
 "Last-Translator: <>\n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -22,13 +22,14 @@ msgstr "Un presupuesto es una proyección de los ingresos y/o gastos esperados e
 
 #. module: project_budget
 #: model:ir.model.fields,field_description:project_budget.field_crossovered_budget_active
+#: model:ir.ui.view,arch_db:project_budget.crossovered_budget_search_view
 msgid "Active"
 msgstr "Activo"
 
 #. module: project_budget
 #: model:ir.model.fields,field_description:project_budget.field_crossovered_budget_lines_sum_amount
 msgid "Amount Sum"
-msgstr "Suma"
+msgstr "Previsión final"
 
 #. module: project_budget
 #: model:ir.model,name:project_budget.model_account_analytic_account
@@ -37,10 +38,20 @@ msgid "Analytic Account"
 msgstr "Cuenta analítica"
 
 #. module: project_budget
+#: model:ir.ui.view,arch_db:project_budget.crossovered_budget_search_view
+msgid "Archived"
+msgstr "Archivado"
+
+#. module: project_budget
 #: model:ir.model,name:project_budget.model_crossovered_budget
 #: model:ir.ui.view,arch_db:project_budget.crossovered_budget_line_search_view
 msgid "Budget"
 msgstr "Presupuesto"
+
+#. module: project_budget
+#: model:ir.model.fields,field_description:project_budget.field_crossovered_budget_budget_date
+msgid "Budget Date"
+msgstr "Budget Date"
 
 #. module: project_budget
 #: model:ir.model,name:project_budget.model_crossovered_budget_lines
@@ -61,7 +72,6 @@ msgstr "Posición Presupuestaria"
 #: model:ir.actions.act_window,name:project_budget.project_budget_action
 #: model:ir.model.fields,field_description:project_budget.field_project_project_budget_count
 #: model:ir.model.fields,field_description:project_budget.field_project_project_budget_ids
-#: model:ir.ui.menu,name:project_budget.menu_act2_crossovered_budget_lines_view
 #: model:ir.ui.view,arch_db:project_budget.project_project_form_view
 msgid "Budgets"
 msgstr "Presupuestos"
@@ -112,7 +122,7 @@ msgstr "Presupuestos iniciales"
 #: model:ir.ui.view,arch_db:project_budget.crossovered_budget_form_view
 #: model:ir.ui.view,arch_db:project_budget.crossovered_budget_line_tree_view
 msgid "Initial Planned Amount"
-msgstr "Importe planificado inicial"
+msgstr "Presupuesto inicial"
 
 #. module: project_budget
 #: model:ir.ui.view,arch_db:project_budget.account_analytic_account_last_budget_lines_form_view
@@ -141,6 +151,7 @@ msgstr "Proyecto"
 
 #. module: project_budget
 #: code:addons/project_budget/models/crossovered_budget.py:83
+#: code:addons/project_budget/models/crossovered_budget.py:85
 #, python-format
 msgid "There can only be one initial budget per project and year."
 msgstr "Sólo puede haber un presupuesto inicial por proyecto y año."

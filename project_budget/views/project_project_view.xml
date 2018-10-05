@@ -7,6 +7,7 @@
         <field name="context">{
             'search_default_project_id': [active_id],
             'default_project_id': active_id,
+            'active_test': False,
         }</field>
         <field name="view_id"
                ref="account_budget.crossovered_budget_view_tree" />
