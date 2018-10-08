@@ -1,5 +1,9 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <odoo>
+    <record id="account_budget.act_crossovered_budget_view" model="ir.actions.act_window">
+        <field name="context">{'active_test': False}</field>
+    </record>
+
     <record id="crossovered_budget_form_view" model="ir.ui.view">
         <field name="name">crossovered.budget.form</field>
         <field name="model">crossovered.budget</field>
@@ -11,11 +15,20 @@
                         type="object"
                         attrs="{'invisible': ['|','|',('state','not in',['draft']),('project_id','=',False),'!',('crossovered_budget_line','=',[])]}" />
             </button>
+            <div class="oe_title" position="after">
+                <div class="oe_button_box" name="button_box">
+                    <button name="toggle_active" type="object" class="oe_stat_button" icon="fa-archive">
+                        <field name="active" widget="boolean_button"/>
+                    </button>
+                </div>
+            </div>
+            <field name="creating_user_id" position="after">
+                <field name="budget_date" />
+            </field>
             <field name="company_id" position="before">
                 <field name="project_id" groups="project.group_project_user"
                        options="{'no_create': True}"/>
                 <field name="initial" readonly="True" invisible="True" />
-                <field name="active" />
             </field>
             <xpath expr="//field[@name='crossovered_budget_line']/tree//field[@name='planned_amount']" position="before">
                 <field name="initial_planned_amount" widget="monetary"
@@ -41,10 +54,12 @@
         <field name="arch" type="xml">
             <tree position="attributes">
                 <attribute name="decoration-danger">initial</attribute>
+                <attribute name="decoration-it">active == False</attribute>
             </tree>
             <field name="company_id" position="before">
                 <field name="project_id" />
                 <field name="initial" invisible="True" />
+                <field name="active" invisible="True" />
             </field>
         </field>
     </record>
@@ -60,6 +75,14 @@
                 <filter name="initial_filter" string="Initial"
                         domain="[('initial','=',True)]"
                         help="Initial Budgets"/>
+                <filter string="Active" name="active_filter"
+                        domain="[('active','=',True)]"/>
+                <filter string="Archived" name="inactive_filter"
+                        domain="[('active','=',False)]"/>
+                <filter string="Current Budget" name="current_budget_filter"
+                        domain="[('active','=',True),
+                                 ('budget_date','&lt;',(context_today()+relativedelta(months=1)).strftime('%%Y-%%m-01')),
+                                 ('budget_date','&gt;=',context_today().strftime('%%Y-%%m-01'))]" />
                 <field name="project_id"/>
             </field>
         </field>

@@ -18,6 +18,8 @@ class CrossoveredBudget(models.Model):
         string='Initial', copy=False, states={'done': [('readonly', True)]})
     active = fields.Boolean(string='Active', default=True)
     year = fields.Integer(string='Year', compute='_compute_year', store=True)
+    budget_date = fields.Date(
+        string='Budget Date', default=lambda s: fields.Date.context_today(s))
 
     @api.depends('date_from')
     def _compute_year(self):
@@ -82,6 +84,15 @@ class CrossoveredBudget(models.Model):
                 raise exceptions.ValidationError(
                     _("There can only be one initial budget per project and "
                       "year."))
+
+    @api.multi
+    @api.returns('self', lambda value: value.id)
+    def copy(self, default=None):
+        new = super(CrossoveredBudget, self).copy(default=default)
+        self.filtered(lambda b: not b.initial).write({
+            'active': False,
+        })
+        return new
 
 
 class CrossoveredBudgetLines(models.Model):

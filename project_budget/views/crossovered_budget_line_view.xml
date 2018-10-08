@@ -4,11 +4,6 @@
         <field name="view_mode">tree,form,pivot</field>
     </record>
 
-    <menuitem id="menu_act2_crossovered_budget_lines_view" string="Budget Items"
-              parent="account.menu_finance_entries_management"
-              action="account_budget.act_crossovered_budget_lines_view"
-              sequence="65" />
-
     <record model="ir.ui.view" id="crossovered_budget_line_form_view">
         <field name="name">crossovered.budget.line.form</field>
         <field name="model">crossovered.budget.lines</field>

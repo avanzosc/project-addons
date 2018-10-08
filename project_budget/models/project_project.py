@@ -2,6 +2,7 @@
 # License AGPL-3 - See http://www.gnu.org/licenses/agpl-3.0.html
 
 from odoo import _, api, fields, models
+import calendar
 
 to_string = fields.Date.to_string
 from_string = fields.Date.from_string
@@ -15,11 +16,25 @@ class ProjectProject(models.Model):
         string='Budgets')
     budget_count = fields.Integer(
         string='Budgets', compute='_compute_budget_count')
+    current_budget_id = fields.Many2one(
+        comodel_name='crossovered.budget', compute='_compute_budget_count')
+    current_budget_count = fields.Integer(
+        string='Budgets', compute='_compute_budget_count')
 
     @api.multi
     def _compute_budget_count(self):
+        today = from_string(fields.Date.context_today(self))
+        month_start = to_string(today.replace(day=1))
+        month_end = \
+            to_string(today.replace(
+                day=calendar.monthrange(today.year, today.month)[1]))
         for record in self:
-            record.budget_count = len(record.budget_ids)
+            record.budget_count = len(
+                record.with_context(active_test=False).budget_ids)
+            record.current_budget_id = record.budget_ids.filtered(
+                lambda b: b.budget_date >= month_start and
+                          b.budget_date <= month_end)
+            record.current_budget_count = len(record.current_budget_id)
 
     @api.multi
     def create_initial_project_budget(self):
