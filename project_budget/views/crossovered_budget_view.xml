@@ -79,6 +79,10 @@
                         domain="[('active','=',True)]"/>
                 <filter string="Archived" name="inactive_filter"
                         domain="[('active','=',False)]"/>
+                <filter string="Current Budget" name="current_budget_filter"
+                        domain="[('active','=',True),
+                                 ('budget_date','&lt;',(context_today()+relativedelta(months=1)).strftime('%%Y-%%m-01')),
+                                 ('budget_date','&gt;=',context_today().strftime('%%Y-%%m-01'))]" />
                 <field name="project_id"/>
             </field>
         </field>

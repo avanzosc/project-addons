@@ -51,7 +51,7 @@ msgstr "Presupuesto"
 #. module: project_budget
 #: model:ir.model.fields,field_description:project_budget.field_crossovered_budget_budget_date
 msgid "Budget Date"
-msgstr "Budget Date"
+msgstr "Fecha del presupuesto"
 
 #. module: project_budget
 #: model:ir.model,name:project_budget.model_crossovered_budget_lines

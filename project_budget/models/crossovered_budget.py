@@ -89,7 +89,7 @@ class CrossoveredBudget(models.Model):
     @api.returns('self', lambda value: value.id)
     def copy(self, default=None):
         new = super(CrossoveredBudget, self).copy(default=default)
-        self.write({
+        self.filtered(lambda b: not b.initial).write({
             'active': False,
         })
         return new
