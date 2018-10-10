@@ -8,13 +8,16 @@
             <tree>
                 <field name="project_id" invisible="context.get('hide_project_id',True)"/>
                 <field name="risk_id"/>
+                <field name="risk"/>
                 <field name="probability_id"/>
                 <field name="impact_id"/>
                 <field name="risk_level"/>
                 <field name="action_id"/>
+                <field name="action"/>
                 <field name="responsible_id"/>
-                <field name="term"/>
-                <field name="tracing"/>
+                <field name="causes"/>
+                <field name="consec"/>
+                <field name="date_due"/>
                 
             </tree>
         </field>
