@@ -10,7 +10,11 @@
                 <page name="risks_expect" string="Risks and Expectations">
                    <group name="risk_table"
                           string="Risk Table">
-                       <field name="risk_table_ids"  nolabel="1"/>
+                           <field name="risk_table_ids" nolabel="1"/>
+                   </group>
+                   <group name="chance_table"
+                          string="Chance Table">
+                           <field name="risk_chance_table_ids" nolabel="1"/>
                    </group>
                 </page>
             </page>
@@ -28,4 +32,7 @@
     <menuitem id="project_risk_table_menuitem"
               parent="project_risk_menuitem"
               action="project_risk_table_action" />
+    <menuitem id="project_risk_chance_table_menuitem"
+              parent="project_risk_menuitem"
+              action="project_risk_chance_table_action" />
 </odoo>

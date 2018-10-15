@@ -9,3 +9,5 @@ class ProjectProjectRisk(models.Model):
 
     risk_table_ids = fields.One2many(
         comodel_name='project.risk.table', inverse_name='project_id')
+    risk_chance_table_ids = fields.One2many(
+        comodel_name='project.risk.chance.table', inverse_name='project_id')

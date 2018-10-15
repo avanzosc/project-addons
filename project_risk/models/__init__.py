@@ -7,3 +7,7 @@ from . import project_risk_table
 from . import project_project_risk
 from . import project_risk_risk
 from . import project_risk_action
+from . import project_risk_chance_prob
+from . import project_risk_chance_profit
+from . import project_risk_chance_table
+from . import project_risk_chance_project
