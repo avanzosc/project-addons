@@ -13,8 +13,8 @@ class TestProjectBudget(common.SavepointCase):
     @classmethod
     def setUpClass(cls):
         super(TestProjectBudget, cls).setUpClass()
-        project_model = cls.env['project.project']
-        cls.project = project_model.create({
+        cls.project_model = cls.env['project.project']
+        cls.project = cls.project_model.create({
             'name': 'New Project'
         })
 
@@ -23,6 +23,10 @@ class TestProjectBudget(common.SavepointCase):
         self.assertTrue(self.project.budget_ids[:1].initial)
         self.assertEquals(
             len(self.project.budget_ids), self.project.budget_count)
+        self.assertTrue(self.project.has_current_budget)
+        self.assertEquals(
+            self.project,
+            self.project.search([('has_current_budget', '=', True)]))
         self.assertEquals(len(
             self.project.mapped('budget_ids.crossovered_budget_line')), 26)
         self.project.create_initial_project_budget()

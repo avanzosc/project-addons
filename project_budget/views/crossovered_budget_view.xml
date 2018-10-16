@@ -20,6 +20,9 @@
                     <button name="toggle_active" type="object" class="oe_stat_button" icon="fa-archive">
                         <field name="active" widget="boolean_button"/>
                     </button>
+                    <button name="open_pivot_view" type="object" class="oe_stat_button" icon="fa-archive">
+                        <label string="Budget Lines Pivot Report" />
+                    </button>
                 </div>
             </div>
             <field name="creating_user_id" position="after">

@@ -94,6 +94,20 @@ class CrossoveredBudget(models.Model):
         })
         return new
 
+    @api.multi
+    def open_pivot_view(self):
+        self.ensure_one()
+        action = self.env.ref(
+            'account_budget.act_crossovered_budget_lines_view')
+        action_dict = action.read()[0]
+        action_dict.update({
+            'view_mode': 'pivot',
+            'view_id': False,
+            'views': [],
+            'domain': [('crossovered_budget_id', '=', self.id)],
+        })
+        return action_dict
+
 
 class CrossoveredBudgetLines(models.Model):
     _inherit = "crossovered.budget.lines"
@@ -110,6 +124,12 @@ class CrossoveredBudgetLines(models.Model):
         related='crossovered_budget_id.project_id', store=True)
     sum_amount = fields.Float(
         string='Amount Sum', compute='_compute_sum_amount')
+    budget_active = fields.Boolean(
+        string='Budget Active',
+        related='crossovered_budget_id.active', store=True)
+    budget_date = fields.Date(
+        string='Budget Date',
+        related='crossovered_budget_id.budget_date', store=True)
 
     @api.depends('planned_amount', 'practical_amount')
     def _compute_sum_amount(self):
