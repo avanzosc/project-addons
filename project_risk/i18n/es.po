@@ -25,17 +25,17 @@ msgstr "Acción"
 
 #. module: project_risk
 #: model:project.risk.probability.value,name:project_risk.probab3
-msgid "Algo probable que ocurra"
+msgid "Somewhat likely to happen"
 msgstr "Algo probable que ocurra"
 
 #. module: project_risk
 #: model:project.risk.impact.value,name:project_risk.impact4
-msgid "Alto"
+msgid "High"
 msgstr "Alto"
 
 #. module: project_risk
 #: model:project.risk.impact.value,name:project_risk.impact2
-msgid "Bajo"
+msgid "Low"
 msgstr "Bajo"
 
 #. module: project_risk
@@ -113,7 +113,7 @@ msgstr "Nombre mostrado"
 
 #. module: project_risk
 #: model:project.risk.probability.value,name:project_risk.probab5
-msgid "Es muy probable que ocurra"
+msgid "Very likely to happen"
 msgstr "Es muy probable que ocurra"
 
 #. module: project_risk
@@ -175,12 +175,12 @@ msgstr "Última actualización en"
 
 #. module: project_risk
 #: model:project.risk.impact.value,name:project_risk.impact3
-msgid "Medio"
+msgid "Medium"
 msgstr "Medio"
 
 #. module: project_risk
 #: model:project.risk.impact.value,name:project_risk.impact5
-msgid "Muy Alto"
+msgid "Very high"
 msgstr "Muy Alto"
 
 #. module: project_risk
@@ -196,17 +196,17 @@ msgstr "Nombre"
 
 #. module: project_risk
 #: model:project.risk.probability.value,name:project_risk.probab1
-msgid "No puede ocurrir"
+msgid "Can not happen"
 msgstr "No puede ocurrir"
 
 #. module: project_risk
 #: model:project.risk.impact.value,name:project_risk.impact1
-msgid "Nulo"
+msgid "Null"
 msgstr "Nulo"
 
 #. module: project_risk
 #: model:project.risk.probability.value,name:project_risk.probab2
-msgid "Poco probable que ocurra"
+msgid "Bit likely to happen"
 msgstr "Poco probable que ocurra"
 
 #. module: project_risk
@@ -217,7 +217,7 @@ msgstr "Probabilidad"
 
 #. module: project_risk
 #: model:project.risk.probability.value,name:project_risk.probab4
-msgid "Probable que ocurra"
+msgid "Likely to happen"
 msgstr "Probable que ocurra"
 
 #. module: project_risk
