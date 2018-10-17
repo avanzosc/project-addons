@@ -61,7 +61,7 @@ msgstr "Presupuesto"
 #. module: project_budget
 #: model:ir.model.fields,field_description:project_budget.field_crossovered_budget_lines_budget_active
 msgid "Budget Active"
-msgstr "Budget Active"
+msgstr "Presupuesto activado"
 
 #. module: project_budget
 #: model:ir.model.fields,field_description:project_budget.field_crossovered_budget_budget_date

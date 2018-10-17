@@ -31,6 +31,8 @@ class TestProjectBudget(common.SavepointCase):
             self.project.mapped('budget_ids.crossovered_budget_line')), 26)
         self.project.create_initial_project_budget()
         self.assertEquals(len(self.project.budget_ids), 1)
+        action_dict = self.project.budget_ids[:1].open_pivot_view()
+        self.assertEquals(action_dict.get('view_mode'), 'pivot')
 
     def test_initial_budget_per_project_year(self):
         new_budget = self.project.budget_ids.copy()
