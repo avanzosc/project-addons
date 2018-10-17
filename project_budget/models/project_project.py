@@ -15,11 +15,15 @@ class ProjectProject(models.Model):
         comodel_name='crossovered.budget', inverse_name='project_id',
         string='Budgets')
     budget_count = fields.Integer(
-        string='Budgets', compute='_compute_budget_count')
+        string='# Budgets', compute='_compute_budget_count')
     current_budget_id = fields.Many2one(
-        comodel_name='crossovered.budget', compute='_compute_budget_count')
+        string='Current Budget', comodel_name='crossovered.budget',
+        compute='_compute_budget_count')
     current_budget_count = fields.Integer(
-        string='Budgets', compute='_compute_budget_count')
+        string='# Current Budgets', compute='_compute_budget_count')
+    has_current_budget = fields.Boolean(
+        string='Has Current Budget', compute='_compute_budget_count',
+        search='_search_current_budget')
 
     @api.multi
     def _compute_budget_count(self):
@@ -35,6 +39,22 @@ class ProjectProject(models.Model):
                 lambda b: b.budget_date >= month_start and
                           b.budget_date <= month_end)
             record.current_budget_count = len(record.current_budget_id)
+            record.has_current_budget = bool(record.current_budget_id)
+
+    @api.multi
+    def _search_current_budget(self, operator, value):
+        today = from_string(fields.Date.context_today(self))
+        month_start = to_string(today.replace(day=1))
+        month_end = \
+            to_string(today.replace(
+                day=calendar.monthrange(today.year, today.month)[1]))
+        current_budgets = self.env['crossovered.budget'].search([
+            ('project_id', '<>', False),
+            ('budget_date', '>=', month_start),
+            ('budget_date', '<=', month_end)])
+        operator = 'in' if ((operator == '=' and value) or
+                            (operator == '!=' and not value)) else 'not in'
+        return [('id', operator, current_budgets.mapped('project_id').ids)]
 
     @api.multi
     def create_initial_project_budget(self):
