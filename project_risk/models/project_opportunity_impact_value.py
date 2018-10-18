@@ -4,9 +4,9 @@
 from odoo import fields, models
 
 
-class ProjectRiskAction(models.Model):
-    _name = 'project.risk.action'
-    _description = 'Risk Action'
+class ProjectOpportunityImpactValue(models.Model):
+    _name = 'project.opportunity.impact.value'
+    _description = 'Opportunity Impact Values'
 
     name = fields.Char(string='Name', translate=True, required=True)
-    description = fields.Char(string='Description', translate=True)
+    rating = fields.Float(string='Rating')

@@ -3,7 +3,7 @@
 
 {
     "name": "Project Risk",
-    "version": "11.0.1.1.0",
+    "version": "11.0.2.0.0",
     "license": "AGPL-3",
     "depends": [
         "project",
@@ -13,11 +13,18 @@
     "category": "Project",
     "data": [
         "security/ir.model.access.csv",
+        "views/project_risk_risk_view.xml",
+        "views/project_risk_action_view.xml",
         "views/project_risk_impact_value_view.xml",
         "views/project_risk_probability_value_view.xml",
+        "views/project_opportunity_opportunity_view.xml",
+        "views/project_opportunity_action_view.xml",
+        "views/project_opportunity_impact_value_view.xml",
+        "views/project_opportunity_probability_value_view.xml",
         "views/project_risk_table_view.xml",
+        "views/project_opportunity_table_view.xml",
         "views/project_project_risk_view.xml",
-        "data/project_risk_data.xml"
+        "data/project_risk_data.xml",
     ],
     "installable": True,
 }

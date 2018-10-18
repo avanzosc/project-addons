@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 11.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-10-03 15:55+0000\n"
-"PO-Revision-Date: 2018-10-03 15:55+0000\n"
+"POT-Creation-Date: 2018-10-18 15:03+0000\n"
+"PO-Revision-Date: 2018-10-18 15:03+0000\n"
 "Last-Translator: <>\n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -16,11 +16,34 @@ msgstr ""
 "Plural-Forms: \n"
 
 #. module: project_risk
+#: model:ir.model.fields,field_description:project_risk.field_project_opportunity_table_action
+#: model:ir.model.fields,field_description:project_risk.field_project_opportunity_table_action_id
+#: model:ir.model.fields,field_description:project_risk.field_project_risk_table_action
 #: model:ir.model.fields,field_description:project_risk.field_project_risk_table_action_id
 msgid "Action"
 msgstr "Acción"
 
 #. module: project_risk
+#: model:ir.model.fields,field_description:project_risk.field_project_risk_table_causes
+msgid "Causes of Risk"
+msgstr "Causas de riesgo"
+
+#. module: project_risk
+#: model:ir.model.fields,field_description:project_risk.field_project_opportunity_table_opportunity_id
+msgid "Chance"
+msgstr "Oportunidad"
+
+#. module: project_risk
+#: model:ir.model.fields,field_description:project_risk.field_project_risk_table_consec
+msgid "Consequences"
+msgstr "Consecuencias"
+
+#. module: project_risk
+#: model:ir.model.fields,field_description:project_risk.field_project_opportunity_action_create_uid
+#: model:ir.model.fields,field_description:project_risk.field_project_opportunity_impact_value_create_uid
+#: model:ir.model.fields,field_description:project_risk.field_project_opportunity_opportunity_create_uid
+#: model:ir.model.fields,field_description:project_risk.field_project_opportunity_probability_value_create_uid
+#: model:ir.model.fields,field_description:project_risk.field_project_opportunity_table_create_uid
 #: model:ir.model.fields,field_description:project_risk.field_project_risk_action_create_uid
 #: model:ir.model.fields,field_description:project_risk.field_project_risk_impact_value_create_uid
 #: model:ir.model.fields,field_description:project_risk.field_project_risk_probability_value_create_uid
@@ -30,35 +53,53 @@ msgid "Created by"
 msgstr "Creado por"
 
 #. module: project_risk
+#: model:ir.model.fields,field_description:project_risk.field_project_opportunity_action_create_date
+#: model:ir.model.fields,field_description:project_risk.field_project_opportunity_impact_value_create_date
+#: model:ir.model.fields,field_description:project_risk.field_project_opportunity_opportunity_create_date
+#: model:ir.model.fields,field_description:project_risk.field_project_opportunity_probability_value_create_date
+#: model:ir.model.fields,field_description:project_risk.field_project_opportunity_table_create_date
 #: model:ir.model.fields,field_description:project_risk.field_project_risk_action_create_date
 #: model:ir.model.fields,field_description:project_risk.field_project_risk_impact_value_create_date
 #: model:ir.model.fields,field_description:project_risk.field_project_risk_probability_value_create_date
 #: model:ir.model.fields,field_description:project_risk.field_project_risk_risk_create_date
 #: model:ir.model.fields,field_description:project_risk.field_project_risk_table_create_date
 msgid "Created on"
-msgstr "Creado en"
+msgstr "Creado el"
 
 #. module: project_risk
+#: model:ir.model.fields,field_description:project_risk.field_project_opportunity_action_description
+#: model:ir.model.fields,field_description:project_risk.field_project_opportunity_opportunity_description
 #: model:ir.model.fields,field_description:project_risk.field_project_risk_action_description
 #: model:ir.model.fields,field_description:project_risk.field_project_risk_risk_description
 msgid "Description"
 msgstr "Descripción"
 
 #. module: project_risk
+#: model:ir.model.fields,field_description:project_risk.field_project_opportunity_action_display_name
+#: model:ir.model.fields,field_description:project_risk.field_project_opportunity_impact_value_display_name
+#: model:ir.model.fields,field_description:project_risk.field_project_opportunity_opportunity_display_name
+#: model:ir.model.fields,field_description:project_risk.field_project_opportunity_probability_value_display_name
+#: model:ir.model.fields,field_description:project_risk.field_project_opportunity_table_display_name
 #: model:ir.model.fields,field_description:project_risk.field_project_risk_action_display_name
 #: model:ir.model.fields,field_description:project_risk.field_project_risk_impact_value_display_name
 #: model:ir.model.fields,field_description:project_risk.field_project_risk_probability_value_display_name
 #: model:ir.model.fields,field_description:project_risk.field_project_risk_risk_display_name
 #: model:ir.model.fields,field_description:project_risk.field_project_risk_table_display_name
 msgid "Display Name"
-msgstr "Nombre mostrado"
+msgstr "Mostrar nombre"
 
 #. module: project_risk
+#: model:project.opportunity.impact.value,name:project_risk.prof4
 #: model:project.risk.impact.value,name:project_risk.impact4
 msgid "High"
 msgstr "Alta"
 
 #. module: project_risk
+#: model:ir.model.fields,field_description:project_risk.field_project_opportunity_action_id
+#: model:ir.model.fields,field_description:project_risk.field_project_opportunity_impact_value_id
+#: model:ir.model.fields,field_description:project_risk.field_project_opportunity_opportunity_id
+#: model:ir.model.fields,field_description:project_risk.field_project_opportunity_probability_value_id
+#: model:ir.model.fields,field_description:project_risk.field_project_opportunity_table_id
 #: model:ir.model.fields,field_description:project_risk.field_project_risk_action_id
 #: model:ir.model.fields,field_description:project_risk.field_project_risk_impact_value_id
 #: model:ir.model.fields,field_description:project_risk.field_project_risk_probability_value_id
@@ -78,6 +119,11 @@ msgid "It can not happen"
 msgstr "No puede ocurrir"
 
 #. module: project_risk
+#: model:ir.model.fields,field_description:project_risk.field_project_opportunity_action___last_update
+#: model:ir.model.fields,field_description:project_risk.field_project_opportunity_impact_value___last_update
+#: model:ir.model.fields,field_description:project_risk.field_project_opportunity_opportunity___last_update
+#: model:ir.model.fields,field_description:project_risk.field_project_opportunity_probability_value___last_update
+#: model:ir.model.fields,field_description:project_risk.field_project_opportunity_table___last_update
 #: model:ir.model.fields,field_description:project_risk.field_project_risk_action___last_update
 #: model:ir.model.fields,field_description:project_risk.field_project_risk_impact_value___last_update
 #: model:ir.model.fields,field_description:project_risk.field_project_risk_probability_value___last_update
@@ -87,6 +133,11 @@ msgid "Last Modified on"
 msgstr "Última modificación en"
 
 #. module: project_risk
+#: model:ir.model.fields,field_description:project_risk.field_project_opportunity_action_write_uid
+#: model:ir.model.fields,field_description:project_risk.field_project_opportunity_impact_value_write_uid
+#: model:ir.model.fields,field_description:project_risk.field_project_opportunity_opportunity_write_uid
+#: model:ir.model.fields,field_description:project_risk.field_project_opportunity_probability_value_write_uid
+#: model:ir.model.fields,field_description:project_risk.field_project_opportunity_table_write_uid
 #: model:ir.model.fields,field_description:project_risk.field_project_risk_action_write_uid
 #: model:ir.model.fields,field_description:project_risk.field_project_risk_impact_value_write_uid
 #: model:ir.model.fields,field_description:project_risk.field_project_risk_probability_value_write_uid
@@ -96,6 +147,11 @@ msgid "Last Updated by"
 msgstr "Última actualización de"
 
 #. module: project_risk
+#: model:ir.model.fields,field_description:project_risk.field_project_opportunity_action_write_date
+#: model:ir.model.fields,field_description:project_risk.field_project_opportunity_impact_value_write_date
+#: model:ir.model.fields,field_description:project_risk.field_project_opportunity_opportunity_write_date
+#: model:ir.model.fields,field_description:project_risk.field_project_opportunity_probability_value_write_date
+#: model:ir.model.fields,field_description:project_risk.field_project_opportunity_table_write_date
 #: model:ir.model.fields,field_description:project_risk.field_project_risk_action_write_date
 #: model:ir.model.fields,field_description:project_risk.field_project_risk_impact_value_write_date
 #: model:ir.model.fields,field_description:project_risk.field_project_risk_probability_value_write_date
@@ -105,14 +161,25 @@ msgid "Last Updated on"
 msgstr "Última actualización en"
 
 #. module: project_risk
+#: model:project.opportunity.probability.value,name:project_risk.prob4
+msgid "Likely to get benefit"
+msgstr "Probable que se obtenga un beneficio"
+
+#. module: project_risk
 #: model:project.risk.probability.value,name:project_risk.probab4
 msgid "Likely to happen"
 msgstr "Probable que ocurra"
 
 #. module: project_risk
+#: model:project.opportunity.impact.value,name:project_risk.prof2
 #: model:project.risk.impact.value,name:project_risk.impact2
 msgid "Low"
 msgstr "Baja"
+
+#. module: project_risk
+#: model:project.opportunity.probability.value,name:project_risk.prob3
+msgid "May get benefit"
+msgstr "Algo probable que pueda obtenerse un beneficio"
 
 #. module: project_risk
 #: model:project.risk.probability.value,name:project_risk.probab3
@@ -120,11 +187,16 @@ msgid "May happen"
 msgstr "Algo probable que ocurra"
 
 #. module: project_risk
+#: model:project.opportunity.impact.value,name:project_risk.prof3
 #: model:project.risk.impact.value,name:project_risk.impact3
 msgid "Medium"
 msgstr "Medio"
 
 #. module: project_risk
+#: model:ir.model.fields,field_description:project_risk.field_project_opportunity_action_name
+#: model:ir.model.fields,field_description:project_risk.field_project_opportunity_impact_value_name
+#: model:ir.model.fields,field_description:project_risk.field_project_opportunity_opportunity_name
+#: model:ir.model.fields,field_description:project_risk.field_project_opportunity_probability_value_name
 #: model:ir.model.fields,field_description:project_risk.field_project_risk_action_name
 #: model:ir.model.fields,field_description:project_risk.field_project_risk_impact_value_name
 #: model:ir.model.fields,field_description:project_risk.field_project_risk_probability_value_name
@@ -133,37 +205,111 @@ msgid "Name"
 msgstr "Nombre"
 
 #. module: project_risk
+#: model:project.opportunity.impact.value,name:project_risk.prof1
 #: model:project.risk.impact.value,name:project_risk.impact1
 msgid "Null"
 msgstr "Nulo"
 
 #. module: project_risk
+#: model:ir.ui.view,arch_db:project_risk.project_project_risk_form_view
+msgid "Opportunities"
+msgstr "Oportunidades"
+
+#. module: project_risk
+#: model:ir.actions.act_window,name:project_risk.project_opportunity_opportunity_action
+#: model:ir.model.fields,field_description:project_risk.field_project_opportunity_table_opportunity
+#: model:ir.ui.menu,name:project_risk.project_opportunity_menuitem
+#: model:ir.ui.menu,name:project_risk.project_opportunity_opportunity_menuitem
+msgid "Opportunity"
+msgstr "Oportunidad"
+
+#. module: project_risk
+#: model:ir.actions.act_window,name:project_risk.project_opportunity_action_action
+#: model:ir.ui.menu,name:project_risk.project_opportunity_action_menuitem
+msgid "Opportunity Action"
+msgstr "Accion de la oportunidad"
+
+#. module: project_risk
+#: model:ir.actions.act_window,name:project_risk.project_opportunity_impact_value_action
+#: model:ir.ui.menu,name:project_risk.project_opportunity_impact_value_menuitem
+msgid "Opportunity Impact"
+msgstr "Beneficio de la oportunidad"
+
+#. module: project_risk
+#: model:ir.actions.act_window,name:project_risk.project_opportunity_probability_value_action
+#: model:ir.ui.menu,name:project_risk.project_opportunity_probability_value_menuitem
+msgid "Opportunity Probability"
+msgstr "Probabilidad de la oportunidad"
+
+#. module: project_risk
+#: model:ir.model,name:project_risk.model_project_opportunity_probability_value
+msgid "Opportunity Probability Value"
+msgstr "Valor probabilidad de la oportunidad"
+
+#. module: project_risk
+#: model:ir.actions.act_window,name:project_risk.project_opportunity_table_action
+#: model:ir.ui.menu,name:project_risk.project_opportunity_table_menuitem
+msgid "Opportunity Table"
+msgstr "Tabla de oportunidades"
+
+#. module: project_risk
+#: model:ir.model.fields,field_description:project_risk.field_project_opportunity_table_probability_id
 #: model:ir.model.fields,field_description:project_risk.field_project_risk_table_probability_id
 msgid "Probability"
 msgstr "Probabilidad"
 
 #. module: project_risk
+#: model:ir.model.fields,field_description:project_risk.field_project_opportunity_table_impact_id
+msgid "Profit"
+msgstr "Beneficio"
+
+#. module: project_risk
 #: model:ir.model,name:project_risk.model_project_project
+#: model:ir.model.fields,field_description:project_risk.field_project_opportunity_table_project_id
 #: model:ir.model.fields,field_description:project_risk.field_project_risk_table_project_id
 msgid "Project"
 msgstr "Proyecto"
 
 #. module: project_risk
+#: model:ir.model,name:project_risk.model_project_risk_table
+msgid "Project Risk"
+msgstr "Riesgo de proyecto"
+
+#. module: project_risk
+#: model:ir.model.fields,field_description:project_risk.field_project_opportunity_impact_value_rating
+#: model:ir.model.fields,field_description:project_risk.field_project_opportunity_probability_value_rating
 #: model:ir.model.fields,field_description:project_risk.field_project_risk_impact_value_rating
 #: model:ir.model.fields,field_description:project_risk.field_project_risk_probability_value_rating
 msgid "Rating"
 msgstr "Calificación"
 
 #. module: project_risk
+#: model:ir.model.fields,field_description:project_risk.field_project_opportunity_table_responsible_id
 #: model:ir.model.fields,field_description:project_risk.field_project_risk_table_responsible_id
 msgid "Responsible"
 msgstr "Responsable"
 
 #. module: project_risk
+#: model:ir.actions.act_window,name:project_risk.project_risk_risk_action
+#: model:ir.model,name:project_risk.model_project_risk_risk
+#: model:ir.model.fields,field_description:project_risk.field_project_risk_table_risk
 #: model:ir.model.fields,field_description:project_risk.field_project_risk_table_risk_id
 #: model:ir.ui.menu,name:project_risk.project_risk_menuitem
+#: model:ir.ui.menu,name:project_risk.project_risk_risk_menuitem
 msgid "Risk"
 msgstr "Riesgo"
+
+#. module: project_risk
+#: model:ir.actions.act_window,name:project_risk.project_risk_action_action
+#: model:ir.model,name:project_risk.model_project_risk_action
+#: model:ir.ui.menu,name:project_risk.project_risk_action_menuitem
+msgid "Risk Action"
+msgstr "Acción de riesgo"
+
+#. module: project_risk
+#: model:ir.model.fields,field_description:project_risk.field_project_project_risk_chance_table_ids
+msgid "Risk Chance Table"
+msgstr "Tabla de oportunidad de Riesgo"
 
 #. module: project_risk
 #: model:ir.actions.act_window,name:project_risk.project_risk_impact_value_action
@@ -196,34 +342,45 @@ msgstr "Valor de propapbilidades del riesgo"
 #: model:ir.actions.act_window,name:project_risk.project_risk_table_action
 #: model:ir.model.fields,field_description:project_risk.field_project_project_risk_table_ids
 #: model:ir.ui.menu,name:project_risk.project_risk_table_menuitem
-#: model:ir.ui.view,arch_db:project_risk.project_project_risk_form_view
 msgid "Risk Table"
 msgstr "Tabla de riesgo"
 
 #. module: project_risk
 #: model:ir.ui.view,arch_db:project_risk.project_project_risk_form_view
-msgid "Risks and Expectations"
-msgstr "Riesgos y expectativas"
+msgid "Risks"
+msgstr "Riesgos"
 
 #. module: project_risk
-#: model:ir.model.fields,field_description:project_risk.field_project_risk_table_term
+#: model:ir.ui.view,arch_db:project_risk.project_project_risk_form_view
+msgid "Risks and Opportunities"
+msgstr "Riesgos y Oportunidades"
+
+#. module: project_risk
+#: model:ir.model.fields,field_description:project_risk.field_project_opportunity_table_date_due
+#: model:ir.model.fields,field_description:project_risk.field_project_risk_table_date_due
 msgid "Term"
-msgstr "Termino"
+msgstr "Plazo"
 
 #. module: project_risk
-#: model:ir.model.fields,field_description:project_risk.field_project_risk_table_tracing
-msgid "Tracing"
-msgstr "Seguimiento"
+#: model:project.opportunity.probability.value,name:project_risk.prob2
+msgid "Unlikely to get benefit"
+msgstr "Poco probable que se pueda obtener un beneficio"
 
 #. module: project_risk
 #: model:project.risk.probability.value,name:project_risk.probab2
 msgid "Unlikely to happen"
-msgstr "Algo probable que ocurra"
+msgstr "Poco probable que ocurra"
 
 #. module: project_risk
+#: model:project.opportunity.impact.value,name:project_risk.prof5
 #: model:project.risk.impact.value,name:project_risk.impact5
 msgid "Very High"
 msgstr "Muy alto"
+
+#. module: project_risk
+#: model:project.opportunity.probability.value,name:project_risk.prob5
+msgid "Very likely to get benefit"
+msgstr "Es muy probable que se obtenga un beneficio"
 
 #. module: project_risk
 #: model:project.risk.probability.value,name:project_risk.probab5
@@ -231,17 +388,32 @@ msgid "Very likely to happen"
 msgstr "Es muy probable que ocurra"
 
 #. module: project_risk
-#: model:ir.model,name:project_risk.model_project_risk_action
-msgid "project.risk.action"
-msgstr "project.risk.action"
+#: model:project.opportunity.probability.value,name:project_risk.prob1
+msgid "Very unlikely to get benefit"
+msgstr "Muy poco probable que se pueda obtener un beneficio"
 
 #. module: project_risk
-#: model:ir.model,name:project_risk.model_project_risk_risk
-msgid "project.risk.risk"
-msgstr "project.risk.risk"
+#: model:ir.model,name:project_risk.model_project_opportunity_action
+msgid "project.opportunity.action"
+msgstr "project.opportunity.action"
 
 #. module: project_risk
-#: model:ir.model,name:project_risk.model_project_risk_table
-msgid "project.risk.table"
-msgstr "project.risk.table"
+#: model:ir.model,name:project_risk.model_project_opportunity_impact_value
+msgid "project.opportunity.impact.value"
+msgstr "project.opportunity.impact.value"
+
+#. module: project_risk
+#: model:ir.model,name:project_risk.model_project_opportunity_opportunity
+msgid "project.opportunity.opportunity"
+msgstr "project.opportunity.opportunity"
+
+#. module: project_risk
+#: model:ir.model,name:project_risk.model_project_opportunity_table
+msgid "project.opportunity.table"
+msgstr "project.opportunity.table"
+
+#. module: project_risk
+#: model:ir.model,name:project_risk.model_project_risk_chance_profit
+msgid "project.risk.chance.profit"
+msgstr "project.risk.chance.profit"
 

@@ -6,8 +6,8 @@
 Project Risk
 ============
 
-With this module you set different risks and their impact and probability in
-a project.
+With this module you set different risks and opportunities and their impact and
+probability in a project.
 
 Bug Tracker
 ===========

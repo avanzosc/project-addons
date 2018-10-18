@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <record model="ir.ui.view" id="project_opportunity_action_tree_view">
+        <field name="model">project.opportunity.action</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="name"/>
+                <field name="description"/>
+            </tree>
+        </field>
+    </record>
+    <record model="ir.ui.view" id="project_opportunity_action_form_view">
+        <field name="model">project.opportunity.opportunity</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group name="main">
+                        <field name="name"/>
+                    </group>
+                    <field name="description"/>
+                </sheet>
+            </form>
+        </field>
+    </record>
+    <record id="project_opportunity_action_action" model="ir.actions.act_window">
+        <field name="name">Opportunity Action</field>
+        <field name="res_model">project.opportunity.action</field>
+        <field name="view_mode">tree,form</field>
+        <field name="context">{
+        }</field>
+    </record>
+</odoo>

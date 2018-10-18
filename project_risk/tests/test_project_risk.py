@@ -10,16 +10,26 @@ class TestProjectRisk(common.SavepointCase):
     def setUpClass(cls):
         super(TestProjectRisk, cls).setUpClass()
         cls.table_model = cls.env['project.risk.table']
+        cls.opportunity_model = cls.env['project.opportunity.table']
         cls.probability = cls.env.ref('project_risk.probab1')
         cls.impact = cls.env.ref('project_risk.impact1')
+        cls.chance_prob = cls.env.ref('project_risk.prob1')
+        cls.chance_prof = cls.env.ref('project_risk.prof1')
         cls.project = cls.env['project.project'].create({
             'name': 'Test Project',
         })
         cls.risk = cls.env['project.risk.risk'].create({
             'name': 'Test Risk',
         })
-        cls.action = cls.env['project.risk.action'].create({
-            'name': 'Test Action'})
+        cls.action1 = cls.env['project.risk.action'].create({
+            'name': 'Test Action',
+        })
+        cls.chance = cls.env['project.opportunity.opportunity'].create({
+            'name': 'Test Chance',
+        })
+        cls.action2 = cls.env['project.opportunity.action'].create({
+            'name': 'Test Action',
+        })
 
     def test_risk_table(self):
         table = self.table_model.create({
@@ -45,6 +55,31 @@ class TestProjectRisk(common.SavepointCase):
             round(table.risk_level, 4),
             round(self.impact.rating * self.probability.rating, 4))
 
+    def test_chance_table(self):
+        table = self.opportunity_model.create({
+            'project_id': self.project.id,
+        })
+        self.assertFalse(table.chance_level)
+        table.write({
+            'probability_id': self.chance_prob.id,
+            'impact_id': False,
+        })
+        self.assertFalse(table.chance_level)
+        table.write({
+            'probability_id': False,
+            'impact_id': self.chance_prof.id,
+        })
+        self.assertFalse(table.chance_level)
+        table.write({
+            'probability_id': self.chance_prob.id,
+            'impact_id': self.chance_prof.id,
+        })
+        self.assertTrue(table.chance_level)
+        self.assertEquals(
+            round(table.chance_level, 4),
+            round(self.chance_prof.rating *
+                  self.chance_prob.rating, 4))
+
     def test_onchange_risk_id(self):
         table = self.table_model.create({
             'project_id': self.project.id,
@@ -58,7 +93,27 @@ class TestProjectRisk(common.SavepointCase):
     def test_onchange_action_id(self):
         table = self.table_model.create({
             'project_id': self.project.id,
-            'action_id': self.action.id,
+            'action_id': self.action1.id,
+        })
+        self.assertFalse(table.action)
+        table.onchange_action_id()
+        self.assertEquals(table.action,
+                          table.action_id.name)
+
+    def test_onchange_chance_id(self):
+        table = self.opportunity_model.create({
+            'project_id': self.project.id,
+            'opportunity_id': self.chance.id,
+        })
+        self.assertFalse(table.opportunity)
+        table.onchange_opportunity_id()
+        self.assertEquals(table.opportunity,
+                          table.opportunity_id.name)
+
+    def test_prob_onchange(self):
+        table = self.opportunity_model.create({
+            'project_id': self.project.id,
+            'action_id': self.action2.id,
         })
         self.assertFalse(table.action)
         table.onchange_action_id()

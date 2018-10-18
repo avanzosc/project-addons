@@ -7,10 +7,14 @@
         <field name="inherit_id" ref="project.edit_project" />
         <field name="arch" type="xml">
             <page name="settings" position="before">
-                <page name="risks_expect" string="Risks and Expectations">
+                <page name="risks_expect" string="Risks and Opportunities">
                    <group name="risk_table"
-                          string="Risk Table">
-                       <field name="risk_table_ids"  nolabel="1"/>
+                          string="Risks">
+                       <field name="risk_table_ids" nolabel="1"/>
+                   </group>
+                   <group name="chance_table"
+                          string="Opportunities">
+                       <field name="risk_chance_table_ids" nolabel="1"/>
                    </group>
                 </page>
             </page>
@@ -18,14 +22,51 @@
     </record>
     <menuitem id="project_risk_menuitem"
               parent="project.menu_project_config"
-              name="Risk" />
+              name="Risk" sequence="30" />
+    <menuitem id="project_opportunity_menuitem"
+              parent="project.menu_project_config"
+              name="Opportunity" sequence="31" />
+
+    <menuitem id="project_risk_risk_menuitem"
+              parent="project_risk_menuitem"
+              action="project_risk_risk_action"
+              sequence="5" />
+    <menuitem id="project_risk_action_menuitem"
+              parent="project_risk_menuitem"
+              action="project_risk_action_action"
+              sequence="10" />
     <menuitem id="project_risk_impact_value_menuitem"
               parent="project_risk_menuitem"
-              action="project_risk_impact_value_action" />
+              action="project_risk_impact_value_action"
+              sequence="15" />
     <menuitem id="project_risk_probability_value_menuitem"
               parent="project_risk_menuitem"
-              action="project_risk_probability_value_action" />
+              action="project_risk_probability_value_action"
+              sequence="20" />
     <menuitem id="project_risk_table_menuitem"
               parent="project_risk_menuitem"
-              action="project_risk_table_action" />
+              action="project_risk_table_action"
+              sequence="25" />
+
+    <menuitem id="project_opportunity_opportunity_menuitem"
+              parent="project_opportunity_menuitem"
+              action="project_opportunity_opportunity_action"
+              sequence="5" />
+    <menuitem id="project_opportunity_action_menuitem"
+              parent="project_opportunity_menuitem"
+              action="project_opportunity_action_action"
+              sequence="10" />
+    <menuitem id="project_opportunity_impact_value_menuitem"
+              parent="project_opportunity_menuitem"
+              action="project_opportunity_impact_value_action"
+              sequence="15" />
+    <menuitem id="project_opportunity_probability_value_menuitem"
+              parent="project_opportunity_menuitem"
+              action="project_opportunity_probability_value_action"
+              sequence="20" />
+    <menuitem id="project_opportunity_table_menuitem"
+              parent="project_opportunity_menuitem"
+              action="project_opportunity_table_action"
+              sequence="25" />
+
 </odoo>

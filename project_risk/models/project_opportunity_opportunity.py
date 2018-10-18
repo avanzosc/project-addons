@@ -4,9 +4,9 @@
 from odoo import fields, models
 
 
-class ProjectRiskRisk(models.Model):
-    _name = 'project.risk.risk'
-    _description = 'Risk'
+class ProjectOpportunityOpportunyty(models.Model):
+    _name = 'project.opportunity.opportunity'
+    _description = 'Opportunity'
 
-    name = fields.Char(string='Name', translate=True, required=True)
+    name = fields.Char(string='Name', translate=True)
     description = fields.Text(string='Description', translate=True)
