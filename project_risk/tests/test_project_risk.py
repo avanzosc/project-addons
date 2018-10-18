@@ -58,24 +58,24 @@ class TestProjectRisk(common.SavepointCase):
         })
         self.assertFalse(table.chance_level)
         table.write({
-            'probability_id': self.probability.id,
+            'probability_id': self.chance_prob.id,
             'profit_id': False,
         })
         self.assertFalse(table.chance_level)
         table.write({
             'probability_id': False,
-            'profit_id': self.profit.id,
+            'profit_id': self.chance_prof.id,
         })
         self.assertFalse(table.chance_level)
         table.write({
-            'probability_id': self.probability.id,
-            'profit_id': self.profit.id,
+            'probability_id': self.chance_prob.id,
+            'profit_id': self.chance_prof.id,
         })
         self.assertTrue(table.chance_level)
         self.assertEquals(
             round(table.chance_level, 4),
-            round(self.chance.qualification *
-                  self.probability.qualification, 4))
+            round(self.chance_prof.qualification *
+                  self.chance_prob.qualification, 4))
 
     def test_onchange_risk_id(self):
         table = self.table_model.create({
@@ -98,7 +98,7 @@ class TestProjectRisk(common.SavepointCase):
                           table.action_id.name)
 
     def test_onchange_chance_id(self):
-        table = self.table_model.create({
+        table = self.chance_model.create({
             'project_id': self.project.id,
             'chance_id': self.chance.id,
         })
@@ -108,7 +108,7 @@ class TestProjectRisk(common.SavepointCase):
                           table.chance_id.name)
 
     def test_prob_onchange(self):
-        table = self.table_model.create({
+        table = self.chance_model.create({
             'project_id': self.project.id,
             'action_id': self.action.id,
         })

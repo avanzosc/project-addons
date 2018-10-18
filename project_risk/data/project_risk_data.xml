@@ -53,27 +53,27 @@
         <field name="rating">0.9</field>
     </record>
 
-    <record id="prof1" model="project.risk.chance profit"
+    <record id="prof1" model="project.risk.chance.profit"
             forcecreate="True">
         <field name="name">Null</field>
         <field name="qualification">0.05</field>
     </record>
-    <record id="prof2" model="project.risk.chance profit"
+    <record id="prof2" model="project.risk.chance.profit"
             forcecreate="True">
         <field name="name">Low</field>
         <field name="qualification">0.10</field>
     </record>
-    <record id="prof3" model="project.risk.chance profit"
+    <record id="prof3" model="project.risk.chance.profit"
             forcecreate="True">
         <field name="name">Medium</field>
         <field name="qualification">0.20</field>
     </record>
-    <record id="prof4" model="project.risk.chance profit"
+    <record id="prof4" model="project.risk.chance.profit"
             forcecreate="True">
         <field name="name">High</field>
         <field name="qualification">0.40</field>
     </record>
-    <record id="prof5" model="project.risk.chance profit"
+    <record id="prof5" model="project.risk.chance.profit"
             forcecreate="True">
         <field name="name">Very High</field>
         <field name="qualification">0.80</field>

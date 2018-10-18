@@ -4,8 +4,8 @@
 from odoo import fields, models
 
 
-class ProjectRiskChanceProject(models.Model):
-    _name = 'project.risk.chance.project'
+class ProjectRiskChanceProfit(models.Model):
+    _name = 'project.risk.chance.profit'
 
     name = fields.Char(string='Name', translate=True)
     qualification = fields.Float(string='Qualification')
