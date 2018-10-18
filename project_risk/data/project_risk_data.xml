@@ -53,55 +53,55 @@
         <field name="rating">0.9</field>
     </record>
 
-    <record id="prof1" model="project.risk.chance.profit"
+    <record id="prof1" model="project.opportunity.impact.value"
             forcecreate="True">
         <field name="name">Null</field>
-        <field name="qualification">0.05</field>
+        <field name="rating">0.05</field>
     </record>
-    <record id="prof2" model="project.risk.chance.profit"
+    <record id="prof2" model="project.opportunity.impact.value"
             forcecreate="True">
         <field name="name">Low</field>
-        <field name="qualification">0.10</field>
+        <field name="rating">0.10</field>
     </record>
-    <record id="prof3" model="project.risk.chance.profit"
+    <record id="prof3" model="project.opportunity.impact.value"
             forcecreate="True">
         <field name="name">Medium</field>
-        <field name="qualification">0.20</field>
+        <field name="rating">0.20</field>
     </record>
-    <record id="prof4" model="project.risk.chance.profit"
+    <record id="prof4" model="project.opportunity.impact.value"
             forcecreate="True">
         <field name="name">High</field>
-        <field name="qualification">0.40</field>
+        <field name="rating">0.40</field>
     </record>
-    <record id="prof5" model="project.risk.chance.profit"
+    <record id="prof5" model="project.opportunity.impact.value"
             forcecreate="True">
         <field name="name">Very High</field>
-        <field name="qualification">0.80</field>
+        <field name="rating">0.80</field>
     </record>
 
-    <record id="prob1" model="project.risk.chance.prob"
+    <record id="prob1" model="project.opportunity.probability.value"
             forcecreate="True">
         <field name="name">Very unlikely to get benefit</field>
-        <field name="qualification">0.1</field>
+        <field name="rating">0.1</field>
     </record>
-    <record id="prob2" model="project.risk.chance.prob"
+    <record id="prob2" model="project.opportunity.probability.value"
             forcecreate="True">
         <field name="name">Unlikely to get benefit</field>
-        <field name="qualification">0.3</field>
+        <field name="rating">0.3</field>
     </record>
-    <record id="prob3" model="project.risk.chance.prob"
+    <record id="prob3" model="project.opportunity.probability.value"
             forcecreate="True">
         <field name="name">May get benefit</field>
-        <field name="qualification">0.5</field>
+        <field name="rating">0.5</field>
     </record>
-    <record id="prob4" model="project.risk.chance.prob"
+    <record id="prob4" model="project.opportunity.probability.value"
             forcecreate="True">
         <field name="name">Likely to get benefit</field>
-        <field name="qualification">0.7</field>
+        <field name="rating">0.7</field>
     </record>
-    <record id="prob5" model="project.risk.chance.prob"
+    <record id="prob5" model="project.opportunity.probability.value"
             forcecreate="True">
         <field name="name">Very likely to get benefit</field>
-        <field name="qualification">0.9</field>
+        <field name="rating">0.9</field>
     </record>
 </odoo>

@@ -6,6 +6,7 @@ from odoo import api, fields, models
 
 class ProjectRiskTable(models.Model):
     _name = 'project.risk.table'
+    _description = 'Project Risk'
 
     project_id = fields.Many2one(
         string='Project', comodel_name='project.project', required=True)
