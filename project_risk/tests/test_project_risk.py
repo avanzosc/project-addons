@@ -10,9 +10,11 @@ class TestProjectRisk(common.SavepointCase):
     def setUpClass(cls):
         super(TestProjectRisk, cls).setUpClass()
         cls.table_model = cls.env['project.risk.table']
-        cls.table_chance = cls.env['project.risk.chance.table']
+        cls.chance_model = cls.env['project.risk.chance.table']
         cls.probability = cls.env.ref('project_risk.probab1')
         cls.impact = cls.env.ref('project_risk.impact1')
+        cls.chance_prob = cls.env.ref('project_risk.prob1')
+        cls.chance_prof = cls.env.ref('project_risk.prof1')
         cls.project = cls.env['project.project'].create({
             'name': 'Test Project',
         })
@@ -22,11 +24,8 @@ class TestProjectRisk(common.SavepointCase):
         cls.action = cls.env['project.risk.action'].create({
             'name': 'Test Action',
         })
-        cls.chance = cls.env['project.risk.chance.table'].create({
+        cls.chance = cls.env['project.risk.chance.project'].create({
             'name': 'Test Chance',
-        })
-        cls.action = cls.env['project.risl.chance.table'].create({
-            'name': 'Test Chance Action',
         })
 
     def test_risk_table(self):
@@ -54,7 +53,7 @@ class TestProjectRisk(common.SavepointCase):
             round(self.impact.rating * self.probability.rating, 4))
 
     def test_chance_table(self):
-        table = self.table_chance.create({
+        table = self.chance_model.create({
             'project_id': self.project.id,
         })
         self.assertFalse(table.chance_level)

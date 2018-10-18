@@ -8,3 +8,4 @@ class ProjectRiskChanceProject(models.Model):
     _name = 'project.risk.chance.project'
 
     name = fields.Char(string='Name', translate=True)
+    qualification = fields.Float(string='Qualification')
