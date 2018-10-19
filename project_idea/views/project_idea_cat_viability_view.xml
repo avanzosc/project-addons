@@ -5,7 +5,7 @@
         <field name="name">project.idea.cat.viability.tree.view</field>
         <field name="model">project.idea.cat.viability</field>
         <field name="arch" type="xml">
-            <tree>
+            <tree editable="top">
                 <field name="project_id" invisible="context.get('hide_project_id',True)"/>
                 <field name="category_id"/>
                 <field name="cat_percentage"/>

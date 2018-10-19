@@ -8,3 +8,4 @@ from . import project_idea_line_viability
 from . import project_idea_cat_viability
 from . import project_idea_viability_category
 from . import hr_department
+from . import project_idea_line_viability_page

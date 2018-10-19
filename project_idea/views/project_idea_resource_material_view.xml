@@ -5,8 +5,7 @@
         <field name="name">project.idea.resource.material.tree.view</field>
         <field name="model">project.idea.resource.material</field>
         <field name="arch" type="xml">
-
-            <tree string="Material Resources">
+            <tree string="Material Resources" editable="top">
                 <field name="project_id" invisible="context.get('hide_project_id',True)"/>
                 <field name="product_id"/>
                 <field name="product_name"/>
