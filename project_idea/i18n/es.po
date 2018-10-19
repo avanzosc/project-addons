@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 11.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-10-03 12:06+0000\n"
-"PO-Revision-Date: 2018-10-03 12:06+0000\n"
+"POT-Creation-Date: 2018-10-19 15:01+0000\n"
+"PO-Revision-Date: 2018-10-19 15:01+0000\n"
 "Last-Translator: <>\n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -73,18 +73,12 @@ msgstr "Departamento"
 #: model:ir.model.fields,field_description:project_idea.field_project_idea_resource_material_display_name
 #: model:ir.model.fields,field_description:project_idea.field_project_idea_viability_category_display_name
 msgid "Display Name"
-msgstr "Nombre mostrado"
+msgstr "Nombre a Mostrar"
 
 #. module: project_idea
 #: model:ir.model.fields,field_description:project_idea.field_project_idea_line_viability_feasibility_id
 msgid "Feasibility Category"
 msgstr "Categoria de viabilidad"
-
-#. module: project_idea
-#: model:ir.model.fields,field_description:project_idea.field_project_project_lines_viability_ids
-#: model:ir.ui.view,arch_db:project_idea.project_project_idea_form_view
-msgid "Feasibility Lines"
-msgstr "Lineas de viabilidad"
 
 #. module: project_idea
 #: model:ir.model.fields,field_description:project_idea.field_project_project_financing
@@ -125,12 +119,7 @@ msgstr "Recursos humanos"
 #: model:ir.model.fields,field_description:project_idea.field_project_idea_resource_material_id
 #: model:ir.model.fields,field_description:project_idea.field_project_idea_viability_category_id
 msgid "ID"
-msgstr "ID (identificación)"
-
-#. module: project_idea
-#: model:ir.ui.view,arch_db:project_idea.project_project_idea_form_view
-msgid "IDEA"
-msgstr "IDEA"
+msgstr "ID"
 
 #. module: project_idea
 #: model:ir.model,name:project_idea.model_project_idea_resource_human
@@ -313,6 +302,11 @@ msgid "Technical Approach"
 msgstr "Objetivo técnico"
 
 #. module: project_idea
+#: model:ir.ui.view,arch_db:project_idea.project_project_idea_form_view
+msgid "Technical Data"
+msgstr "Datos técnicos"
+
+#. module: project_idea
 #: selection:project.project,idea_type:0
 msgid "Training"
 msgstr "Formación"
@@ -326,6 +320,12 @@ msgstr "Transferencia"
 #: model:ir.model.fields,field_description:project_idea.field_project_project_idea_type
 msgid "Type"
 msgstr "Tipo"
+
+#. module: project_idea
+#: model:ir.model.fields,field_description:project_idea.field_project_project_viability_page
+#: model:ir.ui.view,arch_db:project_idea.project_idea_line_viability_page_form_view
+msgid "Viability"
+msgstr "Viabilidad"
 
 #. module: project_idea
 #: model:ir.actions.act_window,name:project_idea.project_idea_viability_category_action
@@ -344,6 +344,11 @@ msgstr "Línea de viabilidad"
 #: model:ir.ui.menu,name:project_idea.project_idea_line_viability_menuitem
 msgid "Viability Lines"
 msgstr "Líneas de viabilidad"
+
+#. module: project_idea
+#: model:ir.ui.view,arch_db:project_idea.project_idea_line_viability_page_form_view
+msgid "Viability Table"
+msgstr "Tabla de viabilidad"
 
 #. module: project_idea
 #: model:ir.model.fields,field_description:project_idea.field_project_project_cat_viability_ids

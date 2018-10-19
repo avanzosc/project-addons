@@ -37,11 +37,6 @@
                        <field name="material_resources_ids" nolabel="1"
                               context="{'default_project_id': active_id}"/>
                    </group>
-                    <group name="lines_viability"
-                           string="Feasibility Lines">
-                       <field name="lines_viability_ids"  nolabel="1"
-                              context="{'default_project_id': active_id}"/>
-                   </group>
                    <group name="cat_viability"
                           string="Viability by Category">
                        <field name="cat_viability_ids"  nolabel="1"

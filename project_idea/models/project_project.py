@@ -37,10 +37,6 @@ class ProjectProject(models.Model):
         string='Material Resources',
         comodel_name='project.idea.resource.material',
         inverse_name='project_id')
-    lines_viability_ids = fields.One2many(
-        string='Feasibility Lines',
-        comodel_name='project.idea.line.viability',
-        inverse_name='project_id')
     cat_viability_ids = fields.One2many(
         string='Viability by Category',
         comodel_name='project.idea.cat.viability',
