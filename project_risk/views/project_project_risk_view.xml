@@ -10,11 +10,13 @@
                 <page name="risks_expect" string="Risks and Opportunities">
                    <group name="risk_table"
                           string="Risks">
-                       <field name="risk_table_ids" nolabel="1"/>
+                       <field name="risk_table_ids"
+                              context="{'default_project_id': active_id}" nolabel="1"/>
                    </group>
                    <group name="chance_table"
                           string="Opportunities">
-                       <field name="risk_chance_table_ids" nolabel="1"/>
+                       <field name="risk_chance_table_ids"
+                              context="{'default_project_id': active_id}" nolabel="1"/>
                    </group>
                 </page>
             </page>
