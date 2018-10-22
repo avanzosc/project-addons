@@ -3,12 +3,6 @@
     <menuitem id="project_characterization_config_menuitem"
               parent="project.menu_project_config"
               name="Characterization" />
-    <menuitem id="funding_source_menuitem"
-              parent="project_characterization_config_menuitem"
-              action="funding_source_action" />
-    <menuitem id="funding_source_type_menuitem"
-              parent="project_characterization_config_menuitem"
-              action="funding_source_type_action" />
     <menuitem id="res_area_menuitem"
               parent="project_characterization_config_menuitem"
               action="base_characterization.res_area_action" />

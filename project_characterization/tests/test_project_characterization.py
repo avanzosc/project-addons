@@ -10,16 +10,11 @@ class TestProjectCharacterization(common.TransactionCase):
     def setUp(self):
         super(TestProjectCharacterization, self).setUp()
         res_partner_model = self.env['res.partner']
-        funding_src_model = self.env['funding.source']
         self.project_model = self.env['project.project']
         area_model = self.env['res.area']
         area_type_model = self.env['res.area.type']
-        self.funding_project_model = self.env['funding.source.project']
         self.partner = res_partner_model.create({
             'name': 'Test Partner',
-        })
-        self.funding_src = funding_src_model.create({
-            'name': 'Test Funding Source',
         })
         self.project = self.project_model.create({
             'name': 'Test Project',
@@ -32,30 +27,6 @@ class TestProjectCharacterization(common.TransactionCase):
         self.type = area_type_model.create({
             'code': 'TAT',
             'name': 'Test Area Type',
-        })
-
-    def test_computed_field_funding_source_count(self):
-        self.assertFalse(self.partner.funding_source_ids)
-        self.funding_src.partner_id = self.partner
-        self.assertIn(self.funding_src, self.partner.funding_source_ids)
-        self.assertTrue(self.partner.funding_source_count,
-                        len(self.partner.funding_source_ids))
-
-    def test_funding_src_constraints(self):
-        funding_project = self.funding_project_model.create({
-            'project_id': self.project.id,
-            'source_id': self.funding_src.id,
-        })
-        with self.assertRaises(ValidationError):
-            funding_project.write({
-                'percentage': -0.1,
-            })
-        with self.assertRaises(ValidationError):
-            funding_project.write({
-                'percentage': 100.1,
-            })
-        funding_project.write({
-            'percentage': 50.0,
         })
 
     def test_show_analytic_account(self):
