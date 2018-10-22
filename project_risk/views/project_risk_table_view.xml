@@ -5,7 +5,7 @@
         <field name="name">project.risk.table.tree.view</field>
         <field name="model">project.risk.table</field>
         <field name="arch" type="xml">
-            <tree>
+            <tree editable="top">
                 <field name="project_id" invisible="context.get('hide_project_id',True)"/>
                 <field name="risk"/>
                 <field name="probability_id"/>
