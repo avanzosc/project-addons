@@ -1,13 +1,11 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <odoo>
-
-
     <record id="funding_source_project_tree_view" model="ir.ui.view">
         <field name="name">funding.source.project.tree</field>
         <field name="model">funding.source.project</field>
         <field name="arch" type="xml">
             <tree string="Funding Source Project" editable="top">
-                <field name="project_id" />
+                <field name="project_id" invisible="context.get('hide_project_id',True)" />
                 <field name="source_id" />
                 <field name="funding_date" />
                 <field name="year" />
@@ -34,6 +32,7 @@
         <field name="res_model">funding.source.project</field>
         <field name="view_mode">tree</field>
         <field name="context">{
+            'hide_project_id': False,
         }</field>
         <field name="view_id"
                ref="funding_source_project_tree_view" />

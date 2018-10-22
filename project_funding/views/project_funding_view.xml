@@ -9,4 +9,7 @@
     <menuitem id="funding_source_type_menuitem"
               parent="funding_source_config_menuitem"
               action="partner_funding_source.funding_source_type_action" />
+    <menuitem id="funding_source_project_menuitem"
+              parent="funding_source_config_menuitem"
+              action="funding_source_project_action" />
 </odoo>
