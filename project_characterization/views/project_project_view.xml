@@ -33,11 +33,6 @@
                             <field name="op_space_id" />
                         </group>
                     </group>
-                    <group>
-                        <label for="funding_ids" />
-                        <field name="funding_ids" context="{'default_project_id':active_id}"
-                               colspan="4" nolabel="1" />
-                    </group>
                 </page>
              </page>
         </field>

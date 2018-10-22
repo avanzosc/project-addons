@@ -3,13 +3,14 @@
 
 {
     "name": "Project Characterization",
-    "version": "11.0.3.2.0",
+    "version": "11.0.4.0.0",
     "license": "AGPL-3",
     "depends": [
         "project",
         "account",
         "crm",
         "base_characterization",
+        "project_funding",
     ],
     "author": "AvanzOSC",
     "website": "http://www.avanzosc.es",
@@ -17,12 +18,10 @@
     "data": [
         "security/ir.model.access.csv",
         "views/account_analytic_view.xml",
-        "views/funding_source_view.xml",
         "views/project_project_view.xml",
         "views/project_task_view.xml",
         "views/project_characterization_view.xml",
         "views/res_area_view.xml",
-        "views/res_partner_view.xml",
     ],
     "installable": True,
 }
