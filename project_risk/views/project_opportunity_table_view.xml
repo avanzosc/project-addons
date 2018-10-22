@@ -6,10 +6,12 @@
         <field name="arch" type="xml">
             <tree editable="top">
                 <field name="project_id" invisible="context.get('hide_project_id',True)"/>
+                <field name="opportunity_id"/>
                 <field name="opportunity"/>
                 <field name="probability_id"/>
                 <field name="impact_id"/>
                 <field name="chance_level"/>
+                <field name="action_id"/>
                 <field name="action"/>
                 <field name="responsible_id"/>
                 <field name="date_due"/>
