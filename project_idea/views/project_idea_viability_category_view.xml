@@ -10,7 +10,7 @@
     </record>
 
 <!--  VISTA DE FORMULARIO -->
-    <record model="ir.ui.view" id="project_idea_viability_category_tree_view">
+    <record model="ir.ui.view" id="project_idea_viability_category_form_view">
         <field name="name">project.idea.viability.category.view</field>
         <field name="model">project.idea.viability.category</field>
         <field name="arch" type="xml">
