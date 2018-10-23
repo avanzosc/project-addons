@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo noupdate="True">
+
+    <record id="milestone1" model="project.task"
+            forcecreate="True">
+        <field name="name"></field>
+    </record>
+    <record id="milestone2" model="project.task"
+            forcecreate="True">
+        <field name="name"></field>
+    </record>
+    <record id="milestone3" model="project.task"
+            forcecreate="True">
+        <field name="name"></field>
+    </record>
+</odoo>
