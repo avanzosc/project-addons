@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <menuitem id="project_viability_config_menuitem"
+              parent="project.menu_project_config"
+              name="Project Viability" />
+    <menuitem id="project_viability_category_menuitem"
+              parent="project_viability_config_menuitem"
+              action="project_viability_category_action" />
+    <menuitem id="project_viability_factor_menuitem"
+              parent="project_viability_config_menuitem"
+              action="project_viability_factor_action" />
+    <menuitem id="project_viability_template_menuitem"
+              parent="project_viability_config_menuitem"
+              action="project_viability_template_action" />
+    <menuitem id="project_viability_template_line_menuitem"
+              parent="project_viability_config_menuitem"
+              action="project_viability_template_line_action" />
+    <menuitem id="project_viability_template_categ_line_menuitem"
+              parent="project_viability_config_menuitem"
+              action="project_viability_template_categ_line_action" />
+    <menuitem id="project_viability_line_menuitem"
+              parent="project_viability_config_menuitem"
+              action="project_viability_line_action" />
+    <menuitem id="project_viability_categ_line_menuitem"
+              parent="project_viability_config_menuitem"
+              action="project_viability_categ_line_action" />
+</odoo>

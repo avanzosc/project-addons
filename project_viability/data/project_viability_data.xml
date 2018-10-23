@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <record id="viability_decision_valid" model="project.viability.decision">
+        <field name="name">Valid</field>
+    </record>
+    <record id="viability_decision_novalid" model="project.viability.decision">
+        <field name="name">No Valid</field>
+    </record>
+    <record id="viability_decision_change" model="project.viability.decision">
+        <field name="name">Change</field>
+    </record>
+
+    <record id="viability_categ_commercial" model="project.viability.category">
+        <field name="code">C1</field>
+        <field name="name">Commercial viability</field>
+    </record>
+    <record id="viability_categ_technic" model="project.viability.category">
+        <field name="code">C2</field>
+        <field name="name">Technical and technological viability</field>
+    </record>
+    <record id="viability_categ_financial" model="project.viability.category">
+        <field name="code">C3</field>
+        <field name="name">Financial viability</field>
+    </record>
+    <record id="viability_categ_prod" model="project.viability.category">
+        <field name="code">C4</field>
+        <field name="name">Productive viability / Manufacturing viability</field>
+    </record>
+    <record id="viability_categ_image" model="project.viability.category">
+        <field name="code">C5</field>
+        <field name="name">Company Image</field>
+    </record>
+
+    <record id="viability_factor_market" model="project.viability.factor">
+        <field name="code">F1</field>
+        <field name="name">Market demand</field>
+        <field name="categ_id" ref="viability_categ_commercial" />
+    </record>
+    <record id="viability_factor_diversification" model="project.viability.factor">
+        <field name="code">F2</field>
+        <field name="name">Opening of new markets of interest. Diversification</field>
+        <field name="categ_id" ref="viability_categ_commercial" />
+    </record>
+    <record id="viability_factor_marketshare" model="project.viability.factor">
+        <field name="code">F3</field>
+        <field name="name">Expected market share</field>
+        <field name="categ_id" ref="viability_categ_commercial" />
+    </record>
+    <record id="viability_factor_customers" model="project.viability.factor">
+        <field name="code">F4</field>
+        <field name="name">Access to new customers</field>
+        <field name="categ_id" ref="viability_categ_commercial" />
+    </record>
+
+    <record id="viability_factor_int_capacity" model="project.viability.factor">
+        <field name="code">F1</field>
+        <field name="name">Internal capacity</field>
+        <field name="categ_id" ref="viability_categ_technic" />
+    </record>
+    <record id="viability_factor_int_knowledge" model="project.viability.factor">
+        <field name="code">F2</field>
+        <field name="name">Internal knowledge</field>
+        <field name="categ_id" ref="viability_categ_technic" />
+    </record>
+    <record id="viability_factor_risk" model="project.viability.factor">
+        <field name="code">F3</field>
+        <field name="name">Complex and risk</field>
+        <field name="categ_id" ref="viability_categ_technic" />
+    </record>
+    <record id="viability_factor_development" model="project.viability.factor">
+        <field name="code">F4</field>
+        <field name="name">Development time</field>
+        <field name="categ_id" ref="viability_categ_technic" />
+    </record>
+
+    <record id="viability_factor_initial_invest" model="project.viability.factor">
+        <field name="code">F1</field>
+        <field name="name">Estimated initial investment</field>
+        <field name="categ_id" ref="viability_categ_financial" />
+    </record>
+    <record id="viability_factor_invest" model="project.viability.factor">
+        <field name="code">F2</field>
+        <field name="name">Return on investment</field>
+        <field name="categ_id" ref="viability_categ_financial" />
+    </record>
+
+    <record id="viability_factor_prod" model="project.viability.factor">
+        <field name="code">F1</field>
+        <field name="name">Productive feasibility</field>
+        <field name="categ_id" ref="viability_categ_prod" />
+    </record>
+    <record id="viability_factor_humanresources" model="project.viability.factor">
+        <field name="code">F2</field>
+        <field name="name">Adequacy of human resources</field>
+        <field name="categ_id" ref="viability_categ_prod" />
+    </record>
+    <record id="viability_factor_machinery" model="project.viability.factor">
+        <field name="code">F3</field>
+        <field name="name">Adaptation of machinery / installations</field>
+        <field name="categ_id" ref="viability_categ_prod" />
+    </record>
+
+    <record id="viability_factor_knowledge" model="project.viability.factor">
+        <field name="code">F1</field>
+        <field name="name">Knowledge learning</field>
+        <field name="categ_id" ref="viability_categ_image" />
+    </record>
+    <record id="viability_factor_collab" model="project.viability.factor">
+        <field name="code">F2</field>
+        <field name="name">Collaboration with other centers of the RVCT</field>
+        <field name="categ_id" ref="viability_categ_image" />
+    </record>
+
+</odoo>
