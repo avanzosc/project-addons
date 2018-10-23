@@ -9,13 +9,13 @@
         <field name="inherit_id" ref="project.edit_project" />
         <field name="arch" type="xml">
             <page name="settings" position="before">
-                <page name="idea_page" string="IDEA">
+                <page name="idea_page" string="Technical Data">
                     <label for="spec_line_ids"/>
                     <field name="spec_line_ids" widget="many2many_tags"/>
                     <group name="ident_opt" string="Identification of the Opportunity">
                         <group name="idea_left">
-                            <field name="author_id" />
-                            <field name="idea_date" />
+                            <field name="create_uid" string="Author" />
+                            <field name="create_date" string="Date" widget="date" />
                             <field name="internal_idea_goal" />
                             <field name="customer_idea_goal" />
                             <field name="technical_approach" />
@@ -37,7 +37,9 @@
                        <field name="material_resources_ids" nolabel="1"
                               context="{'default_project_id': active_id}"/>
                    </group>
-                    <group name="lines_viability"
+               </page>
+               <page name="idea_viability" string="Viability">
+                   <group name="lines_viability"
                            string="Feasibility Lines">
                        <field name="lines_viability_ids"  nolabel="1"
                               context="{'default_project_id': active_id}"/>
