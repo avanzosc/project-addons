@@ -7,6 +7,7 @@ from odoo import api, fields, models
 class ProjectViabilityFactor(models.Model):
     _name = 'project.viability.factor'
     _description = 'Viability Factor'
+    _order = 'categ_id, code, name'
 
     code = fields.Char(string='Code')
     name = fields.Char(string='Name', required=True, translate=True)

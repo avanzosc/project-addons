@@ -1,5 +1,14 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <odoo>
+    <record forcecreate="True" id="decimal_viability_percent" model="decimal.precision">
+        <field name="name">Viability Percentage</field>
+        <field name="digits">2</field>
+    </record>
+    <record forcecreate="True" id="decimal_viability_score" model="decimal.precision">
+        <field name="name">Viability Score</field>
+        <field name="digits">1</field>
+    </record>
+
     <record id="viability_decision_valid" model="project.viability.decision">
         <field name="name">Valid</field>
     </record>

@@ -27,7 +27,7 @@
     </record>
 
     <record id="project_viability_factor_action" model="ir.actions.act_window">
-        <field name="name">Viability Factor</field>
+        <field name="name">Viability Factors</field>
         <field name="res_model">project.viability.factor</field>
         <field name="view_mode">tree,form</field>
         <field name="context">{

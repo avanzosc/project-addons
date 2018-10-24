@@ -21,7 +21,13 @@ class ProjectViabilityTemplateLine(models.Model):
     percentage = fields.Float(
         string='Percentage', compute='_compute_percentage')
 
-    @api.depends('templ_id', 'categ_id', 'templ_id.line_ids', 'templ_id.line_ids.categ_id')
+    _sql_constraints = [
+        ('templ_factor_unique', 'unique(templ_id, factor_id)',
+         'There should only select the factor once per template.'),
+    ]
+
+    @api.depends('templ_id', 'categ_id', 'templ_id.line_ids',
+                 'templ_id.line_ids.categ_id')
     def _compute_percentage(self):
         for line in self:
             line.percentage = (
@@ -56,12 +62,24 @@ class ProjectViabilityTemplate(models.Model):
 
     name = fields.Char(string='Name', required=True, translate=True)
     active = fields.Boolean(string='Active', default=True)
+    factor_ids = fields.Many2many(
+        comodel_name='project.viability.factor', string='Factors',
+        relation='viability_templ_factor_rel', column1='templ_id',
+        column2='factor_id')
+    categ_ids = fields.Many2many(
+        comodel_name='project.viability.category', string='Categories',
+        compute='_compute_categ_ids')
     line_ids = fields.One2many(
         comodel_name='project.viability.template.line',
         inverse_name='templ_id', string='Template Lines')
     categ_line_ids = fields.One2many(
         comodel_name='project.viability.template.category.line',
         inverse_name='templ_id', string='Template Category Lines')
+
+    @api.depends('factor_ids', 'factor_ids.categ_id')
+    def _compute_categ_ids(self):
+        for templ in self:
+            templ.categ_ids = templ.mapped('factor_ids.categ_id')
 
     @api.model
     def create(self, values):

@@ -26,7 +26,7 @@
     </record>
 
     <record id="project_viability_category_action" model="ir.actions.act_window">
-        <field name="name">Viability Category</field>
+        <field name="name">Viability Categories</field>
         <field name="res_model">project.viability.category</field>
         <field name="view_mode">tree,form</field>
         <field name="context">{
