@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <record id="project_task_phase_table_form_view" model="ir.ui.view">
+        <field name="name">project.task.phase.table.form.view</field>
+        <field name="model">project.task.phase.table</field>
+        <field name="arch" type="xml">
+            <form>
+                <field name="project_id" />
+                <field name="project" />
+                <field name="phase" />
+                <field name="date_start" />
+                <field name="date_min" />
+                <field name="date_end" />
+                <field name="date_max" />
+            </form>
+        </field>
+    </record>
+
+    <record id="project_task_phase_table_tree_view" model="ir.ui.view">
+        <field name="name">project.task.phase.table.tree.view</field>
+        <field name="model">project.task.phase.table</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="project_id" />
+                <field name="project" />
+                <field name="phase" />
+                <field name="date_start" />
+                <field name="date_min" />
+                <field name="date_end" />
+                <field name="date_max" />
+            </tree>
+        </field>
+    </record>
+
+    <record id="project_task_phase_table_search_view" model="ir.ui.view">
+        <field name="name">project.task.phase.table.view</field>
+        <field name="model">project.task.phase.table</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="project_id" />
+                <field name="project" />
+                <field name="phase" />
+                <field name="date_start" />
+                <field name="date_min" />
+                <field name="date_end" />
+                <field name="date_max" />
+                    <group name="group_by" expand="0">
+                        <filter name="group_project" string="Project"
+                                context="{'group_by': 'project_id'}" />
+                    </group>
+            </search>
+        </field>
+    </record>
+
+    <record id="project_task_phase_table_gantt_view" model="ir.ui.view">
+        <field name="name">project.task.phase.table.gantt.view</field>
+        <field name="model">project.task.phase.table</field>
+        <field name="arch" type="xml">
+            <gantt date_start="date_start" date_stop="date_end"
+            progress="progress_rate" string="">
+            </gantt>
+        </field>
+    </record>
+</odoo>

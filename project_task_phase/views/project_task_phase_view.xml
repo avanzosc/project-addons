@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+<!--  VISTA DE FORMULARIO -->
+    <record model="ir.ui.view" id="project_task_phase_form_view">
+        <field name="name">project.task.pase.form.view</field>
+        <field name="model">project.project</field>
+        <field name="inherit_id" ref="project.edit_project" />
+        <field name="arch" type="xml">
+            <page name="settings" position="before">
+                <page name="task_phase" string="Plan">
+                   <group name="phase_table">
+                       <field name="phase_table_ids" nolabel="1"/>
+                   </group>
+                </page>
+            </page>
+        </field>
+    </record>
+</odoo>
