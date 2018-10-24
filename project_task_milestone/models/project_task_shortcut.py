@@ -9,10 +9,10 @@ class ProjectTaskShortcut(models.Model):
     _description = 'Tasks Shortcut'
 
     task_count = fields.Integer(
-        string='Tasks', compute='_task_count')
+        string='Tasks', compute='_compute_task_count')
 
     @api.multi
-    def _task_count(self):
+    def _compute_task_count(self):
         task_obj = self.env['project.task']
         for project in self:
             project.task_count = task_obj.search_count([(
