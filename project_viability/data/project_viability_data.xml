@@ -6,7 +6,7 @@
     </record>
     <record forcecreate="True" id="decimal_viability_score" model="decimal.precision">
         <field name="name">Viability Score</field>
-        <field name="digits">1</field>
+        <field name="digits">1  </field>
     </record>
 
     <record id="viability_decision_valid" model="project.viability.decision">
@@ -19,25 +19,40 @@
         <field name="name">Change</field>
     </record>
 
-    <record id="viability_categ_commercial" model="project.viability.category">
+    <record id="viability_categ_strategy" model="project.viability.category">
         <field name="code">C1</field>
+        <field name="name">Strategy fitting</field>
+    </record>
+    <record id="viability_categ_commercial" model="project.viability.category">
+        <field name="code">C2</field>
         <field name="name">Commercial viability</field>
     </record>
     <record id="viability_categ_technic" model="project.viability.category">
-        <field name="code">C2</field>
+        <field name="code">C3</field>
         <field name="name">Technical and technological viability</field>
     </record>
     <record id="viability_categ_financial" model="project.viability.category">
-        <field name="code">C3</field>
+        <field name="code">C4</field>
         <field name="name">Financial viability</field>
     </record>
     <record id="viability_categ_prod" model="project.viability.category">
-        <field name="code">C4</field>
+        <field name="code">C5</field>
         <field name="name">Productive viability / Manufacturing viability</field>
     </record>
     <record id="viability_categ_image" model="project.viability.category">
-        <field name="code">C5</field>
+        <field name="code">C6</field>
         <field name="name">Company Image</field>
+    </record>
+
+    <record id="viability_factor_ris3" model="project.viability.factor">
+        <field name="code">F1</field>
+        <field name="name">RIS3 fitting</field>
+        <field name="categ_id" ref="viability_categ_strategy" />
+    </record>
+    <record id="viability_factor_research" model="project.viability.factor">
+        <field name="code">F2</field>
+        <field name="name">R&amp;D strategy fitting</field>
+        <field name="categ_id" ref="viability_categ_strategy" />
     </record>
 
     <record id="viability_factor_market" model="project.viability.factor">
@@ -116,7 +131,7 @@
     </record>
     <record id="viability_factor_collab" model="project.viability.factor">
         <field name="code">F2</field>
-        <field name="name">Collaboration with other centers of the RVCT</field>
+        <field name="name">Collaboration with other centers</field>
         <field name="categ_id" ref="viability_categ_image" />
     </record>
 

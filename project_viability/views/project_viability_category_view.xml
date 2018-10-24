@@ -19,7 +19,6 @@
                         <field name="code" />
                         <field name="name" />
                     </group>
-                    <field name="factor_ids" />
                 </sheet>
             </form>
         </field>

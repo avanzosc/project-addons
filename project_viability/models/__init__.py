@@ -6,3 +6,4 @@ from . import project_viability_factor
 from . import project_viability_template
 from . import project_viability_line
 from . import project_project
+from . import res_config_settings

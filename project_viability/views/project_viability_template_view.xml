@@ -1,29 +1,34 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <odoo>
+    <record id="project_viability_template_tree_view" model="ir.ui.view">
+        <field name="model">project.viability.template</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="name" />
+                <field name="active" />
+            </tree>
+        </field>
+    </record>
+
     <record id="project_viabilty_template_form_view" model="ir.ui.view">
         <field name="model">project.viability.template</field>
         <field name="arch" type="xml">
             <form>
                 <sheet>
-                    <group>
-                        <field name="name" />
-                        <field name="active" />
-                        <field name="factor_ids" />
-                        <field name="categ_ids" />
-                        <field name="line_ids" context="{'default_templ_id': active_id}">
-                            <tree editable="top">
-                                <field name="factor_id" />
-                                <field name="categ_id" readonly="True" />
-                                <field name="percentage" class="oe_read_only" />
-                            </tree>
-                        </field>
-                        <field name="categ_line_ids" context="{'default_templ_id': active_id}" readonly="True">
-                            <tree>
-                                <field name="categ_id" />
-                                <field name="percentage" />
-                            </tree>
-                        </field>
-                    </group>
+                    <div class="oe_button_box" name="button_box" groups="base.group_user">
+                        <button name="toggle_active" type="object" class="oe_stat_button" icon="fa-archive">
+                            <field name="active" widget="boolean_button" options="{&quot;terminology&quot;: &quot;archive&quot;}"/>
+                        </button>
+                    </div>
+                    <div class="oe_title">
+                        <h1>
+                            <field name="name" placeholder="Project Name"/>
+                        </h1>
+                    </div>
+                    <separator name="Viability Factors" />
+                    <field name="factor_ids" />
+                    <separator name="Viability Categories" />
+                    <field name="categ_ids" />
                 </sheet>
             </form>
         </field>
@@ -33,45 +38,6 @@
         <field name="name">Viability Templates</field>
         <field name="res_model">project.viability.template</field>
         <field name="view_mode">tree,form</field>
-        <field name="context">{
-        }</field>
-    </record>
-
-    <record id="project_viability_template_line_tree_view" model="ir.ui.view">
-        <field name="model">project.viability.template.line</field>
-        <field name="arch" type="xml">
-            <tree create="false" edit="false">
-                <field name="templ_id" />
-                <field name="factor_id" />
-                <field name="categ_id" />
-                <field name="percentage" />
-            </tree>
-        </field>
-    </record>
-
-    <record id="project_viability_template_line_action" model="ir.actions.act_window">
-        <field name="name">Viability Template Lines</field>
-        <field name="res_model">project.viability.template.line</field>
-        <field name="view_mode">tree</field>
-        <field name="context">{
-        }</field>
-    </record>
-
-    <record id="project_viability_template_categ_line_tree_view" model="ir.ui.view">
-        <field name="model">project.viability.template.category.line</field>
-        <field name="arch" type="xml">
-            <tree create="false" edit="false">
-                <field name="templ_id" />
-                <field name="categ_id" />
-                <field name="percentage" />
-            </tree>
-        </field>
-    </record>
-
-    <record id="project_viability_template_categ_line_action" model="ir.actions.act_window">
-        <field name="name">Viability Template Category Lines</field>
-        <field name="res_model">project.viability.template.category.line</field>
-        <field name="view_mode">tree</field>
         <field name="context">{
         }</field>
     </record>

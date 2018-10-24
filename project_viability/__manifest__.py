@@ -19,6 +19,7 @@
         "views/project_viability_line_view.xml",
         "views/project_project_view.xml",
         "views/project_viability_view.xml",
+        "views/res_config_settings_view.xml",
         "data/project_viability_data.xml",
     ],
     "installable": True,

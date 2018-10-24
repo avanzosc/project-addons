@@ -3,7 +3,7 @@
     <record id="project_viability_line_tree_view" model="ir.ui.view">
         <field name="model">project.viability.line</field>
         <field name="arch" type="xml">
-            <tree>
+            <tree create="false" edit="true">
                 <field name="project_id" invisible="context.get('hide_project_id',True)"/>
                 <field name="factor_id" options="{'no_create_edit': True}"/>
                 <field name="categ_id" readonly="True" />
@@ -65,7 +65,7 @@
     <record id="project_viability_line_action" model="ir.actions.act_window">
         <field name="name">Project Viabilities</field>
         <field name="res_model">project.viability.line</field>
-        <field name="view_mode">tree,form</field>
+        <field name="view_mode">tree</field>
         <field name="context">{
             'hide_project_id': False,
         }</field>
@@ -74,7 +74,7 @@
     <record id="project_viability_categ_line_action" model="ir.actions.act_window">
         <field name="name">Project Viabilities per Category</field>
         <field name="res_model">project.viability.category.line</field>
-        <field name="view_mode">tree,form</field>
+        <field name="view_mode">tree</field>
         <field name="context">{
             'hide_project_id': False,
         }</field>

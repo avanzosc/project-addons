@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 11.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-10-24 07:42+0000\n"
-"PO-Revision-Date: 2018-10-24 07:42+0000\n"
+"POT-Creation-Date: 2018-10-25 16:25+0000\n"
+"PO-Revision-Date: 2018-10-25 16:25+0000\n"
 "Last-Translator: <>\n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -36,11 +36,19 @@ msgid "Adequacy of human resources"
 msgstr "Adecuación de los recursos humanos"
 
 #. module: project_viability
+#: model:ir.ui.view,arch_db:project_viability.project_project_viability_form_view
+msgid "Apply Template"
+msgstr "Apply Template"
+
+#. module: project_viability
+#: model:ir.model.fields,field_description:project_viability.field_project_viability_template_categ_ids
+msgid "Categories"
+msgstr "Categories"
+
+#. module: project_viability
 #: model:ir.model.fields,field_description:project_viability.field_project_viability_category_line_categ_id
 #: model:ir.model.fields,field_description:project_viability.field_project_viability_factor_categ_id
 #: model:ir.model.fields,field_description:project_viability.field_project_viability_line_categ_id
-#: model:ir.model.fields,field_description:project_viability.field_project_viability_template_category_line_categ_id
-#: model:ir.model.fields,field_description:project_viability.field_project_viability_template_line_categ_id
 msgid "Category"
 msgstr "Categoría"
 
@@ -56,9 +64,19 @@ msgid "Code"
 msgstr "Código"
 
 #. module: project_viability
+#: sql_constraint:project.viability.factor:0
+msgid "Code must be unique per category!"
+msgstr "Code must be unique per category!"
+
+#. module: project_viability
+#: sql_constraint:project.viability.category:0
+msgid "Code must be unique!"
+msgstr "Code must be unique!"
+
+#. module: project_viability
 #: model:project.viability.factor,name:project_viability.viability_factor_collab
-msgid "Collaboration with other centers of the RVCT"
-msgstr "Colaboración con otros centros de la RVCT"
+msgid "Collaboration with other centers"
+msgstr "Colaboración con otros centros"
 
 #. module: project_viability
 #: model:ir.model.fields,field_description:project_viability.field_project_project_viability_comments
@@ -86,9 +104,7 @@ msgstr "Complejidad y riesgo"
 #: model:ir.model.fields,field_description:project_viability.field_project_viability_decision_create_uid
 #: model:ir.model.fields,field_description:project_viability.field_project_viability_factor_create_uid
 #: model:ir.model.fields,field_description:project_viability.field_project_viability_line_create_uid
-#: model:ir.model.fields,field_description:project_viability.field_project_viability_template_category_line_create_uid
 #: model:ir.model.fields,field_description:project_viability.field_project_viability_template_create_uid
-#: model:ir.model.fields,field_description:project_viability.field_project_viability_template_line_create_uid
 msgid "Created by"
 msgstr "Creado por"
 
@@ -98,16 +114,19 @@ msgstr "Creado por"
 #: model:ir.model.fields,field_description:project_viability.field_project_viability_decision_create_date
 #: model:ir.model.fields,field_description:project_viability.field_project_viability_factor_create_date
 #: model:ir.model.fields,field_description:project_viability.field_project_viability_line_create_date
-#: model:ir.model.fields,field_description:project_viability.field_project_viability_template_category_line_create_date
 #: model:ir.model.fields,field_description:project_viability.field_project_viability_template_create_date
-#: model:ir.model.fields,field_description:project_viability.field_project_viability_template_line_create_date
 msgid "Created on"
 msgstr "Creado en"
 
 #. module: project_viability
 #: model:ir.model.fields,field_description:project_viability.field_project_project_viability_decision_id
 msgid "Decision"
-msgstr "Decision"
+msgstr "Decisión"
+
+#. module: project_viability
+#: model:ir.model.fields,field_description:project_viability.field_res_config_settings_viability_templ_id
+msgid "Default Viability Template"
+msgstr "Default Viability Template"
 
 #. module: project_viability
 #: model:project.viability.factor,name:project_viability.viability_factor_development
@@ -120,11 +139,14 @@ msgstr "Tiempo de desarrollo"
 #: model:ir.model.fields,field_description:project_viability.field_project_viability_decision_display_name
 #: model:ir.model.fields,field_description:project_viability.field_project_viability_factor_display_name
 #: model:ir.model.fields,field_description:project_viability.field_project_viability_line_display_name
-#: model:ir.model.fields,field_description:project_viability.field_project_viability_template_category_line_display_name
 #: model:ir.model.fields,field_description:project_viability.field_project_viability_template_display_name
-#: model:ir.model.fields,field_description:project_viability.field_project_viability_template_line_display_name
 msgid "Display Name"
 msgstr "Nombre mostrado"
+
+#. module: project_viability
+#: model:ir.model.fields,field_description:project_viability.field_res_config_settings_enable_viability_templ
+msgid "Enable Viability Template Change"
+msgstr "Enable Viability Template Change"
 
 #. module: project_viability
 #: model:project.viability.factor,name:project_viability.viability_factor_initial_invest
@@ -138,12 +160,11 @@ msgstr "Cuota de mercado esperada"
 
 #. module: project_viability
 #: model:ir.model.fields,field_description:project_viability.field_project_viability_line_factor_id
-#: model:ir.model.fields,field_description:project_viability.field_project_viability_template_line_factor_id
 msgid "Factor"
 msgstr "Factor"
 
 #. module: project_viability
-#: model:ir.model.fields,field_description:project_viability.field_project_viability_category_factor_ids
+#: model:ir.model.fields,field_description:project_viability.field_project_viability_template_factor_ids
 msgid "Factors"
 msgstr "Factores"
 
@@ -158,11 +179,9 @@ msgstr "Viabilidad financiera"
 #: model:ir.model.fields,field_description:project_viability.field_project_viability_decision_id
 #: model:ir.model.fields,field_description:project_viability.field_project_viability_factor_id
 #: model:ir.model.fields,field_description:project_viability.field_project_viability_line_id
-#: model:ir.model.fields,field_description:project_viability.field_project_viability_template_category_line_id
 #: model:ir.model.fields,field_description:project_viability.field_project_viability_template_id
-#: model:ir.model.fields,field_description:project_viability.field_project_viability_template_line_id
 msgid "ID"
-msgstr "ID"
+msgstr "ID (identificación)"
 
 #. module: project_viability
 #: model:project.viability.factor,name:project_viability.viability_factor_int_capacity
@@ -186,8 +205,6 @@ msgstr "Aprendizaje de conocimiento"
 #: model:ir.model.fields,field_description:project_viability.field_project_viability_factor___last_update
 #: model:ir.model.fields,field_description:project_viability.field_project_viability_line___last_update
 #: model:ir.model.fields,field_description:project_viability.field_project_viability_template___last_update
-#: model:ir.model.fields,field_description:project_viability.field_project_viability_template_category_line___last_update
-#: model:ir.model.fields,field_description:project_viability.field_project_viability_template_line___last_update
 msgid "Last Modified on"
 msgstr "Última modificación en"
 
@@ -197,8 +214,6 @@ msgstr "Última modificación en"
 #: model:ir.model.fields,field_description:project_viability.field_project_viability_decision_write_uid
 #: model:ir.model.fields,field_description:project_viability.field_project_viability_factor_write_uid
 #: model:ir.model.fields,field_description:project_viability.field_project_viability_line_write_uid
-#: model:ir.model.fields,field_description:project_viability.field_project_viability_template_category_line_write_uid
-#: model:ir.model.fields,field_description:project_viability.field_project_viability_template_line_write_uid
 #: model:ir.model.fields,field_description:project_viability.field_project_viability_template_write_uid
 msgid "Last Updated by"
 msgstr "Última actualización de"
@@ -209,11 +224,9 @@ msgstr "Última actualización de"
 #: model:ir.model.fields,field_description:project_viability.field_project_viability_decision_write_date
 #: model:ir.model.fields,field_description:project_viability.field_project_viability_factor_write_date
 #: model:ir.model.fields,field_description:project_viability.field_project_viability_line_write_date
-#: model:ir.model.fields,field_description:project_viability.field_project_viability_template_category_line_write_date
-#: model:ir.model.fields,field_description:project_viability.field_project_viability_template_line_write_date
 #: model:ir.model.fields,field_description:project_viability.field_project_viability_template_write_date
 msgid "Last Updated on"
-msgstr "Última actualización en"
+msgstr "Última Actualización el"
 
 #. module: project_viability
 #: model:project.viability.factor,name:project_viability.viability_factor_market
@@ -241,8 +254,6 @@ msgstr "Apertura de nuevos mercados de interes. Diversificación"
 #. module: project_viability
 #: model:ir.model.fields,field_description:project_viability.field_project_viability_category_line_percentage
 #: model:ir.model.fields,field_description:project_viability.field_project_viability_line_percentage
-#: model:ir.model.fields,field_description:project_viability.field_project_viability_template_category_line_percentage
-#: model:ir.model.fields,field_description:project_viability.field_project_viability_template_line_percentage
 msgid "Percentage"
 msgstr "Porcentaje"
 
@@ -264,26 +275,42 @@ msgid "Project"
 msgstr "Proyecto"
 
 #. module: project_viability
+#: model:ir.ui.view,arch_db:project_viability.project_viabilty_template_form_view
+msgid "Project Name"
+msgstr "Nombre del proyecto"
+
+#. module: project_viability
 #: model:ir.actions.act_window,name:project_viability.project_viability_line_action
 #: model:ir.ui.menu,name:project_viability.project_viability_line_menuitem
 msgid "Project Viabilities"
-msgstr "Project Viabilities"
+msgstr "Líneas de viabilidad"
 
 #. module: project_viability
 #: model:ir.actions.act_window,name:project_viability.project_viability_categ_line_action
 #: model:ir.ui.menu,name:project_viability.project_viability_categ_line_menuitem
 msgid "Project Viabilities per Category"
-msgstr "Project Viabilities per Category"
+msgstr "Líneas de viabilidad por categoria"
 
 #. module: project_viability
 #: model:ir.ui.menu,name:project_viability.project_viability_config_menuitem
+#: model:ir.ui.view,arch_db:project_viability.project_config_settings_form_view
 msgid "Project Viability"
-msgstr "Project Viability"
+msgstr "Viabilidad de proyecto"
 
 #. module: project_viability
 #: model:ir.model,name:project_viability.model_project_viability_category_line
 msgid "Project Viability per Category"
 msgstr "Viabilidad de proyecto por categoría"
+
+#. module: project_viability
+#: model:project.viability.factor,name:project_viability.viability_factor_research
+msgid "R&D strategy fitting"
+msgstr "Encaje en la estrategía I+D"
+
+#. module: project_viability
+#: model:project.viability.factor,name:project_viability.viability_factor_ris3
+msgid "RIS3 fitting"
+msgstr "Encaje en el RIS3"
 
 #. module: project_viability
 #: model:project.viability.factor,name:project_viability.viability_factor_invest
@@ -298,25 +325,14 @@ msgid "Score"
 msgstr "Puntuación"
 
 #. module: project_viability
+#: model:project.viability.category,name:project_viability.viability_categ_strategy
+msgid "Strategy fitting"
+msgstr "Encaje en estrategia"
+
+#. module: project_viability
 #: model:project.viability.category,name:project_viability.viability_categ_technic
 msgid "Technical and technological viability"
 msgstr "Viabilidad técnica y tecnológica"
-
-#. module: project_viability
-#: model:ir.model.fields,field_description:project_viability.field_project_viability_template_category_line_templ_id
-#: model:ir.model.fields,field_description:project_viability.field_project_viability_template_line_templ_id
-msgid "Template"
-msgstr "Plantilla"
-
-#. module: project_viability
-#: model:ir.model.fields,field_description:project_viability.field_project_viability_template_categ_line_ids
-msgid "Template Category Lines"
-msgstr "Template Category Lines"
-
-#. module: project_viability
-#: model:ir.model.fields,field_description:project_viability.field_project_viability_template_line_ids
-msgid "Template Lines"
-msgstr "Template Lines"
 
 #. module: project_viability
 #: model:project.viability.decision,name:project_viability.viability_decision_valid
@@ -332,7 +348,7 @@ msgstr "Viabilidad"
 #: model:ir.actions.act_window,name:project_viability.project_viability_category_action
 #: model:ir.ui.menu,name:project_viability.project_viability_category_menuitem
 msgid "Viability Categories"
-msgstr "Viability Categories"
+msgstr "Categorías de viabilidad"
 
 #. module: project_viability
 #: model:ir.model,name:project_viability.model_project_viability_category
@@ -352,13 +368,13 @@ msgstr "Viability Decision"
 #. module: project_viability
 #: model:ir.model,name:project_viability.model_project_viability_factor
 msgid "Viability Factor"
-msgstr "Viability Factor"
+msgstr "Factor de viabilidad"
 
 #. module: project_viability
 #: model:ir.actions.act_window,name:project_viability.project_viability_factor_action
 #: model:ir.ui.menu,name:project_viability.project_viability_factor_menuitem
 msgid "Viability Factors"
-msgstr "Viability Factors"
+msgstr "Factores de viabilidad"
 
 #. module: project_viability
 #: model:ir.model,name:project_viability.model_project_viability_line
@@ -372,36 +388,39 @@ msgstr "Líneas de viabilidad"
 
 #. module: project_viability
 #: model:ir.model,name:project_viability.model_project_viability_template
+#: model:ir.model.fields,field_description:project_viability.field_project_project_viability_templ_id
 msgid "Viability Template"
-msgstr "Viability Template"
-
-#. module: project_viability
-#: model:ir.actions.act_window,name:project_viability.project_viability_template_categ_line_action
-#: model:ir.ui.menu,name:project_viability.project_viability_template_categ_line_menuitem
-msgid "Viability Template Category Lines"
-msgstr "Viability Template Category Lines"
-
-#. module: project_viability
-#: model:ir.model,name:project_viability.model_project_viability_template_category_line
-#: model:ir.model,name:project_viability.model_project_viability_template_line
-msgid "Viability Template Line"
-msgstr "Viability Template Line"
-
-#. module: project_viability
-#: model:ir.actions.act_window,name:project_viability.project_viability_template_line_action
-#: model:ir.ui.menu,name:project_viability.project_viability_template_line_menuitem
-msgid "Viability Template Lines"
-msgstr "Viability Template Lines"
+msgstr "Plantilla de viabilidad"
 
 #. module: project_viability
 #: model:ir.actions.act_window,name:project_viability.project_viability_template_action
 #: model:ir.ui.menu,name:project_viability.project_viability_template_menuitem
 msgid "Viability Templates"
-msgstr "Viability Templates"
+msgstr "Plantillas de viabilidad"
 
 #. module: project_viability
 #: model:ir.model.fields,field_description:project_viability.field_project_viability_category_line_weighted_score
 #: model:ir.model.fields,field_description:project_viability.field_project_viability_line_weighted_score
 msgid "Weighted Score"
 msgstr "Resultado ponderado"
+
+#. module: project_viability
+#: model:ir.ui.view,arch_db:project_viability.project_config_settings_form_view
+msgid "enable_viability_templ"
+msgstr "enable_viability_templ"
+
+#. module: project_viability
+#: model:ir.model,name:project_viability.model_res_config_settings
+msgid "res.config.settings"
+msgstr "res.config.settings"
+
+#. module: project_viability
+#: model:ir.ui.view,arch_db:project_viability.project_config_settings_form_view
+msgid "viability"
+msgstr "viability"
+
+#. module: project_viability
+#: model:ir.ui.view,arch_db:project_viability.project_config_settings_form_view
+msgid "viability_templ_id"
+msgstr "viability_templ_id"
 

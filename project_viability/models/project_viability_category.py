@@ -9,11 +9,12 @@ class ProjectViabilityCategory(models.Model):
     _description = 'Viability Category'
     _order = 'code, name'
 
-    code = fields.Char(string='Code')
+    code = fields.Char(string='Code', required=True)
     name = fields.Char(string='Name', translate=True, required=True)
-    factor_ids = fields.One2many(
-        string='Factors', comodel_name='project.viability.factor',
-        inverse_name='categ_id')
+
+    _sql_constraints = [
+        ('code_uniq', 'unique(code)', 'Code must be unique!'),
+    ]
 
     @api.multi
     def name_get(self):
