@@ -4,7 +4,7 @@
 from odoo import fields, models
 
 
-class ProjectTaskMilestone(models.Model):
+class ProjectTask(models.Model):
     _inherit = 'project.task'
 
     milestone = fields.Boolean(string='Milestone')
