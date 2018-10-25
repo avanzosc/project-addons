@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 11.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-10-23 08:12+0000\n"
-"PO-Revision-Date: 2018-10-23 08:12+0000\n"
+"POT-Creation-Date: 2018-10-25 14:59+0000\n"
+"PO-Revision-Date: 2018-10-25 14:59+0000\n"
 "Last-Translator: <>\n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -16,35 +16,21 @@ msgstr ""
 "Plural-Forms: \n"
 
 #. module: project_idea
-#: model:ir.model.fields,field_description:project_idea.field_project_project_author_id
 #: model:ir.ui.view,arch_db:project_idea.project_project_idea_form_view
 msgid "Author"
 msgstr "Autor"
 
 #. module: project_idea
-#: model:ir.model.fields,field_description:project_idea.field_project_idea_cat_viability_category_id
-#: model:ir.ui.view,arch_db:project_idea.project_idea_cat_viability_search_view
-#: model:ir.ui.view,arch_db:project_idea.project_idea_line_viability_search_view
-msgid "Category"
-msgstr "Categoría"
-
-#. module: project_idea
-#: model:ir.model.fields,field_description:project_idea.field_project_idea_cat_viability_create_uid
-#: model:ir.model.fields,field_description:project_idea.field_project_idea_line_viability_create_uid
 #: model:ir.model.fields,field_description:project_idea.field_project_idea_resource_human_create_uid
 #: model:ir.model.fields,field_description:project_idea.field_project_idea_resource_material_create_uid
-#: model:ir.model.fields,field_description:project_idea.field_project_idea_viability_category_create_uid
 msgid "Created by"
 msgstr "Creado por"
 
 #. module: project_idea
-#: model:ir.model.fields,field_description:project_idea.field_project_idea_cat_viability_create_date
-#: model:ir.model.fields,field_description:project_idea.field_project_idea_line_viability_create_date
 #: model:ir.model.fields,field_description:project_idea.field_project_idea_resource_human_create_date
 #: model:ir.model.fields,field_description:project_idea.field_project_idea_resource_material_create_date
-#: model:ir.model.fields,field_description:project_idea.field_project_idea_viability_category_create_date
 msgid "Created on"
-msgstr "Creado en"
+msgstr "Creado el"
 
 #. module: project_idea
 #: selection:project.project,idea_origin:0
@@ -52,12 +38,6 @@ msgid "Customer"
 msgstr "Cliente"
 
 #. module: project_idea
-#: model:ir.model.fields,field_description:project_idea.field_project_project_customer_idea_goal
-msgid "Customer's Goal"
-msgstr "Objetivo del cliente"
-
-#. module: project_idea
-#: model:ir.model.fields,field_description:project_idea.field_project_project_idea_date
 #: model:ir.ui.view,arch_db:project_idea.project_project_idea_form_view
 msgid "Date"
 msgstr "Fecha"
@@ -69,34 +49,15 @@ msgid "Department"
 msgstr "Departamento"
 
 #. module: project_idea
-#: model:ir.model.fields,field_description:project_idea.field_project_idea_cat_viability_display_name
-#: model:ir.model.fields,field_description:project_idea.field_project_idea_line_viability_display_name
 #: model:ir.model.fields,field_description:project_idea.field_project_idea_resource_human_display_name
 #: model:ir.model.fields,field_description:project_idea.field_project_idea_resource_material_display_name
-#: model:ir.model.fields,field_description:project_idea.field_project_idea_viability_category_display_name
 msgid "Display Name"
 msgstr "Nombre mostrado"
 
 #. module: project_idea
-#: model:ir.model.fields,field_description:project_idea.field_project_idea_line_viability_feasibility_id
-msgid "Feasibility Category"
-msgstr "Categoria de viabilidad"
-
-#. module: project_idea
-#: model:ir.model.fields,field_description:project_idea.field_project_project_lines_viability_ids
-#: model:ir.ui.view,arch_db:project_idea.project_project_idea_form_view
-msgid "Feasibility Lines"
-msgstr "Lineas de viabilidad"
-
-#. module: project_idea
-#: model:ir.model.fields,field_description:project_idea.field_project_project_financing
-msgid "Financing Source"
-msgstr "Fuente de financiación"
-
-#. module: project_idea
-#: model:ir.model.fields,field_description:project_idea.field_project_idea_line_viability_formula_punctuation
-msgid "Formulated Score"
-msgstr "Puntuación de formula"
+#: model:ir.model.fields,field_description:project_idea.field_project_project_year_duration
+msgid "Estimated term (years)"
+msgstr "Plazo estimado (años)"
 
 #. module: project_idea
 #: model:ir.model,name:project_idea.model_hr_department
@@ -121,11 +82,8 @@ msgid "Human Resources"
 msgstr "Recursos humanos"
 
 #. module: project_idea
-#: model:ir.model.fields,field_description:project_idea.field_project_idea_cat_viability_id
-#: model:ir.model.fields,field_description:project_idea.field_project_idea_line_viability_id
 #: model:ir.model.fields,field_description:project_idea.field_project_idea_resource_human_id
 #: model:ir.model.fields,field_description:project_idea.field_project_idea_resource_material_id
-#: model:ir.model.fields,field_description:project_idea.field_project_idea_viability_category_id
 msgid "ID"
 msgstr "ID (identificación)"
 
@@ -150,59 +108,34 @@ msgid "Identification of the Opportunity"
 msgstr "Identificación de la oportunidad"
 
 #. module: project_idea
-#: selection:project.project,financing:0
-msgid "Industrial"
-msgstr "Industrial"
-
-#. module: project_idea
-#: selection:project.project,financing:0
-msgid "Institutional"
-msgstr "Institucional"
-
-#. module: project_idea
 #: model:ir.model.fields,field_description:project_idea.field_project_idea_resource_human_human_intensity
 #: model:ir.model.fields,field_description:project_idea.field_project_idea_resource_material_product_intensity
 msgid "Intensity"
 msgstr "Intensidad"
 
 #. module: project_idea
-#: selection:project.project,financing:0
 #: selection:project.project,idea_origin:0
 #: selection:project.project,idea_type:0
 msgid "Internal"
 msgstr "Interno"
 
 #. module: project_idea
-#: model:ir.model.fields,field_description:project_idea.field_project_project_internal_idea_goal
-msgid "Internal Goal"
-msgstr "Objetivo interno"
-
-#. module: project_idea
-#: model:ir.model.fields,field_description:project_idea.field_project_idea_cat_viability___last_update
-#: model:ir.model.fields,field_description:project_idea.field_project_idea_line_viability___last_update
 #: model:ir.model.fields,field_description:project_idea.field_project_idea_resource_human___last_update
 #: model:ir.model.fields,field_description:project_idea.field_project_idea_resource_material___last_update
-#: model:ir.model.fields,field_description:project_idea.field_project_idea_viability_category___last_update
 msgid "Last Modified on"
 msgstr "Última modificación en"
 
 #. module: project_idea
-#: model:ir.model.fields,field_description:project_idea.field_project_idea_cat_viability_write_uid
-#: model:ir.model.fields,field_description:project_idea.field_project_idea_line_viability_write_uid
 #: model:ir.model.fields,field_description:project_idea.field_project_idea_resource_human_write_uid
 #: model:ir.model.fields,field_description:project_idea.field_project_idea_resource_material_write_uid
-#: model:ir.model.fields,field_description:project_idea.field_project_idea_viability_category_write_uid
 msgid "Last Updated by"
 msgstr "Última actualización de"
 
 #. module: project_idea
-#: model:ir.model.fields,field_description:project_idea.field_project_idea_cat_viability_write_date
-#: model:ir.model.fields,field_description:project_idea.field_project_idea_line_viability_write_date
 #: model:ir.model.fields,field_description:project_idea.field_project_idea_resource_human_write_date
 #: model:ir.model.fields,field_description:project_idea.field_project_idea_resource_material_write_date
-#: model:ir.model.fields,field_description:project_idea.field_project_idea_viability_category_write_date
 msgid "Last Updated on"
-msgstr "Última actualización el"
+msgstr "Última actualización en"
 
 #. module: project_idea
 #: model:ir.model.fields,field_description:project_idea.field_project_idea_resource_human_human_level
@@ -233,12 +166,6 @@ msgid "Medium"
 msgstr "Medio"
 
 #. module: project_idea
-#: model:ir.model.fields,field_description:project_idea.field_project_idea_line_viability_name
-#: model:ir.model.fields,field_description:project_idea.field_project_idea_viability_category_name
-msgid "Name"
-msgstr "Nombre"
-
-#. module: project_idea
 #: model:ir.model.fields,field_description:project_idea.field_project_project_idea_origin
 msgid "Origin"
 msgstr "Origen"
@@ -247,12 +174,6 @@ msgstr "Origen"
 #: selection:project.project,idea_type:0
 msgid "Other"
 msgstr "Otro"
-
-#. module: project_idea
-#: model:ir.model.fields,field_description:project_idea.field_project_idea_cat_viability_cat_percentage
-#: model:ir.model.fields,field_description:project_idea.field_project_idea_line_viability_percentage
-msgid "Percentage"
-msgstr "Porcentaje"
 
 #. module: project_idea
 #: model:ir.model.fields,field_description:project_idea.field_project_project_potential_customers
@@ -271,13 +192,8 @@ msgid "Product Name"
 msgstr "Nombre del producto"
 
 #. module: project_idea
-#: model:ir.model,name:project_idea.model_project_project
-#: model:ir.model.fields,field_description:project_idea.field_project_idea_cat_viability_project_id
-#: model:ir.model.fields,field_description:project_idea.field_project_idea_line_viability_project_id
 #: model:ir.model.fields,field_description:project_idea.field_project_idea_resource_human_project_id
 #: model:ir.model.fields,field_description:project_idea.field_project_idea_resource_material_project_id
-#: model:ir.ui.view,arch_db:project_idea.project_idea_cat_viability_search_view
-#: model:ir.ui.view,arch_db:project_idea.project_idea_line_viability_search_view
 #: model:ir.ui.view,arch_db:project_idea.project_idea_resource_human_search_view
 #: model:ir.ui.view,arch_db:project_idea.project_idea_resource_material_search_view
 msgid "Project"
@@ -289,12 +205,6 @@ msgid "Project Viability per Category"
 msgstr "Viabilidad de proyecto por categoría"
 
 #. module: project_idea
-#: model:ir.model.fields,field_description:project_idea.field_project_idea_cat_viability_cat_punctuation
-#: model:ir.model.fields,field_description:project_idea.field_project_idea_line_viability_line_punctuation
-msgid "Punctuation"
-msgstr "Puntuación"
-
-#. module: project_idea
 #: model:ir.model.fields,field_description:project_idea.field_hr_department_randd
 msgid "R and D"
 msgstr "I+D"
@@ -303,11 +213,6 @@ msgstr "I+D"
 #: model:ir.model.fields,field_description:project_idea.field_project_project_spec_line_ids
 msgid "Specialization Lines"
 msgstr "Lineas de especialización"
-
-#. module: project_idea
-#: model:ir.model.fields,field_description:project_idea.field_project_project_technical_approach
-msgid "Technical Approach"
-msgstr "Objetivo técnico"
 
 #. module: project_idea
 #: model:ir.ui.view,arch_db:project_idea.project_project_idea_form_view
@@ -330,14 +235,7 @@ msgid "Type"
 msgstr "Tipo"
 
 #. module: project_idea
-#: model:ir.ui.view,arch_db:project_idea.project_project_idea_form_view
-msgid "Viability"
-msgstr "Viabilidad"
-
-#. module: project_idea
-#: model:ir.actions.act_window,name:project_idea.project_idea_viability_category_action
 #: model:ir.model,name:project_idea.model_project_idea_viability_category
-#: model:ir.ui.menu,name:project_idea.project_idea_viability_category_menuitem
 msgid "Viability Category"
 msgstr "Categoría de viabilidad"
 
@@ -345,28 +243,4 @@ msgstr "Categoría de viabilidad"
 #: model:ir.model,name:project_idea.model_project_idea_line_viability
 msgid "Viability Line"
 msgstr "Línea de viabilidad"
-
-#. module: project_idea
-#: model:ir.actions.act_window,name:project_idea.project_idea_line_viability_action
-#: model:ir.ui.menu,name:project_idea.project_idea_line_viability_menuitem
-msgid "Viability Lines"
-msgstr "Líneas de viabilidad"
-
-#. module: project_idea
-#: model:ir.model.fields,field_description:project_idea.field_project_project_cat_viability_ids
-#: model:ir.ui.view,arch_db:project_idea.project_project_idea_form_view
-msgid "Viability by Category"
-msgstr "Viabilidad por categoría"
-
-#. module: project_idea
-#: model:ir.actions.act_window,name:project_idea.project_idea_cat_viability_action
-#: model:ir.ui.menu,name:project_idea.project_idea_cat_viability_menuitem
-msgid "Viability per Category"
-msgstr "Viabilidad por categoría"
-
-#. module: project_idea
-#: model:ir.model.fields,field_description:project_idea.field_project_idea_cat_viability_cat_pondered
-#: model:ir.model.fields,field_description:project_idea.field_project_idea_line_viability_weighted_score
-msgid "Weighted Score"
-msgstr "Resultado ponderado"
 

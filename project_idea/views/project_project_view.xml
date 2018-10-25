@@ -16,15 +16,12 @@
                         <group name="idea_left">
                             <field name="create_uid" string="Author" />
                             <field name="create_date" string="Date" widget="date" />
-                            <field name="internal_idea_goal" />
-                            <field name="customer_idea_goal" />
-                            <field name="technical_approach" />
                         </group>
                         <group name="idea_right">
                             <field name="idea_type"/>
                             <field name="idea_origin"/>
-                            <field name="financing"/>
                             <field name="potential_customers"/>
+                            <field name="year_duration" />
                         </group>
                    </group>
                    <group name="human_resources"
@@ -38,18 +35,6 @@
                               context="{'default_project_id': active_id}"/>
                    </group>
                </page>
-               <page name="idea_viability" string="Viability">
-                   <group name="lines_viability"
-                           string="Feasibility Lines">
-                       <field name="lines_viability_ids"  nolabel="1"
-                              context="{'default_project_id': active_id}"/>
-                   </group>
-                   <group name="cat_viability"
-                          string="Viability by Category">
-                       <field name="cat_viability_ids"  nolabel="1"
-                              context="{'default_project_id': active_id}"/>
-                   </group>
-                </page>
             </page>
         </field>
     </record>
