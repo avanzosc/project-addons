@@ -12,6 +12,7 @@
     "website": "http://www.avanzosc.es",
     "category": "Project",
     "data": [
+        "security/project_viability_groups.xml",
         "security/ir.model.access.csv",
         "views/project_viability_category_view.xml",
         "views/project_viability_factor_view.xml",

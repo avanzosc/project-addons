@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<odoo>
+<odoo noupdate="True">
     <record forcecreate="True" id="decimal_viability_percent" model="decimal.precision">
         <field name="name">Viability Percentage</field>
         <field name="digits">2</field>
@@ -37,7 +37,7 @@
     </record>
     <record id="viability_categ_prod" model="project.viability.category">
         <field name="code">C5</field>
-        <field name="name">Productive viability / Manufacturing viability</field>
+        <field name="name">Productive viability</field>
     </record>
     <record id="viability_categ_image" model="project.viability.category">
         <field name="code">C6</field>

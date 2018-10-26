@@ -6,6 +6,7 @@
 Project Viability
 =================
 
+Viability tables to estimate if a project is viable or not.
 
 Bug Tracker
 ===========

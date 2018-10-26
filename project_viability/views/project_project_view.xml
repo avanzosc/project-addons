@@ -6,9 +6,13 @@
         <field name="arch" type="xml">
             <notebook position="inside">
                 <page string="Viability">
-                    <label for="viability_templ_id" />
-                    <field name="viability_templ_id" />
-                    <button name="button_apply_viability_template" type="object" string="Apply Template" />
+                    <group name="viability_template"
+                         groups="project_viability.enable_viability_template_group">
+                        <field name="viability_templ_id" />
+                        <button name="button_apply_viability_template" type="object"
+                                string="Apply Template" class="oe_read_only oe_link"
+                                attrs="{'invisible': [('viability_templ_id','=',False)]}"/>
+                    </group>
                     <field name="viability_line_ids" context="{'default_project_id': active_id}"/>
                     <field name="viability_categ_line_ids" context="{'default_project_id': active_id}"/>
                     <group>

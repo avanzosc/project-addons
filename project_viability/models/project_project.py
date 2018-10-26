@@ -8,8 +8,15 @@ from odoo.addons import decimal_precision as dp
 class ProjectProject(models.Model):
     _inherit = 'project.project'
 
+    def _default_viability_templ_id(self):
+        get_param = self.env['ir.config_parameter'].sudo().get_param
+        default_tmpl_id = int(
+            get_param('project_viability.viability_templ_id'))
+        return self.env['project.viability.template'].browse(default_tmpl_id)
+
     viability_templ_id = fields.Many2one(
-        comodel_name='project.viability.template', string='Viability Template')
+        comodel_name='project.viability.template', string='Viability Template',
+        default=_default_viability_templ_id)
     viability_line_ids = fields.One2many(
         comodel_name='project.viability.line', inverse_name='project_id',
         string='Viability Lines')
@@ -27,6 +34,7 @@ class ProjectProject(models.Model):
     def create(self, values):
         res = super(ProjectProject, self).create(values)
         res._reload_viability_categ_line_ids()
+        res.button_apply_viability_template()
         return res
 
     @api.multi
@@ -43,7 +51,6 @@ class ProjectProject(models.Model):
             project.viability_line_ids = [
                 (0, 0, {'factor_id': x.id})
                 for x in project.mapped('viability_templ_id.factor_ids')]
-            # project._reload_viability_categ_line_ids()
 
     @api.multi
     def _reload_viability_categ_line_ids(self):

@@ -11,8 +11,9 @@ class ProjectConfigSettings(models.TransientModel):
     def _default_viability_template(self):
         return self.env['project.viability.template'].search([], limit=1)
 
-    enable_viability_templ = fields.Boolean(
-        string='Enable Viability Template Change')
+    group_enable_viability_template = fields.Boolean(
+        string='Enable Viability Template Change',
+        implied_group='project_viability.enable_viability_template_group')
     viability_templ_id = fields.Many2one(
         comodel_name='project.viability.template',
         string='Default Viability Template',
@@ -30,9 +31,6 @@ class ProjectConfigSettings(models.TransientModel):
                     viability_templ_id).exists()):
             viability_templ_id = False
         res.update(
-            enable_viability_templ=get_param(
-                'project_viability.enable_viability_templ',
-                'False').lower() == 'true',
             viability_templ_id=viability_templ_id,
         )
         return res
@@ -43,7 +41,5 @@ class ProjectConfigSettings(models.TransientModel):
         set_param = self.env['ir.config_parameter'].sudo().set_param
         # we store the repr of the values, since the value of the parameter is
         # a required string
-        set_param('project_viability.enable_viability_templ',
-                  repr(self.enable_viability_templ))
         set_param('project_viability.viability_templ_id',
                   repr(self.viability_templ_id.id))
