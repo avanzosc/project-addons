@@ -1,7 +1,7 @@
 # Copyright 2018 Gontzal Gomez - AvanzOSC
 # License AGPL-3 - See http://www.gnu.org/licenses/agpl-3.0.html
 
-from odoo import fields, models
+from odoo import api, fields, models
 
 
 class ProjectTask(models.Model):
@@ -10,3 +10,7 @@ class ProjectTask(models.Model):
     milestone = fields.Boolean(string='Milestone')
     phase_id = fields.Many2one(
         string='Phase', comodel_name='project.task.phase')
+    sequence = fields.Float(string='Sequence') # compute='_commpute_sequence')
+
+    # @api.multi
+    # def _compute_sequence(self):

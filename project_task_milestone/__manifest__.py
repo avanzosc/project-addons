@@ -16,7 +16,6 @@
         "views/project_task_milestone_view.xml",
         "views/project_task_shortcut_view.xml",
         "views/project_task_view.xml",
-        "data/project_task_data.xml",
     ],
     "installable": True,
 }
