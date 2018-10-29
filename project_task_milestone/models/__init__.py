@@ -3,4 +3,3 @@
 
 from . import project_task_phase
 from . import project_task_milestone
-from . import project_task_shortcut
