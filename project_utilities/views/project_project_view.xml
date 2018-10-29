@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<openerp>
+<data>
+    <record id="view_project_filter_inh_project_utilities" model="ir.ui.view">
+        <field name="name">view.project.filter.inh.project.utilities</field>
+        <field name="model">project.project</field>
+        <field name="inherit_id" ref="project.view_project_project_filter"/>
+        <field name="arch" type="xml">
+            <field name="partner_id" position="after">
+                <field name="date_start" string="Date start"/>
+                <field name="date" string="Date end" />
+            </field>
+            <filter name="Manager" position="after">
+                <filter string="Date start by year" name="group_start_year" context="{'group_by':'date_start:year'}"/>
+                <filter string="Date start by month" name="group_start_month" context="{'group_by':'date_start'}"/>
+                <filter string="Date start by day" name="group_start_day" context="{'group_by':'date_start:day'}"/>
+                <filter string="Date end by year" name="group_end_year" context="{'group_by':'date:year'}"/>
+                <filter string="Date end by month" name="group_end_month" context="{'group_by':'date'}"/>
+                <filter string="Date end by day" name="group_end_day" context="{'group_by':'date:day'}"/>
+            </filter>
+        </field>
+    </record>
+</data>
+</openerp>
