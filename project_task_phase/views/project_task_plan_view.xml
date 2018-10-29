@@ -7,10 +7,8 @@
             <form>
                 <field name="project_id" />
                 <field name="project" />
-                <field name="phase" />
-                <field name="date_start" />
+                <field name="phase_id" />
                 <field name="date_min" />
-                <field name="date_end" />
                 <field name="date_max" />
             </form>
         </field>
@@ -23,10 +21,8 @@
             <tree>
                 <field name="project_id" />
                 <field name="project" />
-                <field name="phase" />
-                <field name="date_start" />
+                <field name="phase_id" />
                 <field name="date_min" />
-                <field name="date_end" />
                 <field name="date_max" />
             </tree>
         </field>
@@ -39,10 +35,8 @@
             <search>
                 <field name="project_id" />
                 <field name="project" />
-                <field name="phase" />
-                <field name="date_start" />
+                <field name="phase_id" />
                 <field name="date_min" />
-                <field name="date_end" />
                 <field name="date_max" />
                     <group name="group_by" expand="0">
                         <filter name="group_project" string="Project"
@@ -56,7 +50,7 @@
         <field name="name">project.task.phase.table.gantt.view</field>
         <field name="model">project.task.phase.table</field>
         <field name="arch" type="xml">
-            <gantt date_start="date_start" date_stop="date_end"
+            <gantt date_start="date_min" date_stop="date_max"
             progress="progress_rate" string="">
             </gantt>
         </field>

@@ -10,6 +10,8 @@
                 <page name="task_phase" string="Plan">
                    <group name="phase_table">
                        <field name="phase_table_ids" nolabel="1"/>
+                       <field name="date_min" />
+                       <field name="date_max" />
                    </group>
                 </page>
             </page>

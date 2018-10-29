@@ -7,15 +7,15 @@
     "license": "AGPL-3",
     "depends": [
         "project",
+        "project_task_milestone",
     ],
     "author": "AvanzOSC",
     "website": "http://www.avanzosc.es",
     "category": "Project",
     "data": [
         "security/ir.model.access.csv",
-        "data/project_task_phase_data.xml",
-        "views/project_task_phase_view",
-        
+        "views/project_task_phase_view.xml",
+        "views/project_task_plan_view.xml",
     ],
     "installable": True,
 }
