@@ -3,6 +3,9 @@
     <record id="account_budget.act_crossovered_budget_view" model="ir.actions.act_window">
         <field name="context">{'active_test': False}</field>
     </record>
+    <record id="account_budget.act_crossovered_budget_lines_view" model="ir.actions.act_window">
+        <field name="domain">[('budget_active','=',True)]</field>
+    </record>
 
     <record id="crossovered_budget_form_view" model="ir.ui.view">
         <field name="name">crossovered.budget.form</field>
@@ -37,6 +40,10 @@
                 <field name="initial_planned_amount" widget="monetary"
                        sum="Initial Planned Amount"/>
             </xpath>
+            <xpath expr="//field[@name='crossovered_budget_line']/tree//field[@name='practical_amount']" position="after">
+                <field name="sum_amount" widget="monetary"
+                       sum="Sum Amount Total" />
+            </xpath>
             <xpath expr="//field[@name='crossovered_budget_line']/tree//field[@name='paid_date']" position="attributes">
                 <attribute name="invisible">True</attribute>
             </xpath>
@@ -45,6 +52,9 @@
             </xpath>
             <xpath expr="//field[@name='crossovered_budget_line']/tree//field[@name='percentage']" position="attributes">
                 <attribute name="invisible">True</attribute>
+            </xpath>
+            <xpath expr="//field[@name='crossovered_budget_line']/tree//field[@name='percentage']" position="after">
+                <field name="notes" />
             </xpath>
         </field>
     </record>

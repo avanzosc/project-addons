@@ -58,6 +58,8 @@
                 <separator />
                 <filter name="unbudgeted" string="Unbudgeted"
                         domain="[('has_current_budget', '!=', True)]" />
+                <filter name="budgeted" string="Budgeted"
+                        domain="[('has_current_budget', '=', True)]" />
             </filter>
         </field>
     </record>
