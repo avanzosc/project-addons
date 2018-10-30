@@ -1,6 +1,8 @@
 # Copyright 2018 Oihane Crucelaegui - AvanzOSC
 # License AGPL-3 - See http://www.gnu.org/licenses/agpl-3.0.html
 
+from ast import literal_eval
+
 from odoo import api, fields, models
 from odoo.addons import decimal_precision as dp
 
@@ -10,8 +12,8 @@ class ProjectProject(models.Model):
 
     def _default_viability_templ_id(self):
         get_param = self.env['ir.config_parameter'].sudo().get_param
-        default_tmpl_id = int(
-            get_param('project_viability.viability_templ_id'))
+        default_tmpl_id = literal_eval(
+            get_param('project_viability.viability_templ_id', 'False'))
         return self.env['project.viability.template'].browse(default_tmpl_id)
 
     viability_templ_id = fields.Many2one(
