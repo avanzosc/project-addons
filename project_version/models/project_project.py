@@ -8,6 +8,11 @@ class ProjectProject(models.Model):
     _inherit = 'project.project'
 
     historical_date = fields.Date(string='Historical Date', readonly=True)
+    historical_user_id = fields.Many2one(
+        comodel_name='res.users', string='Historifying User', readonly=True)
+    version_date = fields.Date(string='Version Date', readonly=True)
+    version_user_id = fields.Many2one(
+        comodel_name='res.users', string='Versioning User', readonly=True)
     version = fields.Integer(string='Version', copy=False, default=1)
     parent_id = fields.Many2one(
         comodel_name='project.project', string='Parent Project', copy=False)
@@ -28,32 +33,27 @@ class ProjectProject(models.Model):
     @api.multi
     def button_new_version(self):
         self.ensure_one()
-        new_project = self._copy_project()
-        self.button_historical()
-        return {
-            'type': 'ir.actions.act_window',
-            'view_type': 'form, tree',
-            'view_mode': 'form',
-            'res_model': 'project.project',
-            'res_id': new_project.id,
-            'target': 'current',
-        }
+        self._copy_project()
+        revno = self.version
+        self.write({
+            'version': revno + 1,
+            'version_date': fields.Date.today(),
+            'version_user_id': self.env.user.id,
+        })
 
     def _copy_project(self):
-        # active_draft = self.env['mrp.config.settings']._get_parameter(
-        #     'active.draft')
-        new_project = self.copy({
+        new_test = self.copy({
+            'version': self.version,
             'name': self.name,
-            'version': self.version + 1,
-            # 'active': active_draft and active_draft.value or False,
             'parent_id': self.id,
         })
-        return new_project
+        new_test.button_historical()
+        return new_test
 
     @api.multi
     def button_historical(self):
         self.write({
-            # 'active': False,
-            # 'state': 'historical',
-            'historical_date': fields.Date.today()
+            'active': False,
+            'historical_date': fields.Date.today(),
+            'historical_user_id': self.env.user.id,
         })

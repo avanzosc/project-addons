@@ -11,6 +11,8 @@
                 <header>
                     <button name="button_new_version" type="object"
                             string="New Version" />
+                    <button name="button_historical" type="object"
+                            string="Historify" />
                 </header>
             </sheet>
         </field>
