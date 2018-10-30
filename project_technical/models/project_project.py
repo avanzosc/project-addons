@@ -7,8 +7,5 @@ from odoo import fields, models
 class ProjectProject(models.Model):
     _inherit = 'project.project'
 
-    customer_goal = fields.Char(string="Customer's Goal")
-    internal_goal = fields.Char(string='Internal Goal')
     work_scope = fields.Html(string='Scope of Work')
-    definition = fields.Html(string='Technical Definition')
     task_description = fields.Html(string='Description of Tasks')
