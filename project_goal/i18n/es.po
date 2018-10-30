@@ -1,0 +1,119 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+#	* project_goal
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 11.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2018-10-30 16:27+0000\n"
+"PO-Revision-Date: 2018-10-30 16:27+0000\n"
+"Last-Translator: <>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: project_goal
+#: model:ir.model.fields,field_description:project_goal.field_project_goal_acceptance_range
+msgid "Acceptance range"
+msgstr "Rango de aceptación"
+
+#. module: project_goal
+#: model:ir.model.fields,field_description:project_goal.field_project_goal_compliance
+msgid "Compliance Degree"
+msgstr "Grado de cumplimiento"
+
+#. module: project_goal
+#: model:ir.model.fields,field_description:project_goal.field_project_goal_create_uid
+#: model:ir.model.fields,field_description:project_goal.field_project_goal_type_create_uid
+msgid "Created by"
+msgstr "Creado por"
+
+#. module: project_goal
+#: model:ir.model.fields,field_description:project_goal.field_project_goal_create_date
+#: model:ir.model.fields,field_description:project_goal.field_project_goal_type_create_date
+msgid "Created on"
+msgstr "Creado en"
+
+#. module: project_goal
+#: model:ir.model.fields,field_description:project_goal.field_project_goal_display_name
+#: model:ir.model.fields,field_description:project_goal.field_project_goal_type_display_name
+msgid "Display Name"
+msgstr "Nombre mostrado"
+
+#. module: project_goal
+#: model:ir.model.fields,field_description:project_goal.field_project_project_goals
+#: model:ir.ui.view,arch_db:project_goal.project_task_plan_form_view
+msgid "Goals"
+msgstr "Objetivos"
+
+#. module: project_goal
+#: model:ir.model.fields,field_description:project_goal.field_project_goal_id
+#: model:ir.model.fields,field_description:project_goal.field_project_goal_type_id_3766
+msgid "ID"
+msgstr "ID"
+
+#. module: project_goal
+#: model:ir.model.fields,field_description:project_goal.field_project_goal___last_update
+#: model:ir.model.fields,field_description:project_goal.field_project_goal_type___last_update
+msgid "Last Modified on"
+msgstr "Última modificación en"
+
+#. module: project_goal
+#: model:ir.model.fields,field_description:project_goal.field_project_goal_type_write_uid
+#: model:ir.model.fields,field_description:project_goal.field_project_goal_write_uid
+msgid "Last Updated by"
+msgstr "Última actualización de"
+
+#. module: project_goal
+#: model:ir.model.fields,field_description:project_goal.field_project_goal_type_write_date
+#: model:ir.model.fields,field_description:project_goal.field_project_goal_write_date
+msgid "Last Updated on"
+msgstr "Última actualización en"
+
+#. module: project_goal
+#: model:ir.model.fields,field_description:project_goal.field_project_goal_name
+#: model:ir.model.fields,field_description:project_goal.field_project_goal_type_name
+msgid "Name"
+msgstr "Nombre"
+
+#. module: project_goal
+#: model:ir.model,name:project_goal.model_project_project
+#: model:ir.model.fields,field_description:project_goal.field_project_goal_project_id
+#: model:ir.ui.view,arch_db:project_goal.project_goal_search_view
+msgid "Project"
+msgstr "Proyecto"
+
+#. module: project_goal
+#: model:ir.model.fields,field_description:project_goal.field_project_goal_remark
+msgid "Remarks"
+msgstr "Observaciones"
+
+#. module: project_goal
+#: model:ir.model.fields,field_description:project_goal.field_project_goal_sequential
+msgid "Sequential"
+msgstr "Secuencial"
+
+#. module: project_goal
+#: model:ir.model.fields,field_description:project_goal.field_project_goal_type_id
+msgid "Type"
+msgstr "Tipo"
+
+#. module: project_goal
+#: model:ir.actions.act_window,name:project_goal.project_goal_type_action
+#: model:ir.ui.menu,name:project_goal.project_goal_type_menuitem
+msgid "Types of Goal"
+msgstr "Tipos de objetivo"
+
+#. module: project_goal
+#: model:ir.model,name:project_goal.model_project_goal
+msgid "project.goal"
+msgstr "project.goal"
+
+#. module: project_goal
+#: model:ir.model,name:project_goal.model_project_goal_type
+msgid "project.goal.type"
+msgstr "project.goal.type"
+

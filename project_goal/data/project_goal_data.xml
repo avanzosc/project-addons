@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo noupdate="True">
+    <record id="gtype1" model="project.goal.type"
+            forcecreate="True">
+        <field name="name">Customer</field>
+    </record>
+    <record id="gtype2" model="project.goal.type"
+            forcecreate="True">
+        <field name="name">Technical</field>
+    </record>
+    <record id="gtype3" model="project.goal.type"
+            forcecreate="True">
+        <field name="name">Internal</field>
+    </record>
+</odoo>

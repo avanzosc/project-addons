@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <record id="project_goal_form_view" model="ir.ui.view">
+        <field name="name">project.goal.form.view</field>
+        <field name="model">project.goal</field>
+        <field name="arch" type="xml">
+            <form>
+                <field name="project_id" />
+                <field name="sequential" />
+                <field name="name" />
+                <field name="type_id" />
+                <field name="acceptance_range" />
+                <field name="compliance" />
+                <field name="remark" />
+            </form>
+        </field>
+    </record>
+
+    <record id="project_goal_tree_view" model="ir.ui.view">
+        <field name="name">project.goal.tree.view</field>
+        <field name="model">project.goal</field>
+        <field name="arch" type="xml">
+            <tree editable="top">
+                <field name="project_id" />
+                <field name="sequential" />
+                <field name="name" />
+                <field name="type_id" />
+                <field name="acceptance_range" />
+                <field name="compliance" />
+                <field name="remark" />
+            </tree>
+        </field>
+    </record>
+
+    <record id="project_goal_search_view" model="ir.ui.view">
+        <field name="name">project.goal.view</field>
+        <field name="model">project.goal</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="project_id" />
+                <field name="sequential" />
+                <field name="name" />
+                <field name="type_id" />
+                <field name="acceptance_range" />
+                <field name="compliance" />
+                <field name="remark" />
+                    <group name="group_by" expand="0">
+                        <filter name="group_project" string="Project"
+                                context="{'group_by': 'project_id'}" />
+                    </group>
+            </search>
+        </field>
+    </record>
+</odoo>
