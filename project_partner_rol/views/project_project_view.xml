@@ -14,14 +14,7 @@
               <page name="participants" string="Participants">
                   <label for="participant_ids" />
                   <field name="participant_ids" nolabel="1"
-                         context="{'default_project_id':active_id}">
-                    <tree string="Project participants">
-                        <field name="project_id" invisible="1" />
-                        <field name="partner_id" />
-                        <field name="partner_user_ids" />
-                        <field name="rol_id" />
-                    </tree>
-                  </field>
+                         context="{'default_project_id':active_id}"/>
               </page>
            </page>
         </field>
@@ -55,16 +48,6 @@
                     </group>
                 </group>
             </xpath>
-            <xpath expr="//field[@name='participant_ids']/tree//field[@name='rol_id']"
-                   position="after">
-                <field name="planned_hours_percentage" sum="Percentage" />
-                <field name="project_planned_hours" string="By Project"
-                       widget="float_time" sum="Project Hours" />
-                <field name="task_planned_hours" string="By Tasks"
-                       widget="float_time" sum="Task Hours" />
-                <field name="monthly_planned_hours" widget="float_time" sum=""/>
-                <field name="monthly_task_planned_hours" widget="float_time" />
-            </xpath>
         </field>
     </record>
 
@@ -89,10 +72,12 @@
         <field name="model">project.project</field>
         <field name="inherit_id" ref="project.view_project"/>
         <field name="arch" type="xml">
-           <field name="partner_id" position="after">
-                <field name="project_location_id" />
+            <field name="name" position="after">
                 <field name="code" string="Analytic account code"/>
-           </field>
+            </field>
+            <field name="partner_id" position="after">
+                <field name="project_location_id" />
+            </field>
         </field>
     </record>
 
