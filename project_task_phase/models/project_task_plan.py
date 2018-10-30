@@ -23,7 +23,7 @@ class ProjectTaskPlan(models.Model):
     def _compute_dates(self):
         for phase_table in self.filtered('project_id'):
             project_tasks = self.env['project.task'].search([
-            ('project_id', '=', phase_table.project_id.id)])
+                ('project_id', '=', phase_table.project_id.id)])
             start_dates = (
                 project_tasks.filtered('date_start').mapped('date_start'))
             if start_dates:
