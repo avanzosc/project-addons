@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <record id="project_project_form_view" model="ir.ui.view">
+        <field name="model">project.project</field>
+        <field name="inherit_id" ref="project.edit_project" />
+        <field name="arch" type="xml">
+            <field name="sequence" position="after">
+                <field name="version" />
+            </field>
+            <sheet position="before">
+                <header>
+                    <button name="button_new_version" type="object"
+                            string="New Version" />
+                </header>
+            </sheet>
+        </field>
+    </record>
+</odoo>
