@@ -37,8 +37,8 @@ class ProjectRiskTable(models.Model):
 
     @api.onchange('risk_id')
     def onchange_risk_id(self):
-        self.risk = self.risk_id.name
+        self.risk = self.risk_id.description
 
     @api.onchange('action_id')
     def onchange_action_id(self):
-        self.action = self.action_id.name
+        self.action = self.action_id.description
