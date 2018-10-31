@@ -29,12 +29,11 @@ class ProjectOpportunityTable(models.Model):
 
     @api.onchange('opportunity_id')
     def onchange_opportunity_id(self):
-        self.opportunity = (
-            self.opportunity_id.description or self.opportunity_id.name)
+        self.opportunity = self.opportunity_id.description
 
     @api.onchange('action_id')
     def onchange_action_id(self):
-        self.action = self.action_id.description or self.action_id.name
+        self.action = self.action_id.description
 
     @api.depends('probability_id', 'probability_id.rating',
                  'impact_id', 'impact_id.rating')

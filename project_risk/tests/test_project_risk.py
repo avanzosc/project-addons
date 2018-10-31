@@ -20,15 +20,19 @@ class TestProjectRisk(common.SavepointCase):
         })
         cls.risk = cls.env['project.risk.risk'].create({
             'name': 'Test Risk',
+            'description': 'Risk description',
         })
         cls.action1 = cls.env['project.risk.action'].create({
             'name': 'Test Action',
+            'description': 'Action description',
         })
         cls.chance = cls.env['project.opportunity.opportunity'].create({
             'name': 'Test Chance',
+            'description': 'Chance description',
         })
         cls.action2 = cls.env['project.opportunity.action'].create({
             'name': 'Test Action',
+            'description': 'Action description',
         })
 
     def test_risk_table(self):
@@ -88,7 +92,7 @@ class TestProjectRisk(common.SavepointCase):
         self.assertFalse(table.risk)
         table.onchange_risk_id()
         self.assertEquals(table.risk,
-                          table.risk_id.name)
+                          table.risk_id.description)
 
     def test_onchange_action_id(self):
         table = self.table_model.create({
@@ -98,7 +102,7 @@ class TestProjectRisk(common.SavepointCase):
         self.assertFalse(table.action)
         table.onchange_action_id()
         self.assertEquals(table.action,
-                          table.action_id.name)
+                          table.action_id.description)
 
     def test_onchange_chance_id(self):
         table = self.opportunity_model.create({
@@ -108,7 +112,7 @@ class TestProjectRisk(common.SavepointCase):
         self.assertFalse(table.opportunity)
         table.onchange_opportunity_id()
         self.assertEquals(table.opportunity,
-                          table.opportunity_id.name)
+                          table.opportunity_id.description)
 
     def test_prob_onchange(self):
         table = self.opportunity_model.create({
@@ -118,4 +122,4 @@ class TestProjectRisk(common.SavepointCase):
         self.assertFalse(table.action)
         table.onchange_action_id()
         self.assertEquals(table.action,
-                          table.action_id.name)
+                          table.action_id.description)
