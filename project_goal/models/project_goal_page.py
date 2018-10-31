@@ -7,5 +7,5 @@ from odoo import fields, models
 class ProjectGoalPage(models.Model):
     _inherit = 'project.project'
 
-    goals = fields.One2many(
+    goal_ids = fields.One2many(
         comodel_name='project.goal', inverse_name='project_id')

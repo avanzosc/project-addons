@@ -6,9 +6,10 @@ from odoo import fields, models
 
 class ProjectObjetive(models.Model):
     _name = 'project.goal'
+    _description = 'Goals of Projects'
 
     project_id = fields.Many2one(comodel_name='project.project')
-    sequential = fields.Integer(string='Sequential')
+    sequence = fields.Integer(string='Sequence')
     name = fields.Char(string='Name')
     type_id = fields.Many2one(
         string='Type', comodel_name='project.goal.type')

@@ -6,7 +6,7 @@
         <field name="arch" type="xml">
             <form>
                 <field name="project_id" />
-                <field name="sequential" />
+                <field name="sequence" />
                 <field name="name" />
                 <field name="type_id" />
                 <field name="acceptance_range" />
@@ -22,12 +22,22 @@
         <field name="arch" type="xml">
             <tree editable="top">
                 <field name="project_id" />
-                <field name="sequential" />
+                <field name="sequence" />
                 <field name="name" />
                 <field name="type_id" />
                 <field name="acceptance_range" />
                 <field name="compliance" />
                 <field name="remark" />
+            </tree>
+        </field>
+    </record>
+
+    <record id="project_goal_tree_view_type" model="ir.ui.view">
+        <field name="name">project.goal.tree.view.type</field>
+        <field name="model">project.goal.type</field>
+        <field name="arch" type="xml">
+            <tree editable="top">
+                <field name="name" />
             </tree>
         </field>
     </record>
@@ -38,7 +48,7 @@
         <field name="arch" type="xml">
             <search>
                 <field name="project_id" />
-                <field name="sequential" />
+                <field name="sequence" />
                 <field name="name" />
                 <field name="type_id" />
                 <field name="acceptance_range" />
