@@ -16,7 +16,6 @@
         "project",
     ],
     "data": [
-        # "data/project_budget_data.xml",
         "views/project_project_view.xml",
     ],
     "installable": True,

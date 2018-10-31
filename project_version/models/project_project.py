@@ -19,19 +19,6 @@ class ProjectProject(models.Model):
     version = fields.Integer(string='Version', copy=False, default=1)
     parent_id = fields.Many2one(
         comodel_name='project.project', string='Parent Project', copy=False)
-    old_version_ids = fields.Many2many(
-        comodel_name='project.project', string='Old Versions',
-        compute='_compute_old_versions')
-
-    @api.multi
-    def _compute_old_versions(self):
-        for project in self:
-            parent = project.parent_id
-            old_version = self.env['project.project']
-            while parent:
-                old_version += parent
-                parent = parent.parent_id
-            project.old_version_ids = old_version
 
     @api.multi
     def button_new_version(self):
