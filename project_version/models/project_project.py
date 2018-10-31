@@ -7,12 +7,12 @@ from odoo import api, fields, models
 class ProjectProject(models.Model):
     _inherit = 'project.project'
 
-    historical_date = fields.Date(string='Historical Date', readonly=True)
+    historical_date = fields.Date(string='Historified on', readonly=True)
     historical_user_id = fields.Many2one(
-        comodel_name='res.users', string='Historifying User', readonly=True)
-    version_date = fields.Date(string='Version Date', readonly=True)
+        comodel_name='res.users', string='Historified by', readonly=True)
+    version_date = fields.Date(string='Versioned on', readonly=True)
     version_user_id = fields.Many2one(
-        comodel_name='res.users', string='Versioning User', readonly=True)
+        comodel_name='res.users', string='Versioned by', readonly=True)
     version = fields.Integer(string='Version', copy=False, default=1)
     parent_id = fields.Many2one(
         comodel_name='project.project', string='Parent Project', copy=False)
@@ -33,6 +33,8 @@ class ProjectProject(models.Model):
     @api.multi
     def button_new_version(self):
         self.ensure_one()
+        if self.historical_date or self.historical_user_id or not self.active:
+            return False
         self._copy_project()
         revno = self.version
         self.write({
@@ -52,6 +54,8 @@ class ProjectProject(models.Model):
 
     @api.multi
     def button_historical(self):
+        if self.historical_date or self.historical_user_id or not self.active:
+            return False
         self.write({
             'active': False,
             'historical_date': fields.Date.today(),

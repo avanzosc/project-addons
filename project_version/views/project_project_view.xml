@@ -1,11 +1,35 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <odoo>
+    <record id="project_project_old_version_action" model="ir.actions.act_window">
+        <field name="name">Old Versions</field>
+        <field name="res_model">project.project</field>
+        <field name="view_mode">tree,kanban,form</field>
+        <field name="domain">[('parent_id','=',active_id)]</field>
+        <field name="context">{
+            'active_test': False,
+        }</field>
+    </record>
+
     <record id="project_project_form_view" model="ir.ui.view">
         <field name="model">project.project</field>
         <field name="inherit_id" ref="project.edit_project" />
         <field name="arch" type="xml">
             <field name="sequence" position="after">
                 <field name="version" />
+                <field name="parent_id" invisible="True" />
+                <label for="version_user_id"
+                       attrs="{'invisible': ['|',('version_user_id','=',False),('version_date','=',False)]}"/>
+                <div attrs="{'invisible': ['|',('version_user_id','=',False),('version_date','=',False)]}">
+                    <field name="version_user_id" class="oe_inline" /> on
+                    <field name="version_date" class="oe_inline" />
+
+                </div>
+                <label for="historical_user_id"
+                       attrs="{'invisible': ['|',('historical_user_id','=',False),('historical_date','=',False)]}"/>
+                <div attrs="{'invisible': ['|',('historical_user_id','=',False),('historical_date','=',False)]}">
+                    <field name="historical_user_id" class="oe_inline" /> on
+                    <field name="historical_date"  class="oe_inline" />
+                </div>
             </field>
             <sheet position="before">
                 <header>
@@ -15,6 +39,24 @@
                             string="Historify" />
                 </header>
             </sheet>
+            <div name="button_box" position="inside">
+                 <button string="Old Versions" class="oe_stat_button" icon="fa-archive"
+                         name="%(project_project_old_version_action)d" type="action"
+                         attrs="{'invisible': [('parent_id','!=',False)]}" />
+            </div>
         </field>
     </record>
+
+    <record id="project_project_search_view" model="ir.ui.view">
+        <field name="model">project.project</field>
+        <field name="inherit_id" ref="project.view_project_project_filter" />
+        <field name="arch" type="xml">
+            <filter name="inactive" position="after">
+                <separator />
+                <filter string="Historified" name="history" domain="[('historical_date','!=',False)]"/>
+                <filter string="All" name="all_project" domain="['|',('historical_date','!=',False),('historical_date','=',False)]"/>
+            </filter>
+        </field>
+    </record>
+
 </odoo>
