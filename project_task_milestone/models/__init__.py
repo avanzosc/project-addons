@@ -3,3 +3,4 @@
 
 from . import project_task_phase
 from . import project_task
+from . import project_project

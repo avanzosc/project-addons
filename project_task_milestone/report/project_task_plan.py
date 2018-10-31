@@ -7,6 +7,7 @@ from odoo import api, fields, models
 
 class ProjectTaskPlan(models.Model):
     _name = 'project.task.plan'
+    _description = 'Project Task Plan'
     _auto = False
     _rec_name = 'project_id'
 

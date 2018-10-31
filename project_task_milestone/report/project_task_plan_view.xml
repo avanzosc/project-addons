@@ -6,7 +6,7 @@
             <form>
                 <sheet>
                     <group name="main">
-                        <field name="project_id" />
+                        <field name="project_id" invisible="context.get('hide_project_id',True)"/>
                         <field name="phase_id" />
                         <field name="start_date" />
                         <field name="end_date" />
@@ -20,7 +20,7 @@
         <field name="model">project.task.plan</field>
         <field name="arch" type="xml">
             <tree>
-                <field name="project_id" />
+                <field name="project_id" invisible="context.get('hide_project_id',True)" />
                 <field name="phase_id" />
                 <field name="start_date" />
                 <field name="end_date" />
@@ -65,6 +65,5 @@
 
     <menuitem id="project_task_plan_option_view"
               action="action_project_task_plan_view"
-              parent="project.menu_project_config"/>
-
+              parent="project.menu_project_report"/>
 </odoo>

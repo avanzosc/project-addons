@@ -6,7 +6,7 @@
         <field name="arch" type="xml">
             <form>
                 <sheet>
-                    <group>
+                    <group name="main">
                         <field name="name" />
                     </group>
                 </sheet>
@@ -33,4 +33,17 @@
             </search>
         </field>
     </record>
+
+    <record id="action_project_task_phase" model="ir.actions.act_window">
+        <field name="name">Project Task Phase</field>
+        <field name="res_model">project.task.phase</field>
+        <field name="view_type">form</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <menuitem id="project_task_phase_menuitem"
+              action="action_project_task_phase"
+              parent="project.menu_project_config"
+              sequence="4" />
+
 </odoo>

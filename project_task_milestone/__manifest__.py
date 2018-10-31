@@ -13,9 +13,9 @@
     "category": "Project",
     "data": [
         "security/ir.model.access.csv",
-        "views/project_task_milestone_view.xml",
-        "views/project_task_shortcut_view.xml",
+        "views/project_task_view.xml",
         "views/project_task_phase_view.xml",
+        "views/project_project_view.xml",
         "report/project_task_plan_view.xml",
     ],
     "installable": True,
