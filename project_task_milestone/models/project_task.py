@@ -11,3 +11,6 @@ class ProjectTask(models.Model):
     phase_id = fields.Many2one(
         string='Phase', comodel_name='project.task.phase')
     sequence = fields.Integer(string='Sequence')
+    plan_ids = fields.One2many(
+        string='Phase Plan', comodel_name='project.task.plan',
+        inverse_name='project_id')

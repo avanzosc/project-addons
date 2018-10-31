@@ -3,7 +3,7 @@
 
 {
     "name": "Project Task Milestone",
-    "version": "11.0.1.1.0",
+    "version": "11.0.2.0.0",
     "license": "AGPL-3",
     "depends": [
         "project",
@@ -15,7 +15,8 @@
         "security/ir.model.access.csv",
         "views/project_task_milestone_view.xml",
         "views/project_task_shortcut_view.xml",
-        "views/project_task_view.xml",
+        "views/project_task_phase_view.xml",
+        "report/project_task_plan_view.xml",
     ],
     "installable": True,
 }
