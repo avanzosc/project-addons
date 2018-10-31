@@ -10,9 +10,12 @@ class ProjectProject(models.Model):
     historical_date = fields.Date(string='Historified on', readonly=True)
     historical_user_id = fields.Many2one(
         comodel_name='res.users', string='Historified by', readonly=True)
-    version_date = fields.Date(string='Versioned on', readonly=True)
+    version_date = fields.Date(
+        string='Versioned on', readonly=True, copy=False,
+        default=fields.Date.context_today)
     version_user_id = fields.Many2one(
-        comodel_name='res.users', string='Versioned by', readonly=True)
+        comodel_name='res.users', string='Versioned by', readonly=True,
+        copy=False, default=lambda self: self.env.user)
     version = fields.Integer(string='Version', copy=False, default=1)
     parent_id = fields.Many2one(
         comodel_name='project.project', string='Parent Project', copy=False)
@@ -46,6 +49,8 @@ class ProjectProject(models.Model):
     def _copy_project(self):
         new_test = self.copy({
             'version': self.version,
+            'version_date': self.version_date,
+            'version_user_id': self.version_user_id.id,
             'name': self.name,
             'parent_id': self.id,
         })
