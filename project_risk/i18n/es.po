@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 11.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-10-19 08:54+0000\n"
-"PO-Revision-Date: 2018-10-19 08:54+0000\n"
+"POT-Creation-Date: 2018-11-02 16:51+0000\n"
+"PO-Revision-Date: 2018-11-02 16:51+0000\n"
 "Last-Translator: <>\n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -100,20 +100,6 @@ msgstr "Nombre mostrado"
 #: model:project.risk.impact.value,name:project_risk.impact4
 msgid "High"
 msgstr "Alta"
-
-#. module: project_risk
-#: model:ir.model.fields,field_description:project_risk.field_project_opportunity_action_id
-#: model:ir.model.fields,field_description:project_risk.field_project_opportunity_impact_value_id
-#: model:ir.model.fields,field_description:project_risk.field_project_opportunity_opportunity_id
-#: model:ir.model.fields,field_description:project_risk.field_project_opportunity_probability_value_id
-#: model:ir.model.fields,field_description:project_risk.field_project_opportunity_table_id
-#: model:ir.model.fields,field_description:project_risk.field_project_risk_action_id
-#: model:ir.model.fields,field_description:project_risk.field_project_risk_impact_value_id
-#: model:ir.model.fields,field_description:project_risk.field_project_risk_probability_value_id
-#: model:ir.model.fields,field_description:project_risk.field_project_risk_risk_id
-#: model:ir.model.fields,field_description:project_risk.field_project_risk_table_id
-msgid "ID"
-msgstr "ID (identificación)"
 
 #. module: project_risk
 #: model:ir.model.fields,field_description:project_risk.field_project_risk_table_impact_id
@@ -292,6 +278,7 @@ msgstr "Oportunidad de proyecto"
 
 #. module: project_risk
 #: model:ir.model,name:project_risk.model_project_risk_table
+#: model:ir.ui.view,arch_db:project_risk.project_risk_config_settings_form_view
 msgid "Project Risk"
 msgstr "Riesgo de proyecto"
 
@@ -347,6 +334,11 @@ msgstr "Valores de impacto del riesgo"
 #: model:ir.model.fields,field_description:project_risk.field_project_risk_table_risk_level
 msgid "Risk Level"
 msgstr "Nivel de riesgo"
+
+#. module: project_risk
+#: model:ir.model.fields,field_description:project_risk.field_res_config_settings_risk_limit
+msgid "Risk Limit"
+msgstr "Limite de riesgo"
 
 #. module: project_risk
 #: model:ir.actions.act_window,name:project_risk.project_risk_probability_value_action
@@ -412,4 +404,19 @@ msgstr "Es muy probable que ocurra"
 #: model:project.opportunity.probability.value,name:project_risk.prob1
 msgid "Very unlikely to get benefit"
 msgstr "Muy poco probable que se pueda obtener un beneficio"
+
+#. module: project_risk
+#: model:ir.ui.view,arch_db:project_risk.project_risk_config_settings_form_view
+msgid "You can set a risk limit value by default, it will be applied when creating a project."
+msgstr "Puede definir un valor límite del riesgo por defecto, será aplicado con la creación de un proyecto."
+
+#. module: project_risk
+#: model:ir.model,name:project_risk.model_res_config_settings
+msgid "res.config.settings"
+msgstr "res.config.settings"
+
+#. module: project_risk
+#: model:ir.ui.view,arch_db:project_risk.project_risk_config_settings_form_view
+msgid "risk"
+msgstr "riesgo"
 

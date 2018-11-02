@@ -24,6 +24,7 @@
         "views/project_risk_table_view.xml",
         "views/project_opportunity_table_view.xml",
         "views/project_project_risk_view.xml",
+        "views/res_config_settings_view.xml",
         "data/project_risk_data.xml",
     ],
     "installable": True,

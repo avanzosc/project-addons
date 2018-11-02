@@ -27,6 +27,7 @@ class ProjectRiskTable(models.Model):
     causes = fields.Text(string='Causes of Risk')
     consec = fields.Text(string='Consequences')
     date_due = fields.Date(string='Term')
+    level_surpassed = fields.Boolean(compute='_compute_level_surpassed')
 
     @api.depends('probability_id', 'probability_id.rating',
                  'impact_id', 'impact_id.rating')
@@ -42,3 +43,11 @@ class ProjectRiskTable(models.Model):
     @api.onchange('action_id')
     def onchange_action_id(self):
         self.action = self.action_id.description
+
+    @api.depends('risk_level')
+    def _compute_level_surpassed(self):
+        get_param = self.env['ir.config_parameter'].sudo().get_param
+        risk_limit = float(
+            get_param('res.config.settings.risk_limit', '0.0'))
+        for record in self:
+            record.level_surpassed = record.risk_level > risk_limit
