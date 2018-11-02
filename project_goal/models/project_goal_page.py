@@ -8,4 +8,4 @@ class ProjectGoalPage(models.Model):
     _inherit = 'project.project'
 
     goal_ids = fields.One2many(
-        comodel_name='project.goal', inverse_name='project_id')
+        comodel_name='project.goal', inverse_name='project_id', copy=True)
