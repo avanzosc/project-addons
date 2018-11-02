@@ -1,3 +1,5 @@
 id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
 access_project_goal,access_project_goal,model_project_goal,,1,0,0,0
 access_project_goal_type,access_project_goal_type,model_project_goal_type,,1,0,0,0
+access_project_goal,access_project_goal,model_project_goal,project.group_project_manager,1,1,1,1
+access_project_goal_type,access_project_goal_type,model_project_goal_type,project.group_project_manager,1,1,1,1
