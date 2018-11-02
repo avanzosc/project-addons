@@ -8,7 +8,10 @@ Project Technical
 
 With this module you can define different technical data as:
 
+* Customer's Goal
+* Internal Goal
 * Scope of Work
+* Technical Definition
 * Description of Tasks
 
 
