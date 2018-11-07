@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 11.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-10-16 22:02+0000\n"
-"PO-Revision-Date: 2018-10-16 22:02+0000\n"
+"POT-Creation-Date: 2018-11-07 09:52+0000\n"
+"PO-Revision-Date: 2018-11-07 09:52+0000\n"
 "Last-Translator: <>\n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -90,6 +90,11 @@ msgid "Budgetary Position"
 msgstr "Posición Presupuestaria"
 
 #. module: project_budget
+#: model:ir.ui.view,arch_db:project_budget.project_project_search_view
+msgid "Budgeted"
+msgstr "Presupuestado"
+
+#. module: project_budget
 #: model:ir.actions.act_window,name:project_budget.project_budget_action
 #: model:ir.model.fields,field_description:project_budget.field_project_project_budget_ids
 #: model:ir.ui.view,arch_db:project_budget.project_project_form_view
@@ -162,8 +167,7 @@ msgid "Initial planned amount"
 msgstr "Importe planificado inicial"
 
 #. module: project_budget
-#: code:addons/project_budget/models/project_project.py:33
-#: code:addons/project_budget/models/project_project.py:67
+#: code:addons/project_budget/models/project_project.py:68
 #, python-format
 msgid "Initial {} budget: {}"
 msgstr "Presupuesto inicial {}: {}"
@@ -183,7 +187,11 @@ msgid "Project"
 msgstr "Proyecto"
 
 #. module: project_budget
-#: code:addons/project_budget/models/crossovered_budget.py:83
+#: model:ir.ui.view,arch_db:project_budget.crossovered_budget_form_view
+msgid "Sum Amount Total"
+msgstr "Total previsión final"
+
+#. module: project_budget
 #: code:addons/project_budget/models/crossovered_budget.py:85
 #, python-format
 msgid "There can only be one initial budget per project and year."
