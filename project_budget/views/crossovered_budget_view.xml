@@ -3,9 +3,6 @@
     <record id="account_budget.act_crossovered_budget_view" model="ir.actions.act_window">
         <field name="context">{'active_test': False}</field>
     </record>
-    <record id="account_budget.act_crossovered_budget_lines_view" model="ir.actions.act_window">
-        <field name="domain">[('budget_active','=',True)]</field>
-    </record>
 
     <record id="crossovered_budget_form_view" model="ir.ui.view">
         <field name="name">crossovered.budget.form</field>
@@ -69,6 +66,9 @@
                 <attribute name="decoration-danger">initial</attribute>
                 <attribute name="decoration-it">active == False</attribute>
             </tree>
+            <field name="date_from" position="before">
+                <field name="budget_date" />
+            </field>
             <field name="company_id" position="before">
                 <field name="project_id" />
                 <field name="initial" invisible="True" />
