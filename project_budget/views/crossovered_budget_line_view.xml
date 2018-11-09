@@ -2,6 +2,7 @@
 <odoo>
     <record id="account_budget.act_crossovered_budget_lines_view" model="ir.actions.act_window">
         <field name="view_mode">tree,form,pivot</field>
+        <field name="domain">[('budget_active','=',True)]</field>
     </record>
 
     <record model="ir.ui.view" id="crossovered_budget_line_form_view">
