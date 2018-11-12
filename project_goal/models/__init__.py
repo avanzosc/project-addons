@@ -3,4 +3,4 @@
 
 from . import project_goal
 from . import project_goal_type
-from . import project_goal_page
+from . import project_project
