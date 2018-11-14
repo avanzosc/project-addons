@@ -12,3 +12,4 @@ from . import project_opportunity_action
 from . import project_risk_table
 from . import project_opportunity_table
 from . import project_project_risk
+from . import res_config_settings 

@@ -18,6 +18,7 @@
                 <field name="action"/>
                 <field name="responsible_id"/>
                 <field name="date_due"/>
+                <field name="level_surpassed" invisible="True"/>
             </tree>
         </field>
     </record>
