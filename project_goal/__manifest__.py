@@ -3,7 +3,7 @@
 
 {
     "name": "Project Goal",
-    "version": "11.0.1.0.1",
+    "version": "11.0.1.1.0",
     "license": "AGPL-3",
     "depends": [
         "project",
@@ -14,7 +14,7 @@
     "data": [
         "security/ir.model.access.csv",
         "views/project_goal_view.xml",
-        "views/project_goal_page_view.xml",
+        "views/project_project_view.xml",
         "data/project_goal_data.xml",
     ],
     "installable": True,

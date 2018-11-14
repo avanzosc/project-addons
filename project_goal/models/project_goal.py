@@ -16,3 +16,4 @@ class ProjectObjetive(models.Model):
     acceptance_range = fields.Text(string='Acceptance range')
     compliance = fields.Char(string='Compliance Degree')
     remark = fields.Char(string='Remarks')
+    active = fields.Boolean(string='Active', default=True)
