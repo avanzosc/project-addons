@@ -41,15 +41,15 @@ class ProjectProject(models.Model):
             'name': self.name,
             'parent_id': self.id,
         })
-        new_test.button_historical()
         return new_test
 
     @api.multi
     def button_historical(self):
+        self.ensure_one()
         if self.historical_date or self.historical_user_id or not self.active:
             return False
-        self.write({
-            'active': False,
+        copy = self._copy_project()
+        copy.write({
             'historical_date': fields.Date.today(),
             'historical_user_id': self.env.user.id,
         })
