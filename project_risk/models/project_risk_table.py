@@ -48,6 +48,7 @@ class ProjectRiskTable(models.Model):
     def _compute_level_surpassed(self):
         get_param = self.env['ir.config_parameter'].sudo().get_param
         risk_limit = float(
-            get_param('res.config.settings.risk_limit', '0.0'))
+            get_param('project_risk.risk_limit', '0.0'))
         for record in self:
-            record.level_surpassed = record.risk_level > risk_limit
+            record.level_surpassed = (
+                record.risk_level > risk_limit if risk_limit else False)

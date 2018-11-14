@@ -34,6 +34,7 @@ class TestProjectRisk(common.SavepointCase):
             'name': 'Test Action',
             'description': 'Action description',
         })
+        cls.setting = cls.env['res.config.settings'].create({})
 
     def test_risk_table(self):
         table = self.table_model.create({
@@ -54,7 +55,12 @@ class TestProjectRisk(common.SavepointCase):
             'probability_id': self.probability.id,
             'impact_id': self.impact.id,
         })
+        self.assertFalse(table.level_surpassed)
         self.assertTrue(table.risk_level)
+        self.setting.risk_limit = 0.00001
+        self.setting.set_values()
+        table.invalidate_cache()
+        self.assertTrue(table.level_surpassed)
         self.assertEquals(
             round(table.risk_level, 4),
             round(self.impact.rating * self.probability.rating, 4))
@@ -123,3 +129,13 @@ class TestProjectRisk(common.SavepointCase):
         table.onchange_action_id()
         self.assertEquals(table.action,
                           table.action_id.description)
+
+    def test_res_config(self):
+        get_param = self.env['ir.config_parameter'].sudo().get_param
+        self.assertFalse(
+            self.setting.risk_limit)
+        self.setting.risk_limit = 2.0
+        self.setting.set_values()
+        self.assertEqual(
+            self.setting.risk_limit,
+            float(get_param('project_risk.risk_limit', '0.0')))
