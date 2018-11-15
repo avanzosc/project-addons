@@ -26,6 +26,7 @@ class ProjectOpportunityTable(models.Model):
     responsible_id = fields.Many2one(
         string='Responsible', comodel_name='res.users')
     date_due = fields.Date(string='Term')
+    active = fields.Boolean(string='Active', default=True)
 
     @api.onchange('opportunity_id')
     def onchange_opportunity_id(self):
