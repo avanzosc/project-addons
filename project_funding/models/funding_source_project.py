@@ -23,6 +23,7 @@ class FundingSourceProject(models.Model):
     funding_date = fields.Date(string='Funding Date')
     year = fields.Integer(string='Year')
     yearly_amount = fields.Float(string='Yearly Amount', digits=0)
+    active = fields.Boolean(string='Active', default=True)
 
     @api.multi
     @api.constrains('percentage')
