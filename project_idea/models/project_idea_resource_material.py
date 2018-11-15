@@ -17,6 +17,7 @@ class MaterialResources(models.Model):
         selection=[('high', 'High'),
                    ('medium', 'Medium'),
                    ('low', 'Low')], string='Intensity')
+    active = fields.Boolean(string='Active', default=True)
 
     @api.onchange('product_id')
     def onchange_product_id(self):
