@@ -31,6 +31,7 @@ class ProjectIdeaLineViability(models.Model):
     weighted_score = fields.Float(
         string='Weighted Score', compute='_compute_weighted_score',
         digits=dp.get_precision('Viability Score'))
+    active = fields.Boolean(string='Active', default=True)
 
     @api.depends('project_id', 'categ_id', 'project_id.viability_line_ids',
                  'project_id.viability_line_ids.categ_id')

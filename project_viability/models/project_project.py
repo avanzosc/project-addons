@@ -21,7 +21,7 @@ class ProjectProject(models.Model):
         default=_default_viability_templ_id)
     viability_line_ids = fields.One2many(
         comodel_name='project.viability.line', inverse_name='project_id',
-        string='Viability Lines')
+        string='Viability Lines', copy=True)
     viability_categ_line_ids = fields.One2many(
         comodel_name='project.viability.category.line',
         inverse_name='project_id', string='Viability Category Lines')
@@ -44,6 +44,11 @@ class ProjectProject(models.Model):
         res = super(ProjectProject, self).write(values)
         if 'viability_line_ids' in values:
             self._reload_viability_categ_line_ids()
+        if 'active' in values:
+            # archiving/unarchiving a project does it on its goals, too
+            self.with_context(active_test=False).mapped(
+                'viability_line_ids').write(
+                {'active': values['active']})
         return res
 
     @api.multi
