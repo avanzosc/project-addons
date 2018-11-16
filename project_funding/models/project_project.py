@@ -15,7 +15,7 @@ class ProjectProject(models.Model):
     def write(self, vals):
         res = super(ProjectProject, self).write(vals) if vals else True
         if 'active' in vals:
-            # archiving/unarchiving a project does it on its goals, too
+            # archiving/unarchiving a project does it on its funding, too
             self.with_context(active_test=False).mapped('funding_ids').write(
                 {'active': vals['active']})
         return res

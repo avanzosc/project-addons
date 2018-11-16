@@ -39,3 +39,19 @@ class TestProjectCharacterization(common.TransactionCase):
         funding_project.write({
             'percentage': 50.0,
         })
+
+    def test_project_disable_enable(self):
+        self.assertTrue(self.project.active)
+        for funding in self.project.with_context(
+                active_test=False).funding_ids:
+            self.assertTrue(funding.active)
+        self.project.toggle_active()
+        self.assertFalse(self.project.active)
+        for funding in self.project.with_context(
+                active_test=False).funding_ids:
+            self.assertFalse(funding.active)
+        self.project.toggle_active()
+        self.assertTrue(self.project.active)
+        for funding in self.project.with_context(
+                active_test=False).funding_ids:
+            self.assertTrue(funding.active)
