@@ -9,7 +9,8 @@ class MaterialResources(models.Model):
     _description = 'Idea Material Resource'
 
     project_id = fields.Many2one(
-        string='Project', comodel_name='project.project', required=True)
+        string='Project', comodel_name='project.project',
+        required=True, ondelete='cascade')
     product_id = fields.Many2one(
         string='Product', comodel_name='product.product')
     product_name = fields.Char(string='Product Name')
