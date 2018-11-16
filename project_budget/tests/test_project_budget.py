@@ -14,8 +14,11 @@ class TestProjectBudget(common.SavepointCase):
     def setUpClass(cls):
         super(TestProjectBudget, cls).setUpClass()
         cls.project_model = cls.env['project.project']
+        cls.env['ir.config_parameter'].sudo().set_param(
+            'account_budget_template.budget_template_id',
+            cls.env.ref('project_budget.project_budget_template').id)
         cls.project = cls.project_model.create({
-            'name': 'New Project'
+            'name': 'New Project',
         })
 
     def test_project_creation(self):
@@ -40,30 +43,28 @@ class TestProjectBudget(common.SavepointCase):
             new_budget.initial = True
 
     def test_budget_line_creation(self):
+        self.assertEqual(
+            self.project.analytic_account_id.crossovered_budget_line,
+            self.project.budget_ids.crossovered_budget_line)
         new_budget = self.project.budget_ids.copy(default={
             'crossovered_budget_line': [],
         })
         new_budget.date_to = from_string(fields.Date.today()).replace(
             month=12, day=29)
-        new_budget.action_create_period()
+        new_budget.button_compute_lines()
         self.assertEquals(len(
             new_budget.crossovered_budget_line), 24)
+        self.assertEqual(
+            self.project.analytic_account_id.crossovered_budget_line,
+            new_budget.crossovered_budget_line)
 
     def test_initial_budget_duplication(self):
-        analytic_account = self.project.analytic_account_id
         old_budget = self.project.budget_ids[:1]
-        self.assertEquals(
-            old_budget.crossovered_budget_line[:1],
+        self.assertFalse(
             old_budget.crossovered_budget_line[:1].initial_budget_line_id)
-        self.assertEquals(
-            old_budget.crossovered_budget_line,
-            analytic_account.crossovered_budget_line)
         old_budget.crossovered_budget_line[:1].write({
             'planned_amount': 50.0,
         })
-        self.assertEquals(
-            old_budget.crossovered_budget_line[:1].planned_amount,
-            old_budget.crossovered_budget_line[:1].initial_planned_amount)
         self.assertEquals(
             old_budget.crossovered_budget_line[:1].sum_amount,
             old_budget.crossovered_budget_line[:1].planned_amount +
@@ -72,9 +73,6 @@ class TestProjectBudget(common.SavepointCase):
         self.assertEquals(
             len(old_budget.crossovered_budget_line),
             len(new_budget.crossovered_budget_line))
-        self.assertEquals(
-            new_budget.crossovered_budget_line,
-            analytic_account.crossovered_budget_line)
         new_budget.crossovered_budget_line[:1].write({
             'planned_amount': 150.0,
         })

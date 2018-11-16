@@ -2,7 +2,6 @@
 # License AGPL-3 - See http://www.gnu.org/licenses/agpl-3.0.html
 
 from odoo import _, api, exceptions, fields, models
-from dateutil.relativedelta import relativedelta
 
 to_string = fields.Date.to_string
 from_string = fields.Date.from_string
@@ -28,12 +27,15 @@ class CrossoveredBudget(models.Model):
 
     @api.multi
     def action_create_period(self):
+        super(CrossoveredBudget, self).action_create_period()
         budget_line_obj = self.env['crossovered.budget.lines']
-        postcome = self.env.ref('project_budget.budget_post_postcome')
-        income = self.env.ref('project_budget.budget_post_income')
-        for budget in self.filtered(lambda b: b.project_id and not
-                                    b.crossovered_budget_line and
+        for budget in self.filtered(lambda b: b.project_id and
                                     b.state == 'draft'):
+            budget.crossovered_budget_line.write({
+                'analytic_account_id':
+                budget.project_id.analytic_account_id.id,
+            })
+            budget_posts = budget.budget_tmpl_id.budget_post_ids
             vals = {
                 'analytic_account_id':
                 budget.project_id.analytic_account_id.id,
@@ -42,36 +44,14 @@ class CrossoveredBudget(models.Model):
             }
             ds = from_string(budget.date_from)
             final_date = ds.replace(day=30, month=12)
-            while to_string(ds) < budget.date_to:
-                de = ds + relativedelta(months=1, days=-1)
-                if to_string(de) > budget.date_to:
-                    de = from_string(budget.date_to)
-                vals.update({
-                    'date_from': to_string(ds),
-                    'date_to': to_string(de),
-                    'general_budget_id': postcome.id,
-                })
-                line = budget_line_obj.create(vals)
-                line.initial_budget_line_id = line.id
-                vals.update({
-                    'general_budget_id': income.id,
-                })
-                line = budget_line_obj.create(vals)
-                line.initial_budget_line_id = line.id
-                ds = ds + relativedelta(months=1)
             if to_string(final_date) < budget.date_to:
-                vals.update({
-                    'date_from': to_string(final_date),
-                    'date_to': to_string(final_date),
-                    'general_budget_id': postcome.id,
-                })
-                line = budget_line_obj.create(vals)
-                line.initial_budget_line_id = line.id
-                vals.update({
-                    'general_budget_id': income.id,
-                })
-                line = budget_line_obj.create(vals)
-                line.initial_budget_line_id = line.id
+                for budget_post in budget_posts:
+                    vals.update({
+                        'date_from': to_string(final_date),
+                        'date_to': to_string(final_date),
+                        'general_budget_id': budget_post.id,
+                    })
+                    budget_line_obj.create(vals)
         return True
 
     @api.multi
@@ -113,11 +93,10 @@ class CrossoveredBudgetLines(models.Model):
     _inherit = "crossovered.budget.lines"
 
     initial_budget_line_id = fields.Many2one(
-        comodel_name='crossovered.budget.lines', string='Initial Budget Line',
-        copy=True)
+        comodel_name='crossovered.budget.lines', string='Initial Budget Line')
     initial_planned_amount = fields.Float(
         string='Initial Planned Amount', digits=0, store=True,
-        related='initial_budget_line_id.planned_amount')
+        compute='_compute_initial_planned_amount')
     notes = fields.Text(string='Notes')
     project_id = fields.Many2one(
         comodel_name='project.project', string='Project',
@@ -130,6 +109,25 @@ class CrossoveredBudgetLines(models.Model):
     budget_date = fields.Date(
         string='Budget Date',
         related='crossovered_budget_id.budget_date', store=True)
+
+    @api.depends('initial_budget_line_id', 'planned_amount',
+                 'initial_budget_line_id.planned_amount')
+    def _compute_initial_planned_amount(self):
+        for line in self:
+            line.initial_planned_amount = (
+                line.initial_budget_line_id.planned_amount
+                if line.initial_budget_line_id else line.planned_amount)
+
+    @api.multi
+    @api.returns(None, lambda value: value[0])
+    def copy_data(self, default=None):
+        self.ensure_one()
+        default = default or {}
+        default.update({
+            'initial_budget_line_id':
+                self.initial_budget_line_id.id or self.id,
+        })
+        return super(CrossoveredBudgetLines, self).copy_data(default=default)
 
     @api.depends('planned_amount', 'practical_amount')
     def _compute_sum_amount(self):
