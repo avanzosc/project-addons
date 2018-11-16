@@ -25,4 +25,11 @@
         <field name="account_ids"
                eval="[(4, ref('account_account_expenses'))]" />
     </record>
+
+    <record id="project_budget_template" model="crossovered.budget.template">
+        <field name="name">Income / Outcome monthly</field>
+        <field name="budget_post_ids"
+               eval="[(4, ref('budget_post_income')),(4, ref('budget_post_postcome'))]" />
+        <field name="periodicity">monthly</field>
+    </record>
 </odoo>
