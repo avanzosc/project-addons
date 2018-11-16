@@ -55,3 +55,19 @@ class TestProjectViability(common.SavepointCase):
         })
         self.assertEquals(
             factor.display_name, '[{}-{}] {}'.format(code, code, name))
+
+    def test_project_disable_enable(self):
+        self.assertTrue(self.project_model.active)
+        for line in self.project_model.with_context(
+                active_test=False).viability_line_ids:
+            self.assertTrue(line.active)
+        self.project_model.toggle_active()
+        self.assertFalse(self.project_model.active)
+        for line in self.project_model.with_context(
+                active_test=False).viability_line_ids:
+            self.assertFalse(line.active)
+        self.project_model.toggle_active()
+        self.assertTrue(self.project_model.active)
+        for line in self.project_model.with_context(
+                active_test=False).viability_line_ids:
+            self.assertTrue(line.active)

@@ -41,11 +41,12 @@ class ProjectProject(models.Model):
 
     @api.multi
     def write(self, values):
-        res = super(ProjectProject, self).write(values)
+        res = super(ProjectProject, self).write(values) if values else True
         if 'viability_line_ids' in values:
             self._reload_viability_categ_line_ids()
         if 'active' in values:
-            # archiving/unarchiving a project does it on its goals, too
+            # archiving/unarchiving a project
+            # does it on its viability lines, too
             self.with_context(active_test=False).mapped(
                 'viability_line_ids').write(
                 {'active': values['active']})
