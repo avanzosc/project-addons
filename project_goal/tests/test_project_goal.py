@@ -9,11 +9,14 @@ class TestProjectGoal(common.SavepointCase):
     @classmethod
     def setUpClass(cls):
         super(TestProjectGoal, cls).setUpClass()
+        goal_type = cls.env.ref('project_goal.gtype1')
         cls.project = cls.env['project.project'].create({
             'name': 'New Project',
             'goal_ids': [
-                (0, 0, {'name': 'Goal 1'}),
-                (0, 0, {'name': 'Goal 2'}),
+                (0, 0, {'name': 'Goal 1',
+                        'type_id': goal_type.id}),
+                (0, 0, {'name': 'Goal 2',
+                        'type_id': goal_type.id}),
             ]
         })
 

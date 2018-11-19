@@ -7,4 +7,4 @@ from odoo import fields, models
 class ProjectGoalType(models.Model):
     _name = 'project.goal.type'
 
-    name = fields.Char(string='Name')
+    name = fields.Char(string='Name', translate=True)
