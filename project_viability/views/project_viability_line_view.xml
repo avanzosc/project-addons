@@ -32,6 +32,21 @@
         </field>
     </record>
 
+    <record id="project_viability_line_search_view" model="ir.ui.view">
+        <field name="model">project.viability.line</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="project_id" />
+                <separator />
+                <filter string="Archived" name="inactive" domain="[('active','=',False)]"/>
+                <group expand="0" string="Group By">
+                    <filter string="Project" name="project_group"
+                            context="{'group_by':'project_id'}"/>
+                </group>
+            </search>
+        </field>
+    </record>
+
     <record id="project_viability_category_line_tree_view" model="ir.ui.view">
         <field name="model">project.viability.category.line</field>
         <field name="arch" type="xml">
@@ -59,6 +74,21 @@
                     </group>
                 </sheet>
             </form>
+        </field>
+    </record>
+
+    <record id="project_viability_category_line_search_view" model="ir.ui.view">
+        <field name="model">project.viability.category.line</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="project_id" />
+                <separator />
+                <filter string="Archived" name="inactive" domain="[('active','=',False)]"/>
+                <group expand="0" string="Group By">
+                    <filter string="Project" name="project_group"
+                            context="{'group_by':'project_id'}"/>
+                </group>
+            </search>
         </field>
     </record>
 

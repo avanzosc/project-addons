@@ -21,10 +21,11 @@ class ProjectProject(models.Model):
         default=_default_viability_templ_id)
     viability_line_ids = fields.One2many(
         comodel_name='project.viability.line', inverse_name='project_id',
-        string='Viability Lines', copy=True)
+        string='Viability Lines', copy=True, context={'active_test': False})
     viability_categ_line_ids = fields.One2many(
         comodel_name='project.viability.category.line',
-        inverse_name='project_id', string='Viability Category Lines')
+        inverse_name='project_id', string='Viability Category Lines',
+        context={'active_test': False})
     viability_score = fields.Float(
         string='Score', compute='_compute_viability_score',
         digits=dp.get_precision('Viability Score'))
@@ -49,6 +50,9 @@ class ProjectProject(models.Model):
             # does it on its viability lines, too
             self.with_context(active_test=False).mapped(
                 'viability_line_ids').write(
+                {'active': values['active']})
+            self.with_context(active_test=False).mapped(
+                'viability_categ_line_ids').write(
                 {'active': values['active']})
         return res
 

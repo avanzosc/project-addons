@@ -57,17 +57,30 @@ class TestProjectViability(common.SavepointCase):
             factor.display_name, '[{}-{}] {}'.format(code, code, name))
 
     def test_project_disable_enable(self):
-        self.assertTrue(self.project_model.active)
-        for line in self.project_model.with_context(
+        project = self.project_model.create({
+            'name': 'Project',
+            'viability_templ_id': self.template.id,
+        })
+        self.assertTrue(project.active)
+        for line in project.with_context(
                 active_test=False).viability_line_ids:
             self.assertTrue(line.active)
-        self.project_model.toggle_active()
-        self.assertFalse(self.project_model.active)
-        for line in self.project_model.with_context(
+        for line in project.with_context(
+                active_test=False).viability_categ_line_ids:
+            self.assertTrue(line.active)
+        project.toggle_active()
+        self.assertFalse(project.active)
+        for line in project.with_context(
                 active_test=False).viability_line_ids:
             self.assertFalse(line.active)
-        self.project_model.toggle_active()
-        self.assertTrue(self.project_model.active)
-        for line in self.project_model.with_context(
+        for line in project.with_context(
+                active_test=False).viability_categ_line_ids:
+            self.assertFalse(line.active)
+        project.toggle_active()
+        self.assertTrue(project.active)
+        for line in project.with_context(
                 active_test=False).viability_line_ids:
+            self.assertTrue(line.active)
+        for line in project.with_context(
+                active_test=False).viability_categ_line_ids:
             self.assertTrue(line.active)

@@ -11,7 +11,8 @@ class ProjectIdeaLineViability(models.Model):
     _order = 'project_id, categ_id, factor_id'
 
     project_id = fields.Many2one(
-        string='Project', comodel_name='project.project', required=True)
+        string='Project', comodel_name='project.project', required=True,
+        ondelete='cascade')
     factor_id = fields.Many2one(
         comodel_name='project.viability.factor', string='Factor',
         required=True)
@@ -27,7 +28,7 @@ class ProjectIdeaLineViability(models.Model):
                    (2, '2'),
                    (3, '3'),
                    (4, '4'),
-                   (5, '5')], string='Score', default=0)
+                   (5, '5')], string='Score', default=0, copy=True)
     weighted_score = fields.Float(
         string='Weighted Score', compute='_compute_weighted_score',
         digits=dp.get_precision('Viability Score'))
@@ -55,7 +56,8 @@ class ProjectIdeaCatViability(models.Model):
     _order = 'project_id, categ_id'
 
     project_id = fields.Many2one(
-        string='Project', comodel_name='project.project', required=True)
+        string='Project', comodel_name='project.project', required=True,
+        ondelete='cascade')
     categ_id = fields.Many2one(
         string='Category', comodel_name='project.viability.category',
         required=True)
@@ -68,6 +70,7 @@ class ProjectIdeaCatViability(models.Model):
     weighted_score = fields.Float(
         string='Weighted Score', compute='_compute_weighted_score',
         digits=dp.get_precision('Viability Score'))
+    active = fields.Boolean(string='Active', default=True)
 
     @api.depends('project_id', 'project_id.viability_categ_line_ids')
     def _compute_percentage(self):
