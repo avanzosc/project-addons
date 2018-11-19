@@ -3,7 +3,7 @@
 
 {
     "name": "Project Bugdet",
-    "version": "11.0.3.3.0",
+    "version": "11.0.3.4.0",
     "category": "Custom Module",
     "license": "AGPL-3",
     "author": "AvanzOSC",
@@ -14,6 +14,7 @@
     ],
     "depends": [
         "account_budget",
+        "account_budget_template",
         "project",
     ],
     "data": [

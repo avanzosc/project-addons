@@ -73,7 +73,7 @@ class ProjectProject(models.Model):
                 'date_to': date_to,
                 'project_id': record.id,
             })
-            budget.action_create_period()
+            budget.button_compute_lines()
 
     @api.model
     def create(self, values):
