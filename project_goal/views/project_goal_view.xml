@@ -5,13 +5,15 @@
         <field name="model">project.goal</field>
         <field name="arch" type="xml">
             <form>
-                <field name="project_id" />
-                <field name="sequence" />
-                <field name="name" />
-                <field name="type_id" />
-                <field name="acceptance_range" />
-                <field name="compliance" />
-                <field name="remark" />
+                <group>
+                    <field name="project_id" invisible="context.get('hide_project_id',True)" />
+                    <field name="sequence" />
+                    <field name="name" />
+                    <field name="type_id" />
+                    <field name="acceptance_range" />
+                    <field name="compliance" />
+                    <field name="remark" />
+                </group>
             </form>
         </field>
     </record>
@@ -20,14 +22,16 @@
         <field name="name">project.goal.tree.view</field>
         <field name="model">project.goal</field>
         <field name="arch" type="xml">
-            <tree editable="top">
-                <field name="project_id" />
-                <field name="sequence" />
+            <tree editable="top"
+                  decoration-muted="not active">
+                <field name="sequence" widget="handle"/>
+                <field name="project_id" invisible="context.get('hide_project_id',True)" />
                 <field name="name" />
                 <field name="type_id" />
                 <field name="acceptance_range" />
                 <field name="compliance" />
                 <field name="remark" />
+                <field name="active" invisible="True" />
             </tree>
         </field>
     </record>
@@ -48,16 +52,19 @@
         <field name="arch" type="xml">
             <search>
                 <field name="project_id" />
-                <field name="sequence" />
                 <field name="name" />
                 <field name="type_id" />
                 <field name="acceptance_range" />
                 <field name="compliance" />
                 <field name="remark" />
-                    <group name="group_by" expand="0">
-                        <filter name="group_project" string="Project"
-                                context="{'group_by': 'project_id'}" />
-                    </group>
+                <separator />
+                <filter string="Archived" name="inactive" domain="[('active','=',False)]"/>
+                <group name="group_by" expand="0">
+                    <filter name="group_project" string="Project"
+                            context="{'group_by': 'project_id'}" />
+                    <filter name="group_type" string="Type"
+                            context="{'group_by': 'type_id'}" />
+                </group>
             </search>
         </field>
     </record>
