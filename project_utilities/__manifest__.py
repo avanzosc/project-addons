@@ -3,7 +3,7 @@
 
 {
     "name": "Project Utilities",
-    "version": "11.0.4.0.0",
+    "version": "11.0.1.0.0",
     "license": "AGPL-3",
     "depends": [
         "project",
@@ -12,7 +12,10 @@
     "website": "http://www.avanzosc.es",
     "category": "Project",
     "data": [
+        "security/project_utilities_groups.xml",
         "views/project_project_view.xml",
+        "views/project_task_view.xml",
+        "views/res_config_settings_view.xml",
     ],
     "installable": True,
 }

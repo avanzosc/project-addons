@@ -28,12 +28,6 @@ class TestProjectCharacterization(common.TransactionCase):
             'name': 'Test Area Type',
         })
 
-    def test_show_analytic_account(self):
-        result = self.project.show_analytic_account_from_project()
-        domain = result.get('domain')
-        self.assertEquals(domain,
-                          [('id', '=', self.project.analytic_account_id.id)])
-
     def test_area_nonoperative(self):
         self.assertEquals(
             self.project.nonoperative, self.project.res_area_id.nonoperative)

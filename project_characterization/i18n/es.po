@@ -6,24 +6,14 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 11.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-09-19 15:27+0000\n"
-"PO-Revision-Date: 2018-09-19 15:27+0000\n"
+"POT-Creation-Date: 2018-11-21 11:25+0000\n"
+"PO-Revision-Date: 2018-11-21 11:25+0000\n"
 "Last-Translator: <>\n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: \n"
 "Plural-Forms: \n"
-
-#. module: project_characterization
-#: model:ir.actions.act_window,name:project_characterization.action_funding_source_from_partner
-msgid " Funding Sources"
-msgstr "Programas de financiación"
-
-#. module: project_characterization
-#: model:ir.ui.view,arch_db:project_characterization.view_project_characterization_from_partner
-msgid "# Funding Source"
-msgstr "Programa Financiación"
 
 #. module: project_characterization
 #: model:ir.ui.menu,name:project_characterization.res_activity_menuitem
@@ -37,7 +27,6 @@ msgstr "Tipo de actividad"
 
 #. module: project_characterization
 #: model:ir.model,name:project_characterization.model_account_analytic_account
-#: model:ir.ui.view,arch_db:project_characterization.project_project_form_view
 msgid "Analytic Account"
 msgstr "Cuenta analítica"
 
@@ -50,6 +39,7 @@ msgstr "Línea Analítica"
 #: model:ir.model.fields,field_description:project_characterization.field_account_analytic_account_res_area_id
 #: model:ir.model.fields,field_description:project_characterization.field_project_project_res_area_id
 #: model:ir.ui.menu,name:project_characterization.res_area_menuitem
+#: model:ir.ui.view,arch_db:project_characterization.project_project_search_view
 msgid "Area"
 msgstr "Área"
 
@@ -66,6 +56,7 @@ msgstr "Tipo de proyecto"
 #. module: project_characterization
 #: model:ir.model.fields,field_description:project_characterization.field_account_analytic_account_res_area_type_id
 #: model:ir.model.fields,field_description:project_characterization.field_project_project_res_area_type_id
+#: model:ir.ui.view,arch_db:project_characterization.project_project_search_view
 msgid "Area type"
 msgstr "Tipo de área"
 
@@ -76,8 +67,6 @@ msgstr "Tipos de proyecto"
 
 #. module: project_characterization
 #: model:ir.model,name:project_characterization.model_res_area
-#: model:ir.model.fields,field_description:project_characterization.field_res_partner_area_ids
-#: model:ir.model.fields,field_description:project_characterization.field_res_users_area_ids
 #: model:ir.ui.view,arch_db:project_characterization.view_account_analytic_account_search_inh_project_char
 msgid "Areas"
 msgstr "Áreas"
@@ -86,6 +75,7 @@ msgstr "Áreas"
 #: model:ir.model.fields,field_description:project_characterization.field_account_analytic_account_res_character_id
 #: model:ir.model.fields,field_description:project_characterization.field_project_project_res_character_id
 #: model:ir.ui.menu,name:project_characterization.res_character_menuitem
+#: model:ir.ui.view,arch_db:project_characterization.project_project_search_view
 msgid "Character"
 msgstr "Naturaleza"
 
@@ -106,36 +96,21 @@ msgid "Committee"
 msgstr "Comité"
 
 #. module: project_characterization
-#: model:ir.model,name:project_characterization.model_res_partner
-msgid "Contact"
-msgstr "Contacto"
-
-#. module: project_characterization
-#: model:ir.model.fields,field_description:project_characterization.field_funding_source_create_uid
-#: model:ir.model.fields,field_description:project_characterization.field_funding_source_project_create_uid
-#: model:ir.model.fields,field_description:project_characterization.field_funding_source_type_create_uid
 #: model:ir.model.fields,field_description:project_characterization.field_project_task_type2_create_uid
 msgid "Created by"
 msgstr "Creado por"
 
 #. module: project_characterization
-#: model:ir.model.fields,field_description:project_characterization.field_funding_source_create_date
-#: model:ir.model.fields,field_description:project_characterization.field_funding_source_project_create_date
-#: model:ir.model.fields,field_description:project_characterization.field_funding_source_type_create_date
 #: model:ir.model.fields,field_description:project_characterization.field_project_task_type2_create_date
 msgid "Created on"
 msgstr "Creado en"
 
 #. module: project_characterization
-#: model:ir.model.fields,field_description:project_characterization.field_funding_source_description
 #: model:ir.model.fields,field_description:project_characterization.field_project_task_type2_description
 msgid "Description"
 msgstr "Descripción"
 
 #. module: project_characterization
-#: model:ir.model.fields,field_description:project_characterization.field_funding_source_display_name
-#: model:ir.model.fields,field_description:project_characterization.field_funding_source_project_display_name
-#: model:ir.model.fields,field_description:project_characterization.field_funding_source_type_display_name
 #: model:ir.model.fields,field_description:project_characterization.field_project_task_type2_display_name
 msgid "Display Name"
 msgstr "Nombre mostrado"
@@ -145,88 +120,12 @@ msgstr "Nombre mostrado"
 #: model:ir.ui.view,arch_db:project_characterization.project_project_search_view
 #: model:ir.ui.view,arch_db:project_characterization.project_project_tree_view
 msgid "End Date"
-msgstr "Fecha final"
+msgstr "Fecha de finalización"
 
 #. module: project_characterization
-#: model:ir.model.fields,field_description:project_characterization.field_funding_source_project_funding_date
-msgid "Funding Date"
-msgstr "Fecha de resolución"
-
-#. module: project_characterization
-#: model:ir.actions.act_window,name:project_characterization.funding_source_action
-#: model:ir.model,name:project_characterization.model_funding_source
-#: model:ir.model.fields,field_description:project_characterization.field_funding_source_project_source_id
-#: model:ir.ui.menu,name:project_characterization.funding_source_menuitem
-#: model:ir.ui.view,arch_db:project_characterization.funding_source_form_view
-msgid "Funding Source"
-msgstr "Programa de financiación"
-
-#. module: project_characterization
-#: model:ir.model.fields,field_description:project_characterization.field_funding_source_funding_account_id
-#: model:ir.model.fields,field_description:project_characterization.field_funding_source_project_account_id
-msgid "Funding Source Account"
-msgstr "Cuenta contable"
-
-#. module: project_characterization
-#: model:ir.actions.act_window,name:project_characterization.funding_source_project_action
-#: model:ir.model,name:project_characterization.model_funding_source_project
-#: model:ir.ui.view,arch_db:project_characterization.funding_source_project_tree_view
-msgid "Funding Source Project"
-msgstr "Funding Source Project"
-
-#. module: project_characterization
-#: model:ir.ui.view,arch_db:project_characterization.funding_source_search_view
-msgid "Funding Source Search"
-msgstr "Búsqueda de programas"
-
-#. module: project_characterization
-#: model:ir.ui.view,arch_db:project_characterization.funding_source_tree_view
-msgid "Funding Source Tree"
-msgstr "Listado de programas"
-
-#. module: project_characterization
-#: model:ir.actions.act_window,name:project_characterization.funding_source_type_action
-#: model:ir.model,name:project_characterization.model_funding_source_type
-#: model:ir.ui.menu,name:project_characterization.funding_source_type_menuitem
-msgid "Funding Source Type"
-msgstr "Tipo de programa de financiación"
-
-#. module: project_characterization
-#: model:ir.ui.view,arch_db:project_characterization.funding_source_type_search_view
-msgid "Funding Source Type Search"
-msgstr "Búsqueda de tipo de programa"
-
-#. module: project_characterization
-#: model:ir.ui.view,arch_db:project_characterization.funding_source_type_tree_view
-msgid "Funding Source Type Tree"
-msgstr "Listado de tipo de programa"
-
-#. module: project_characterization
-#: model:ir.model.fields,field_description:project_characterization.field_project_project_funding_ids
-#: model:ir.model.fields,field_description:project_characterization.field_res_partner_funding_source_count
-#: model:ir.model.fields,field_description:project_characterization.field_res_partner_funding_source_ids
-#: model:ir.model.fields,field_description:project_characterization.field_res_users_funding_source_count
-#: model:ir.model.fields,field_description:project_characterization.field_res_users_funding_source_ids
-msgid "Funding Sources"
-msgstr "Programas de financiación"
-
-#. module: project_characterization
-#: model:ir.model.fields,field_description:project_characterization.field_funding_source_type_id
-msgid "Funding Type"
-msgstr "Tipo de programa"
-
-#. module: project_characterization
-#: model:ir.model.fields,field_description:project_characterization.field_funding_source_grant
-msgid "Grant"
-msgstr "Subvención"
-
-#. module: project_characterization
-#: model:ir.model.fields,field_description:project_characterization.field_funding_source_id
-#: model:ir.model.fields,field_description:project_characterization.field_funding_source_project_id
-#: model:ir.model.fields,field_description:project_characterization.field_funding_source_type_id_6720
 #: model:ir.model.fields,field_description:project_characterization.field_project_task_type2_id
 msgid "ID"
-msgstr "ID"
+msgstr "ID (identificación)"
 
 #. module: project_characterization
 #: model:ir.ui.view,arch_db:project_characterization.project_project_form_view
@@ -240,37 +139,21 @@ msgid "Justification Deadline"
 msgstr "Justificación Fecha límite"
 
 #. module: project_characterization
-#: model:ir.model.fields,field_description:project_characterization.field_funding_source___last_update
-#: model:ir.model.fields,field_description:project_characterization.field_funding_source_project___last_update
-#: model:ir.model.fields,field_description:project_characterization.field_funding_source_type___last_update
 #: model:ir.model.fields,field_description:project_characterization.field_project_task_type2___last_update
 msgid "Last Modified on"
 msgstr "Última modificación en"
 
 #. module: project_characterization
-#: model:ir.model.fields,field_description:project_characterization.field_funding_source_project_write_uid
-#: model:ir.model.fields,field_description:project_characterization.field_funding_source_type_write_uid
-#: model:ir.model.fields,field_description:project_characterization.field_funding_source_write_uid
 #: model:ir.model.fields,field_description:project_characterization.field_project_task_type2_write_uid
 msgid "Last Updated by"
 msgstr "Última actualización de"
 
 #. module: project_characterization
-#: model:ir.model.fields,field_description:project_characterization.field_funding_source_project_write_date
-#: model:ir.model.fields,field_description:project_characterization.field_funding_source_type_write_date
-#: model:ir.model.fields,field_description:project_characterization.field_funding_source_write_date
 #: model:ir.model.fields,field_description:project_characterization.field_project_task_type2_write_date
 msgid "Last Updated on"
 msgstr "Última actualización en"
 
 #. module: project_characterization
-#: model:ir.model.fields,field_description:project_characterization.field_funding_source_mixed_credit
-msgid "Mixed Credit"
-msgstr "Crédito mixto"
-
-#. module: project_characterization
-#: model:ir.model.fields,field_description:project_characterization.field_funding_source_name
-#: model:ir.model.fields,field_description:project_characterization.field_funding_source_type_name
 #: model:ir.model.fields,field_description:project_characterization.field_project_task_type2_name
 msgid "Name"
 msgstr "Nombre"
@@ -281,6 +164,7 @@ msgstr "Nombre"
 #: model:ir.model.fields,field_description:project_characterization.field_project_project_nonoperative
 #: model:ir.model.fields,field_description:project_characterization.field_res_area_nonoperative
 #: model:ir.ui.view,arch_db:project_characterization.account_analytic_line_search_view
+#: model:ir.ui.view,arch_db:project_characterization.project_project_search_view
 #: model:ir.ui.view,arch_db:project_characterization.res_area_operative_search_view
 #: model:ir.ui.view,arch_db:project_characterization.view_account_analytic_account_search_inh_project_char
 msgid "Non Operative"
@@ -288,6 +172,7 @@ msgstr "No operativo"
 
 #. module: project_characterization
 #: model:ir.ui.view,arch_db:project_characterization.account_analytic_line_search_view
+#: model:ir.ui.view,arch_db:project_characterization.project_project_search_view
 #: model:ir.ui.view,arch_db:project_characterization.res_area_operative_search_view
 #: model:ir.ui.view,arch_db:project_characterization.view_account_analytic_account_search_inh_project_char
 msgid "Operative"
@@ -296,6 +181,7 @@ msgstr "Operativo"
 #. module: project_characterization
 #: model:ir.model.fields,field_description:project_characterization.field_account_analytic_account_op_space_id
 #: model:ir.model.fields,field_description:project_characterization.field_project_project_op_space_id
+#: model:ir.ui.view,arch_db:project_characterization.project_project_search_view
 msgid "Opportunity Space"
 msgstr "Espacio de oportunidad"
 
@@ -306,35 +192,12 @@ msgid "Opportunity Spaces"
 msgstr "Espacios de oportunidad"
 
 #. module: project_characterization
-#: model:ir.model.fields,field_description:project_characterization.field_funding_source_partner_id
-msgid "Partner"
-msgstr "Empresa"
-
-#. module: project_characterization
-#: model:ir.model.fields,field_description:project_characterization.field_funding_source_project_percentage
-msgid "Percentage (%)"
-msgstr "Porcentaje (%)"
-
-#. module: project_characterization
-#: code:addons/project_characterization/models/funding_source.py:57
-#, python-format
-msgid "Percentage must be bigger than 0"
-msgstr "El porcentaje debe ser mayor que 0"
-
-#. module: project_characterization
-#: code:addons/project_characterization/models/funding_source.py:60
-#, python-format
-msgid "Percentage should be less or equal to 100"
-msgstr "El porcentaje debe ser menor o igual a 100"
-
-#. module: project_characterization
 #: model:ir.ui.view,arch_db:project_characterization.project_task_form_view
 msgid "Period"
 msgstr "Período"
 
 #. module: project_characterization
 #: model:ir.model,name:project_characterization.model_project_project
-#: model:ir.model.fields,field_description:project_characterization.field_funding_source_project_project_id
 msgid "Project"
 msgstr "Proyecto"
 
@@ -354,16 +217,6 @@ msgid "Related Operative Area"
 msgstr "Areas Operativas"
 
 #. module: project_characterization
-#: model:ir.ui.view,arch_db:project_characterization.funding_source_project_search_view
-msgid "Search Funding Source Project"
-msgstr "Search Funding Source Project"
-
-#. module: project_characterization
-#: model:ir.model.fields,field_description:project_characterization.field_funding_source_soft_credit
-msgid "Soft Credit"
-msgstr "Crédito blando"
-
-#. module: project_characterization
 #: model:ir.ui.menu,name:project_characterization.res_structure_menuitem
 msgid "Structures"
 msgstr "Estructuras"
@@ -372,6 +225,7 @@ msgstr "Estructuras"
 #: model:ir.model.fields,field_description:project_characterization.field_account_analytic_account_res_target_id
 #: model:ir.model.fields,field_description:project_characterization.field_project_project_res_target_id
 #: model:ir.ui.menu,name:project_characterization.res_target_menuitem
+#: model:ir.ui.view,arch_db:project_characterization.project_project_search_view
 msgid "Target"
 msgstr "Sector Objetivo"
 
@@ -394,6 +248,7 @@ msgstr "Tipo de tarea"
 #: model:ir.model.fields,field_description:project_characterization.field_account_analytic_account_res_team_id
 #: model:ir.model.fields,field_description:project_characterization.field_project_project_res_team_id
 #: model:ir.ui.menu,name:project_characterization.res_team_menuitem
+#: model:ir.ui.view,arch_db:project_characterization.project_project_search_view
 msgid "Team"
 msgstr "Equipo"
 
@@ -403,17 +258,7 @@ msgid "Teams"
 msgstr "Equipos"
 
 #. module: project_characterization
-#: model:ir.model.fields,field_description:project_characterization.field_project_task_type_id_6727
+#: model:ir.model.fields,field_description:project_characterization.field_project_task_type_id_5576
 msgid "Type"
 msgstr "Tipo"
-
-#. module: project_characterization
-#: model:ir.model.fields,field_description:project_characterization.field_funding_source_project_year
-msgid "Year"
-msgstr "Año"
-
-#. module: project_characterization
-#: model:ir.model.fields,field_description:project_characterization.field_funding_source_project_yearly_amount
-msgid "Yearly Amount"
-msgstr "Importe Anual"
 

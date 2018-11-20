@@ -8,6 +8,8 @@ Project Utilities
 
 * Analytic account visible on projects
 * Smartbutton to access analytic account
+* Task period visible in list view
+* Disable HTML description, configurable in settings
 
 Bug Tracker
 ===========
