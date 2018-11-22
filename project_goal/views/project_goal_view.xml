@@ -9,7 +9,7 @@
                     <field name="project_id" invisible="context.get('hide_project_id',True)" />
                     <field name="sequence" />
                     <field name="name" />
-                    <field name="type_id" />
+                    <field name="type_id" options="{'no_create_edit': True}"/>
                     <field name="acceptance_range" />
                     <field name="compliance" />
                     <field name="remark" />
@@ -27,7 +27,7 @@
                 <field name="sequence" widget="handle"/>
                 <field name="project_id" invisible="context.get('hide_project_id',True)" />
                 <field name="name" />
-                <field name="type_id" />
+                <field name="type_id" options="{'no_create_edit': True}"/>
                 <field name="acceptance_range" />
                 <field name="compliance" />
                 <field name="remark" />
