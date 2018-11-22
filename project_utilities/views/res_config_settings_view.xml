@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <record id="project_config_settings_form_view" model="ir.ui.view">
+        <field name="model">res.config.settings</field>
+        <field name="inherit_id" ref="project.res_config_settings_view_form" />
+        <field name="arch" type="xml">
+            <xpath expr="//div[@data-key='project']" position="inside">
+                <h2>Project Utilities</h2>
+                <div class="row mt16 o_settings_container" title="project_utilities">
+                    <div class="col-xs-12 col-md-6 o_setting_box">
+                        <div class="o_setting_left_pane">
+                            <field name="group_visible_task_period"/>
+                        </div>
+                        <div class="o_setting_right_pane">
+                            <label for="group_visible_task_period"/>
+                            <div class="text-muted">
+                                Make task period visible in tree view.
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xs-12 col-md-6 o_setting_box"
+                         attrs="{'invisible': [('group_visible_task_period','=',False)]}">
+                        <div class="o_setting_left_pane">
+                            <field name="group_visible_task_period_date"/>
+                        </div>
+                        <div class="o_setting_right_pane">
+                            <label for="group_visible_task_period_date"/>
+                            <div class="text-muted">
+                                Show date only when period is visible.
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xs-12 col-md-6 o_setting_box">
+                        <div class="o_setting_left_pane">
+                            <field name="group_disable_html"/>
+                        </div>
+                        <div class="o_setting_right_pane">
+                            <label for="group_disable_html"/>
+                            <div class="text-muted">
+                                Disable HTML descriptions in project tasks.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </xpath>
+        </field>
+    </record>
+</odoo>
