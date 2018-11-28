@@ -18,6 +18,7 @@
     ],
     "data": [
         "views/project_project_view.xml",
+        "views/project_phase_view.xml",
     ],
     "installable": True,
     "auto_install": True,
