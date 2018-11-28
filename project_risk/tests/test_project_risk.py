@@ -139,3 +139,34 @@ class TestProjectRisk(common.SavepointCase):
         self.assertEqual(
             self.setting.risk_limit,
             float(get_param('project_risk.risk_limit', '0.0')))
+
+    def test_project_disable_enable(self):
+        self.assertTrue(self.project.active)
+        for risk in self.project.with_context(
+                active_test=False).risk_table_ids:
+            self.assertTrue(risk.active)
+        self.project.toggle_active()
+        self.assertFalse(self.project.active)
+        for risk in self.project.with_context(
+                active_test=False).risk_table_ids:
+            self.assertFalse(risk.active)
+        self.project.toggle_active()
+        self.assertTrue(self.project.active)
+        for risk in self.project.with_context(
+                active_test=False).risk_table_ids:
+            self.assertTrue(risk.active)
+
+        self.assertTrue(self.project.active)
+        for chance in self.project.with_context(
+                active_test=False).risk_chance_table_ids:
+            self.assertTrue(chance.active)
+        self.project.toggle_active()
+        self.assertFalse(self.project.active)
+        for chance in self.project.with_context(
+                active_test=False).risk_chance_table_ids:
+            self.assertFalse(chance.active)
+        self.project.toggle_active()
+        self.assertTrue(self.project.active)
+        for chance in self.project.with_context(
+                active_test=False).risk_chance_table_ids:
+            self.assertTrue(chance.active)

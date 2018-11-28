@@ -28,6 +28,7 @@ class ProjectRiskTable(models.Model):
     consec = fields.Text(string='Consequences')
     date_due = fields.Date(string='Term')
     level_surpassed = fields.Boolean(compute='_compute_level_surpassed')
+    active = fields.Boolean(string='Active', default=True)
 
     @api.depends('probability_id', 'probability_id.rating',
                  'impact_id', 'impact_id.rating')
