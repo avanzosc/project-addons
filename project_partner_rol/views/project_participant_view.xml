@@ -8,7 +8,7 @@
                 <field name="project_id" invisible="context.get('hide_project_id',True)" />
                 <field name="partner_id" />
                 <field name="partner_user_ids" widget="many2many_tags"/>
-                <field name="rol_id" />
+                <field name="rol_id"  options="{'no_create_edit': True}" />
             </tree>
         </field>
     </record>
@@ -60,7 +60,7 @@
                         <field name="partner_id"  />
                         <field name="partner_user_ids" readonly="True"
                                widget="many2many_tags" attrs="{'invisible':[('partner_user_ids','=',[])]}"/>
-                        <field name="rol_id" />
+                        <field name="rol_id"  options="{'no_create_edit': True}"/>
                     </group>
                 </sheet>
             </form>
@@ -82,8 +82,7 @@
     </record>
 
     <record id="action_project_participant_view" model="ir.actions.act_window">
-        <field name="name">Project participants</field>
-        <field name="type">ir.actions.act_window</field>
+        <field name="name">Participants</field>
         <field name="res_model">project.participant</field>
         <field name="view_type">form</field>
         <field name="view_mode">tree,form</field>
@@ -92,7 +91,7 @@
         }</field>
     </record>
 
-    <menuitem id="project_participant_option_view" name="Project participants"
+    <menuitem id="project_participant_option_view"
               action="action_project_participant_view"
-              parent="project.menu_project_config" sequence="11"/>
+              parent="project_participant_config_menuitem" sequence="1"/>
 </odoo>
