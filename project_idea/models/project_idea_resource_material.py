@@ -9,7 +9,8 @@ class MaterialResources(models.Model):
     _description = 'Idea Material Resource'
 
     project_id = fields.Many2one(
-        string='Project', comodel_name='project.project', required=True)
+        string='Project', comodel_name='project.project',
+        required=True, ondelete='cascade')
     product_id = fields.Many2one(
         string='Product', comodel_name='product.product')
     product_name = fields.Char(string='Product Name')
@@ -17,6 +18,7 @@ class MaterialResources(models.Model):
         selection=[('high', 'High'),
                    ('medium', 'Medium'),
                    ('low', 'Low')], string='Intensity')
+    active = fields.Boolean(string='Active', default=True)
 
     @api.onchange('product_id')
     def onchange_product_id(self):

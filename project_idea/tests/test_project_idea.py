@@ -25,3 +25,34 @@ class TestProjectIdea(common.SavepointCase):
         material.onchange_product_id()
         self.assertEquals(material.product_name,
                           material.product_id.name)
+
+    def test_project_disable_enable(self):
+        self.assertTrue(self.project.active)
+        for human in self.project.with_context(
+                active_test=False).human_resources_ids:
+            self.assertTrue(human.active)
+        self.project.toggle_active()
+        self.assertFalse(self.project.active)
+        for human in self.project.with_context(
+                active_test=False).human_resources_ids:
+            self.assertFalse(human.active)
+        self.project.toggle_active()
+        self.assertTrue(self.project.active)
+        for human in self.project.with_context(
+                active_test=False).human_resources_ids:
+            self.assertTrue(human.active)
+
+        self.assertTrue(self.project.active)
+        for material in self.project.with_context(
+                active_test=False).material_resources_ids:
+            self.assertTrue(material.active)
+        self.project.toggle_active()
+        self.assertFalse(self.project.active)
+        for material in self.project.with_context(
+                active_test=False).material_resources_ids:
+            self.assertFalse(material.active)
+        self.project.toggle_active()
+        self.assertTrue(self.project.active)
+        for material in self.project.with_context(
+                active_test=False).material_resources_ids:
+            self.assertTrue(material.active)

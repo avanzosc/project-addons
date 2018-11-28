@@ -9,7 +9,8 @@ class HumanResources(models.Model):
     _description = 'Idea Human Resource'
 
     project_id = fields.Many2one(
-        string='Project', comodel_name='project.project', required=True)
+        string='Project', comodel_name='project.project',
+        required=True, ondelete='cascade')
     human_department_id = fields.Many2one(
         string='Department', comodel_name='hr.department')
     human_level = fields.Selection(
@@ -20,3 +21,4 @@ class HumanResources(models.Model):
         selection=[('high', 'High'),
                    ('medium', 'Medium'),
                    ('low', 'Low')], string='Intensity')
+    active = fields.Boolean(string='Active', default=True)
