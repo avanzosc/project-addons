@@ -20,7 +20,7 @@ class TestProjectVersion(common.SavepointCase):
         old_versions = self.project_model.with_context(
             active_test=False).search([
                 ('parent_id', '=', self.project.id),
-                '|', ('historical_user_id', '=', False),
+                '&', ('historical_user_id', '=', False),
                 ('historical_date', '=', False)
             ])
         self.assertEquals(len(old_versions), self.project.version - 1)
@@ -30,5 +30,35 @@ class TestProjectVersion(common.SavepointCase):
 
     def test_project_historify(self):
         self.assertEquals(self.project.version, 1)
+        history_versions = self.project_model.with_context(
+            active_test=False).search([
+                ('parent_id', '=', self.project.id),
+                '|', ('historical_user_id', '!=', False),
+                ('historical_date', '!=', False)
+            ])
+        self.assertEquals(len(history_versions), 0)
         self.project.button_historical()
+        history_versions = self.project_model.with_context(
+            active_test=False).search([
+                ('parent_id', '=', self.project.id),
+                '|', ('historical_user_id', '!=', False),
+                ('historical_date', '!=', False)
+            ])
         self.assertEquals(self.project.version, 1)
+        self.assertEquals(len(history_versions), 1)
+        history_versions[:1].button_historical()
+        new_history_versions = self.project_model.with_context(
+            active_test=False).search([
+                ('parent_id', '=', history_versions[:1].id),
+                '|', ('historical_user_id', '!=', False),
+                ('historical_date', '!=', False)
+            ])
+        self.assertEquals(len(new_history_versions), 0)
+        history_versions[:1].button_new_version()
+        old_versions = self.project_model.with_context(
+            active_test=False).search([
+                ('parent_id', '=', history_versions[:1].id),
+                ('historical_user_id', '=', False),
+                ('historical_date', '=', False)
+            ])
+        self.assertEquals(len(old_versions), 0)

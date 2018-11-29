@@ -4,7 +4,7 @@
         <field name="name">Old Versions</field>
         <field name="res_model">project.project</field>
         <field name="view_mode">tree,kanban,form</field>
-        <field name="domain">[('parent_id','=',active_id),'|',('historical_user_id','=',False),('historical_date','=',False)]</field>
+        <field name="domain">[('parent_id','=',active_id),('historical_user_id','=',False),('historical_date','=',False)]</field>
         <field name="context">{
             'active_test': False,
             'show_version_info': False,
