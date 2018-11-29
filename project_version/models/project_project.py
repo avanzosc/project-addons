@@ -21,6 +21,11 @@ class ProjectProject(models.Model):
         comodel_name='project.project', string='Parent Project', copy=False)
 
     @api.multi
+    def write(self, values):
+        res = super(ProjectProject, self).write(values)
+        return res
+
+    @api.multi
     def button_new_version(self):
         self.ensure_one()
         if self.historical_date or self.historical_user_id or not self.active:
@@ -40,6 +45,7 @@ class ProjectProject(models.Model):
             'version_user_id': self.version_user_id.id,
             'name': self.name,
             'parent_id': self.id,
+            'active': False,
         })
         return new_test
 
