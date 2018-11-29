@@ -10,8 +10,11 @@
         <field name="arch" type="xml">
             <header position="inside">
                 <field name="phase_id" widget="statusbar" clickable="True"
-                           required="True"/>
+                       required="True"/>
             </header>
+            <button name="button_historical" position="attributes">
+                <attribute name="invisible">True</attribute>
+            </button>
         </field>
     </record>
 </odoo>
