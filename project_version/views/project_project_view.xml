@@ -4,9 +4,22 @@
         <field name="name">Old Versions</field>
         <field name="res_model">project.project</field>
         <field name="view_mode">tree,kanban,form</field>
-        <field name="domain">[('parent_id','=',active_id),('','',)]</field>
+        <field name="domain">[('parent_id','=',active_id),'|',('historical_user_id','=',False),('historical_date','=',False)]</field>
         <field name="context">{
             'active_test': False,
+            'show_version_info': False,
+        }</field>
+    </record>
+
+    <record id="project_project_history_action" model="ir.actions.act_window">
+        <field name="name">History</field>
+        <field name="res_model">project.project</field>
+        <field name="view_mode">tree,kanban,form</field>
+        <field name="domain">[('parent_id','=',active_id),'|',('historical_user_id','!=',False),('historical_date','!=',False)]</field>
+        <field name="context">{
+            'active_test': False,
+            'show_version_info': False,
+            'show_history_info': False,
         }</field>
     </record>
 
@@ -40,9 +53,12 @@
                 </header>
             </sheet>
             <div name="button_box" position="inside">
-                 <button string="Old Versions" class="oe_stat_button" icon="fa-archive"
-                         name="%(project_project_old_version_action)d" type="action"
-                         attrs="{'invisible': [('parent_id','!=',False)]}" />
+                <button string="Old Versions" class="oe_stat_button" icon="fa-archive"
+                        name="%(project_project_old_version_action)d" type="action"
+                        attrs="{'invisible': [('parent_id','!=',False)]}" />
+                <button string="History" class="oe_stat_button" icon="fa-archive"
+                        name="%(project_project_history_action)d" type="action"
+                        attrs="{'invisible': [('parent_id','!=',False)]}" />
             </div>
         </field>
     </record>
@@ -53,10 +69,10 @@
         <field name="arch" type="xml">
             <field name="partner_id" position="after">
                 <field name="version" />
-                <field name="historical_user_id" />
-                <field name="historical_date" />
-                <field name="version_user_id" />
-                <field name="version_date" />
+                <field name="version_user_id" invisible="context.get('show_version_info',True)" />
+                <field name="version_date" invisible="context.get('show_version_info',True)" />
+                <field name="historical_user_id" invisible="context.get('show_history_info',True)" />
+                <field name="historical_date" invisible="context.get('show_history_info',True)" />
             </field>
         </field>
     </record>
@@ -67,7 +83,9 @@
         <field name="arch" type="xml">
             <filter name="inactive" position="after">
                 <separator />
-                <filter string="Historified" name="history" domain="[('historical_date','!=',False)]"/>
+                <filter string="Historified" name="history"
+                        domain="['|',('historical_date','!=',False),('historical_user_id','!=',False)]"
+                        context="{'show_history_info': False, 'active_test': False}"/>
                 <filter string="All" name="all_project" domain="['|',('historical_date','!=',False),('historical_date','=',False)]"/>
             </filter>
         </field>

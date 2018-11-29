@@ -8,8 +8,8 @@ class TestProjectVersion(common.SavepointCase):
     @classmethod
     def setUpClass(cls):
         super(TestProjectVersion, cls).setUpClass()
-        project_model = cls.env['project.project']
-        cls.project = project_model.create({
+        cls.project_model = cls.env['project.project']
+        cls.project = cls.project_model.create({
             'name': 'Test Project',
         })
 
@@ -17,6 +17,18 @@ class TestProjectVersion(common.SavepointCase):
         self.assertEquals(self.project.version, 1)
         self.project.button_new_version()
         self.assertEquals(self.project.version, 2)
+        old_versions = self.project_model.with_context(
+            active_test=False).search([
+                ('parent_id', '=', self.project.id),
+                '|', ('historical_user_id', '=', False),
+                ('historical_date', '=', False)
+            ])
+        self.assertEquals(len(old_versions), self.project.version - 1)
         project = self.project.copy()
         self.assertEquals(project.version, 1)
         self.assertNotEquals(project.version, self.project.version)
+
+    def test_project_historify(self):
+        self.assertEquals(self.project.version, 1)
+        self.project.button_historical()
+        self.assertEquals(self.project.version, 1)

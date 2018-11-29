@@ -16,7 +16,8 @@ class ProjectProject(models.Model):
     version_user_id = fields.Many2one(
         comodel_name='res.users', string='Versioned by', readonly=True,
         copy=False, default=lambda self: self.env.user)
-    version = fields.Integer(string='Version', copy=False, default=1)
+    version = fields.Integer(
+        string='Version', readonly=True, copy=False, default=1)
     parent_id = fields.Many2one(
         comodel_name='project.project', string='Parent Project', copy=False)
 
