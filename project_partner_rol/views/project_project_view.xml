@@ -81,4 +81,8 @@
         </field>
     </record>
 
+    <menuitem id="project_participant_config_menuitem"
+              name="Project Participants"
+              parent="project.menu_project_config" sequence="11"/>
+
 </odoo>

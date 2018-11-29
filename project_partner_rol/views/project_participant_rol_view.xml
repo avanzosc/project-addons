@@ -4,8 +4,8 @@
         <field name="name">project.participant.rol.tree</field>
         <field name="model">project.participant.rol</field>
         <field name="arch" type="xml">
-            <tree string="Roles of project participants">
-                <field name="name" />
+            <tree editable="top">
+                <field name="name" string="Participant Role"/>
             </tree>
         </field>
     </record>
@@ -14,7 +14,7 @@
         <field name="name">project.participant.rol.search</field>
         <field name="model">project.participant.rol</field>
         <field name="arch" type="xml">
-            <search string="Search roles of project participants">
+            <search>
                 <field name="name" />
             </search>
         </field>
@@ -24,9 +24,9 @@
         <field name="name">project.participant.rol.form</field>
         <field name="model">project.participant.rol</field>
         <field name="arch" type="xml">
-            <form string="Role of project participants">
+            <form>
                 <sheet>
-                    <label string="Role of project participants" />
+                    <label for="name" string="Participant Role" class="oe_editonly"/>
                     <h1>
                         <field name="name" class="oe_inline" />
                     </h1>
@@ -36,15 +36,13 @@
     </record>
 
     <record id="action_project_participant_rol_view" model="ir.actions.act_window">
-        <field name="name">Roles of project participants</field>
-        <field name="type">ir.actions.act_window</field>
+        <field name="name">Participant Roles</field>
         <field name="res_model">project.participant.rol</field>
         <field name="view_type">form</field>
         <field name="view_mode">tree,form</field>
     </record>
 
     <menuitem id="project_participant_rol_option_view"
-              name="Roles of project participants"
               action="action_project_participant_rol_view"
-              parent="project.menu_project_config" sequence="12"/>
+              parent="project_participant_config_menuitem" sequence="2"/>
 </odoo>
