@@ -1,0 +1,52 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+#	* project_task_cost
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 11.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2018-12-04 14:19+0000\n"
+"PO-Revision-Date: 2018-12-04 14:19+0000\n"
+"Last-Translator: <>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: project_task_cost
+#: model:ir.model.fields,field_description:project_task_cost.field_project_task_employee_cost
+msgid "Employee Cost"
+msgstr "Coste de empleado"
+
+#. module: project_task_cost
+#: model:ir.model.fields,field_description:project_task_cost.field_project_task_planned_cost
+msgid "Estimated Cost"
+msgstr "Coste estimado"
+
+#. module: project_task_cost
+#: model:ir.model.fields,field_description:project_task_cost.field_project_task_planned_monthly_hours
+msgid "Planned Monthly Hours"
+msgstr "Horas planificadas por mes"
+
+#. module: project_task_cost
+#: model:ir.model.fields,field_description:project_task_cost.field_project_task_effective_cost
+msgid "Real Cost"
+msgstr "Coste real"
+
+#. module: project_task_cost
+#: model:ir.model,name:project_task_cost.model_project_task
+msgid "Task"
+msgstr "Tarea"
+
+#. module: project_task_cost
+#: model:ir.ui.view,arch_db:project_task_cost.project_task_time_tree_view
+msgid "Total Cost"
+msgstr "Coste total"
+
+#. module: project_task_cost
+#: model:ir.ui.view,arch_db:project_task_cost.project_task_time_tree_view
+msgid "Total Planned Cost"
+msgstr "Coste total estimado"
+
