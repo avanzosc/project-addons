@@ -14,7 +14,7 @@
     "website": "http://www.avanzosc.es",
     "category": "Project",
     "data": [
-        "views/project_task_time_view.xml",
+        "views/project_task_view.xml",
     ],
     "installable": True,
     "post_init_hook": "post_init_hook",
