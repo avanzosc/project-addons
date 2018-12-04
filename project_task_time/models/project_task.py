@@ -10,13 +10,14 @@ str2date = fields.Datetime.from_string
 class ProjectTask(models.Model):
     _inherit = 'project.task'
 
-    employee_cost = fields.Float(string='Employee Cost', readonly=True)
+    employee_cost = fields.Float(string='Employee Cost')
     planned_cost = fields.Float(
-        string='Estimated cost', compute='_compute_planned_cost')
+        string='Estimated Cost', compute='_compute_planned_cost', store=True)
     effective_cost = fields.Float(
-        string='Real hour cost', compute='_compute_effective_cost')
+        string='Real Cost', compute='_compute_effective_cost', store=True)
     planned_monthly_hours = fields.Float(
-        string='Estimated Hours', compute='_compute_planned_monthly_hours')
+        string='Planned Monthly Hours',
+        compute='_compute_planned_monthly_hours', store=True)
 
     @api.onchange('user_id')
     def _onchange_user(self):
@@ -44,4 +45,4 @@ class ProjectTask(models.Model):
             months = (
                 relativedelta(str2date(task.date_end),
                               str2date(task.date_start)).months + 1)
-            task.planned_monthly_hours = task.planned_hours / months
+            task.planned_monthly_hours = task.planned_hours / (months or 1.0)

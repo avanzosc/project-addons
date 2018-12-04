@@ -6,19 +6,19 @@
         <field name="arch" type="xml">
             <field name="remaining_hours" position="after">
                 <field name="planned_monthly_hours" widget="float_time" />
-                <field name="employee_cost" />
-                <field name="planned_cost" />
-                <field name="effective_cost" />
+                <field name="employee_cost"  invisible="True" />
+                <field name="planned_cost" sum="Total Planned Cost"/>
+                <field name="effective_cost" sum="Total Cost"/>
             </field>
         </field>
     </record>
 
     <record id="project_task_time_form_view" model="ir.ui.view">
-        <field name="name">project.task.time.form</field>
         <field name="model">project.task</field>
         <field name="inherit_id" ref="project.view_task_form2" />
         <field name="arch" type="xml">
             <field name="user_id" position="after">
+                <field name="employee_cost" invisible="True" />
                 <field name="planned_cost" />
                 <field name="effective_cost" />
             </field>
