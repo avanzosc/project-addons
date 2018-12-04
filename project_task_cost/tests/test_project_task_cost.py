@@ -30,7 +30,7 @@ class TestProjectTaskCost(common.SavepointCase):
         date_end = date_start + relativedelta(months=month_gap)
         task = self.task_model.create({
             'name': 'Name',
-            'planned_hours': 20.0,
+            'planned_hours': 30.0,
             'user_id': self.env.user.id,
             'date_start': date_start,
             'date_end': date_end,
@@ -43,4 +43,4 @@ class TestProjectTaskCost(common.SavepointCase):
         self.assertEquals(
             task.employee_cost * task.effective_hours, task.effective_cost)
         self.assertEquals(
-            task.planned_hours / month_gap, task.planned_monthly_hours)
+            task.planned_hours / (month_gap + 1), task.planned_monthly_hours)
