@@ -84,6 +84,7 @@ class ProjectProject(models.Model):
 class ProjectMember(models.Model):
     _name = 'project.member'
     _description = 'Project Member'
+    _rec_name = 'user_id'
 
     project_id = fields.Many2one(
         comodel_name='project.project', string='Project', required=True)
