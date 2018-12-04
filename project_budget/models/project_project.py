@@ -37,7 +37,7 @@ class ProjectProject(models.Model):
                 record.with_context(active_test=False).budget_ids)
             record.current_budget_id = record.budget_ids.filtered(
                 lambda b: b.budget_date >= month_start and
-                          b.budget_date <= month_end)
+                          b.budget_date <= month_end)[:1]
             record.current_budget_count = len(record.current_budget_id)
             record.has_current_budget = bool(record.current_budget_id)
 
