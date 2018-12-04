@@ -8,6 +8,7 @@
             <tree string="Material Resources" editable="top">
                 <field name="project_id" invisible="context.get('hide_project_id',True)"/>
                 <field name="product_id"/>
+                <field name="product_type" />
                 <field name="product_name"/>
                 <field name="product_intensity"/>
             </tree>
@@ -26,6 +27,7 @@
                         </group>
                         <group name="mr_group_right">
                             <field name="product_id"/>
+                            <field name="product_type" />
                             <field name="product_intensity"/>
                         </group>
                     </group>
@@ -40,12 +42,16 @@
             <search string="Material Resources">
                 <field name="project_id"/>
                 <field name="product_id"/>
+                <field name="product_type" />
                 <field name="product_name"/>
                 <group name="group_by" expand="0">
                     <filter name="group_project" string="Project"
                             context="{'group_by': 'project_id'}" />
                     <filter name="group_product" string="Product"
                             context="{'group_by': 'product_id'}" />
+                    <filter name="group_product_type" string="Product Type"
+                            context="{'group_by': 'product_type'}" />
+
                 </group>
             </search>
         </field>
