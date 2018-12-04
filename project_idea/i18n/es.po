@@ -6,14 +6,31 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 11.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-10-25 14:59+0000\n"
-"PO-Revision-Date: 2018-10-25 14:59+0000\n"
+"POT-Creation-Date: 2018-12-04 15:50+0000\n"
+"PO-Revision-Date: 2018-12-04 15:50+0000\n"
 "Last-Translator: <>\n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: \n"
 "Plural-Forms: \n"
+
+#. module: project_idea
+#: model:ir.model.fields,help:project_idea.field_project_idea_resource_material_product_type
+msgid "A stockable product is a product for which you manage stock. The \"Inventory\" app has to be installed.\n"
+"A consumable product, on the other hand, is a product for which stock is not managed.\n"
+"A service is a non-material product you provide.\n"
+"A digital content is a non-material product you sell online. The files attached to the products are the one that are sold on the e-commerce such as e-books, music, pictures,... The \"Digital Product\" module has to be installed."
+msgstr "Un producto almacenable es un producto para el que usted gestiona el stock. La aplicación \"Inventario\" debe instalarse.\n"
+"Por el contrario, un producto consumible es un producto para el que no se gestiona el stock.\n"
+"Un servicio es un producto no material que usted proporciona.\n"
+"Un contenido digital es un producto no material que vende en línea. Los archivos adjuntos a los productos son los que se venden en el comercio electrónico, tales como libros electrónicos, música, fotos, ... El módulo \"Producto Digital\" debe instalado."
+
+#. module: project_idea
+#: model:ir.model.fields,field_description:project_idea.field_project_idea_resource_human_active
+#: model:ir.model.fields,field_description:project_idea.field_project_idea_resource_material_active
+msgid "Active"
+msgstr "Activo"
 
 #. module: project_idea
 #: model:ir.ui.view,arch_db:project_idea.project_project_idea_form_view
@@ -30,7 +47,7 @@ msgstr "Creado por"
 #: model:ir.model.fields,field_description:project_idea.field_project_idea_resource_human_create_date
 #: model:ir.model.fields,field_description:project_idea.field_project_idea_resource_material_create_date
 msgid "Created on"
-msgstr "Creado el"
+msgstr "Creado en"
 
 #. module: project_idea
 #: selection:project.project,idea_origin:0
@@ -157,7 +174,7 @@ msgstr "Bajo"
 #: model:ir.ui.view,arch_db:project_idea.project_idea_resource_material_tree_view
 #: model:ir.ui.view,arch_db:project_idea.project_project_idea_form_view
 msgid "Material Resources"
-msgstr "Recursos materiales"
+msgstr "Recursos materiales y servicios"
 
 #. module: project_idea
 #: selection:project.idea.resource.human,human_intensity:0
@@ -192,17 +209,19 @@ msgid "Product Name"
 msgstr "Nombre del producto"
 
 #. module: project_idea
+#: model:ir.model.fields,field_description:project_idea.field_project_idea_resource_material_product_type
+#: model:ir.ui.view,arch_db:project_idea.project_idea_resource_material_search_view
+msgid "Product Type"
+msgstr "Tipo de producto"
+
+#. module: project_idea
+#: model:ir.model,name:project_idea.model_project_project
 #: model:ir.model.fields,field_description:project_idea.field_project_idea_resource_human_project_id
 #: model:ir.model.fields,field_description:project_idea.field_project_idea_resource_material_project_id
 #: model:ir.ui.view,arch_db:project_idea.project_idea_resource_human_search_view
 #: model:ir.ui.view,arch_db:project_idea.project_idea_resource_material_search_view
 msgid "Project"
 msgstr "Proyecto"
-
-#. module: project_idea
-#: model:ir.model,name:project_idea.model_project_idea_cat_viability
-msgid "Project Viability per Category"
-msgstr "Viabilidad de proyecto por categoría"
 
 #. module: project_idea
 #: model:ir.model.fields,field_description:project_idea.field_hr_department_randd
@@ -233,14 +252,4 @@ msgstr "Transferencia"
 #: model:ir.model.fields,field_description:project_idea.field_project_project_idea_type
 msgid "Type"
 msgstr "Tipo"
-
-#. module: project_idea
-#: model:ir.model,name:project_idea.model_project_idea_viability_category
-msgid "Viability Category"
-msgstr "Categoría de viabilidad"
-
-#. module: project_idea
-#: model:ir.model,name:project_idea.model_project_idea_line_viability
-msgid "Viability Line"
-msgstr "Línea de viabilidad"
 
