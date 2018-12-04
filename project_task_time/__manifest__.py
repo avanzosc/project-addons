@@ -14,8 +14,8 @@
     "website": "http://www.avanzosc.es",
     "category": "Project",
     "data": [
-        "security/ir.model.access.csv",
         "views/project_task_time_view.xml",
     ],
     "installable": True,
+    "post_init_hook": "post_init_hook",
 }

@@ -1,15 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
 <odoo>
     <record id="project_task_time_tree_view" model="ir.ui.view">
-        <field name="name">project.task.time.tree</field>
         <field name="model">project.task</field>
         <field name="inherit_id" ref="project.view_task_tree2" />
         <field name="arch" type="xml">
             <field name="remaining_hours" position="after">
-                <field name="estim_cost" />
-                <field name="real_hour_cost" />
-                <field name="estim_time" />
-                <field name="date_start"/>
-                <field name="date_end"/>
+                <field name="planned_monthly_hours" widget="float_time" />
+                <field name="employee_cost" />
+                <field name="planned_cost" />
+                <field name="effective_cost" />
             </field>
         </field>
     </record>
@@ -20,9 +19,11 @@
         <field name="inherit_id" ref="project.view_task_form2" />
         <field name="arch" type="xml">
             <field name="user_id" position="after">
-                <field name="estim_cost" />
-                <field name="real_hour_cost" />
-                <field name="estim_time" />
+                <field name="planned_cost" />
+                <field name="effective_cost" />
+            </field>
+            <field name="planned_hours" position="after">
+                <field name="planned_monthly_hours" widget="float_time" />
             </field>
         </field>
     </record>
