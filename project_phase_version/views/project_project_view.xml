@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <record id="project_phase.project_project_phase_form_view" model="ir.ui.view">
+        <field name="active">False</field>
+    </record>
+
+    <record id="project_project_form_view" model="ir.ui.view">
+        <field name="model">project.project</field>
+        <field name="inherit_id" ref="project_version.project_project_form_view" />
+        <field name="arch" type="xml">
+            <header position="inside">
+                <field name="phase_id" widget="statusbar" clickable="True"
+                       required="True"/>
+            </header>
+            <button name="button_historical" position="attributes">
+                <attribute name="invisible">True</attribute>
+            </button>
+        </field>
+    </record>
+</odoo>
