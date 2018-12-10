@@ -16,3 +16,10 @@ class ProjectProject(models.Model):
             for project in self:
                 project.button_historical()
         return super(ProjectProject, self).write(values)
+
+    def _get_copy_data(self):
+        vals = super(ProjectProject, self)._get_copy_data()
+        vals.update({
+            'phase_id': self.phase_id.id,
+        })
+        return vals
