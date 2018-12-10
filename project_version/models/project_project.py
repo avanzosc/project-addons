@@ -1,7 +1,7 @@
 # Copyright 2018 Oihane Crucelaegui - AvanzOSC
 # License AGPL-3 - See http://www.gnu.org/licenses/agpl-3.0.html
 
-from odoo import api, fields, models
+from odoo import _, api, fields, models
 
 
 class ProjectProject(models.Model):
@@ -21,6 +21,16 @@ class ProjectProject(models.Model):
     parent_id = fields.Many2one(
         comodel_name='project.project', string='Parent Project', copy=False)
 
+    def name_get(self):
+        res = []
+        for project in self:
+            if project.historical_date or project.historical_user_id:
+                name = _('{}-Historical').format(project.name)
+            else:
+                name = project.name
+            res.append((project.id, name))
+        return res
+
     @api.multi
     def write(self, values):
         res = super(ProjectProject, self).write(values)
@@ -39,15 +49,19 @@ class ProjectProject(models.Model):
             'version_user_id': self.env.user.id,
         })
 
-    def _copy_project(self):
-        new_test = self.copy({
+    def _get_copy_data(self):
+        return {
             'version': self.version,
             'version_date': self.version_date,
             'version_user_id': self.version_user_id.id,
             'name': self.name,
             'parent_id': self.id,
             'active': False,
-        })
+        }
+
+    def _copy_project(self):
+        vals = self._get_copy_data()
+        new_test = self.copy(default=vals)
         return new_test
 
     @api.multi
