@@ -1,6 +1,7 @@
 # Copyright 2018 Oihane Crucelaegui - AvanzOSC
 # License AGPL-3 - See http://www.gnu.org/licenses/agpl-3.0.html
 
+from odoo import _
 from odoo.tests import common
 
 
@@ -46,6 +47,9 @@ class TestProjectVersion(common.SavepointCase):
             ])
         self.assertEquals(self.project.version, 1)
         self.assertEquals(len(history_versions), 1)
+        self.assertEquals(
+            history_versions[:1].display_name,
+            _('{}-Historical').format(history_versions[:1].name))
         history_versions[:1].button_historical()
         new_history_versions = self.project_model.with_context(
             active_test=False).search([
