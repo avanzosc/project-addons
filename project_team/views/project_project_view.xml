@@ -32,21 +32,14 @@
                 <page name="project_team" string="Members">
                     <label for="member_ids" />
                     <field name="member_ids" nolabel="1"
-                           context="{'default_project_id':active_id}">
-                        <tree string="Project Team">
-                            <field name="project_id" invisible="1" />
-                            <field name="user_id" />
-                            <field name="planned_hours_percentage" sum="Percentage" />
-                            <field name="project_planned_hours" string="By Project"
-                                   widget="float_time" sum="Project Hours" />
-                            <field name="task_planned_hours" string="By Tasks"
-                                   widget="float_time" sum="Task Hours" />
-                            <field name="monthly_planned_hours" widget="float_time" />
-                            <field name="monthly_task_planned_hours" widget="float_time" />
-                        </tree>
-                    </field>
+                           context="{'default_project_id':active_id}" />
                 </page>
              </page>
         </field>
     </record>
+
+    <menuitem id="project_team_config_menuitem"
+              name="Project Team"
+              parent="project.menu_project_config" sequence="11"/>
+
 </odoo>

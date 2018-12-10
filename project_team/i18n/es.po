@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 11.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-08-28 08:26+0000\n"
-"PO-Revision-Date: 2018-08-28 08:26+0000\n"
+"POT-Creation-Date: 2018-12-10 17:07+0000\n"
+"PO-Revision-Date: 2018-12-10 17:07+0000\n"
 "Last-Translator: <>\n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -33,12 +33,22 @@ msgstr "Creado por"
 #. module: project_team
 #: model:ir.model.fields,field_description:project_team.field_project_member_create_date
 msgid "Created on"
-msgstr "Creado en"
+msgstr "Creado el"
 
 #. module: project_team
 #: model:ir.model.fields,field_description:project_team.field_project_member_display_name
 msgid "Display Name"
 msgstr "Nombre mostrado"
+
+#. module: project_team
+#: model:ir.model.fields,help:project_team.field_project_project_task_planned_hours
+msgid "Estimated time to do the task, usually set by the project manager when the task is in draft state."
+msgstr "Tiempo estimado para realizar la tarea, normalmente fijado por el responsable del proyecto cuando la tarea está en estado borrador."
+
+#. module: project_team
+#: model:ir.model.fields,help:project_team.field_project_project_planned_hours
+msgid "Estimated time to do the task, usually set by the project manager."
+msgstr "Tiempo estimado para realizar la tarea, normalmente fijado por el responsable del proyecto."
 
 #. module: project_team
 #: model:ir.ui.view,arch_db:project_team.project_member_search_view
@@ -48,11 +58,13 @@ msgstr "Agrupar por"
 #. module: project_team
 #: model:ir.model.fields,field_description:project_team.field_project_member_id
 msgid "ID"
-msgstr "ID (identificación)"
+msgstr "ID"
 
 #. module: project_team
 #: model:ir.model.fields,field_description:project_team.field_project_member_project_planned_hours
 #: model:ir.model.fields,field_description:project_team.field_project_member_task_planned_hours
+#: model:ir.model.fields,field_description:project_team.field_project_project_planned_hours
+#: model:ir.model.fields,field_description:project_team.field_project_project_task_planned_hours
 msgid "Initially Planned Hours"
 msgstr "Horas iniciales planificadas"
 
@@ -99,17 +111,12 @@ msgid "Partner-related data of the user"
 msgstr "Datos del usuario relativos a la empresa"
 
 #. module: project_team
-#: model:ir.ui.view,arch_db:project_team.project_project_members_form_view
-msgid "Percentage"
-msgstr "Porcentaje"
-
-#. module: project_team
 #: model:ir.model.fields,field_description:project_team.field_project_member_planned_hours_percentage
 msgid "Percentage (%)"
 msgstr "Porcentaje (%)"
 
 #. module: project_team
-#: code:addons/project_team/models/project.py:117
+#: code:addons/project_team/models/project.py:118
 #, python-format
 msgid "Percentages must be between 0 and 100."
 msgstr "El porcentaje debe estar entre 0 y 100."
@@ -118,6 +125,21 @@ msgstr "El porcentaje debe estar entre 0 y 100."
 #: model:ir.ui.view,arch_db:project_team.project_project_members_form_view
 msgid "Periods"
 msgstr "Periodos"
+
+#. module: project_team
+#: model:ir.model.fields,field_description:project_team.field_project_project_planned_date_end
+msgid "Planned Date End"
+msgstr "Fecha final planificada"
+
+#. module: project_team
+#: model:ir.model.fields,field_description:project_team.field_project_project_planned_date_margin
+msgid "Planned Date Margin"
+msgstr "Margen entre fechas planificadas"
+
+#. module: project_team
+#: model:ir.model.fields,field_description:project_team.field_project_project_planned_date_start
+msgid "Planned Date Start"
+msgstr "Fecha inicial planificada"
 
 #. module: project_team
 #: model:ir.ui.view,arch_db:project_team.project_project_members_form_view
@@ -132,7 +154,7 @@ msgid "Project"
 msgstr "Proyecto"
 
 #. module: project_team
-#: model:ir.ui.view,arch_db:project_team.project_project_members_form_view
+#: model:ir.ui.view,arch_db:project_team.project_member_planned_hour_tree_view
 msgid "Project Hours"
 msgstr "Horas de proyecto"
 
@@ -150,7 +172,7 @@ msgid "Project Members"
 msgstr "Miembros de proyectos"
 
 #. module: project_team
-#: model:ir.ui.view,arch_db:project_team.project_project_members_form_view
+#: model:ir.ui.menu,name:project_team.project_team_config_menuitem
 msgid "Project Team"
 msgstr "Equipo"
 
@@ -160,7 +182,22 @@ msgid "Search Members"
 msgstr "Buscar miembros"
 
 #. module: project_team
-#: model:ir.ui.view,arch_db:project_team.project_project_members_form_view
+#: model:ir.model.fields,field_description:project_team.field_project_project_task_date_end
+msgid "Task Date End"
+msgstr "Fecha final de tareas"
+
+#. module: project_team
+#: model:ir.model.fields,field_description:project_team.field_project_project_task_date_margin
+msgid "Task Date Margin"
+msgstr "Margen entre fechas de tareas"
+
+#. module: project_team
+#: model:ir.model.fields,field_description:project_team.field_project_project_task_date_start
+msgid "Task Date Start"
+msgstr "Fecha inicial de tareas"
+
+#. module: project_team
+#: model:ir.ui.view,arch_db:project_team.project_member_planned_hour_tree_view
 msgid "Task Hours"
 msgstr "Horas de tareas"
 

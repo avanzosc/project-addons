@@ -3,7 +3,7 @@
 
 {
     "name": "Project Team",
-    "version": "11.0.1.0.1",
+    "version": "11.0.1.1.0",
     "category": "Project",
     "license": "AGPL-3",
     "author": "AvanzOSC",
@@ -13,8 +13,8 @@
     ],
     "data": [
         "security/ir.model.access.csv",
-        "views/project_member_view.xml",
         "views/project_project_view.xml",
+        "views/project_member_view.xml",
     ],
     "installable": True,
 }
