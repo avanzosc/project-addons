@@ -12,9 +12,11 @@
         "project",
     ],
     "data": [
+        "security/project_security.xml",
         "security/ir.model.access.csv",
         "views/project_project_view.xml",
         "views/project_member_view.xml",
+        "views/res_config_settings_views.xml",
     ],
     "installable": True,
 }

@@ -6,6 +6,21 @@
         <field name="priority">25</field>
         <field name="inherit_id" ref="project.edit_project"/>
         <field name="arch" type="xml">
+            <page name="settings" position="before">
+                <page name="project_team" string="Project Team">
+                    <label for="member_ids" />
+                    <field name="member_ids" nolabel="1"
+                           context="{'default_project_id':active_id}" />
+                </page>
+             </page>
+        </field>
+    </record>
+
+    <record id="project_project_members_planned_form_view" model="ir.ui.view">
+        <field name="model">project.project</field>
+        <field name="inherit_id" ref="project_project_members_form_view"/>
+        <field name="groups_id" eval="[(4, ref('project_team.group_planned_hours_project'))]"/>
+        <field name="arch" type="xml">
             <xpath expr="//div[hasclass('oe_title')]" position="after">
                 <group>
                     <group string="Planned Hours">
@@ -29,7 +44,7 @@
                 </group>
             </xpath>
             <page name="settings" position="before">
-                <page name="project_team" string="Members">
+                <page name="project_team" string="Project Team">
                     <label for="member_ids" />
                     <field name="member_ids" nolabel="1"
                            context="{'default_project_id':active_id}" />
