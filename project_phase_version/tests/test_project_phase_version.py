@@ -58,3 +58,17 @@ class TestProjectVersion(common.SavepointCase):
                 ('historical_date', '!=', False)
             ])
         self.assertEquals(len(history_versions), 1)
+        self.assertNotEquals(
+            self.project.phase_id, history_versions[:1].phase_id)
+
+    def test_project_version(self):
+        self.project.button_new_version()
+        old_versions = self.project_model.with_context(
+            active_test=False).search([
+                ('parent_id', '=', self.project.id),
+                '&', ('historical_user_id', '=', False),
+                ('historical_date', '=', False)
+            ])
+        self.assertEquals(len(old_versions), self.project.version - 1)
+        self.assertEquals(old_versions[:1].phase_id, self.project.phase_id)
+        self.assertNotEquals(old_versions[:1].version, self.project.version)
