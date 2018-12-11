@@ -1,7 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<odoo>
-    <record id="group_planned_hours_project" model="res.groups">
-        <field name="name">See Project Planned Hours</field>
-        <field name="category_id" ref="base.module_category_hidden"/>
-    </record>
-</odoo>
