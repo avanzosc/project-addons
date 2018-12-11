@@ -17,6 +17,10 @@ To compute how many hours a member is going to spend working on the project
 there also are start and end dates, that can be defined per project or they
 can be taken from its tasks.
 
+There is a new view in order to view different time configurations, that is only
+visible for a group. You can configure it in settings or select only those users
+that will be allowed to see it. This info is only for planning purposes.
+
 Bug Tracker
 ===========
 

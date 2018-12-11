@@ -24,7 +24,7 @@ class ProjectProject(models.Model):
 
     member_ids = fields.One2many(
         comodel_name='project.member', inverse_name='project_id',
-        string='Members')
+        string='Project Team')
     planned_hours = fields.Float(
         string='Initially Planned Hours',
         help='Estimated time to do the task, usually set by the project '
