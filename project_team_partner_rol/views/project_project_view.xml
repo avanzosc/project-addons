@@ -1,16 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <odoo>
-    <record id="project_team.project_project_members_form_view" model="ir.ui.view">
+    <record id="project_partner_rol.edit_project_inh_partner_rol" model="ir.ui.view">
         <field name="active" eval="False" />
     </record>
 
     <record id="project_members_form_view" model="ir.ui.view">
         <field name="model">project.project</field>
-        <field name="inherit_id" ref="project_partner_rol.edit_project_inh_partner_rol" />
+        <field name="inherit_id" ref="project_team.project_project_members_form_view" />
         <field name="arch" type="xml">
-            <field name="participant_ids" position="after">
-                <label for="member_ids" />
-                <field name="member_ids" nolabel="1"
+            <field name="member_ids" position="after">
+                <label for="participant_ids" />
+                <field name="participant_ids" nolabel="1"
                        context="{'default_project_id':active_id}" />
             </field>
         </field>
