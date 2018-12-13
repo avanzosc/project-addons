@@ -3,12 +3,11 @@
 
 {
     "name": "Project Characterization",
-    "version": "11.0.4.1.0",
+    "version": "11.0.5.0.0",
     "license": "AGPL-3",
     "depends": [
         "project",
         "account",
-        "crm",
         "base_characterization",
         "project_funding",
     ],
