@@ -23,19 +23,27 @@ class AccountAnalyticAccount(models.Model):
         comodel_name='res.target', string='Target')
     nonoperative = fields.Boolean(
         string='Non Operative', related='res_area_id.nonoperative', store=True)
+    num_code = fields.Char(string='Number', copy=False)
+
+    @api.onchange('res_area_id', 'res_area_type_id')
+    def _onchange_area_type(self):
+        if self.res_area_id and self.res_area_type_id:
+            count = self.search_count([
+                ('res_area_id', '=', self.res_area_id),
+                ('res_area_type_id', '=', self.res_area_type_id)])
+            self.num_code = count + 1
 
     @api.model
     def create(self, values):
         area_id = values.get('res_area_id')
         type_id = values.get('res_area_type_id')
+        num_code = values.get('num_code')
         if area_id and type_id:
-            count = self.search_count([('res_area_id', '=', area_id),
-                                       ('res_area_type_id', '=', type_id)])
             values.update({
                 'code': '{}.{}.{}'.format(
                     self.env['res.area'].browse(area_id).code or '',
                     self.env['res.area.type'].browse(type_id).code or '',
-                    count+1)
+                    num_code)
             })
         return super(AccountAnalyticAccount, self).create(values)
 
@@ -44,4 +52,5 @@ class AccountAnalyticLine(models.Model):
     _inherit = 'account.analytic.line'
 
     nonoperative = fields.Boolean(
-        string='Non Operative', related='account_id.nonoperative', store=True)
+        string='Non Operative', related='account_id.nonoperative', store=True,
+        compute_sudo=True)

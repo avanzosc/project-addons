@@ -1,5 +1,29 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <odoo>
+    <record id="project_project_view_form_simplified" model="ir.ui.view">
+        <field name="model">project.project</field>
+        <field name="inherit_id" ref="project.project_project_view_form_simplified" />
+        <field name="arch" type="xml">
+            <field name="user_id" position="after">
+                <field name="res_area_id" required="1"/>
+                <field name="res_area_type_id" required="1"
+                       options="{'no_create': True}"/>
+                <field name="num_code" />
+            </field>
+        </field>
+    </record>
+
+    <record id="project_project_view_kanban" model="ir.ui.view">
+        <field name="model">project.project</field>
+        <field name="inherit_id" ref="project.view_project_kanban" />
+        <field name="arch" type="xml">
+            <kanban position="attributes">
+                <attribute name="on_create" />
+            </kanban>
+        </field>
+    </record>
+
+
     <record id="project_project_form_view" model="ir.ui.view">
         <field name="name">project.project.form</field>
         <field name="model">project.project</field>
@@ -13,6 +37,7 @@
                             <field name="res_area_id" required="1"/>
                             <field name="res_area_type_id" required="1"
                                    options="{'no_create': True}"/>
+                            <field name="num_code" required="1" />
                             <field name="nonoperative" readonly="1"/>
                             <field name="date_start" string="Initial Date"/>
                             <field name="date" string="End Date"/>

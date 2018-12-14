@@ -16,6 +16,14 @@ class ProjectProject(models.Model):
         self.ensure_one()
         self.nonoperative = self.res_area_id.nonoperative
 
+    @api.onchange('res_area_type_id')
+    def _onchange_area_type(self):
+        if self.res_area_id and self.res_area_type_id:
+            count = self.search_count([
+                ('res_area_id', '=', self.res_area_id.id),
+                ('res_area_type_id', '=', self.res_area_type_id.id)])
+            self.num_code = count + 1
+
 
 class ResAreaType(models.Model):
     _inherit = 'res.area.type'
