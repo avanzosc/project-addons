@@ -48,7 +48,7 @@ class AccountAnalyticAccount(models.Model):
                 'code': '{}.{}.{}'.format(
                     self.env['res.area'].browse(area_id).code or '',
                     self.env['res.area.type'].browse(type_id).code or '',
-                    num_code)
+                    num_code or '')
             })
         return super(AccountAnalyticAccount, self).create(values)
 
