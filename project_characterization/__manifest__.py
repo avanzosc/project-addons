@@ -3,7 +3,7 @@
 
 {
     "name": "Project Characterization",
-    "version": "11.0.5.0.0",
+    "version": "11.0.6.0.0",
     "license": "AGPL-3",
     "depends": [
         "project",
