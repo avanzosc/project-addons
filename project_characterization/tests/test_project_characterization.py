@@ -41,11 +41,15 @@ class TestProjectCharacterization(common.TransactionCase):
         self.assertTrue(self.project.nonoperative)
 
     def test_create_new_project(self):
-        new_project = self.project_model.create({
+        vals = {
             'name': 'New Project',
             'res_area_id': self.area.id,
             'res_area_type_id': self.type.id,
-        })
+        }
+        new_project = self.project_model.new(vals)
+        new_project._onchange_area_type()
+        vals.update({'num_code': new_project.num_code})
+        new_project = self.project_model.create(vals)
         count = self.project_model.search_count([
             ('res_area_id', '=', self.area.id),
             ('res_area_type_id', '=', self.type.id),
