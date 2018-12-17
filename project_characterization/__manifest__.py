@@ -21,6 +21,7 @@
         "views/project_task_view.xml",
         "views/project_characterization_view.xml",
         "views/res_area_view.xml",
+        "views/res_config_settings_view.xml",
     ],
     "installable": True,
 }

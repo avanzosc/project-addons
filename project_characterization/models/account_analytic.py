@@ -27,11 +27,16 @@ class AccountAnalyticAccount(models.Model):
 
     @api.onchange('res_area_id', 'res_area_type_id')
     def _onchange_area_type(self):
-        if self.res_area_id and self.res_area_type_id:
-            count = self.search_count([
-                ('res_area_id', '=', self.res_area_id),
-                ('res_area_type_id', '=', self.res_area_type_id)])
-            self.num_code = count + 1
+        self.ensure_one()
+        get_param = self.env['ir.config_parameter'].sudo().get_param
+        manual_code = get_param('project_characterization.manual_code',
+                                'False').lower() == 'true'
+        if not manual_code:
+            if self.res_area_id and self.res_area_type_id:
+                count = self.search_count([
+                    ('res_area_id', '=', self.res_area_id.id),
+                    ('res_area_type_id', '=', self.res_area_type_id.id)])
+                self.num_code = count + 1
 
     @api.model
     def create(self, values):

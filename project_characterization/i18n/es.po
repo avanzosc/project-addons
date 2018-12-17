@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 11.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-11-21 11:25+0000\n"
-"PO-Revision-Date: 2018-11-21 11:25+0000\n"
+"POT-Creation-Date: 2018-12-17 14:20+0000\n"
+"PO-Revision-Date: 2018-12-17 14:20+0000\n"
 "Last-Translator: <>\n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -24,6 +24,11 @@ msgstr "Actividad"
 #: model:ir.ui.menu,name:project_characterization.res_activity_type_menuitem
 msgid "Activity Type"
 msgstr "Tipo de actividad"
+
+#. module: project_characterization
+#: model:ir.model.fields,field_description:project_characterization.field_res_config_settings_manual_code
+msgid "Add number manually to compose account code"
+msgstr "Add number manually to compose account code"
 
 #. module: project_characterization
 #: model:ir.model,name:project_characterization.model_account_analytic_account
@@ -103,7 +108,7 @@ msgstr "Creado por"
 #. module: project_characterization
 #: model:ir.model.fields,field_description:project_characterization.field_project_task_type2_create_date
 msgid "Created on"
-msgstr "Creado en"
+msgstr "Creado el"
 
 #. module: project_characterization
 #: model:ir.model.fields,field_description:project_characterization.field_project_task_type2_description
@@ -113,7 +118,7 @@ msgstr "Descripción"
 #. module: project_characterization
 #: model:ir.model.fields,field_description:project_characterization.field_project_task_type2_display_name
 msgid "Display Name"
-msgstr "Nombre mostrado"
+msgstr "Nombre a Mostrar"
 
 #. module: project_characterization
 #: model:ir.ui.view,arch_db:project_characterization.project_project_form_view
@@ -125,7 +130,7 @@ msgstr "Fecha de finalización"
 #. module: project_characterization
 #: model:ir.model.fields,field_description:project_characterization.field_project_task_type2_id
 msgid "ID"
-msgstr "ID (identificación)"
+msgstr "ID"
 
 #. module: project_characterization
 #: model:ir.ui.view,arch_db:project_characterization.project_project_form_view
@@ -154,6 +159,11 @@ msgid "Last Updated on"
 msgstr "Última actualización en"
 
 #. module: project_characterization
+#: model:ir.ui.view,arch_db:project_characterization.project_config_settings_form_view
+msgid "Manual Code for Analytic Accounts"
+msgstr "Manual Code for Analytic Accounts"
+
+#. module: project_characterization
 #: model:ir.model.fields,field_description:project_characterization.field_project_task_type2_name
 msgid "Name"
 msgstr "Nombre"
@@ -169,6 +179,12 @@ msgstr "Nombre"
 #: model:ir.ui.view,arch_db:project_characterization.view_account_analytic_account_search_inh_project_char
 msgid "Non Operative"
 msgstr "No operativo"
+
+#. module: project_characterization
+#: model:ir.model.fields,field_description:project_characterization.field_account_analytic_account_num_code
+#: model:ir.model.fields,field_description:project_characterization.field_project_project_num_code
+msgid "Number"
+msgstr "Número"
 
 #. module: project_characterization
 #: model:ir.ui.view,arch_db:project_characterization.account_analytic_line_search_view
@@ -217,6 +233,11 @@ msgid "Related Operative Area"
 msgstr "Areas Operativas"
 
 #. module: project_characterization
+#: model:ir.ui.view,arch_db:project_characterization.project_config_settings_form_view
+msgid "Select number to compose analytic account code"
+msgstr "Select number to compose analytic account code"
+
+#. module: project_characterization
 #: model:ir.ui.menu,name:project_characterization.res_structure_menuitem
 msgid "Structures"
 msgstr "Estructuras"
@@ -258,7 +279,17 @@ msgid "Teams"
 msgstr "Equipos"
 
 #. module: project_characterization
+#: model:ir.model.fields,help:project_characterization.field_res_config_settings_manual_code
+msgid "This will disable automatic number adding to create analytic account code in projects."
+msgstr "This will disable automatic number adding to create analytic account code in projects."
+
+#. module: project_characterization
 #: model:ir.model.fields,field_description:project_characterization.field_project_task_type_id_5576
 msgid "Type"
 msgstr "Tipo"
+
+#. module: project_characterization
+#: model:ir.model,name:project_characterization.model_res_config_settings
+msgid "res.config.settings"
+msgstr "res.config.settings"
 
