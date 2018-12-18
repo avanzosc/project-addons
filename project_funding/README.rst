@@ -8,6 +8,8 @@ Project Funding
 
 You can define how a project is going to be funded.
 
+Funding line account definition visible by configuration.
+
 Bug Tracker
 ===========
 

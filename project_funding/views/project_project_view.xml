@@ -4,15 +4,14 @@
         <field name="model">project.project</field>
         <field name="inherit_id" ref="project.edit_project" />
         <field name="arch" type="xml">
-            <page name="settings" position="after">
+            <notebook position="inside">
                 <page name="funding_sources" string="Funding Sources">
-                    <group>
-                        <label for="funding_ids" />
-                        <field name="funding_ids" context="{'default_project_id':active_id}"
-                               colspan="4" nolabel="1" />
+                    <group name="funding_sources" string="Funding Sources">
+                        <field name="funding_ids" context="{'default_project_id':active_id, 'active_test': False}"
+                               nolabel="1" />
                     </group>
                 </page>
-             </page>
+             </notebook>
         </field>
     </record>
 </odoo>

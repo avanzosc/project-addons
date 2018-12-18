@@ -4,14 +4,16 @@
         <field name="name">funding.source.project.tree</field>
         <field name="model">funding.source.project</field>
         <field name="arch" type="xml">
-            <tree string="Funding Source Project" editable="top">
+            <tree string="Funding Source Project" editable="top"
+                  decoration-muted="not active">
                 <field name="project_id" invisible="context.get('hide_project_id',True)" />
                 <field name="source_id" />
                 <field name="funding_date" />
                 <field name="year" />
                 <field name="yearly_amount" />
                 <field name="percentage" />
-                <field name="account_id" />
+                <field name="account_id" groups="project_funding.group_funding_account"/>
+                <field name="active" />
             </tree>
         </field>
     </record>
