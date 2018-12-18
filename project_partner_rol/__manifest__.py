@@ -2,7 +2,7 @@
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl).
 {
     "name": "Project Partner Rol",
-    "version": "11.0.2.2.0",
+    "version": "11.0.2.3.0",
     "license": "AGPL-3",
     "author":  "AvanzOSC",
     "website": "http://www.avanzosc.es",

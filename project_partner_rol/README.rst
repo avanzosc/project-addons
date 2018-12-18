@@ -12,7 +12,6 @@ can have different role in each project.
 
 This module makes also visible in project:
  * Location
- * Code from analytic account
 
 Bug Tracker
 ===========
