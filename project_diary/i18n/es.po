@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 11.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-12-18 11:44+0000\n"
-"PO-Revision-Date: 2018-12-18 11:44+0000\n"
+"POT-Creation-Date: 2018-12-18 17:50+0000\n"
+"PO-Revision-Date: 2018-12-18 17:50+0000\n"
 "Last-Translator: <>\n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -16,33 +16,80 @@ msgstr ""
 "Plural-Forms: \n"
 
 #. module: project_diary
-#: model:ir.model.fields,field_description:project_diary.field_project_project_comments
+#: model:ir.ui.view,arch_db:project_diary.project_diary_tree_view
+msgid "Author"
+msgstr "Autor"
+
+#. module: project_diary
+#: model:ir.model.fields,field_description:project_diary.field_project_diary_comments
 msgid "Coordinator comments"
 msgstr "Comentarios del coordinador"
 
 #. module: project_diary
-#: model:ir.model.fields,field_description:project_diary.field_project_project_diary_date
+#: model:ir.model.fields,field_description:project_diary.field_project_diary_diary_date
 msgid "Create_date"
 msgstr "Fecha_creación"
 
 #. module: project_diary
-#: model:ir.model.fields,field_description:project_diary.field_project_project_diary_user
+#: model:ir.model.fields,field_description:project_diary.field_project_diary_diary_user
 msgid "Create_user"
 msgstr "Usuario_creación"
 
 #. module: project_diary
+#: model:ir.model.fields,field_description:project_diary.field_project_diary_create_uid
+msgid "Created by"
+msgstr "Creado por"
+
+#. module: project_diary
+#: model:ir.model.fields,field_description:project_diary.field_project_diary_create_date
+msgid "Created on"
+msgstr "Creado en"
+
+#. module: project_diary
+#: model:ir.model.fields,field_description:project_diary.field_project_diary_display_name
+msgid "Display Name"
+msgstr "Nombre mostrado"
+
+#. module: project_diary
+#: model:ir.model.fields,field_description:project_diary.field_project_diary_id
+msgid "ID"
+msgstr "ID"
+
+#. module: project_diary
+#: model:ir.model.fields,field_description:project_diary.field_project_diary___last_update
+msgid "Last Modified on"
+msgstr "Última modificación en"
+
+#. module: project_diary
+#: model:ir.model.fields,field_description:project_diary.field_project_diary_write_uid
+msgid "Last Updated by"
+msgstr "Última actualización de"
+
+#. module: project_diary
+#: model:ir.model.fields,field_description:project_diary.field_project_diary_write_date
+msgid "Last Updated on"
+msgstr "Última actualización en"
+
+#. module: project_diary
 #: model:ir.model,name:project_diary.model_project_project
-#: model:ir.model.fields,field_description:project_diary.field_project_project_project_id
+#: model:ir.model.fields,field_description:project_diary.field_project_diary_project_id
 msgid "Project"
 msgstr "Proyecto"
 
 #. module: project_diary
+#: model:ir.model.fields,field_description:project_diary.field_project_project_diary_ids
 #: model:ir.ui.view,arch_db:project_diary.project_diary_form_view
+#: model:ir.ui.view,arch_db:project_diary.project_diary_tree_view
 msgid "Project Diary"
 msgstr "Diario de proyecto"
 
 #. module: project_diary
-#: model:ir.model.fields,field_description:project_diary.field_project_project_summ
+#: model:ir.model.fields,field_description:project_diary.field_project_diary_summ
 msgid "Summary"
 msgstr "Resumen"
+
+#. module: project_diary
+#: model:ir.model,name:project_diary.model_project_diary
+msgid "project.diary"
+msgstr "project.diary"
 

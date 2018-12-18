@@ -1,21 +1,46 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <odoo>
+<!--  VISTA DE LISTA -->
+    <record model="ir.ui.view" id="project_diary_tree_view">
+        <field name="name">project.diary.tree.view</field>
+        <field name="model">project.diary</field>
+        <field name="arch" type="xml">
+            <tree string="Project Diary" editable="top">
+                <field name="project_id" invisible="True"/>
+                <field name="create_uid" string="Author"/>
+                <field name="create_date"/>
+                <field name="summ" />
+                <field name="comments" />
+            </tree>
+        </field>
+    </record>
+
     <record model="ir.ui.view" id="project_diary_form_view">
         <field name="name">project.diary.form.view</field>
-        <field name="model">project.project</field>
-        <field name="inherit_id" ref="project.edit_project" />
+        <field name="model">project.diary</field>
         <field name="arch" type="xml">
-            <page name="settings" position="before">
-                <page name="diary_page" string="Project Diary">
+            <form>
+                <sheet>
                     <group>
                         <field name="project_id" invisible="True"/>
-                        <field name="diary_date" />
-                        <field name="diary_user" />
+                        <field name="create_uid" />
+                        <field name="create_date" />
                         <field name="summ" />
                         <field name="comments" />
                     </group>
-                </page>
-            </page>
+                </sheet>
+            </form>
         </field>
     </record>
+
+    <record id="project_diary_form_view_action" model="ir.actions.act_window">
+        <field name="name">Diary</field>
+        <field name="res_model">project.diary</field>
+        <field name="view_mode">form</field>
+    </record>
+
+     <menuitem id="project_diary_configuration_menuitem"
+              parent="project.menu_project_config"
+              name="Project Diary"
+              action="project_diary_form_view_action"/>
 </odoo>

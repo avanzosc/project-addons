@@ -5,10 +5,8 @@ from odoo import fields, models
 
 
 class ProjectDiary(models.Model):
-    _inherit = 'project.project'
+    _name = 'project.diary'
 
     project_id = fields.Many2one(comodel_name='project.project')
-    diary_date = fields.Datetime(string='Create_date')
-    diary_user = fields.Char(string='Create_user')
     summ = fields.Text(string='Summary')
     comments = fields.Text(string='Coordinator comments')

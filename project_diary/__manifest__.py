@@ -14,6 +14,7 @@
     "data": [
         "security/ir.model.access.csv",
         "views/project_diary_view.xml",
+        "views/project_project_view.xml",
     ],
     "installable": True,
 }
