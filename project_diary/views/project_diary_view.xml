@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <record model="ir.ui.view" id="project_diary_form_view">
+        <field name="name">project.diary.form.view</field>
+        <field name="model">project.project</field>
+        <field name="inherit_id" ref="project.edit_project" />
+        <field name="arch" type="xml">
+            <page name="settings" position="before">
+                <page name="diary_page" string="Project Diary">
+                    <group>
+                        <field name="project_id" invisible="True"/>
+                        <field name="diary_date" />
+                        <field name="diary_user" />
+                        <field name="summ" />
+                        <field name="comments" />
+                    </group>
+                </page>
+            </page>
+        </field>
+    </record>
+</odoo>
