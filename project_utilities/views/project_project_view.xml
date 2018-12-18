@@ -3,7 +3,11 @@
     <record id="project_project_form_view" model="ir.ui.view">
         <field name="model">project.project</field>
         <field name="inherit_id" ref="project.edit_project" />
+        <field name="groups_id" eval="[(4, ref('analytic.group_analytic_accounting'))]" />
         <field name="arch" type="xml">
+            <field name="partner_id" position="after">
+                <field name="code" string="Analytic Account Code" />
+            </field>
             <field name="analytic_account_id" position="attributes">
                 <attribute name="invisible">False</attribute>
                 <attribute name="class">oe_read_only</attribute>
@@ -13,6 +17,31 @@
                         class="oe_stat_button" icon="fa-book"
                         string="Analytic Account" />
             </div>
+        </field>
+    </record>
+
+    <record id="project_project_view_tree" model="ir.ui.view">
+        <field name="model">project.project</field>
+        <field name="inherit_id" ref="project.view_project"/>
+        <field name="groups_id" eval="[(4, ref('analytic.group_analytic_accounting'))]" />
+        <field name="arch" type="xml">
+            <field name="name" position="after">
+                <field name="code" string="Analytic Account Code" />
+            </field>
+        </field>
+    </record>
+
+    <record id="project_project_view_search" model="ir.ui.view">
+        <field name="model">project.project</field>
+        <field name="inherit_id" ref="project.view_project_project_filter"/>
+        <field name="groups_id" eval="[(4, ref('analytic.group_analytic_accounting'))]" />
+        <field name="arch" type="xml">
+            <field name="name" position="after">
+                <field name="code" string="Analytic Account Code"/>
+            </field>
+            <filter name="Partner" position="after">
+                <filter string="Analytic Account Code" name="analytic_account_code" context="{'group_by':'code'}"/>
+            </filter>
         </field>
     </record>
 </odoo>
