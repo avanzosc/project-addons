@@ -27,12 +27,12 @@
                    <group name="human_resources"
                           string="Human Resources">
                        <field name="human_resources_ids" nolabel="1"
-                              context="{'default_project_id': active_id}"/>
+                              context="{'default_project_id': active_id, 'active_test': False}"/>
                    </group>
                    <group name="material_resources"
                           string="Material Resources">
                        <field name="material_resources_ids" nolabel="1"
-                              context="{'default_project_id': active_id}"/>
+                              context="{'default_project_id': active_id, 'active_test': False}"/>
                    </group>
                </page>
             </page>

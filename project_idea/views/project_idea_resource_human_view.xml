@@ -5,11 +5,13 @@
         <field name="name">project.idea.resource.human.tree.view</field>
         <field name="model">project.idea.resource.human</field>
         <field name="arch" type="xml">
-            <tree string="Human Resources" editable="top">
+            <tree string="Human Resources" editable="top"
+                  decoration-muted="not active">
                 <field name="project_id" invisible="context.get('hide_project_id',True)"/>
                 <field name="human_department_id"/>
                 <field name="human_level"/>
                 <field name="human_intensity"/>
+                <field name="active" invisible="True" />
             </tree>
         </field>
     </record>
