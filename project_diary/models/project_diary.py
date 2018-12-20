@@ -7,6 +7,7 @@ from odoo import fields, models
 class ProjectDiary(models.Model):
     _name = 'project.diary'
 
-    project_id = fields.Many2one(comodel_name='project.project')
-    summ = fields.Text(string='Summary')
+    project_id = fields.Many2one(comodel_name='project.project',
+                                 required=True, ondelte='cascade')
+    summary = fields.Text(string='Summary')
     comments = fields.Text(string='Coordinator comments')
