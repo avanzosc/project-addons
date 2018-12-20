@@ -6,11 +6,11 @@
         <field name="model">project.project</field>
         <field name="inherit_id" ref="project.edit_project" />
         <field name="arch" type="xml">
-            <page name="settings" position="before">
+            <notebook position="inside">
                 <page name="goals" string="Goals">
                     <field name="goal_ids" />
                 </page>
-            </page>
+            </notebook>
         </field>
     </record>
 
