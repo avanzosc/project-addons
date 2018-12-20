@@ -20,6 +20,11 @@ class ProjectProject(models.Model):
         string='Version', readonly=True, copy=False, default=1)
     parent_id = fields.Many2one(
         comodel_name='project.project', string='Parent Project', copy=False)
+    parent_create_date = fields.Datetime(
+        string='Created on', related='parent_id.create_date')
+    parent_create_uid = fields.Many2one(
+        comodel_name='res.users', string='Created by',
+        related='parent_id.create_uid')
 
     def name_get(self):
         res = []
