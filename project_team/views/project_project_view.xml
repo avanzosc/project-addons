@@ -6,13 +6,13 @@
         <field name="priority">25</field>
         <field name="inherit_id" ref="project.edit_project"/>
         <field name="arch" type="xml">
-            <page name="settings" position="before">
+            <notebook position="inside">
                 <page name="project_team" string="Project Team">
                     <label for="member_ids" />
                     <field name="member_ids" nolabel="1"
                            context="{'default_project_id':active_id}" />
                 </page>
-             </page>
+             </notebook>
         </field>
     </record>
 
@@ -43,13 +43,6 @@
                     </group>
                 </group>
             </xpath>
-            <page name="settings" position="before">
-                <page name="project_team" string="Project Team">
-                    <label for="member_ids" />
-                    <field name="member_ids" nolabel="1"
-                           context="{'default_project_id':active_id}" />
-                </page>
-             </page>
         </field>
     </record>
 
