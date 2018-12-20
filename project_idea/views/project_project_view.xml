@@ -8,14 +8,16 @@
         <field name="model">project.project</field>
         <field name="inherit_id" ref="project.edit_project" />
         <field name="arch" type="xml">
-            <page name="settings" position="before">
+            <notebook position="inside">
                 <page name="idea_page" string="Technical Data">
                     <label for="spec_line_ids"/>
                     <field name="spec_line_ids" widget="many2many_tags"/>
                     <group name="ident_opt" string="Identification of the Opportunity">
                         <group name="idea_left">
-                            <field name="create_uid" string="Author" />
-                            <field name="create_date" string="Date" widget="date" />
+                            <field name="create_uid" string="Author"
+                                   readonly="True"/>
+                            <field name="create_date" string="Date" widget="date"
+                                   readonly="True"/>
                         </group>
                         <group name="idea_right">
                             <field name="idea_type"/>
@@ -35,7 +37,7 @@
                               context="{'default_project_id': active_id, 'active_test': False}"/>
                    </group>
                </page>
-            </page>
+            </notebook>
         </field>
     </record>
 </odoo>

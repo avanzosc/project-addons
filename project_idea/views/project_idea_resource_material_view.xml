@@ -8,9 +8,9 @@
             <tree string="Material Resources" editable="top"
                   decoration-muted="not active">
                 <field name="project_id" invisible="context.get('hide_project_id',True)"/>
-                <field name="product_type" readonly="True"/>
                 <field name="product_id"/>
                 <field name="product_name"/>
+                <field name="product_type" readonly="True"/>
                 <field name="product_intensity"/>
                 <field name="active" invisible="True" />
             </tree>
