@@ -5,12 +5,14 @@
         <field name="name">project.idea.resource.material.tree.view</field>
         <field name="model">project.idea.resource.material</field>
         <field name="arch" type="xml">
-            <tree string="Material Resources" editable="top">
+            <tree string="Material Resources" editable="top"
+                  decoration-muted="not active">
                 <field name="project_id" invisible="context.get('hide_project_id',True)"/>
                 <field name="product_id"/>
-                <field name="product_type" />
                 <field name="product_name"/>
+                <field name="product_type" readonly="True"/>
                 <field name="product_intensity"/>
+                <field name="active" invisible="True" />
             </tree>
         </field>
     </record>
@@ -27,7 +29,7 @@
                         </group>
                         <group name="mr_group_right">
                             <field name="product_id"/>
-                            <field name="product_type" />
+                            <field name="product_type" readonly="True"/>
                             <field name="product_intensity"/>
                         </group>
                     </group>
