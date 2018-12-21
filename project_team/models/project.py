@@ -24,7 +24,7 @@ class ProjectProject(models.Model):
 
     member_ids = fields.One2many(
         comodel_name='project.member', inverse_name='project_id',
-        string='Project Team')
+        string='Project Team', copy=True)
     planned_hours = fields.Float(
         string='Initially Planned Hours',
         help='Estimated time to do the task, usually set by the project '
@@ -80,6 +80,16 @@ class ProjectProject(models.Model):
                     str2datetime(project.task_date_end),
                     str2datetime(project.task_date_start)))
 
+    @api.multi
+    def write(self, vals):
+        res = super(ProjectProject, self).write(vals) if vals else True
+        if 'active' in vals:
+            # archiving/unarchiving a project does it on its members, too
+            self.with_context(active_test=False).mapped(
+                'member_ids').write(
+                {'active': vals['active']})
+        return res
+
 
 class ProjectMember(models.Model):
     _name = 'project.member'
@@ -107,6 +117,7 @@ class ProjectMember(models.Model):
     monthly_task_planned_hours = fields.Float(
         string='Monthly Hours',
         compute='_compute_monthly_task_planned_hours')
+    active = fields.Boolean(string='Active', default=True)
 
     @api.multi
     @api.constrains('planned_hours_percentage')

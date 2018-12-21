@@ -3,10 +3,12 @@
     <record id="project_member_tree_view" model="ir.ui.view">
         <field name="model">project.member</field>
         <field name="arch" type="xml">
-            <tree string="Project Members">
+            <tree string="Project Members" editable="top"
+                  decoration-muted="not active">
                 <field name="project_id" invisible="context.get('hide_project_id',True)" />
                 <field name="user_id" />
                 <field name="partner_id" />
+                <field name="active" invisible="True" />
             </tree>
         </field>
     </record>
@@ -62,6 +64,8 @@
             <search string="Search Members">
                 <field name="project_id" />
                 <field name="user_id" />
+                <filter name="inactive_filter" string="Archived"
+                        domain="[('active','=',False)]" />
                 <group expand="1" string="Group By">
                     <filter string="Project" name="group_project_id"
                             domain="[]" context="{'group_by':'project_id'}"/>
