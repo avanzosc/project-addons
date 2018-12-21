@@ -4,7 +4,7 @@
     <record model="ir.ui.view" id="project_opportunity_table_tree_view">
         <field name="model">project.opportunity.table</field>
         <field name="arch" type="xml">
-            <tree editable="top">
+            <tree editable="top" decoration-muted="not active">
                 <field name="project_id" invisible="context.get('hide_project_id',True)"/>
                 <field name="opportunity_id"/>
                 <field name="opportunity"/>
@@ -15,6 +15,7 @@
                 <field name="action"/>
                 <field name="responsible_id"/>
                 <field name="date_due"/>
+                <field name="active" invisible="True" />
             </tree>
         </field>
     </record>

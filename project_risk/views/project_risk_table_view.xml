@@ -5,7 +5,7 @@
         <field name="name">project.risk.table.tree.view</field>
         <field name="model">project.risk.table</field>
         <field name="arch" type="xml">
-            <tree editable="top">
+            <tree editable="top" decoration-muted="not active">
                 <field name="project_id" invisible="context.get('hide_project_id',True)"/>
                 <field name="risk_id"/>
                 <field name="risk"/>
@@ -19,6 +19,7 @@
                 <field name="responsible_id"/>
                 <field name="date_due"/>
                 <field name="level_surpassed" invisible="True"/>
+                <field name="active" invisible="True" />
             </tree>
         </field>
     </record>
