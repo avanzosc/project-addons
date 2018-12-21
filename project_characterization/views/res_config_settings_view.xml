@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <record id="project_config_settings_form_view" model="ir.ui.view">
+        <field name="model">res.config.settings</field>
+        <field name="inherit_id" ref="account.res_config_settings_view_form" />
+        <field name="arch" type="xml">
+            <div id="analytic" position="inside">
+                <div class="col-xs-12 col-md-6 o_setting_box" id="project_manual_code"
+                     title="Manual Code for Analytic Accounts">
+                    <div class="o_setting_left_pane">
+                        <field name="manual_code"/>
+                    </div>
+                    <div class="o_setting_right_pane">
+                        <label for="manual_code"/>
+                        <div class="text-muted">
+                            Select number to compose analytic account code
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </field>
+    </record>
+</odoo>

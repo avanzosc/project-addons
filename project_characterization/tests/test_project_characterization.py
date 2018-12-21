@@ -10,6 +10,7 @@ class TestProjectCharacterization(common.TransactionCase):
         super(TestProjectCharacterization, self).setUp()
         res_partner_model = self.env['res.partner']
         self.project_model = self.env['project.project']
+        self.analytic_model = self.env['account.analytic.account']
         area_model = self.env['res.area']
         area_type_model = self.env['res.area.type']
         self.partner = res_partner_model.create({
@@ -27,6 +28,7 @@ class TestProjectCharacterization(common.TransactionCase):
             'code': 'TAT',
             'name': 'Test Area Type',
         })
+        self.setting = self.env['res.config.settings'].create({})
 
     def test_area_nonoperative(self):
         self.assertEquals(
@@ -41,11 +43,18 @@ class TestProjectCharacterization(common.TransactionCase):
         self.assertTrue(self.project.nonoperative)
 
     def test_create_new_project(self):
-        new_project = self.project_model.create({
+        self.setting.manual_code = False
+        self.setting.set_values()
+        self.assertFalse(self.setting.manual_code)
+        vals = {
             'name': 'New Project',
             'res_area_id': self.area.id,
             'res_area_type_id': self.type.id,
-        })
+        }
+        new_project = self.project_model.new(vals)
+        new_project._onchange_area_type()
+        vals.update({'num_code': new_project.num_code})
+        new_project = self.project_model.create(vals)
         count = self.project_model.search_count([
             ('res_area_id', '=', self.area.id),
             ('res_area_type_id', '=', self.type.id),
@@ -53,3 +62,62 @@ class TestProjectCharacterization(common.TransactionCase):
         self.assertEquals(
             new_project.code,
             '{}.{}.{}'.format(self.area.code, self.type.code, count))
+
+    def test_create_new_account(self):
+        self.setting.manual_code = False
+        self.setting.set_values()
+        self.assertFalse(self.setting.manual_code)
+        vals = {
+            'name': 'New Project',
+            'res_area_id': self.area.id,
+            'res_area_type_id': self.type.id,
+        }
+        new_account = self.analytic_model.new(vals)
+        new_account._onchange_area_type()
+        vals.update({'num_code': new_account.num_code})
+        new_account = self.analytic_model.create(vals)
+        count = self.analytic_model.search_count([
+            ('res_area_id', '=', self.area.id),
+            ('res_area_type_id', '=', self.type.id),
+        ])
+        self.assertEquals(
+            new_account.code,
+            '{}.{}.{}'.format(self.area.code, self.type.code, count))
+
+    def test_create_new_project_manual(self):
+        self.setting.manual_code = True
+        self.setting.set_values()
+        self.assertTrue(self.setting.manual_code)
+        vals = {
+            'name': 'New Project',
+            'res_area_id': self.area.id,
+            'res_area_type_id': self.type.id,
+        }
+        new_project = self.project_model.new(vals)
+        new_project._onchange_area_type()
+        self.assertFalse(new_project.num_code)
+        vals.update({'num_code': '10'})
+        new_project = self.project_model.create(vals)
+        self.assertEquals(
+            new_project.code,
+            '{}.{}.{}'.format(self.area.code, self.type.code,
+                              new_project.num_code))
+
+    def test_create_new_account_manual(self):
+        self.setting.manual_code = True
+        self.setting.set_values()
+        self.assertTrue(self.setting.manual_code)
+        vals = {
+            'name': 'New Project',
+            'res_area_id': self.area.id,
+            'res_area_type_id': self.type.id,
+        }
+        new_account = self.analytic_model.new(vals)
+        new_account._onchange_area_type()
+        self.assertFalse(new_account.num_code)
+        vals.update({'num_code': '10'})
+        new_account = self.analytic_model.create(vals)
+        self.assertEquals(
+            new_account.code,
+            '{}.{}.{}'.format(self.area.code, self.type.code,
+                              new_account.num_code))
