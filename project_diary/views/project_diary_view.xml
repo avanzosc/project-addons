@@ -5,12 +5,14 @@
         <field name="name">project.diary.tree.view</field>
         <field name="model">project.diary</field>
         <field name="arch" type="xml">
-            <tree string="Project Diary" editable="top">
+            <tree string="Project Diary" editable="top"
+                  decoration-muted="not active">
                 <field name="project_id" invisible="context.get('hide_project_id',True)"/>
-                <field name="create_uid" string="Author"/>
-                <field name="create_date"/>
+                <field name="create_date" readonly="True" widget="date"/>
+                <field name="create_uid" string="Author" readonly="True"/>
                 <field name="summary" />
                 <field name="comments" />
+                <field name="active" invisible="True" />
             </tree>
         </field>
     </record>
@@ -23,8 +25,8 @@
                 <sheet>
                     <group>
                         <field name="project_id" invisible="context.get('hide_project_id',True)"/>
-                        <field name="create_uid" />
-                        <field name="create_date" />
+                        <field name="create_uid" readonly="True" />
+                        <field name="create_date" string="Author" readonly="True" />
                         <field name="summary" />
                         <field name="comments" />
                     </group>
