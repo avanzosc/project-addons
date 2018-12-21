@@ -4,7 +4,7 @@
         <field name="model">project.project</field>
         <field name="inherit_id" ref="project.edit_project" />
         <field name="arch" type="xml">
-            <page name="settings" position="before">
+            <notebook position="inside">
                 <page name="tech_def" string="Technical Definition">
                     <group>
                         <field name='customer_goal' invisible="True"/>
@@ -14,7 +14,7 @@
                         <field name='task_description' invisible="True"/>
                     </group>
                 </page>
-            </page>
+            </notebook>
         </field>
     </record>
 </odoo>
