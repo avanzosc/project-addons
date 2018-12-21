@@ -161,7 +161,7 @@ msgstr "Última actualización en"
 #. module: project_characterization
 #: model:ir.ui.view,arch_db:project_characterization.project_config_settings_form_view
 msgid "Manual Code for Analytic Accounts"
-msgstr "Manual Code for Analytic Accounts"
+msgstr "Código manual para cuenta analítica"
 
 #. module: project_characterization
 #: model:ir.model.fields,field_description:project_characterization.field_project_task_type2_name
