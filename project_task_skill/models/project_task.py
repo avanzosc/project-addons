@@ -27,7 +27,7 @@ class ProjectTask(models.Model):
     @api.depends('skill_id', 'skill_level')
     def _compute_possible_user_ids(self):
         employee_skill_model = self.env['hr.employee.skill']
-        for task in self:
+        for task in self.filtered(lambda t: t.skill_id):
             employee_by_skill = employee_skill_model.search([
                 ('skill_id', '=', task.skill_id.id),
                 ('level', '=', task.skill_level),
@@ -38,9 +38,9 @@ class ProjectTask(models.Model):
     @api.onchange('parent_skill_id')
     def _onchange_parent_skill_id(self):
         for task in self:
-            task.skill_id = (
-                False if task.skill_id.parent_id != task.parent_skill_id else
-                task.skill_id)
+            if task.skill_id.parent_id != task.parent_skill_id:
+                task.skill_id = False
+                task.skill_level = '0'
 
     @api.onchange('skill_id', 'skill_level')
     def _onchange_skill_and_level(self):
