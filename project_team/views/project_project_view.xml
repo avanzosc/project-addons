@@ -10,7 +10,7 @@
                 <page name="project_team" string="Project Team">
                     <label for="member_ids" />
                     <field name="member_ids" nolabel="1"
-                           context="{'default_project_id':active_id}" />
+                           context="{'default_project_id':active_id, 'active_test': False}" />
                 </page>
              </notebook>
         </field>
