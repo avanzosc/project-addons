@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <record id="account_analytic_billing_plan_tree_view" model="ir.ui.view">
+        <field name="model">account.analytic.billing.plan</field>
+        <field name="inherit_id" ref="account_analytic_billing_plan.account_analytic_billing_plan_tree_view" />
+        <field name="arch" type="xml">
+            <field name="analytic_account_id" position="after">
+                <field name="project_ids" invisible="True" />
+                <field name="milestone_task_id" />
+                <field name="task_stage_id" />
+            </field>
+        </field>
+    </record>
+
+    <record id="account_analytic_billing_plan_form_view" model="ir.ui.view">
+        <field name="model">account.analytic.billing.plan</field>
+        <field name="inherit_id" ref="account_analytic_billing_plan.account_analytic_billing_plan_form_view" />
+        <field name="arch" type="xml">
+            <field name="analytic_account_id" position="after">
+                <field name="project_ids" invisible="True" />
+                <field name="milestone_task_id" />
+                <field name="task_stage_id" />
+            </field>
+        </field>
+    </record>
+
+    <record id="account_analytic_billing_plan_search_view" model="ir.ui.view">
+        <field name="model">account.analytic.billing.plan</field>
+        <field name="inherit_id" ref="account_analytic_billing_plan.account_analytic_billing_plan_search_view" />
+        <field name="arch" type="xml">
+            <field name="analytic_account_id" position="after">
+                <field name="milestone_task_id" />
+                <field name="task_stage_id" />
+            </field>
+            <filter name="analytic_account_group" position="after">
+                <filter string="Milestone Task" name="milestone_task_group"
+                        context="{'group_by':'milestone_task_id'}"/>
+                <filter string="Milestone Task Stage" name="milestone_task_stage_group"
+                        context="{'group_by':'task_stage_id'}"/>
+            </filter>
+        </field>
+    </record>
+</odoo>
