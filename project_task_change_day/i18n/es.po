@@ -1,0 +1,88 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+#	* project_task_change_day
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 11.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2018-12-27 07:52+0000\n"
+"PO-Revision-Date: 2018-12-27 07:52+0000\n"
+"Last-Translator: <>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: project_task_change_day
+#: model:ir.ui.view,arch_db:project_task_change_day.wiz_change_project_task_date_form
+msgid "Cancel"
+msgstr "Cancelar"
+
+#. module: project_task_change_day
+#: model:ir.actions.act_window,name:project_task_change_day.action_change_project_task_date
+#: model:ir.ui.view,arch_db:project_task_change_day.wiz_change_project_task_date_form
+msgid "Change task date"
+msgstr "Cambiar fecha tarea"
+
+#. module: project_task_change_day
+#: model:ir.model.fields,field_description:project_task_change_day.field_wiz_change_project_task_date_create_uid
+msgid "Created by"
+msgstr "Creado por"
+
+#. module: project_task_change_day
+#: model:ir.model.fields,field_description:project_task_change_day.field_wiz_change_project_task_date_create_date
+msgid "Created on"
+msgstr "Creado en"
+
+#. module: project_task_change_day
+#: model:ir.model.fields,field_description:project_task_change_day.field_wiz_change_project_task_date_days
+msgid "Days"
+msgstr "Días"
+
+#. module: project_task_change_day
+#: model:ir.model.fields,field_description:project_task_change_day.field_wiz_change_project_task_date_display_name
+msgid "Display Name"
+msgstr "Nombre mostrado"
+
+#. module: project_task_change_day
+#: model:ir.ui.view,arch_db:project_task_change_day.wiz_change_project_task_date_form
+msgid "Enter days to add or subtract"
+msgstr "Introduzca días a sumar o restar"
+
+#. module: project_task_change_day
+#: model:ir.model.fields,field_description:project_task_change_day.field_wiz_change_project_task_date_id
+msgid "ID"
+msgstr "ID (identificación)"
+
+#. module: project_task_change_day
+#: model:ir.model.fields,field_description:project_task_change_day.field_wiz_change_project_task_date___last_update
+msgid "Last Modified on"
+msgstr "Última modificación en"
+
+#. module: project_task_change_day
+#: model:ir.model.fields,field_description:project_task_change_day.field_wiz_change_project_task_date_write_uid
+msgid "Last Updated by"
+msgstr "Última actualización de"
+
+#. module: project_task_change_day
+#: model:ir.model.fields,field_description:project_task_change_day.field_wiz_change_project_task_date_write_date
+msgid "Last Updated on"
+msgstr "Última actualización en"
+
+#. module: project_task_change_day
+#: model:ir.model.fields,help:project_task_change_day.field_wiz_change_project_task_date_days
+msgid "Positive sum days, negative subtraction days"
+msgstr "Positivo suma días, negativo resta días"
+
+#. module: project_task_change_day
+#: model:ir.ui.view,arch_db:project_task_change_day.wiz_change_project_task_date_form
+msgid "or"
+msgstr "o"
+
+#. module: project_task_change_day
+#: model:ir.model,name:project_task_change_day.model_wiz_change_project_task_date
+msgid "wiz.change.project.task.date"
+msgstr "wiz.change.project.task.date"
+
