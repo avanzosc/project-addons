@@ -13,11 +13,16 @@ class ProjectTaskResume(models.Model):
 
     project_id = fields.Many2one(
         comodel_name='project.project', string='Project')
+    project_date_start = fields.Date(string='Start Date')
+    project_date = fields.Date(string='Expiration Date')
     user_id = fields.Many2one(comodel_name='res.users', string='User')
     planned_hours = fields.Float(string='Initially Planned Hours')
     effective_hours = fields.Float(string='Hours Spent')
+    planned_monthly_hours = fields.Float(string='Planned Monthly Hours')
     planned_cost = fields.Float(string='Estimated Cost')
     effective_cost = fields.Float(string='Real Cost')
+    date_start = fields.Datetime(string='Starting Date')
+    date_end = fields.Datetime(string='Ending Date')
 
     @api.model_cr
     def init(self):
@@ -26,16 +31,23 @@ class ProjectTaskResume(models.Model):
         CREATE or REPLACE VIEW %s as (
             SELECT
               row_number() OVER () AS id,
-              project_id,
-              user_id,
-              SUM(planned_hours) as planned_hours,
-              SUM(effective_hours) as effective_hours,
-              SUM(planned_cost) as planned_cost,
-              SUM(effective_cost) as effective_cost
+              task.project_id,
+              MIN(project.date_start) as project_date_start,
+              MAX(project.date) as project_date,
+              task.user_id,
+              SUM(task.planned_hours) as planned_hours,
+              SUM(task.effective_hours) as effective_hours,
+              SUM(task.planned_monthly_hours) as planned_monthly_hours,
+              SUM(task.planned_cost) as planned_cost,
+              SUM(task.effective_cost) as effective_cost,
+              MIN(task.date_start) as date_start,
+              MAX(task.date_end) as date_end
             FROM
-              project_task
+              project_task as task
+            INNER JOIN
+              project_project as project ON task.project_id = project.id
             GROUP BY
-              project_id,
-              user_id
+              task.project_id,
+              task.user_id
         )""" % (
             self._table))

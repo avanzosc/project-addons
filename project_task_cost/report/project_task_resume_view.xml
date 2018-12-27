@@ -7,9 +7,14 @@
                 <sheet>
                     <group name="main">
                         <field name="project_id" invisible="context.get('hide_project_id',True)"/>
+                        <field name="project_date_start" />
+                        <field name="project_date" />
                         <field name="user_id" />
+                        <field name="date_start" />
+                        <field name="date_end" />
                         <field name="planned_hours" widget="float_time"/>
                         <field name="effective_hours" widget="float_time"/>
+                        <field name="planned_monthly_hours" widget="float_time"/>
                     </group>
                 </sheet>
             </form>
@@ -21,7 +26,7 @@
         <field name="inherit_id" ref="project_task_cost.project_task_resume_form_view" />
         <field name="groups_id" eval="[(4, ref('project_task_cost.group_project_coordinator'))]" />
         <field name="arch" type="xml">
-            <field name="effective_hours" position="after">
+            <field name="planned_monthly_hours" position="after">
                 <field name="planned_cost" />
                 <field name="effective_cost" />
             </field>
@@ -33,9 +38,14 @@
         <field name="arch" type="xml">
             <tree>
                 <field name="project_id" invisible="context.get('hide_project_id',True)" />
+                <field name="project_date_start" />
+                <field name="project_date" />
                 <field name="user_id" />
+                <field name="date_start" />
+                <field name="date_end" />
                 <field name="planned_hours" widget="float_time" />
                 <field name="effective_hours" widget="float_time" />
+                <field name="planned_monthly_hours" widget="float_time"/>
             </tree>
         </field>
     </record>
@@ -45,7 +55,7 @@
         <field name="inherit_id" ref="project_task_cost.project_task_resume_tree_view" />
         <field name="groups_id" eval="[(4, ref('project_task_cost.group_project_coordinator'))]" />
         <field name="arch" type="xml">
-            <field name="effective_hours" position="after">
+            <field name="planned_monthly_hours" position="after">
                 <field name="planned_cost" />
                 <field name="effective_cost" />
             </field>

@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 11.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-12-27 14:45+0000\n"
-"PO-Revision-Date: 2018-12-27 14:45+0000\n"
+"POT-Creation-Date: 2018-12-27 16:59+0000\n"
+"PO-Revision-Date: 2018-12-27 16:59+0000\n"
 "Last-Translator: <>\n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -36,10 +36,20 @@ msgid "Employee Cost"
 msgstr "Coste de empleado"
 
 #. module: project_task_cost
+#: model:ir.model.fields,field_description:project_task_cost.field_project_task_resume_date_end
+msgid "Ending Date"
+msgstr "Fecha de fin"
+
+#. module: project_task_cost
 #: model:ir.model.fields,field_description:project_task_cost.field_project_task_planned_cost
 #: model:ir.model.fields,field_description:project_task_cost.field_project_task_resume_planned_cost
 msgid "Estimated Cost"
 msgstr "Coste estimado"
+
+#. module: project_task_cost
+#: model:ir.model.fields,field_description:project_task_cost.field_project_task_resume_project_date
+msgid "Expiration Date"
+msgstr "Fecha de caducidad"
 
 #. module: project_task_cost
 #: model:ir.model.fields,field_description:project_task_cost.field_project_task_resume_effective_hours
@@ -63,6 +73,7 @@ msgstr "Última modificación en"
 
 #. module: project_task_cost
 #: model:ir.model.fields,field_description:project_task_cost.field_project_task_planned_monthly_hours
+#: model:ir.model.fields,field_description:project_task_cost.field_project_task_resume_planned_monthly_hours
 msgid "Planned Monthly Hours"
 msgstr "Horas planificadas por mes"
 
@@ -95,6 +106,16 @@ msgstr "Coste real"
 #: model:ir.model.fields,field_description:project_task_cost.field_project_project_resume_ids
 msgid "Resume"
 msgstr "Resumen"
+
+#. module: project_task_cost
+#: model:ir.model.fields,field_description:project_task_cost.field_project_task_resume_project_date_start
+msgid "Start Date"
+msgstr "Fecha de inicio"
+
+#. module: project_task_cost
+#: model:ir.model.fields,field_description:project_task_cost.field_project_task_resume_date_start
+msgid "Starting Date"
+msgstr "Fecha de inicio"
 
 #. module: project_task_cost
 #: model:ir.model,name:project_task_cost.model_project_task
