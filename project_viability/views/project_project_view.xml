@@ -5,7 +5,7 @@
         <field name="inherit_id" ref="project.edit_project" />
         <field name="arch" type="xml">
             <notebook position="inside">
-                <page string="Viability">
+                <page string="Viability" name="viability_page">
                     <group name="viability_template"
                          groups="project_viability.enable_viability_template_group">
                         <field name="viability_templ_id" />
