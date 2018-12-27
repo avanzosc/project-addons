@@ -11,7 +11,8 @@
             <notebook position="inside">
                 <page name="idea_page" string="Technical Data">
                     <label for="spec_line_ids"/>
-                    <field name="spec_line_ids" widget="many2many_tags"/>
+                    <field name="spec_line_ids" widget="many2many_tags"
+                           options="{'no_open': True, 'no_create_edit': True}"/>
                     <group name="ident_opt" string="Identification of the Opportunity">
                         <group name="idea_left">
                             <field name="create_uid" string="Author"
