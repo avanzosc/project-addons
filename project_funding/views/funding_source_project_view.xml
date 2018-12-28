@@ -13,7 +13,7 @@
                 <field name="yearly_amount" />
                 <field name="percentage" />
                 <field name="account_id" groups="project_funding.group_funding_account"/>
-                <field name="active" />
+                <field name="active" invisible="True" />
             </tree>
         </field>
     </record>
