@@ -1,24 +1,27 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <odoo>
-    <record model="ir.ui.view" id="wiz_change_project_task_date_form">
-        <field name="name">wiz.change.project.task.date.form</field>
+    <record model="ir.ui.view" id="wiz_change_project_task_date_view_form">
         <field name="model">wiz.change.project.task.date</field>
         <field name="arch" type="xml">
-            <form string="Change task date" version="7.0">
+            <form string="Change task date">
                 <group string="Enter days to add or subtract">
                     <field name="days"/>
                 </group>
                 <footer>
-                    <button name="change_project_task_date" type="object"
-                        string="Change task date" class="oe_highlight" />
+                    <button name="button_change_project_task_date" type="object"
+                            string="Change task date" class="oe_highlight" />
                     or
                     <button string="Cancel" class="oe_link" special="cancel"/>
                 </footer>
             </form>
         </field>
     </record>
+
     <act_window id="action_change_project_task_date"
-        key2="client_action_multi" name="Change task date"
-        res_model="wiz.change.project.task.date" src_model="project.task"
-        view_mode="form" target="new" />
+                key2="client_action_multi"
+                name="Change task date"
+                res_model="wiz.change.project.task.date"
+                src_model="project.task"
+                view_mode="form"
+                target="new" />
 </odoo>

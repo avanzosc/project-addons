@@ -30,8 +30,10 @@ class TestProjectUtilities(common.TransactionCase):
 
     def test_project_task_change_day(self):
         task = self.project.task_ids[0]
-        wiz = self.wiz_obj.create({'days': 5})
-        wiz.with_context(active_ids=[task.id]).change_project_task_date()
+        wiz = self.wiz_obj.with_context(active_ids=[task.id]).create({
+            'days': 5,
+        })
+        wiz.button_change_project_task_date()
         date_start = "{}-01-06 08:00:00".format(
             str2date(fields.Date.today()).year)
         date_end = "{}-01-20 20:00:00".format(
@@ -41,7 +43,7 @@ class TestProjectUtilities(common.TransactionCase):
         self.assertEqual(
             task.date_end, date_end, 'BAD date end(1)')
         wiz.days = -2
-        wiz.with_context(active_ids=[task.id]).change_project_task_date()
+        wiz.button_change_project_task_date()
         date_start = "{}-01-04 08:00:00".format(
             str2date(fields.Date.today()).year)
         date_end = "{}-01-18 20:00:00".format(
