@@ -11,8 +11,10 @@ project is created it will create a budget for current year with:
 
 * 12 lines of outgoings (one per month)
 * 12 lines of incomings (one per month)
-* 1 line on december 30th for outgoings
-* 1 line on december 30th for incomings
+* And after checking it on project settings:
+
+  * 1 line on december 30th for outgoings
+  * 1 line on december 30th for incomings
 
 It also allows creating those 26 budgetary lines for a budget with project
 using a button.
