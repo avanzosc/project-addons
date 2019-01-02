@@ -3,7 +3,7 @@
 
 {
     "name": "Project Bugdet",
-    "version": "11.0.3.4.2",
+    "version": "11.0.4.0.0",
     "category": "Project",
     "license": "AGPL-3",
     "author": "AvanzOSC",

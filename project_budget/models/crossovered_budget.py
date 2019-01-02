@@ -35,23 +35,26 @@ class CrossoveredBudget(models.Model):
                 'analytic_account_id':
                 budget.project_id.analytic_account_id.id,
             })
-            budget_posts = budget.budget_tmpl_id.budget_post_ids
-            vals = {
-                'analytic_account_id':
-                budget.project_id.analytic_account_id.id,
-                'crossovered_budget_id': budget.id,
-                'planned_amount': 0.0,
-            }
-            ds = from_string(budget.date_from)
-            final_date = ds.replace(day=30, month=12)
-            if to_string(final_date) < budget.date_to:
-                for budget_post in budget_posts:
-                    vals.update({
-                        'date_from': to_string(final_date),
-                        'date_to': to_string(final_date),
-                        'general_budget_id': budget_post.id,
-                    })
-                    budget_line_obj.create(vals)
+            get_param = self.env['ir.config_parameter'].sudo().get_param
+            if get_param('project_budget.summary_line',
+                         'False').lower() == 'true':
+                budget_posts = budget.budget_tmpl_id.budget_post_ids
+                vals = {
+                    'analytic_account_id':
+                    budget.project_id.analytic_account_id.id,
+                    'crossovered_budget_id': budget.id,
+                    'planned_amount': 0.0,
+                }
+                ds = from_string(budget.date_from)
+                final_date = ds.replace(day=30, month=12)
+                if to_string(final_date) < budget.date_to:
+                    for budget_post in budget_posts:
+                        vals.update({
+                            'date_from': to_string(final_date),
+                            'date_to': to_string(final_date),
+                            'general_budget_id': budget_post.id,
+                        })
+                        budget_line_obj.create(vals)
         return True
 
     @api.multi
