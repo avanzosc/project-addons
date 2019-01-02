@@ -14,9 +14,11 @@ class TestProjectBudget(common.SavepointCase):
     def setUpClass(cls):
         super(TestProjectBudget, cls).setUpClass()
         cls.project_model = cls.env['project.project']
-        cls.env['ir.config_parameter'].sudo().set_param(
+        set_param = cls.env['ir.config_parameter'].sudo().set_param
+        set_param(
             'account_budget_template.budget_template_id',
             cls.env.ref('project_budget.project_budget_template').id)
+        set_param('project_budget.summary_line', True)
         cls.project = cls.project_model.create({
             'name': 'New Project',
         })
