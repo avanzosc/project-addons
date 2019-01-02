@@ -37,9 +37,12 @@ class ProjectProject(models.Model):
     planned_date_start = fields.Datetime()
     planned_date_end = fields.Datetime()
     planned_date_margin = fields.Float(compute='_compute_planned_dates')
-    task_date_start = fields.Datetime(compute='_compute_task_dates')
-    task_date_end = fields.Datetime(compute='_compute_task_dates')
-    task_date_margin = fields.Float(compute='_compute_task_dates')
+    task_date_start = fields.Datetime(
+        compute='_compute_task_dates', store=True)
+    task_date_end = fields.Datetime(
+        compute='_compute_task_dates', store=True)
+    task_date_margin = fields.Float(
+        compute='_compute_task_dates', store=True)
 
     @api.multi
     def _compute_task_planned_hours(self):
@@ -60,7 +63,7 @@ class ProjectProject(models.Model):
                     str2datetime(project.planned_date_end),
                     str2datetime(project.planned_date_start)))
 
-    @api.multi
+    @api.depends('task_ids', 'task_ids.date_start', 'task_ids.date_end')
     def _compute_task_dates(self):
         tasks = self.env['project.task'].search([
             ('project_id', 'in', self.ids)])

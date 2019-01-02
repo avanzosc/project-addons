@@ -3,7 +3,7 @@
 
 {
     "name": "Project Team",
-    "version": "11.0.1.2.0",
+    "version": "11.0.1.3.0",
     "category": "Project",
     "license": "AGPL-3",
     "author": "AvanzOSC",
