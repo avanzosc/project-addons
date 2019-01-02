@@ -4,11 +4,12 @@
         <field name="name">project.participant.tree</field>
         <field name="model">project.participant</field>
         <field name="arch" type="xml">
-            <tree string="Project participants">
+            <tree string="Project participants" decoration-muted="not active">
                 <field name="project_id" invisible="context.get('hide_project_id',True)" />
                 <field name="partner_id" />
                 <field name="partner_user_ids" widget="many2many_tags"/>
                 <field name="rol_id"  options="{'no_create_edit': True}" />
+                <field name="active" invisible="True" />
             </tree>
         </field>
     </record>

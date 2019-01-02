@@ -1,6 +1,6 @@
 # Copyright 2018 Alfredo de la Fuente <alfredodelafuente@avanzosc.es>
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl).
-from odoo import fields, models
+from odoo import api, fields, models
 
 
 class ProjectProject(models.Model):
@@ -10,7 +10,17 @@ class ProjectProject(models.Model):
         comodel_name='res.partner', string='Location')
     participant_ids = fields.One2many(
         comodel_name='project.participant',
-        inverse_name='project_id', string='Participants')
+        inverse_name='project_id', string='Participants', copy=True)
+
+    @api.multi
+    def write(self, vals):
+        res = super(ProjectProject, self).write(vals) if vals else True
+        if 'active' in vals:
+            # archiving/unarchiving a project does it on its participants, too
+            self.with_context(active_test=False).mapped(
+                'participant_ids').write(
+                {'active': vals['active']})
+        return res
 
 
 class ProjectParticipant(models.Model):
@@ -27,6 +37,7 @@ class ProjectParticipant(models.Model):
         related='partner_id.user_ids')
     rol_id = fields.Many2one(
         comodel_name='project.participant.rol', string='Role')
+    active = fields.Boolean(string='Active', default=True)
 
 
 class ProjectParticipantRol(models.Model):
