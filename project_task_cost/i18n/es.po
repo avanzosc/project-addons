@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 11.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-12-27 14:45+0000\n"
-"PO-Revision-Date: 2018-12-27 14:45+0000\n"
+"POT-Creation-Date: 2018-12-28 14:02+0000\n"
+"PO-Revision-Date: 2018-12-28 14:02+0000\n"
 "Last-Translator: <>\n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -36,6 +36,11 @@ msgid "Employee Cost"
 msgstr "Coste de empleado"
 
 #. module: project_task_cost
+#: model:ir.model.fields,field_description:project_task_cost.field_project_task_resume_date_end
+msgid "Ending Date"
+msgstr "Fecha de fin"
+
+#. module: project_task_cost
 #: model:ir.model.fields,field_description:project_task_cost.field_project_task_planned_cost
 #: model:ir.model.fields,field_description:project_task_cost.field_project_task_resume_planned_cost
 msgid "Estimated Cost"
@@ -49,7 +54,7 @@ msgstr "Horas dedicadas"
 #. module: project_task_cost
 #: model:ir.model.fields,field_description:project_task_cost.field_project_task_resume_id
 msgid "ID"
-msgstr "ID"
+msgstr "ID (identificación)"
 
 #. module: project_task_cost
 #: model:ir.model.fields,field_description:project_task_cost.field_project_task_resume_planned_hours
@@ -63,6 +68,7 @@ msgstr "Última modificación en"
 
 #. module: project_task_cost
 #: model:ir.model.fields,field_description:project_task_cost.field_project_task_planned_monthly_hours
+#: model:ir.model.fields,field_description:project_task_cost.field_project_task_resume_planned_monthly_hours
 msgid "Planned Monthly Hours"
 msgstr "Horas planificadas por mes"
 
@@ -97,6 +103,11 @@ msgid "Resume"
 msgstr "Resumen"
 
 #. module: project_task_cost
+#: model:ir.model.fields,field_description:project_task_cost.field_project_task_resume_date_start
+msgid "Starting Date"
+msgstr "Fecha de inicio"
+
+#. module: project_task_cost
 #: model:ir.model,name:project_task_cost.model_project_task
 msgid "Task"
 msgstr "Tarea"
@@ -107,9 +118,34 @@ msgid "Total Cost"
 msgstr "Coste total"
 
 #. module: project_task_cost
+#: model:ir.ui.view,arch_db:project_task_cost.project_task_resume_cost_view_tree
+msgid "Total Estimated Cost"
+msgstr "Total coste estimado"
+
+#. module: project_task_cost
+#: model:ir.ui.view,arch_db:project_task_cost.project_task_resume_tree_view
+msgid "Total Hours Spent"
+msgstr "Total horas dedicadas"
+
+#. module: project_task_cost
 #: model:ir.ui.view,arch_db:project_task_cost.project_task_cost_tree_view
 msgid "Total Planned Cost"
 msgstr "Coste total estimado"
+
+#. module: project_task_cost
+#: model:ir.ui.view,arch_db:project_task_cost.project_task_resume_tree_view
+msgid "Total Planned Hours"
+msgstr "Total horas iniciales planificadas"
+
+#. module: project_task_cost
+#: model:ir.ui.view,arch_db:project_task_cost.project_task_resume_tree_view
+msgid "Total Planned Monthly Hours"
+msgstr "Total horas planificadas por mes"
+
+#. module: project_task_cost
+#: model:ir.ui.view,arch_db:project_task_cost.project_task_resume_cost_view_tree
+msgid "Total Real Cost"
+msgstr "Total coste real"
 
 #. module: project_task_cost
 #: model:ir.model.fields,field_description:project_task_cost.field_project_task_resume_user_id
