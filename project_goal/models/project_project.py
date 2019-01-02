@@ -8,8 +8,8 @@ class ProjectProject(models.Model):
     _inherit = 'project.project'
 
     goal_ids = fields.One2many(
-        comodel_name='project.goal', inverse_name='project_id', copy=True,
-        context={'active_test': False})
+        comodel_name='project.goal', inverse_name='project_id',
+        string='Goals', copy=True)
 
     @api.multi
     def write(self, vals):
