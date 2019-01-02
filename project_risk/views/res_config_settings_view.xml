@@ -6,7 +6,7 @@
         <field name="arch" type="xml">
             <xpath expr="//div[@data-key='project']" position="inside">
                 <h2>Project Risk</h2>
-                <div class="row mt16 o_settings_container" title="risk">
+                <div class="row mt16 o_settings_container" name="risk">
                     <div class="col-xs-12 col-md-6 o_setting_box">
                         <div class="o_setting_right_pane">
                             <label for="risk_limit"/>
