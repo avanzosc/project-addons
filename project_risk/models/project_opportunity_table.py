@@ -10,9 +10,9 @@ class ProjectOpportunityTable(models.Model):
 
     project_id = fields.Many2one(
         string='Project', comodel_name='project.project', required=True)
-    opportunity = fields.Char(string='Opportunity')
+    opportunity = fields.Char(string='Opportunity Description')
     opportunity_id = fields.Many2one(
-        string='Chance', comodel_name='project.opportunity.opportunity')
+        string='Opportunity', comodel_name='project.opportunity.opportunity')
     probability_id = fields.Many2one(
         string='Probability',
         comodel_name='project.opportunity.probability.value')
@@ -20,7 +20,7 @@ class ProjectOpportunityTable(models.Model):
         string='Profit', comodel_name='project.opportunity.impact.value')
     chance_level = fields.Float(string='Chance Level', store=True,
                                 compute='_compute_chance_level')
-    action = fields.Char(string='Action')
+    action = fields.Char(string='Action Description')
     action_id = fields.Many2one(
         string='Action', comodel_name='project.opportunity.action')
     responsible_id = fields.Many2one(

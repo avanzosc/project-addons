@@ -12,7 +12,7 @@ class ProjectRiskTable(models.Model):
         string='Project', comodel_name='project.project', required=True)
     risk_id = fields.Many2one(
         string='Risk', comodel_name='project.risk.risk')
-    risk = fields.Char(string='Risk')
+    risk = fields.Char(string='Risk Description')
     probability_id = fields.Many2one(
         string='Probability', comodel_name='project.risk.probability.value')
     impact_id = fields.Many2one(
@@ -21,7 +21,7 @@ class ProjectRiskTable(models.Model):
                               compute='_compute_risk_level')
     action_id = fields.Many2one(
         string='Action', comodel_name='project.risk.action')
-    action = fields.Char(string='Action')
+    action = fields.Char(string='Action Description')
     responsible_id = fields.Many2one(
         string='Responsible', comodel_name='res.users')
     causes = fields.Text(string='Causes of Risk')

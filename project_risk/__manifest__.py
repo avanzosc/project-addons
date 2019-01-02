@@ -3,7 +3,7 @@
 
 {
     "name": "Project Risk",
-    "version": "11.0.2.2.0",
+    "version": "11.0.3.0.0",
     "license": "AGPL-3",
     "depends": [
         "project",
