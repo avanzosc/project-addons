@@ -16,8 +16,11 @@ class ProjectTaskResume(models.Model):
     user_id = fields.Many2one(comodel_name='res.users', string='User')
     planned_hours = fields.Float(string='Initially Planned Hours')
     effective_hours = fields.Float(string='Hours Spent')
+    planned_monthly_hours = fields.Float(string='Planned Monthly Hours')
     planned_cost = fields.Float(string='Estimated Cost')
     effective_cost = fields.Float(string='Real Cost')
+    date_start = fields.Datetime(string='Starting Date')
+    date_end = fields.Datetime(string='Ending Date')
 
     @api.model_cr
     def init(self):
@@ -30,8 +33,11 @@ class ProjectTaskResume(models.Model):
               user_id,
               SUM(planned_hours) as planned_hours,
               SUM(effective_hours) as effective_hours,
+              SUM(planned_monthly_hours) as planned_monthly_hours,
               SUM(planned_cost) as planned_cost,
-              SUM(effective_cost) as effective_cost
+              SUM(effective_cost) as effective_cost,
+              MIN(date_start) as date_start,
+              MAX(date_end) as date_end
             FROM
               project_task
             GROUP BY
