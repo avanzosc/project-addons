@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 11.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-12-18 15:52+0000\n"
-"PO-Revision-Date: 2018-12-18 15:52+0000\n"
+"POT-Creation-Date: 2019-01-02 17:12+0000\n"
+"PO-Revision-Date: 2019-01-02 17:12+0000\n"
 "Last-Translator: <>\n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -28,6 +28,37 @@ msgid "Analytic Account Code"
 msgstr "Código cuenta analítica"
 
 #. module: project_utilities
+#: model:ir.ui.view,arch_db:project_utilities.wiz_change_project_task_date_view_form
+msgid "Cancel"
+msgstr "Cancelar"
+
+#. module: project_utilities
+#: model:ir.actions.act_window,name:project_utilities.action_change_project_task_date
+#: model:ir.ui.view,arch_db:project_utilities.wiz_change_project_task_date_view_form
+msgid "Change task date"
+msgstr "Cambiar fecha tarea"
+
+#. module: project_utilities
+#: model:ir.model.fields,field_description:project_utilities.field_wiz_change_project_task_date_create_uid
+msgid "Created by"
+msgstr "Creado por"
+
+#. module: project_utilities
+#: model:ir.model.fields,field_description:project_utilities.field_wiz_change_project_task_date_create_date
+msgid "Created on"
+msgstr "Creado en"
+
+#. module: project_utilities
+#: model:ir.model,name:project_utilities.model_wiz_change_project_task_date
+msgid "Date changing wizard"
+msgstr "Wizard para cambiar la fecha"
+
+#. module: project_utilities
+#: model:ir.model.fields,field_description:project_utilities.field_wiz_change_project_task_date_days
+msgid "Days"
+msgstr "Días"
+
+#. module: project_utilities
 #: model:ir.model.fields,field_description:project_utilities.field_res_config_settings_group_disable_html
 #: model:res.groups,name:project_utilities.disable_html_task_description
 msgid "Disable HTML Tasks Descriptions"
@@ -39,9 +70,44 @@ msgid "Disable HTML descriptions in project tasks."
 msgstr "Deshabilitar descripciones de tareas en HTML."
 
 #. module: project_utilities
+#: model:ir.model.fields,field_description:project_utilities.field_wiz_change_project_task_date_display_name
+msgid "Display Name"
+msgstr "Nombre mostrado"
+
+#. module: project_utilities
+#: model:ir.ui.view,arch_db:project_utilities.wiz_change_project_task_date_view_form
+msgid "Enter days to add or subtract"
+msgstr "Introduce el número de días a añadir o restar"
+
+#. module: project_utilities
+#: model:ir.model.fields,field_description:project_utilities.field_wiz_change_project_task_date_id
+msgid "ID"
+msgstr "ID"
+
+#. module: project_utilities
+#: model:ir.model.fields,field_description:project_utilities.field_wiz_change_project_task_date___last_update
+msgid "Last Modified on"
+msgstr "Última modificación en"
+
+#. module: project_utilities
+#: model:ir.model.fields,field_description:project_utilities.field_wiz_change_project_task_date_write_uid
+msgid "Last Updated by"
+msgstr "Última actualización de"
+
+#. module: project_utilities
+#: model:ir.model.fields,field_description:project_utilities.field_wiz_change_project_task_date_write_date
+msgid "Last Updated on"
+msgstr "Última actualización en"
+
+#. module: project_utilities
 #: model:ir.ui.view,arch_db:project_utilities.project_config_settings_form_view
 msgid "Make task period visible in tree view."
 msgstr "Hacer visible periodo de tareas en el listado."
+
+#. module: project_utilities
+#: model:ir.model.fields,help:project_utilities.field_wiz_change_project_task_date_days
+msgid "Positive sum days, negative subtraction days"
+msgstr "Positivo suma días, negativo resta días"
 
 #. module: project_utilities
 #: model:ir.model,name:project_utilities.model_project_project
@@ -55,8 +121,18 @@ msgstr "Utilidades de proyecto"
 
 #. module: project_utilities
 #: model:ir.ui.view,arch_db:project_utilities.project_config_settings_form_view
+msgid "Project Utilities Settings"
+msgstr "Ajustes de utilidades de proyectos"
+
+#. module: project_utilities
+#: model:ir.ui.view,arch_db:project_utilities.project_config_settings_form_view
 msgid "Show date only when period is visible."
 msgstr "Mostrar solo la fecha cuando el periodo es visible."
+
+#. module: project_utilities
+#: model:ir.model,name:project_utilities.model_project_task
+msgid "Task"
+msgstr "Tarea"
 
 #. module: project_utilities
 #: model:res.groups,name:project_utilities.visible_task_period_date
@@ -75,9 +151,9 @@ msgid "Task Period Visible in List View (date only)"
 msgstr "Mostrar únicamente la fecha del periodo en el listado de tareas"
 
 #. module: project_utilities
-#: model:ir.ui.view,arch_db:project_utilities.project_config_settings_form_view
-msgid "Project Utilities Settings"
-msgstr "Ajustes de utilidades de proyectos"
+#: model:ir.ui.view,arch_db:project_utilities.wiz_change_project_task_date_view_form
+msgid "or"
+msgstr "o"
 
 #. module: project_utilities
 #: model:ir.model,name:project_utilities.model_res_config_settings

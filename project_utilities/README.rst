@@ -10,6 +10,8 @@ Project Utilities
 * Smartbutton to access analytic account
 * Task period visible in list view
 * Disable HTML description, configurable in settings
+* New assistant in tasks, to add or subtract days to starting and ending
+  dates of the task.
 
 Bug Tracker
 ===========
@@ -27,5 +29,6 @@ Contributors
 
 * Oihane Crucelaegui <oihanecrucelaegi@avanzosc.es>
 * Ana Juaristi <anajuaristi@avanzosc.es>
+* Alfredo de la Fuente <alfredodelafuente@avanzosc.es>
 
 Do not contact contributors directly about support or help with technical issues.
