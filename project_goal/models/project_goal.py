@@ -13,7 +13,7 @@ class ProjectObjetive(models.Model):
         name='Project', comodel_name='project.project', required=True,
         ondelete='cascade')
     sequence = fields.Integer(string='Sequence')
-    name = fields.Char(string='Name')
+    name = fields.Char(string='Goal')
     type_id = fields.Many2one(
         string='Type', comodel_name='project.goal.type', required=True)
     acceptance_range = fields.Text(string='Acceptance range')
