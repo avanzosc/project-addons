@@ -8,6 +8,17 @@
                 <h2>Project Utilities</h2>
                 <div name="project_utilities_settings" class="row mt16 o_settings_container"
                      title="Project Utilities Settings">
+                    <div class="col-xs-12 col-md-6 o_setting_box" name="project_chatter">
+                        <div class="o_setting_left_pane">
+                            <field name="group_visible_project_chatter_msg"/>
+                        </div>
+                        <div class="o_setting_right_pane">
+                            <label for="group_visible_project_chatter_msg"/>
+                            <div class="text-muted">
+                                Make visible messages in project chatter.
+                            </div>
+                        </div>
+                    </div>
                     <div class="col-xs-12 col-md-6 o_setting_box">
                         <div class="o_setting_left_pane">
                             <field name="group_visible_task_period"/>
