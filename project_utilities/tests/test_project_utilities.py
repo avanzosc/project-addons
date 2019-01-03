@@ -52,3 +52,6 @@ class TestProjectUtilities(common.TransactionCase):
             task.date_start, date_start, 'BAD date start(2)')
         self.assertEqual(
             task.date_end, date_end, 'BAD date end(2)')
+        task._change_project_task_date(0)
+        self.assertEqual(task.date_start, date_start)
+        self.assertEqual(task.date_end, date_end)
