@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <record model="ir.ui.view" id="project_project_view_form">
+        <field name="name">project.close.info.form.view</field>
+        <field name="model">project.project</field>
+        <field name="inherit_id" ref="project.edit_project" />
+        <field name="arch" type="xml">
+            <notebook position="inside">
+                <page name="closing_info" string="Closing">
+                    <group string="Closing Criteria">
+                        <field name="criteria_ids" nolabel="1"
+                               context="{'default_project_id': active_id, 'active_test': True}"/>
+                    </group>
+                    <group>
+                        <field name="technical"/>
+                        <field name="financial"/>
+                        <field name="notes"/>
+                    </group>
+                </page>
+            </notebook>
+        </field>
+    </record>
+</odoo>

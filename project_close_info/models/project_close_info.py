@@ -4,16 +4,14 @@
 from odoo import fields, models
 
 
-class ProjectCloseInfo(models.Model):
-    _inherit = 'project.project'
+class ProjectClose(models.Model):
+    _name = 'project.close.info'
+    _description = 'Project Close Approach'
+    _rec_name = 'approach'
 
-    tech_close = fields.Boolean(string='Technical Closing')
-    tech_date = fields.Date(string='Technical Closing Date')
-    tech_user = fields.Many2one(
-        string='Technical Closing User', comodel_name='res.users')
-    tech_file = fields.Binary(string='Technical Closing File')
-    economic_close = fields.Boolean(string='Economic Closing')
-    economic_date = fields.Date(string='Economic Close Date')
-    economic_user = fields.Many2one(
-        string='Economic Closing User', comodel_name='res.users')
-    economic_file = fields.Binary(string='Economic Closing File')
+    project_id = fields.Many2one(
+        comodel_name='project.project', string='Project', required=True,
+        ondelete='cascade')
+    approach = fields.Char(string='Approach', translate=True)
+    value = fields.Float(string='Assessment (0-5)')
+    active = fields.Boolean(string='Active', default=True)
