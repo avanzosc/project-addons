@@ -8,7 +8,8 @@ Project Utilities
 
 * Analytic account and code visible on projects
 * Smartbutton to access analytic account
-* Task period visible in list view
+* Chatter messages visible, configurable in settings
+* Task period visible in list view, configurable in settings
 * Disable HTML description, configurable in settings
 * New assistant in tasks, to add or subtract days to starting and ending
   dates of the task.

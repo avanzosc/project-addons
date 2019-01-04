@@ -7,6 +7,9 @@ from odoo import fields, models
 class ProjectConfigSettings(models.TransientModel):
     _inherit = 'res.config.settings'
 
+    group_visible_project_chatter_msg = fields.Boolean(
+        string='Project Chatter Messages Visible',
+        implied_group='project_utilities.visible_project_chatter_msg')
     group_disable_html = fields.Boolean(
         string='Disable HTML Tasks Descriptions',
         implied_group='project_utilities.disable_html_task_description')

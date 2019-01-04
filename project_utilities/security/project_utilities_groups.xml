@@ -1,5 +1,10 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <odoo noupdate="True">
+    <record id="visible_project_chatter_msg" model="res.groups">
+        <field name="name">Project Chatter messages visible</field>
+        <field name="category_id" ref="base.module_category_hidden"/>
+    </record>
+
     <record id="disable_html_task_description" model="res.groups">
         <field name="name">Disable HTML Tasks Descriptions</field>
         <field name="category_id" ref="base.module_category_hidden"/>
@@ -15,4 +20,5 @@
         <field name="implied_ids" eval="[(4, ref('project_utilities.visible_task_period'))]" />
         <field name="category_id" ref="base.module_category_hidden"/>
     </record>
+
 </odoo>
