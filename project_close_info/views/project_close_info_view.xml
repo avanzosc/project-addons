@@ -1,28 +1,58 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <odoo>
-    <record model="ir.ui.view" id="project_close_info_form_view">
-        <field name="name">project.close.info.form.view</field>
-        <field name="model">project.project</field>
-        <field name="inherit_id" ref="project.edit_project" />
+    <record model="ir.ui.view" id="project_close_info_tree_view">
+        <field name="model">project.close.info</field>
         <field name="arch" type="xml">
-            <page name="settings" position="before">
-                <page name="closing_info" string="Closing">
-                    <group name="close_data">
-                        <group name="tech_closure">
-                            <field name="tech_close"/>
-                            <field name="tech_date"/>
-                            <field name="tech_user"/>
-                            <field name="tech_file"/>
-                        </group>
-                        <group name="economic_closure">
-                            <field name="economic_close"/>
-                            <field name="economic_date"/>
-                            <field name="economic_user"/>
-                            <field name="economic_file"/>
-                        </group>
-                    </group>
-                </page>
-            </page>
+            <tree string="Close" editable="top"
+                  decoration-muted="not active">
+                <field name="project_id" invisible="context.get('hide_project_id',True)"/>
+                <field name="approach"/>
+                <field name="value"/>
+                <field name="active" invisible="True" />
+            </tree>
         </field>
     </record>
+
+    <record model="ir.ui.view" id="project_close_info_form_view">
+        <field name="model">project.close.info</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group>
+                        <field name="project_id" invisible="context.get('hide_project_id',True)"/>
+                        <field name="approach" />
+                        <field name="value" />
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="project_close_info_search_view" model="ir.ui.view">
+        <field name="model">project.close.info</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="project_id" />
+                <separator />
+                <filter string="Archived" name="inactive" domain="[('active','=',False)]"/>
+                <group name="group_by" expand="0">
+                    <filter name="group_project" string="Project"
+                            context="{'group_by': 'project_id'}" />
+                </group>
+            </search>
+        </field>
+    </record>
+
+    <record id="project_close_info_action" model="ir.actions.act_window">
+        <field name="name">Close</field>
+        <field name="res_model">project.close.info</field>
+        <field name="view_mode">tree</field>
+        <field name="context">{
+            'hide_project_id': False,
+        }</field>
+    </record>
+
+     <menuitem id="project_close_info_configuration_menuitem"
+              parent="project.menu_project_config"
+              action="project_close_info_action"/>
 </odoo>
