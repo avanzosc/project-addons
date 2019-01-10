@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <record id="project_phase_view_form" model="ir.ui.view">
+        <field name="model">project.phase</field>
+        <field name="inherit_id" ref="project_phase.project_phase_form_view" />
+        <field name="arch" type="xml">
+            <field name="sequence" position="after">
+                <field name="historify" />
+            </field>
+        </field>
+    </record>
+</odoo>
