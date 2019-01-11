@@ -38,7 +38,7 @@ msgstr "Proyecto"
 #. module: project_technical
 #: model:ir.model.fields,field_description:project_technical.field_project_project_work_scope
 msgid "Scope of Work"
-msgstr "Objetivo de tarea"
+msgstr "Alcance de los trabajos"
 
 #. module: project_technical
 #: model:ir.model.fields,field_description:project_technical.field_project_project_definition
