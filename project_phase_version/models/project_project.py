@@ -1,7 +1,7 @@
 # Copyright 2018 Oihane Crucelaegui - AvanzOSC
 # License AGPL-3 - See http://www.gnu.org/licenses/agpl-3.0.html
 
-from odoo import api, models
+from odoo import api, fields, models
 
 
 class ProjectProject(models.Model):
@@ -13,7 +13,7 @@ class ProjectProject(models.Model):
         if (values.get('phase_id') and
                 get_param('project_phase_version.phase_history',
                           'False').lower() == 'true'):
-            for project in self:
+            for project in self.filtered(lambda p: p.phase_id.historify):
                 project.button_historical()
         return super(ProjectProject, self).write(values)
 
@@ -23,3 +23,10 @@ class ProjectProject(models.Model):
             'phase_id': self.phase_id.id,
         })
         return vals
+
+
+class ProjectPhase(models.Model):
+    _inherit = 'project.phase'
+
+    historify = fields.Boolean(
+        string='Historify project when phase is changed.', default=True)

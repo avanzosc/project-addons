@@ -9,6 +9,10 @@ Project Phase Version
 Glue module between project_phase and project_version modules to avoid the creation
 of two headers in project.
 
+When a project phase is change you can configure if you want to historify the
+project by checking historify check in phase and enabling in settings that option,
+by default if you create a new phase historify check will be enabled.
+
 Bug Tracker
 ===========
 
