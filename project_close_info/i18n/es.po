@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 11.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-01-04 13:33+0000\n"
-"PO-Revision-Date: 2019-01-04 13:33+0000\n"
+"POT-Creation-Date: 2019-01-11 10:37+0000\n"
+"PO-Revision-Date: 2019-01-11 10:37+0000\n"
 "Last-Translator: <>\n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -16,9 +16,20 @@ msgstr ""
 "Plural-Forms: \n"
 
 #. module: project_close_info
+#: model:ir.model.fields,field_description:project_close_info.field_project_close_info_active
+msgid "Active"
+msgstr "Activo"
+
+#. module: project_close_info
 #: model:ir.model.fields,field_description:project_close_info.field_project_close_info_approach
+#: model:ir.model.fields,field_description:project_close_info.field_project_close_template_name
 msgid "Approach"
 msgstr "Criterio"
+
+#. module: project_close_info
+#: model:ir.ui.view,arch_db:project_close_info.project_close_info_search_view
+msgid "Archived"
+msgstr "Archivado"
 
 #. module: project_close_info
 #: model:ir.model.fields,field_description:project_close_info.field_project_close_info_value
@@ -59,11 +70,6 @@ msgstr "Creado por"
 #: model:ir.model.fields,field_description:project_close_info.field_project_close_template_create_date
 msgid "Created on"
 msgstr "Creado el"
-
-#. module: project_close_info
-#: model:ir.model.fields,field_description:project_close_info.field_project_close_template_name
-msgid "Criteria"
-msgstr "Criterio"
 
 #. module: project_close_info
 #: model:ir.model.fields,field_description:project_close_info.field_project_project_criteria_ids
@@ -109,22 +115,23 @@ msgstr "Última modificación en"
 #: model:ir.model.fields,field_description:project_close_info.field_project_close_info_write_uid
 #: model:ir.model.fields,field_description:project_close_info.field_project_close_template_write_uid
 msgid "Last Updated by"
-msgstr "Última actualización de"
+msgstr "Última Actualización por"
 
 #. module: project_close_info
 #: model:ir.model.fields,field_description:project_close_info.field_project_close_info_write_date
 #: model:ir.model.fields,field_description:project_close_info.field_project_close_template_write_date
 msgid "Last Updated on"
-msgstr "Última actualización en"
+msgstr "Última Actualización el"
 
 #. module: project_close_info
 #: model:ir.model.fields,field_description:project_close_info.field_project_project_notes
 msgid "Observations"
-msgstr "Observations"
+msgstr "Observaciones"
 
 #. module: project_close_info
 #: model:ir.model,name:project_close_info.model_project_project
 #: model:ir.model.fields,field_description:project_close_info.field_project_close_info_project_id
+#: model:ir.ui.view,arch_db:project_close_info.project_close_info_search_view
 msgid "Project"
 msgstr "Proyecto"
 
@@ -135,7 +142,7 @@ msgstr "Criterio de cierre de proyecto"
 
 #. module: project_close_info
 #: model:ir.model,name:project_close_info.model_project_close_template
-msgid "Project Closing Criteria Template"
+msgid "Project Closing Approach Template"
 msgstr "Plantilla de criterio de cierre de proyecto"
 
 #. module: project_close_info

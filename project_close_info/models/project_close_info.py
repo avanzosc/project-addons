@@ -13,5 +13,7 @@ class ProjectClose(models.Model):
         comodel_name='project.project', string='Project', required=True,
         ondelete='cascade')
     approach = fields.Char(string='Approach', translate=True)
-    value = fields.Float(string='Assessment (0-5)')
+    value = fields.Selection(
+        selection=[(0, '0'), (1, '1'), (2, '2'), (3, '3'), (4, '4'), (5, '5')],
+        string='Assessment (0-5)', default=0)
     active = fields.Boolean(string='Active', default=True)
