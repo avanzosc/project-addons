@@ -27,6 +27,16 @@ class ProjectProject(models.Model):
         if tmpl_lines:
             rec.update({
                 'criteria_ids': [
-                    (0, 0, {'approach': x.name}) for x in tmpl_lines],
+                    (0, 0, {'approach': x.name,
+                            'active': True}) for x in tmpl_lines],
             })
         return rec
+
+    @api.multi
+    def write(self, vals):
+        res = super(ProjectProject, self).write(vals) if vals else True
+        if 'active' in vals:
+            # archiving/unarchiving a project does it on its criteria, too
+            self.with_context(active_test=False).mapped('criteria_ids').write(
+                {'active': vals['active']})
+        return res
