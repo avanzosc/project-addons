@@ -7,6 +7,7 @@
     "license": "AGPL-3",
     "depends": [
         "project",
+        "purchase",
     ],
     "author": "AvanzOSC",
     "website": "http://www.avanzosc.es",
