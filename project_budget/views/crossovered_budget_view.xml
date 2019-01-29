@@ -15,6 +15,10 @@
                         type="object"
                         attrs="{'invisible': ['|','|',('state','not in',['draft']),('project_id','=',False),'!',('crossovered_budget_line','=',[])]}" />
             </button>
+            <field name="state" position="before">
+                <button name="button_recompute_line_amount" type="object"
+                        string="Recompute Line Amount" />
+            </field>
             <div class="oe_title" position="after">
                 <div class="oe_button_box" name="button_box">
                     <button name="toggle_active" type="object" class="oe_stat_button" icon="fa-archive">
