@@ -78,8 +78,13 @@ class CrossoveredBudget(models.Model):
         return new
 
     @api.multi
+    def button_recompute_line_amount(self):
+        self.mapped('crossovered_budget_line').button_recompute_amount()
+
+    @api.multi
     def open_pivot_view(self):
         self.ensure_one()
+        self.button_recompute_line_amount()
         action = self.env.ref(
             'account_budget.act_crossovered_budget_lines_view')
         action_dict = action.read()[0]
@@ -105,13 +110,21 @@ class CrossoveredBudgetLines(models.Model):
         comodel_name='project.project', string='Project',
         related='crossovered_budget_id.project_id', store=True)
     sum_amount = fields.Float(
-        string='Amount Sum', compute='_compute_sum_amount')
+        string='Amount Sum', compute='_compute_sum_amount', store=True)
     budget_active = fields.Boolean(
         string='Budget Active',
         related='crossovered_budget_id.active', store=True)
     budget_date = fields.Date(
         string='Budget Date',
         related='crossovered_budget_id.budget_date', store=True)
+    practical_amount = fields.Float(store=True)
+
+    @api.multi
+    def button_recompute_amount(self):
+        fields_list = ['practical_amount', 'sum_amount']
+        for field in fields_list:
+            self.env.add_todo(self._fields[field], self)
+        self.recompute()
 
     @api.depends('initial_budget_line_id', 'planned_amount',
                  'initial_budget_line_id.planned_amount')
