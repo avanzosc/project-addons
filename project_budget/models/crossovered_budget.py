@@ -84,6 +84,7 @@ class CrossoveredBudget(models.Model):
     @api.multi
     def open_pivot_view(self):
         self.ensure_one()
+        self.button_recompute_line_amount()
         action = self.env.ref(
             'account_budget.act_crossovered_budget_lines_view')
         action_dict = action.read()[0]
