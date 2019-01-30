@@ -12,3 +12,4 @@ class ProjectGoalGoal(models.Model):
     description = fields.Text(string='Description')
     type_id = fields.Many2one(
         string='Goal Type', comodel_name='project.goal.type')
+    default_goal = fields.Boolean(string='Goal By Default')

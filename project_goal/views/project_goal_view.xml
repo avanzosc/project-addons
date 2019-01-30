@@ -61,9 +61,14 @@
         <field name="arch" type="xml">
             <form>
                 <sheet>
-                    <group>
-                        <field name="name" />
-                        <field name="type_id" options="{'no_create_edit': True}" />
+                    <group name="main">
+                        <group name="left">
+                            <field name="name" />
+                            <field name="type_id" options="{'no_create_edit': True}" />
+                        </group>
+                        <group name="right" attrs="{'invisible': [('type_id', '=', False)]}">
+                            <field name="default_goal" />
+                        </group>
                     </group>
                     <field name="description" />
                 </sheet>

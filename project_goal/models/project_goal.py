@@ -30,6 +30,5 @@ class ProjectObjetive(models.Model):
 
     @api.onchange('type_id')
     def onchange_type_id(self):
-        self.goal_id = (False
-                        if self.goal_id.type_id not in (self.type_id, False)
-                        else self.goal_id)
+        if self.goal_id.type_id.id not in (self.type_id.id, False):
+            self.goal_id = False

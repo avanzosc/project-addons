@@ -41,12 +41,12 @@
     <menuitem id="project_goal_configuration_menuitem"
               parent="project.menu_project_config"
               name="Project Goals"/>
-    <menuitem id="project_goal_goal_menuitem"
-              parent="project_goal_configuration_menuitem"
-              action="project_goal_goal_action" sequence="1"/>
     <menuitem id="project_goal_type_menuitem"
               parent="project_goal_configuration_menuitem"
-              action="project_goal_type_action" sequence="2"/>
+              action="project_goal_type_action" sequence="1"/>
+    <menuitem id="project_goal_goal_menuitem"
+              parent="project_goal_configuration_menuitem"
+              action="project_goal_goal_action" sequence="2"/>
     <menuitem id="project_goal_menuitem"
               parent="project_goal_configuration_menuitem"
               action="project_goal_action" sequence="5"/>
