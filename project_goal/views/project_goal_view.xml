@@ -37,7 +37,6 @@
     </record>
 
     <record id="project_goal_tree_view_type" model="ir.ui.view">
-        <field name="name">project.goal.tree.view.type</field>
         <field name="model">project.goal.type</field>
         <field name="arch" type="xml">
             <tree editable="top">
@@ -46,8 +45,33 @@
         </field>
     </record>
 
+    <record id="project_goal_goal_view_tree" model="ir.ui.view">
+        <field name="model">project.goal.goal</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="name" />
+                <field name="description" />
+                <field name="type_id" />
+            </tree>
+        </field>
+    </record>
+
+    <record id="project_goal_goal_view_form" model="ir.ui.view">
+        <field name="model">project.goal.goal</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group>
+                        <field name="name" />
+                        <field name="type_id" options="{'no_create_edit': True}" />
+                    </group>
+                    <field name="description" />
+                </sheet>
+            </form>
+        </field>
+    </record>
+
     <record id="project_goal_search_view" model="ir.ui.view">
-        <field name="name">project.goal.view</field>
         <field name="model">project.goal</field>
         <field name="arch" type="xml">
             <search>

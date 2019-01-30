@@ -29,7 +29,7 @@
     <record id="project_goal_goal_action" model="ir.actions.act_window">
         <field name="name">Predefined Project Goals</field>
         <field name="res_model">project.goal.goal</field>
-        <field name="view_mode">tree</field>
+        <field name="view_mode">tree,form</field>
     </record>
 
     <record id="project_goal_type_action" model="ir.actions.act_window">

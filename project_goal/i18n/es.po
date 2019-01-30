@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 11.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-01-02 16:25+0000\n"
-"PO-Revision-Date: 2019-01-02 16:25+0000\n"
+"POT-Creation-Date: 2019-01-30 12:36+0000\n"
+"PO-Revision-Date: 2019-01-30 12:36+0000\n"
 "Last-Translator: <>\n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -37,12 +37,14 @@ msgstr "Grado de cumplimiento"
 
 #. module: project_goal
 #: model:ir.model.fields,field_description:project_goal.field_project_goal_create_uid
+#: model:ir.model.fields,field_description:project_goal.field_project_goal_goal_create_uid
 #: model:ir.model.fields,field_description:project_goal.field_project_goal_type_create_uid
 msgid "Created by"
 msgstr "Creado por"
 
 #. module: project_goal
 #: model:ir.model.fields,field_description:project_goal.field_project_goal_create_date
+#: model:ir.model.fields,field_description:project_goal.field_project_goal_goal_create_date
 #: model:ir.model.fields,field_description:project_goal.field_project_goal_type_create_date
 msgid "Created on"
 msgstr "Creado en"
@@ -53,18 +55,26 @@ msgid "Customer"
 msgstr "Cliente"
 
 #. module: project_goal
+#: model:ir.model.fields,field_description:project_goal.field_project_goal_goal_description
+msgid "Description"
+msgstr "Descripción"
+
+#. module: project_goal
 #: model:ir.model.fields,field_description:project_goal.field_project_goal_display_name
+#: model:ir.model.fields,field_description:project_goal.field_project_goal_goal_display_name
 #: model:ir.model.fields,field_description:project_goal.field_project_goal_type_display_name
 msgid "Display Name"
 msgstr "Nombre mostrado"
 
 #. module: project_goal
+#: model:ir.model.fields,field_description:project_goal.field_project_goal_goal_id
 #: model:ir.model.fields,field_description:project_goal.field_project_goal_name
 msgid "Goal"
 msgstr "Objetivo"
 
 #. module: project_goal
 #: model:ir.model,name:project_goal.model_project_goal_type
+#: model:ir.model.fields,field_description:project_goal.field_project_goal_goal_type_id
 msgid "Goal Type"
 msgstr "Tipo de objetivo"
 
@@ -80,10 +90,11 @@ msgid "Goals of Projects"
 msgstr "Objetivos de proyectos"
 
 #. module: project_goal
+#: model:ir.model.fields,field_description:project_goal.field_project_goal_goal_id_5848
 #: model:ir.model.fields,field_description:project_goal.field_project_goal_id
-#: model:ir.model.fields,field_description:project_goal.field_project_goal_type_id_5256
+#: model:ir.model.fields,field_description:project_goal.field_project_goal_type_id_5154
 msgid "ID"
-msgstr "ID"
+msgstr "ID (identificación)"
 
 #. module: project_goal
 #: model:project.goal.type,name:project_goal.gtype3
@@ -92,26 +103,37 @@ msgstr "Interno"
 
 #. module: project_goal
 #: model:ir.model.fields,field_description:project_goal.field_project_goal___last_update
+#: model:ir.model.fields,field_description:project_goal.field_project_goal_goal___last_update
 #: model:ir.model.fields,field_description:project_goal.field_project_goal_type___last_update
 msgid "Last Modified on"
 msgstr "Última modificación en"
 
 #. module: project_goal
+#: model:ir.model.fields,field_description:project_goal.field_project_goal_goal_write_uid
 #: model:ir.model.fields,field_description:project_goal.field_project_goal_type_write_uid
 #: model:ir.model.fields,field_description:project_goal.field_project_goal_write_uid
 msgid "Last Updated by"
 msgstr "Última actualización de"
 
 #. module: project_goal
+#: model:ir.model.fields,field_description:project_goal.field_project_goal_goal_write_date
 #: model:ir.model.fields,field_description:project_goal.field_project_goal_type_write_date
 #: model:ir.model.fields,field_description:project_goal.field_project_goal_write_date
 msgid "Last Updated on"
 msgstr "Última actualización en"
 
 #. module: project_goal
+#: model:ir.model.fields,field_description:project_goal.field_project_goal_goal_name
 #: model:ir.model.fields,field_description:project_goal.field_project_goal_type_name
 msgid "Name"
 msgstr "Nombre"
+
+#. module: project_goal
+#: model:ir.actions.act_window,name:project_goal.project_goal_goal_action
+#: model:ir.model,name:project_goal.model_project_goal_goal
+#: model:ir.ui.menu,name:project_goal.project_goal_goal_menuitem
+msgid "Predefined Project Goals"
+msgstr "Objetivos predefinidos"
 
 #. module: project_goal
 #: model:ir.model,name:project_goal.model_project_project
@@ -149,7 +171,7 @@ msgid "Type"
 msgstr "Tipo"
 
 #. module: project_goal
-#: model:ir.actions.act_window,name:project_goal.action_view_type_from_project
+#: model:ir.actions.act_window,name:project_goal.project_goal_type_action
 #: model:ir.ui.menu,name:project_goal.project_goal_type_menuitem
 msgid "Types of Goal"
 msgstr "Tipos de objetivo"
