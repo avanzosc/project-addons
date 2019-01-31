@@ -17,7 +17,7 @@ class TestProjectIdea(common.SavepointCase):
         cls.material_obj = cls.env['project.idea.resource.material']
 
     def test_project_idea_material_onchange(self):
-        material = self.material_obj.create({
+        material = self.material_obj.new({
             'project_id': self.project.id,
             'product_id': self.product.id,
         })
@@ -41,7 +41,6 @@ class TestProjectIdea(common.SavepointCase):
         for human in self.project.with_context(
                 active_test=False).human_resources_ids:
             self.assertTrue(human.active)
-
         self.assertTrue(self.project.active)
         for material in self.project.with_context(
                 active_test=False).material_resources_ids:
