@@ -29,9 +29,11 @@ class ProjectParticipant(models.Model):
     _rec_name = 'partner_id'
 
     project_id = fields.Many2one(
-        comodel_name='project.project', string='Project', required=True)
+        comodel_name='project.project', string='Project', required=True,
+        ondelete='cascade')
     partner_id = fields.Many2one(
-        comodel_name='res.partner', string='Participant', required=True)
+        comodel_name='res.partner', string='Participant', required=True,
+        ondelete='cascade')
     partner_user_ids = fields.One2many(
         comodel_name='res.users', string='Users',
         related='partner_id.user_ids')
