@@ -11,6 +11,21 @@ class ProjectProject(models.Model):
         comodel_name='project.goal', inverse_name='project_id',
         string='Goals', copy=True)
 
+    @api.model
+    def default_get(self, fields):
+        res = super(ProjectProject, self).default_get(fields)
+        default_goals = self.env['project.goal.goal'].search([
+            ('default_goal', '=', True),
+            ('type_id', '!=', False),
+        ])
+        res.update({
+            'goal_ids': [(0, 0, {'type_id': x.type_id.id,
+                                 'goal_id': x.id,
+                                 'name': x.description,
+                                 'active': True}) for x in default_goals],
+        })
+        return res
+
     @api.multi
     def write(self, vals):
         res = super(ProjectProject, self).write(vals) if vals else True
