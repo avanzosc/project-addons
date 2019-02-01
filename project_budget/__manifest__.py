@@ -18,6 +18,7 @@
         "project",
     ],
     "data": [
+        "security/ir.model.access.csv",
         "security/project_budget_groups.xml",
         "data/project_budget_data.xml",
         "views/crossovered_budget_view.xml",
