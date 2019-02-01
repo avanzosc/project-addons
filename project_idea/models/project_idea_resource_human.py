@@ -12,13 +12,14 @@ class HumanResources(models.Model):
         string='Project', comodel_name='project.project',
         required=True, ondelete='cascade')
     human_department_id = fields.Many2one(
-        string='Department', comodel_name='hr.department')
+        string='Department', comodel_name='hr.department', required=True,
+        ondelete='cascade')
     human_level = fields.Selection(
         selection=[('1', '1'),
                    ('2', '2'),
-                   ('3', '3')], string='Level')
+                   ('3', '3')], string='Level', required=True)
     human_intensity = fields.Selection(
         selection=[('high', 'High'),
                    ('medium', 'Medium'),
-                   ('low', 'Low')], string='Intensity')
+                   ('low', 'Low')], string='Intensity', required=True)
     active = fields.Boolean(string='Active', default=True)

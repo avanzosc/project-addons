@@ -15,11 +15,11 @@ class MaterialResources(models.Model):
         string='Product', comodel_name='product.product')
     product_type = fields.Selection(
         string='Product Type', related='product_id.type', store=True)
-    product_name = fields.Char(string='Product Name')
+    product_name = fields.Char(string='Product Name', required=True)
     product_intensity = fields.Selection(
         selection=[('high', 'High'),
                    ('medium', 'Medium'),
-                   ('low', 'Low')], string='Intensity')
+                   ('low', 'Low')], string='Intensity', required=True)
     active = fields.Boolean(string='Active', default=True)
 
     @api.onchange('product_id')
