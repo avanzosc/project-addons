@@ -100,9 +100,11 @@ class ProjectMember(models.Model):
     _rec_name = 'user_id'
 
     project_id = fields.Many2one(
-        comodel_name='project.project', string='Project', required=True)
+        comodel_name='project.project', string='Project', required=True,
+        ondelete='cascade')
     user_id = fields.Many2one(
-        comodel_name='res.users', string='Member', required=True)
+        comodel_name='res.users', string='Member', required=True,
+        ondelete='cascade')
     partner_id = fields.Many2one(
         comodel_name='res.partner', string='Partner',
         related='user_id.partner_id', readonly=True)
