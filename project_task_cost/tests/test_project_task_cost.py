@@ -6,6 +6,8 @@ from dateutil.relativedelta import relativedelta
 from odoo import fields
 from odoo.tests import common
 
+str2date = fields.Date.from_string
+
 
 class TestProjectTaskCost(common.SavepointCase):
 
@@ -26,7 +28,7 @@ class TestProjectTaskCost(common.SavepointCase):
 
     def test_task_create(self):
         month_gap = 2
-        date_start = fields.Datetime.from_string(fields.Datetime.now())
+        date_start = str2date(fields.Datetime.now()) + relativedelta(days=1)
         date_end = date_start + relativedelta(months=month_gap)
         task = self.task_model.create({
             'name': 'Name',
@@ -35,6 +37,8 @@ class TestProjectTaskCost(common.SavepointCase):
             'date_start': date_start,
             'date_end': date_end,
         })
+        month_gap = relativedelta(
+            str2date(task.date_end), str2date(task.date_start)).months
         self.assertFalse(task.employee_cost)
         task._onchange_user()
         self.assertEquals(task.employee_cost, self.timesheet_cost)
@@ -42,5 +46,6 @@ class TestProjectTaskCost(common.SavepointCase):
             task.employee_cost * task.planned_hours, task.planned_cost)
         self.assertEquals(
             task.employee_cost * task.effective_hours, task.effective_cost)
+        task.invalidate_cache()
         self.assertEquals(
             task.planned_hours / (month_gap + 1), task.planned_monthly_hours)
