@@ -14,7 +14,7 @@
         "project_task_cost",
     ],
     "data": [
-
+        "views/crossovered_budget_view.xml",
     ],
     "installable": True,
 }
