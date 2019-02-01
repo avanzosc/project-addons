@@ -3,6 +3,18 @@
     <record id="project_project_form_view" model="ir.ui.view">
         <field name="model">project.project</field>
         <field name="inherit_id" ref="project.edit_project" />
+        <field name="arch" type="xml">
+            <group name="misc" position="after">
+                <group name="task_types" string="Stages">
+                    <field name="type_ids" nolabel="1"/>
+                </group>
+            </group>
+        </field>
+    </record>
+
+    <record id="project_project_analytic_form_view" model="ir.ui.view">
+        <field name="model">project.project</field>
+        <field name="inherit_id" ref="project.edit_project" />
         <field name="groups_id" eval="[(4, ref('analytic.group_analytic_accounting'))]" />
         <field name="arch" type="xml">
             <field name="partner_id" position="after">
