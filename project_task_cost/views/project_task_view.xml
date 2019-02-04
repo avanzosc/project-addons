@@ -31,6 +31,9 @@
             <field name="planned_hours" position="after">
                 <field name="planned_monthly_hours" widget="float_time" />
             </field>
+            <field name="user_id" position="after">
+                <field name="employee_cost" invisible="True" />
+            </field>
         </field>
     </record>
 
@@ -40,11 +43,26 @@
         <field name="groups_id"
                eval="[(4, ref('project_task_cost.group_project_coordinator'))]" />
         <field name="arch" type="xml">
-            <field name="user_id" position="after">
-                <field name="employee_cost" invisible="True" />
+            <field name="employee_cost" position="attributes">
+                <attribute name="invisible" />
+            </field>
+            <field name="employee_cost" position="after">
                 <field name="planned_cost" />
                 <field name="effective_cost" />
             </field>
+        </field>
+    </record>
+
+    <record id="action_update_project_task_employee_cost"
+            model="ir.actions.server">
+        <field name="name">Update Employee Cost</field>
+        <field name="type">ir.actions.server</field>
+        <field name="state">code</field>
+        <field name="model_id" ref="project.model_project_task" />
+        <field name="binding_model_id" ref="project.model_project_task" />
+        <field name="code">
+            if records:
+                records.button_update_employee_cost()
         </field>
     </record>
 
