@@ -22,11 +22,7 @@ class ProjectTask(models.Model):
     @api.onchange('user_id')
     def _onchange_user(self):
         res = super(ProjectTask, self)._onchange_user()
-        employee_model = self.env['hr.employee']
-        for task in self:
-            employee = employee_model.search(
-                [('user_id', '=', task.user_id.id)], limit=1)
-            task.employee_cost = employee.timesheet_cost
+        self.button_update_employee_cost()
         return res
 
     @api.depends('employee_cost', 'planned_hours')
@@ -46,3 +42,11 @@ class ProjectTask(models.Model):
                 relativedelta(str2date(task.date_end),
                               str2date(task.date_start)).months + 1)
             task.planned_monthly_hours = task.planned_hours / (months or 1.0)
+
+    @api.multi
+    def button_update_employee_cost(self):
+        employee_model = self.env['hr.employee']
+        for task in self.filtered('user_id'):
+            employee = employee_model.search(
+                [('user_id', '=', task.user_id.id)], limit=1)
+            task.employee_cost = employee.timesheet_cost
