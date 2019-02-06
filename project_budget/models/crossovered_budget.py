@@ -12,7 +12,7 @@ class CrossoveredBudget(models.Model):
 
     project_id = fields.Many2one(
         comodel_name='project.project', string='Project',
-        states={'done': [('readonly', True)]})
+        states={'done': [('readonly', True)]}, ondelete='cascade')
     initial = fields.Boolean(
         string='Initial', copy=False, states={'done': [('readonly', True)]})
     active = fields.Boolean(string='Active', default=True)
