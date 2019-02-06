@@ -111,4 +111,16 @@
             </field>
         </field>
     </record>
+
+    <record id="action_budget_compute_amount" model="ir.actions.server">
+        <field name="name">Recompute Line Amounts</field>
+        <field name="type">ir.actions.server</field>
+        <field name="state">code</field>
+        <field name="model_id" ref="account_budget.model_crossovered_budget" />
+        <field name="binding_model_id" ref="account_budget.model_crossovered_budget" />
+        <field name="code">
+if records:
+    action = records.buttom_recompute_line_amount()
+        </field>
+    </record>
 </odoo>
