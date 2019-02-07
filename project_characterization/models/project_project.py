@@ -24,9 +24,16 @@ class ProjectProject(models.Model):
                                 'False').lower() == 'true'
         if not manual_code:
             if self.res_area_id and self.res_area_type_id:
-                count = self.search_count([
-                    ('res_area_id', '=', self.res_area_id.id),
-                    ('res_area_type_id', '=', self.res_area_type_id.id)])
+                try:
+                    count = self.search([
+                        ('res_area_id', '=', self.res_area_id.id),
+                        ('res_area_type_id', '=', self.res_area_type_id.id)],
+                        limit=1, order='num_code DESC')
+                    count = int(count.num_code)
+                except Exception:
+                    count = self.search_count([
+                        ('res_area_id', '=', self.res_area_id.id),
+                        ('res_area_type_id', '=', self.res_area_type_id.id)])
                 self.num_code = count + 1
 
 
