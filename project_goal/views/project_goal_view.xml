@@ -4,11 +4,11 @@
         <field name="model">project.goal</field>
         <field name="arch" type="xml">
             <form>
-                <group name="">
+                <group name="main">
                     <field name="project_id" invisible="context.get('hide_project_id',True)" />
                     <field name="sequence" />
-                    <field name="type_id" options="{'no_create_edit': True}"/>
-                    <field name="goal_id" />
+                    <field name="type_id" options="{'no_create': True, 'no_create_edit': True}"/>
+                    <field name="goal_id" options="{'no_create': True, 'no_create_edit': True}"/>
                     <field name="name" />
                     <field name="acceptance_range" />
                     <field name="compliance" />
@@ -25,8 +25,8 @@
                   decoration-muted="not active">
                 <field name="sequence" widget="handle"/>
                 <field name="project_id" invisible="context.get('hide_project_id',True)" />
-                <field name="type_id" options="{'no_create_edit': True}"/>
-                <field name="goal_id" />
+                <field name="type_id" options="{'no_create': True, 'no_create_edit': True}"/>
+                <field name="goal_id" options="{'no_create': True, 'no_create_edit': True}"/>
                 <field name="name" />
                 <field name="acceptance_range" />
                 <field name="compliance" />
@@ -64,7 +64,7 @@
                     <group name="main">
                         <group name="left">
                             <field name="name" />
-                            <field name="type_id" options="{'no_create_edit': True}" />
+                            <field name="type_id" options="{'no_create': True, 'no_create_edit': True}" />
                         </group>
                         <group name="right" attrs="{'invisible': [('type_id', '=', False)]}">
                             <field name="default_goal" />

@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 11.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-01-30 12:36+0000\n"
-"PO-Revision-Date: 2019-01-30 12:36+0000\n"
+"POT-Creation-Date: 2019-02-07 14:38+0000\n"
+"PO-Revision-Date: 2019-02-07 14:38+0000\n"
 "Last-Translator: <>\n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -47,7 +47,7 @@ msgstr "Creado por"
 #: model:ir.model.fields,field_description:project_goal.field_project_goal_goal_create_date
 #: model:ir.model.fields,field_description:project_goal.field_project_goal_type_create_date
 msgid "Created on"
-msgstr "Creado en"
+msgstr "Creado el"
 
 #. module: project_goal
 #: model:project.goal.type,name:project_goal.gtype1
@@ -68,9 +68,18 @@ msgstr "Nombre mostrado"
 
 #. module: project_goal
 #: model:ir.model.fields,field_description:project_goal.field_project_goal_goal_id
-#: model:ir.model.fields,field_description:project_goal.field_project_goal_name
 msgid "Goal"
 msgstr "Objetivo"
+
+#. module: project_goal
+#: model:ir.model.fields,field_description:project_goal.field_project_goal_goal_default_goal
+msgid "Goal By Default"
+msgstr "Objetivo por defecto"
+
+#. module: project_goal
+#: model:ir.model.fields,field_description:project_goal.field_project_goal_name
+msgid "Goal Description"
+msgstr "Descripción del objetivo"
 
 #. module: project_goal
 #: model:ir.model,name:project_goal.model_project_goal_type
@@ -90,11 +99,11 @@ msgid "Goals of Projects"
 msgstr "Objetivos de proyectos"
 
 #. module: project_goal
-#: model:ir.model.fields,field_description:project_goal.field_project_goal_goal_id_5848
+#: model:ir.model.fields,field_description:project_goal.field_project_goal_goal_id_7321
 #: model:ir.model.fields,field_description:project_goal.field_project_goal_id
-#: model:ir.model.fields,field_description:project_goal.field_project_goal_type_id_5154
+#: model:ir.model.fields,field_description:project_goal.field_project_goal_type_id_5256
 msgid "ID"
-msgstr "ID (identificación)"
+msgstr "ID"
 
 #. module: project_goal
 #: model:project.goal.type,name:project_goal.gtype3
