@@ -113,4 +113,16 @@
             </pivot>
         </field>
     </record>
+
+    <record id="action_budget_line_compute_amount" model="ir.actions.server">
+        <field name="name">Recompute Amounts</field>
+        <field name="type">ir.actions.server</field>
+        <field name="state">code</field>
+        <field name="model_id" ref="account_budget.model_crossovered_budget_lines" />
+        <field name="binding_model_id" ref="account_budget.model_crossovered_budget_lines" />
+        <field name="code">
+if records:
+    action = records.button_recompute_amount()
+        </field>
+    </record>
 </odoo>
