@@ -16,7 +16,7 @@ class ProjectObjetive(models.Model):
     goal_id = fields.Many2one(
         string='Goal', comodel_name='project.goal.goal',
         domain="['|',('type_id','=',type_id),('type_id','=',False)]")
-    name = fields.Text(string='Goal')
+    name = fields.Text(string='Goal Description')
     type_id = fields.Many2one(
         string='Type', comodel_name='project.goal.type', required=True)
     acceptance_range = fields.Text(string='Acceptance range')
