@@ -33,7 +33,16 @@
             </field>
             <field name="user_id" position="after">
                 <field name="employee_cost" invisible="True" />
+                <field name="date_start" />
+                <field name="date_end" />
             </field>
+            <notebook position="inside">
+                <page string="Calendar"
+                      attrs="{'invisible': ['|',('date_start','=',False),('date_end','=',False)]}">
+                    <button name="button_create_calendar" type="object" string="Create Calendar" />
+                    <field name="calendar_ids" context="{'default_task_id': active_id}"/>
+                </page>
+            </notebook>
         </field>
     </record>
 
@@ -63,6 +72,20 @@
         <field name="code">
             if records:
                 records.button_update_employee_cost()
+        </field>
+    </record>
+
+
+    <record id="project_task_create_calendar_action"
+            model="ir.actions.server">
+        <field name="name">Create Calendar</field>
+        <field name="type">ir.actions.server</field>
+        <field name="state">code</field>
+        <field name="model_id" ref="project.model_project_task" />
+        <field name="binding_model_id" ref="project.model_project_task" />
+        <field name="code">
+            if records:
+                records.button_create_calendar()
         </field>
     </record>
 
