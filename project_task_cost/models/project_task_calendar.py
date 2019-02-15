@@ -19,6 +19,14 @@ class ProjectTaskCalendar(models.Model):
     task_id = fields.Many2one(
         comodel_name='project.task', string='Task', required=True,
         ondelete='cascade')
+    project_id = fields.Many2one(
+        comodel_name='project.project', string='Project',
+        related='task_id.project_id', store=True)
+    project_code = fields.Char(
+        string='Reference', related='task_id.project_id.code', store=True)
+    project_parent_id = fields.Many2one(
+        comodel_name='res.partner', string='Customer',
+        related='task_id.project_id.partner_id', store=True)
     date = fields.Date(string='Date', required=True)
     dayofweek = fields.Selection(
         selection='_get_selection_dayofweek', string='Day of Week', index=True,
@@ -36,6 +44,8 @@ class ProjectTaskCalendar(models.Model):
         string='Planned Cost', compute='_compute_planned_cost', store=True)
     effective_cost = fields.Float(
         string='Effective Cost', compute='_compute_effective_cost', store=True)
+    workhours = fields.Float(
+        string='Workhours', compute='_compute_workhours', store=True)
 
     @api.constrains('date', 'task_id')
     def _check_date_task(self):
@@ -51,6 +61,18 @@ class ProjectTaskCalendar(models.Model):
     def _compute_dayofweek(self):
         for line in self.filtered('date'):
             line.dayofweek = str(str2date(line.date).weekday())
+
+    @api.depends('user_id', 'dayofweek')
+    def _compute_workhours(self):
+        employee_model = self.env['hr.employee']
+        for line in self:
+            employee = employee_model.search(
+                [('user_id', '=', line.task_id.user_id.id)], limit=1)
+            attendances = employee.mapped(
+                'resource_calendar_id.attendance_ids').filtered(
+                lambda a: a.dayofweek == line.dayofweek)
+            line.workhours = sum([(a.hour_to - a.hour_from)
+                                  for a in attendances])
 
     @api.depends('task_id', 'task_id.planned_hours', 'task_id.calendar_ids')
     def _compute_planned_cost(self):
