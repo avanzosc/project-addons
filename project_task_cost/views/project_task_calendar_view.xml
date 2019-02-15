@@ -9,6 +9,7 @@
                 <field name="user_id" />
                 <field name="dayofweek" invisible="True" />
                 <field name="employee_cost" invisible="True" />
+                <field name="workhours" />
                 <field name="planned_hours" sum="Total Planned Hours" />
                 <field name="planned_cost" sum="Total Planned Cost" />
                 <field name="effective_hours" sum="Total Spent Hours" />
