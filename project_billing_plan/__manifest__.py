@@ -11,6 +11,7 @@
     "depends": [
         "account_analytic_billing_plan",
         "project",
+        "hr_timesheet",
     ],
     "data": [
         "views/project_project_view.xml",
