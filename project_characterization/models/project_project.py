@@ -25,11 +25,11 @@ class ProjectProject(models.Model):
         if not manual_code:
             if self.res_area_id and self.res_area_type_id:
                 try:
-                    count = self.search([
+                    projects = self.search([
                         ('res_area_id', '=', self.res_area_id.id),
-                        ('res_area_type_id', '=', self.res_area_type_id.id)],
-                        limit=1, order='num_code DESC')
-                    count = int(count.num_code)
+                        ('res_area_type_id', '=', self.res_area_type_id.id)])
+                    count = int(sorted(
+                        projects.mapped('num_code'), key=int, reverse=True)[0])
                 except Exception:
                     count = self.search_count([
                         ('res_area_id', '=', self.res_area_id.id),
