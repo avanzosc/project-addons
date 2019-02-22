@@ -22,7 +22,6 @@ class ProjectTask(models.Model):
         selection='_get_selection_level', string='Skill Level')
     possible_user_ids = fields.Many2many(
         comodel_name='res.users', compute='_compute_possible_user_ids')
-    user_id = fields.Many2one(domain="[('id','in',possible_user_ids)]")
 
     @api.depends('skill_id', 'skill_level')
     def _compute_possible_user_ids(self):
