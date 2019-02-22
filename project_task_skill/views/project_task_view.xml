@@ -10,6 +10,9 @@
                 <field name="skill_level" widget="priority" />
                 <field name="possible_user_ids" invisible="True" />
             </field>
+            <field name="user_id" position="attributes">
+                <attribute name="domain">[('id','in',possible_user_ids)]</attribute>
+            </field>
         </field>
     </record>
 </odoo>
