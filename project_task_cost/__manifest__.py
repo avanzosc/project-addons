@@ -18,6 +18,7 @@
         "security/project_task_cost_security.xml",
         "views/project_project_view.xml",
         "views/project_task_view.xml",
+        "views/project_task_calendar_view.xml",
         "report/project_task_resume_view.xml",
     ],
     "installable": True,

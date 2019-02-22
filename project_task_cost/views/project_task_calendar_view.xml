@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <record id="project_task_calendar_view_tree" model="ir.ui.view">
+        <field name="model">project.task.calendar</field>
+        <field name="arch" type="xml">
+            <tree create="false" edit="false" delete="false">
+                <field name="task_id" />
+                <field name="date" />
+                <field name="user_id" />
+                <field name="dayofweek" invisible="True" />
+                <field name="employee_cost" invisible="True" />
+                <field name="workhours" />
+                <field name="planned_hours" sum="Total Planned Hours" />
+                <field name="planned_cost" sum="Total Planned Cost" />
+                <field name="effective_hours" sum="Total Spent Hours" />
+                <field name="effective_cost" sum="Total Spent Cost" />
+            </tree>
+        </field>
+    </record>
+
+    <record id="project_task_calendar_view_form" model="ir.ui.view">
+        <field name="model">project.task.calendar</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group>
+                        <field name="task_id" />
+                        <field name="date" />
+                        <field name="dayofweek" />
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="project_task_calendar_view_pivot" model="ir.ui.view">
+        <field name="model">project.task.calendar</field>
+        <field name="arch" type="xml">
+            <pivot>
+                <field name="date" type="row"/>
+                <field name="user_id" type="col" />
+                <field name="planned_hours" type="measure" />
+                <field name="planned_cost" type="measure"/>
+                <field name="effective_hours" type="measure" />
+                <field name="effective_cost" type="measure" />
+            </pivot>
+        </field>
+    </record>
+
+    <record id="project_task_calendar_view_search" model="ir.ui.view">
+        <field name="model">project.task.calendar</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="date" />
+                <field name="user_id" />
+                <group name="group_by" expand="0" string="Group By">
+                    <filter name="group_date_month" string="Date (month)"
+                            context="{'group_by': 'date'}" />
+                    <filter name="group_user" string="Assigned to"
+                            context="{'group_by': 'user_id'}" />
+                </group>
+            </search>
+        </field>
+    </record>
+
+    <record id="project_task_calendar_action" model="ir.actions.act_window">
+        <field name="name">Project Task Calendar</field>
+        <field name="res_model">project.task.calendar</field>
+        <field name="view_mode">tree,form,pivot</field>
+        <field name="context">{
+            'hide_task_id': False,
+        }</field>
+    </record>
+
+    <menuitem id="project_task_calendar_menuitem"
+              parent="project.menu_project_report"
+              action="project_task_calendar_action"/>
+
+</odoo>
