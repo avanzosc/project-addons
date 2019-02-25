@@ -6,7 +6,7 @@
 Project Budget Expense
 ======================
 
-
+With this module planned costs of tasks are distributed in budget.
 
 Bug Tracker
 ===========
