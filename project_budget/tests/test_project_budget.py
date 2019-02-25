@@ -29,7 +29,7 @@ class TestProjectBudget(common.SavepointCase):
         self.assertEquals(
             len(self.project.budget_ids), self.project.budget_count)
         self.assertTrue(self.project.has_current_budget)
-        self.assertEquals(
+        self.assertIn(
             self.project,
             self.project.search([('has_current_budget', '=', True)]))
         self.assertEquals(len(
