@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <record id="crossovered_budget_view_form" model="ir.ui.view">
+        <field name="model">crossovered.budget</field>
+        <field name="inherit_id" ref="account_budget.crossovered_budget_view_form" />
+        <field name="arch" type="xml">
+            <header position="inside">
+                <button name="button_distribute_task_costs" string="Distribute Project Budget" type="object" />
+            </header>
+        </field>
+    </record>
+</odoo>
