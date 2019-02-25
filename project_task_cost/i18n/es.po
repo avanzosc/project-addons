@@ -6,14 +6,31 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 11.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-02-04 13:03+0000\n"
-"PO-Revision-Date: 2019-02-04 13:03+0000\n"
+"POT-Creation-Date: 2019-02-22 10:22+0000\n"
+"PO-Revision-Date: 2019-02-22 10:22+0000\n"
 "Last-Translator: <>\n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: \n"
 "Plural-Forms: \n"
+
+#. module: project_task_cost
+#: model:ir.model.fields,field_description:project_task_cost.field_project_task_calendar_user_id
+#: model:ir.ui.view,arch_db:project_task_cost.project_task_calendar_view_search
+msgid "Assigned to"
+msgstr "Asignada a"
+
+#. module: project_task_cost
+#: model:ir.ui.view,arch_db:project_task_cost.project_task_calendar_view_tree
+msgid "Average Workhours"
+msgstr "Promedio de horas laborales"
+
+#. module: project_task_cost
+#: model:ir.model.fields,field_description:project_task_cost.field_project_task_calendar_ids
+#: model:ir.ui.view,arch_db:project_task_cost.project_task_time_form_view
+msgid "Calendar"
+msgstr "Calendario"
 
 #. module: project_task_cost
 #: model:res.groups,name:project_task_cost.group_project_coordinator
@@ -26,11 +43,71 @@ msgid "Cost Resume"
 msgstr "Resumen"
 
 #. module: project_task_cost
+#: model:ir.actions.server,name:project_task_cost.project_task_create_calendar_action
+#: model:ir.ui.view,arch_db:project_task_cost.project_task_time_form_view
+msgid "Create Calendar"
+msgstr "Crear calendario"
+
+#. module: project_task_cost
+#: model:ir.model.fields,field_description:project_task_cost.field_project_task_calendar_create_uid
+msgid "Created by"
+msgstr "Creado por"
+
+#. module: project_task_cost
+#: model:ir.model.fields,field_description:project_task_cost.field_project_task_calendar_create_date
+msgid "Created on"
+msgstr "Creado el"
+
+#. module: project_task_cost
+#: model:ir.model.fields,field_description:project_task_cost.field_project_task_calendar_project_parent_id
+msgid "Customer"
+msgstr "Cliente"
+
+#. module: project_task_cost
+#: model:ir.model.fields,field_description:project_task_cost.field_project_task_calendar_date
+msgid "Date"
+msgstr "Fecha"
+
+#. module: project_task_cost
+#: model:ir.ui.view,arch_db:project_task_cost.project_task_calendar_view_search
+msgid "Date (day)"
+msgstr "Fecha (día)"
+
+#. module: project_task_cost
+#: model:ir.ui.view,arch_db:project_task_cost.project_task_calendar_view_search
+msgid "Date (month)"
+msgstr "Fecha (mes)"
+
+#. module: project_task_cost
+#: model:ir.ui.view,arch_db:project_task_cost.project_task_calendar_view_search
+msgid "Date (week)"
+msgstr "Fecha (semana)"
+
+#. module: project_task_cost
+#: code:addons/project_task_cost/models/project_task_calendar.py:58
+#: code:addons/project_task_cost/models/project_task_calendar.py:60
+#, python-format
+msgid "Date must be between dates of task."
+msgstr "La fecha debe estar dentro del plazo de la tarea."
+
+#. module: project_task_cost
+#: model:ir.model.fields,field_description:project_task_cost.field_project_task_calendar_dayofweek
+msgid "Day of Week"
+msgstr "Día de la semana"
+
+#. module: project_task_cost
+#: model:ir.model.fields,field_description:project_task_cost.field_project_task_calendar_display_name
 #: model:ir.model.fields,field_description:project_task_cost.field_project_task_resume_display_name
 msgid "Display Name"
 msgstr "Nombre mostrado"
 
 #. module: project_task_cost
+#: model:ir.model.fields,field_description:project_task_cost.field_project_task_calendar_effective_cost
+msgid "Effective Cost"
+msgstr "Coste real"
+
+#. module: project_task_cost
+#: model:ir.model.fields,field_description:project_task_cost.field_project_task_calendar_employee_cost
 #: model:ir.model.fields,field_description:project_task_cost.field_project_task_employee_cost
 msgid "Employee Cost"
 msgstr "Coste de empleado"
@@ -47,14 +124,26 @@ msgid "Estimated Cost"
 msgstr "Coste estimado"
 
 #. module: project_task_cost
+#: model:ir.ui.view,arch_db:project_task_cost.project_task_calendar_view_search
+msgid "Group By"
+msgstr "Agrupar por"
+
+#. module: project_task_cost
+#: model:ir.model.fields,field_description:project_task_cost.field_project_task_calendar_user_leave
+msgid "Holidays"
+msgstr "Festivo"
+
+#. module: project_task_cost
+#: model:ir.model.fields,field_description:project_task_cost.field_project_task_calendar_effective_hours
 #: model:ir.model.fields,field_description:project_task_cost.field_project_task_resume_effective_hours
 msgid "Hours Spent"
 msgstr "Horas dedicadas"
 
 #. module: project_task_cost
+#: model:ir.model.fields,field_description:project_task_cost.field_project_task_calendar_id
 #: model:ir.model.fields,field_description:project_task_cost.field_project_task_resume_id
 msgid "ID"
-msgstr "ID (identificación)"
+msgstr "ID"
 
 #. module: project_task_cost
 #: model:ir.model.fields,field_description:project_task_cost.field_project_task_resume_planned_hours
@@ -62,9 +151,30 @@ msgid "Initially Planned Hours"
 msgstr "Horas iniciales planificadas"
 
 #. module: project_task_cost
+#: model:ir.model.fields,field_description:project_task_cost.field_project_task_calendar___last_update
 #: model:ir.model.fields,field_description:project_task_cost.field_project_task_resume___last_update
 msgid "Last Modified on"
 msgstr "Última modificación en"
+
+#. module: project_task_cost
+#: model:ir.model.fields,field_description:project_task_cost.field_project_task_calendar_write_uid
+msgid "Last Updated by"
+msgstr "Última actualización de"
+
+#. module: project_task_cost
+#: model:ir.model.fields,field_description:project_task_cost.field_project_task_calendar_write_date
+msgid "Last Updated on"
+msgstr "Última actualización en"
+
+#. module: project_task_cost
+#: model:ir.model.fields,field_description:project_task_cost.field_project_task_calendar_planned_cost
+msgid "Planned Cost"
+msgstr "Coste estimado"
+
+#. module: project_task_cost
+#: model:ir.model.fields,field_description:project_task_cost.field_project_task_calendar_planned_hours
+msgid "Planned Hours"
+msgstr "Horas planeadas"
 
 #. module: project_task_cost
 #: model:ir.model.fields,field_description:project_task_cost.field_project_task_planned_monthly_hours
@@ -74,7 +184,9 @@ msgstr "Horas planificadas por mes"
 
 #. module: project_task_cost
 #: model:ir.model,name:project_task_cost.model_project_project
+#: model:ir.model.fields,field_description:project_task_cost.field_project_task_calendar_project_id
 #: model:ir.model.fields,field_description:project_task_cost.field_project_task_resume_project_id
+#: model:ir.ui.view,arch_db:project_task_cost.project_task_calendar_view_search
 #: model:ir.ui.view,arch_db:project_task_cost.project_task_resume_search_view
 msgid "Project"
 msgstr "Proyecto"
@@ -83,6 +195,12 @@ msgstr "Proyecto"
 #: model:ir.ui.view,arch_db:project_task_cost.project_project_resume_view_form
 msgid "Project Costs"
 msgstr "Costes de proyecto"
+
+#. module: project_task_cost
+#: model:ir.actions.act_window,name:project_task_cost.project_task_calendar_action
+#: model:ir.ui.menu,name:project_task_cost.project_task_calendar_menuitem
+msgid "Project Task Calendar"
+msgstr "Calendario de tareas"
 
 #. module: project_task_cost
 #: model:ir.actions.act_window,name:project_task_cost.action_project_task_resume_view
@@ -98,6 +216,11 @@ msgid "Real Cost"
 msgstr "Coste real"
 
 #. module: project_task_cost
+#: model:ir.model.fields,field_description:project_task_cost.field_project_task_calendar_project_code
+msgid "Reference"
+msgstr "Referencia"
+
+#. module: project_task_cost
 #: model:ir.model.fields,field_description:project_task_cost.field_project_project_resume_ids
 msgid "Resume"
 msgstr "Resumen"
@@ -109,8 +232,15 @@ msgstr "Fecha de inicio"
 
 #. module: project_task_cost
 #: model:ir.model,name:project_task_cost.model_project_task
+#: model:ir.model.fields,field_description:project_task_cost.field_project_task_calendar_task_id
+#: model:ir.ui.view,arch_db:project_task_cost.project_task_calendar_view_search
 msgid "Task"
 msgstr "Tarea"
+
+#. module: project_task_cost
+#: model:ir.model,name:project_task_cost.model_project_task_calendar
+msgid "Task Calendar"
+msgstr "Calendario de tarea"
 
 #. module: project_task_cost
 #: model:ir.ui.view,arch_db:project_task_cost.project_task_cost_tree_view
@@ -128,11 +258,13 @@ msgid "Total Hours Spent"
 msgstr "Total horas dedicadas"
 
 #. module: project_task_cost
+#: model:ir.ui.view,arch_db:project_task_cost.project_task_calendar_view_tree
 #: model:ir.ui.view,arch_db:project_task_cost.project_task_cost_tree_view
 msgid "Total Planned Cost"
 msgstr "Coste total estimado"
 
 #. module: project_task_cost
+#: model:ir.ui.view,arch_db:project_task_cost.project_task_calendar_view_tree
 #: model:ir.ui.view,arch_db:project_task_cost.project_task_resume_tree_view
 msgid "Total Planned Hours"
 msgstr "Total horas iniciales planificadas"
@@ -148,6 +280,16 @@ msgid "Total Real Cost"
 msgstr "Total coste real"
 
 #. module: project_task_cost
+#: model:ir.ui.view,arch_db:project_task_cost.project_task_calendar_view_tree
+msgid "Total Spent Cost"
+msgstr "Total coste real"
+
+#. module: project_task_cost
+#: model:ir.ui.view,arch_db:project_task_cost.project_task_calendar_view_tree
+msgid "Total Spent Hours"
+msgstr "Total horas dedicadas"
+
+#. module: project_task_cost
 #: model:ir.actions.server,name:project_task_cost.action_update_project_task_employee_cost
 msgid "Update Employee Cost"
 msgstr "Actualizar coste de empleado"
@@ -157,4 +299,9 @@ msgstr "Actualizar coste de empleado"
 #: model:ir.ui.view,arch_db:project_task_cost.project_task_resume_search_view
 msgid "User"
 msgstr "Usuario"
+
+#. module: project_task_cost
+#: model:ir.model.fields,field_description:project_task_cost.field_project_task_calendar_workhours
+msgid "Workhours"
+msgstr "Horas laborales"
 
