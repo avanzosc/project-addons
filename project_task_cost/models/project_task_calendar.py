@@ -31,6 +31,8 @@ class ProjectTaskCalendar(models.Model):
     dayofweek = fields.Selection(
         selection='_get_selection_dayofweek', string='Day of Week', index=True,
         compute='_compute_dayofweek', store=True)
+    user_leave = fields.Boolean(
+        string='Holidays', compute='_compute_user_leave', store=True)
     user_id = fields.Many2one(
         comodel_name='res.users', string='Assigned to',
         related='task_id.user_id', store=True)
@@ -62,10 +64,23 @@ class ProjectTaskCalendar(models.Model):
         for line in self.filtered('date'):
             line.dayofweek = str(str2date(line.date).weekday())
 
-    @api.depends('user_id', 'dayofweek')
+    @api.depends('date', 'user_id')
+    def _compute_user_leave(self):
+        resource_model = self.env['resource.resource']
+        leave_model = self.env['resource.calendar.leaves']
+        for line in self:
+            user = line.task_id.user_id
+            resources = resource_model.search([('user_id', '=', user.id)])
+            leaves = leave_model.search([
+                '|', ('resource_id', 'in', resources.ids),
+                ('resource_id', '=', False),
+                ('date_from', '<=', line.date), ('date_to', '>=', line.date)])
+            line.user_leave = leaves
+
+    @api.depends('user_id', 'dayofweek', 'user_leave')
     def _compute_workhours(self):
         employee_model = self.env['hr.employee']
-        for line in self:
+        for line in self.filtered(lambda l: not l.user_leave):
             employee = employee_model.search(
                 [('user_id', '=', line.task_id.user_id.id)], limit=1)
             attendances = employee.mapped(
@@ -74,29 +89,22 @@ class ProjectTaskCalendar(models.Model):
             line.workhours = sum([(a.hour_to - a.hour_from)
                                   for a in attendances])
 
-    @api.depends('task_id', 'task_id.planned_hours', 'task_id.calendar_ids')
+    @api.depends('user_leave', 'task_id', 'task_id.planned_hours',
+                 'task_id.calendar_ids')
     def _compute_planned_cost(self):
         employee_model = self.env['hr.employee']
-        leave_model = self.env['resource.calendar.leaves']
-        resource_model = self.env['resource.resource']
-        for line in self:
+        for line in self.filtered(lambda l: not l.user_leave):
             user = line.task_id.user_id
-            resources = resource_model.search([('user_id', '=', user.id)])
-            leaves = leave_model.search([
-                '|', ('resource_id', 'in', resources.ids),
-                ('resource_id', '=', False),
-                ('date_from', '<=', line.date), ('date_to', '>=', line.date)])
-            if not leaves:
-                employee = employee_model.search(
-                    [('user_id', '=', user.id)], limit=1)
-                weekdays = employee.resource_calendar_id.mapped(
-                    'attendance_ids.dayofweek')
-                if line.dayofweek in weekdays:
-                    line_count = len(line.task_id.calendar_ids.filtered(
-                        lambda l: l.dayofweek in weekdays))
-                    line.planned_hours = (line.task_id.planned_hours /
-                                          (line_count or 1))
-                    line.planned_cost = line.planned_hours * line.employee_cost
+            employee = employee_model.search(
+                [('user_id', '=', user.id)], limit=1)
+            weekdays = employee.resource_calendar_id.mapped(
+                'attendance_ids.dayofweek')
+            if line.dayofweek in weekdays:
+                line_count = len(line.task_id.calendar_ids.filtered(
+                    lambda l: l.dayofweek in weekdays and not l.user_leave))
+                line.planned_hours = (line.task_id.planned_hours /
+                                      (line_count or 1))
+                line.planned_cost = line.planned_hours * line.employee_cost
 
     @api.depends('task_id', 'task_id.timesheet_ids')
     def _compute_effective_cost(self):

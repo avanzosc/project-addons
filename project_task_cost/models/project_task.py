@@ -33,10 +33,10 @@ class ProjectTask(models.Model):
         for task in self.filtered('user_id'):
             task.planned_cost = task.planned_hours * task.employee_cost
 
-    @api.depends('employee_cost', 'effective_hours')
+    @api.depends('timesheet_ids', 'timesheet_ids.amount')
     def _compute_effective_cost(self):
         for task in self.filtered('user_id'):
-            task.effective_cost = task.effective_hours * task.employee_cost
+            task.effective_cost = abs(sum(task.mapped('timesheet_ids.amount')))
 
     @api.depends('date_start', 'date_end', 'planned_hours')
     def _compute_planned_monthly_hours(self):

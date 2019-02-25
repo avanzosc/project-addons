@@ -59,6 +59,18 @@ class TestProjectTaskCost(common.SavepointCase):
         calendar_num = (
             str2date(task.date_end) - str2date(task.date_start)).days + 1
         self.assertEquals(len(task.calendar_ids), calendar_num)
+        self.assertEquals(
+            round(sum(task.mapped('calendar_ids.planned_hours')), 2),
+            round(task.planned_hours, 2))
+        self.assertEquals(
+            round(sum(task.mapped('calendar_ids.planned_cost')), 2),
+            round(task.planned_cost, 2))
+        self.assertEquals(
+            round(sum(task.mapped('calendar_ids.effective_hours')), 2),
+            round(task.effective_hours, 2))
+        self.assertEquals(
+            round(sum(task.mapped('calendar_ids.effective_cost')), 2),
+            round(task.effective_cost, 2))
         with self.assertRaises(exceptions.ValidationError):
             task.calendar_ids.create({
                 'task_id': task.id,
