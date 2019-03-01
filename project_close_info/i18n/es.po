@@ -156,3 +156,85 @@ msgstr "Exitoso"
 msgid "Technical"
 msgstr "Técnico"
 
+#. module: project_close_info
+#: model:ir.ui.view,arch_db:project_close_info.report_project_close_document
+msgid "<br/>\n"
+"                    <strong>FINANCIAL CLOSING: </strong>"
+msgstr "<br/>\n"
+"                    <strong>CIERRE FINANCIERO: </strong>"
+
+#. module: project_close_info
+#: model:ir.ui.view,arch_db:project_close_info.report_project_close_document
+msgid "<strong>ASSESSMENT</strong>"
+msgstr "<strong>VALORACIÓN </strong>"
+
+#. module: project_close_info
+#: model:ir.ui.view,arch_db:project_close_info.report_project_close_document
+msgid "<strong>AUTHOR</strong>"
+msgstr "<strong>AUTOR</strong>"
+
+#. module: project_close_info
+#: model:ir.ui.view,arch_db:project_close_info.report_project_close_document
+msgid "<strong>CLOSING CRITERIA</strong>"
+msgstr "<strong>CRITERIOS DE CIERRE</strong>"
+
+#. module: project_close_info
+#: model:ir.ui.view,arch_db:project_close_info.report_project_close_document
+msgid "<strong>CLOSING</strong>"
+msgstr "<strong>CIERRE</strong>"
+
+#. module: project_close_info
+#: model:ir.ui.view,arch_db:project_close_info.report_project_close_document
+msgid "<strong>CRITERION</strong>"
+msgstr "<strong>CRITERIO</strong>"
+
+#. module: project_close_info
+#: model:ir.ui.view,arch_db:project_close_info.report_project_close_document
+msgid "<strong>DATE</strong>"
+msgstr "<strong>FECHA</strong>"
+
+#. module: project_close_info
+#: model:ir.ui.view,arch_db:project_close_info.report_project_close_document
+msgid "<strong>DEGREE OF COMPLIANCE</strong>"
+msgstr "<strong>GRADO DE CUMPLIMIENTO</strong>"
+
+#. module: project_close_info
+#: model:ir.ui.view,arch_db:project_close_info.report_project_close_document
+msgid "<strong>DESCRIPTION</strong>"
+msgstr "<strong>DESCRIPCIÓN</strong>"
+
+#. module: project_close_info
+#: model:ir.ui.view,arch_db:project_close_info.report_project_close_document
+msgid "<strong>OBJECTIVES</strong>"
+msgstr "<strong>OBJETIVOS</strong>"
+
+#. module: project_close_info
+#: model:ir.ui.view,arch_db:project_close_info.report_project_close_document
+msgid "<strong>OBJETIVE</strong>"
+msgstr "<strong>OBJETIVO</strong>"
+
+#. module: project_close_info
+#: model:ir.ui.view,arch_db:project_close_info.report_project_close_document
+msgid "<strong>OBSERVATIONS</strong>"
+msgstr "<strong>OBSERVACIONES</strong>"
+
+#. module: project_close_info
+#: model:ir.ui.view,arch_db:project_close_info.report_project_close_document
+msgid "<strong>RANGE OF ACCEPTANCE</strong>"
+msgstr "<strong>RANGO DE ACEPTACIÓN</strong>"
+
+#. module: project_close_info
+#: model:ir.ui.view,arch_db:project_close_info.report_project_close_document
+msgid "<strong>TECHNICAL CLOSING: </strong>"
+msgstr "<strong>CIERRE TÉCNICO: </strong>"
+
+#. module: project_close_info
+#: model:ir.ui.view,arch_db:project_close_info.report_project_close_document
+msgid "<strong>TYPE</strong>"
+msgstr "<strong>TIPO</strong>"
+
+#. module: project_close_info
+#: model:ir.actions.report,name:project_close_info.action_report_project_close
+msgid "Closing report"
+msgstr "Informe cierre"
+

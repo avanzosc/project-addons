@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <template id="report_project_close_document">
+        <t t-call="web.external_layout">
+            <t t-set="doc" t-value="doc.with_context({'lang':doc.company_id.partner_id.lang})" />
+            <div class="page">
+                <div class="oe_structure"/>
+                <br/>
+                <br/>
+                <div class="row">
+                    <div class="col-xs-12 text-center" style="font-size:28px;">
+                        <strong>CLOSING</strong>
+                    </div>
+                    <div class="col-xs-12 text-center" style="font-size:28px;">
+                        <strong><span t-field="doc.name"/></strong>
+                    </div>
+                </div>
+                <br/>
+                <br/>
+                <div class="row">
+                    <div class="col-xs-4 text-center" />
+                    <div class="col-xs-4 text-left">
+                        <table class="table table-condensed" name="table_author">
+                            <caption><strong>AUTHOR</strong></caption>
+                            <tbody>
+                                <tr><td></td></tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="col-xs-4 text-left">
+                        <table class="table table-condensed" name="table_date">
+                            <caption><strong>DATE</strong></caption>
+                            <tbody>
+                                <tr><td></td></tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-xs-12 text-center" style="font-size:20px;">
+                        <strong>CLOSING CRITERIA</strong>
+                    </div>
+                    <div class="col-xs-12">
+                        <table class="table table-condensed" name="project_close">
+                            <thead>
+                                <tr>
+                                    <th class="text-center"><strong>CRITERION</strong></th>
+                                    <th class="text-center"><strong>ASSESSMENT</strong></th>
+                                </tr>
+                            </thead>
+                            <tbody class="invoice_tbody">
+                                <tr t-foreach="doc.criteria_ids" t-as="l">
+                                    <td class="text-left">
+                                        <span t-field="l.approach"/>
+                                    </td>
+                                    <td class="text-center">
+                                        <span t-field="l.value"/> %
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="col-xs-12 text-center" style="font-size:20px;">
+                        <strong>OBJECTIVES</strong>
+                    </div>
+                    <div class="col-xs-12">
+                        <table class="table table-condensed" name="project_close">
+                            <thead>
+                                <tr>
+                                    <th class="text-center"><strong>TYPE</strong></th>
+                                    <th class="text-center"><strong>OBJETIVE</strong></th>
+                                    <th class="text-center"><strong>DESCRIPTION</strong></th>
+                                    <th class="text-center"><strong>RANGE OF ACCEPTANCE</strong></th>
+                                    <th class="text-center"><strong>DEGREE OF COMPLIANCE</strong></th>
+                                    <th class="text-center"><strong>OBSERVATIONS</strong></th>
+                                </tr>
+                            </thead>
+                            <tbody class="invoice_tbody">
+                                <tr t-foreach="doc.goal_ids" t-as="l">
+                                    <td class="text-center">
+                                        <span t-field="l.type_id.name"/>
+                                    </td>
+                                    <td class="text-center">
+                                        <span t-field="l.goal_id.name"/>
+                                    </td>
+                                    <td class="text-center">
+                                        <span t-field="l.name"/>
+                                    </td>
+                                    <td class="text-center">
+                                        <span t-field="l.acceptance_range"/>
+                                    </td>
+                                    <td class="text-center">
+                                        <span t-field="l.compliance"/>
+                                    </td>
+                                    <td class="text-center">
+                                        <span t-field="l.remark"/>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                <div class="col-xs-12 text-left" style="font-size:20px;">
+                    <t t-if="doc.technical">
+                        <strong>TECHNICAL CLOSING: </strong><span t-field="doc.technical"/>
+                    </t>
+                    <t t-if="doc.technical and doc.financial">
+                        <br/>
+                    </t>
+                    <t t-if="doc.financial">
+                        <strong>FINANCIAL CLOSING: </strong><span t-field="doc.financial"/>
+                    </t>
+                </div>
+                <t t-if="doc.notes">
+                    <div class="col-xs-12 text-center" style="font-size:20px;">
+                        <strong>OBSERVATIONS</strong>
+                    </div>
+                    <span t-field="doc.notes"/>
+                </t>
+                <div class="oe_structure"/>
+            </div>
+        </t>
+    </template>
+    <template id="report_project_close">
+        <t t-call="web.html_container">
+            <t t-foreach="docs" t-as="doc">
+                <t t-call="project_close_info.report_project_close_document" t-lang="doc.company_id.partner_id.lang"/>
+            </t>
+        </t>
+    </template>
+    <report
+        id="action_report_project_close"
+        string="Closing report"
+        model="project.project"
+        report_type="qweb-html"
+        file="project_close_info.report_project_close"
+        name="project_close_info.report_project_close"
+        print_report_name="'Project close info- %s' % (object.name)" />
+</odoo>
