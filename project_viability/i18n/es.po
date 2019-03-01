@@ -429,3 +429,73 @@ msgstr "res.config.settings"
 msgid "viability"
 msgstr "viability"
 
+#. module: project_viability
+#: model:ir.ui.view,arch_db:project_viability.report_project_viability_document
+msgid ", total aspect:"
+msgstr ", total aspecto:"
+
+#. module: project_viability
+#: model:ir.ui.view,arch_db:project_viability.report_project_viability_document
+msgid "<br/>DECISION<br/>"
+msgstr "<br/>DECISIÓN<br/>"
+
+#. module: project_viability
+#: model:ir.ui.view,arch_db:project_viability.report_project_viability_document
+msgid "<strong>AUTHOR</strong>"
+msgstr "<strong>AUTOR</strong>"
+
+#. module: project_viability
+#: model:ir.ui.view,arch_db:project_viability.report_project_viability_document
+msgid "<strong>DATE:</strong>"
+msgstr "<strong>FECHA:</strong>"
+
+#. module: project_viability
+#: model:ir.ui.view,arch_db:project_viability.report_project_viability_document
+msgid "<strong>DATE</strong>"
+msgstr "<strong>FECHA</strong>"
+
+#. module: project_viability
+#: model:ir.ui.view,arch_db:project_viability.report_project_viability_document
+msgid "<strong>EVALUATED BY:</strong>"
+msgstr "<strong>EVALUADO POR:</strong>"
+
+#. module: project_viability
+#: model:ir.ui.view,arch_db:project_viability.report_project_viability_document
+msgid "<strong>FACTORS TO CONSIDER</strong>"
+msgstr "<strong>FACTORES A CONSIDERAR</strong>"
+
+#. module: project_viability
+#: model:ir.ui.view,arch_db:project_viability.report_project_viability_document
+msgid "<strong>FINAL ASSESSMENT (0-5)</strong>"
+msgstr "<strong>VALORACIÓN FINAL (0-5)</strong>"
+
+#. module: project_viability
+#: model:ir.ui.view,arch_db:project_viability.report_project_viability_document
+msgid "<strong>SCORE (0-5)</strong>"
+msgstr "<strong>PUNTUACIÓN (0-5)</strong>"
+
+#. module: project_viability
+#: model:ir.ui.view,arch_db:project_viability.report_project_viability_document
+msgid "<strong>TOTAL VIABILITY OF THE PROJECT OPPORTUNITY</strong>"
+msgstr "<strong>VIAVILIDAD TOTAL DE LA OPORTUNIDAD DEL PROYECTO</strong>"
+
+#. module: project_viability
+#: model:ir.ui.view,arch_db:project_viability.report_project_viability_document
+msgid "<strong>WEIGHT OF EACH FACTOR</strong>"
+msgstr "<strong>PESO DE CADA FACTOR</strong>"
+
+#. module: project_viability
+#: model:ir.ui.view,arch_db:project_viability.report_project_viability_document
+msgid "<strong>WEIGHTED SCORE</strong>"
+msgstr "<strong>PUNTUACIÓN PONDERADA</strong>"
+
+#. module: project_viability
+#: model:ir.actions.report,name:project_viability.action_report_project_viability
+msgid "Viability"
+msgstr "Viabilidad"
+
+#. module: project_viability
+#: model:ir.actions.report,name:project_viability.action_report_project_close
+msgid "Closing report"
+msgstr "Informe cierre"
+

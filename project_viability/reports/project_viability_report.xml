@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <template id="report_project_viability_document">
+        <t t-call="web.external_layout">
+            <t t-set="doc" t-value="doc.with_context({'lang':doc.company_id.partner_id.lang})" />
+            <div class="page">
+                <div class="oe_structure"/>
+                <br/>
+                <br/>
+                <div class="row">
+                    <div class="col-xs-4 text-center" style="font-size:18px">
+                        <strong><span t-field="doc.name" /><br/>DECISION<br/><span t-field="doc.viability_decision_id.name" /></strong>
+                    </div>
+                    <div class="col-xs-4 text-left">
+                        <table class="table table-condensed">
+                            <caption><strong>AUTHOR</strong></caption>
+                            <tbody>
+                                <tr><td></td></tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="col-xs-4 text-left">
+                        <table class="table table-condensed">
+                            <caption><strong>DATE</strong></caption>
+                            <tbody>
+                                <tr><td></td></tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                <br/>
+                <br/>
+                <div class="row">
+                    <div class="col-xs-12 text-center" style="font-size:28px;">
+                        <strong>TOTAL VIABILITY OF THE PROJECT OPPORTUNITY</strong>
+                    </div>
+                    <div class="col-xs-12">
+                        <table class="table table-condensed" name="viability_categ">
+                            <thead>
+                                <tr>
+                                    <th class="text-left"><strong>FACTORS TO CONSIDER</strong></th>
+                                    <th class="text-center"><strong>WEIGHT OF EACH FACTOR</strong></th>
+                                    <th class="text-center"><strong>SCORE (0-5)</strong></th>
+                                    <th class="text-center"><strong>WEIGHTED SCORE</strong></th>
+                                    <th class="text-center"><strong>FINAL ASSESSMENT (0-5)</strong></th>
+                                </tr>
+                            </thead>
+                            <tbody class="invoice_tbody">
+                                <tr t-foreach="doc.viability_categ_line_ids" t-as="l">
+                                    <td class="text-left">
+                                        [<span t-field="l.categ_id.code"/>]
+                                        <span t-field="l.categ_id.name"/>
+                                    </td>
+                                    <td class="text-center">
+                                        <span t-field="l.percentage"/> %
+                                    </td>
+                                    <td class="text-center">
+                                        <span t-field="l.score"/>
+                                    </td>
+                                    <td class="text-center">
+                                        <span t-field="l.weighted_score"/>
+                                    </td>
+                                    <td class="text-center">
+                                        <span t-field="doc.viability_score"/>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-xs-12">
+                        <t t-foreach="doc.viability_categ_line_ids" t-as="l">
+                            <div class="col-xs-12 text-left" style="font-size:20px;">
+                                <strong><span t-field="l.categ_id.code"/> - <span t-field="l.categ_id.name"/>, total aspect: <span t-field="l.score"/></strong>
+                                
+                            </div>
+                            <table class="table table-condensed" name="viability_factor">
+                                <thead>
+                                    <tr>
+                                        <th class="text-left"><strong>FACTORS TO CONSIDER</strong></th>
+                                        <th class="text-center"><strong>WEIGHT OF EACH FACTOR</strong></th>
+                                        <th class="text-center"><strong>SCORE (0-5)</strong></th>
+                                        <th class="text-center"><strong>WEIGHTED SCORE</strong></th>
+                                    </tr>
+                                </thead>
+                                <tbody class="invoice_tbody">
+                                    <tr t-foreach="doc.viability_line_ids.filtered(lambda x: x.categ_id == l.categ_id)" t-as="l2">
+                                      <td class="text-left">
+                                          [<span t-field="l2.categ_id.code"/>-
+                                          <span t-field="l2.factor_id.code"/>]
+                                          <span t-field="l2.factor_id.name"/>
+                                      </td>
+                                      <td class="text-center">
+                                          <span t-field="l2.percentage"/> %
+                                      </td>
+                                      <td class="text-center">
+                                          <span t-field="l2.score"/>
+                                      </td>
+                                      <td class="text-center">
+                                          <span t-field="l2.weighted_score"/>
+                                      </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </t>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-xs-6 text-left">
+                        <table class="table table-condensed">
+                            <caption><strong>EVALUATED BY:</strong></caption>
+                            <tbody>
+                                <tr><td></td></tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="col-xs-2 text-left" />
+                    <div class="col-xs-4 text-left">
+                        <table class="table table-condensed">
+                            <caption><strong>DATE:</strong></caption>
+                            <tbody>
+                                <tr><td></td></tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                <div class="oe_structure"/>
+            </div>
+        </t>
+    </template>
+    <template id="report_project_viability">
+        <t t-call="web.html_container">
+            <t t-foreach="docs" t-as="doc">
+                <t t-call="project_viability.report_project_viability_document" t-lang="doc.company_id.partner_id.lang"/>
+            </t>
+        </t>
+    </template>
+    <report
+        id="action_report_project_viability"
+        string="Viability"
+        model="project.project"
+        report_type="qweb-html"
+        file="project_viability.report_project_viability"
+        name="project_viability.report_project_viability"
+        print_report_name="'Project viability- %s' % (object.name)" />
+</odoo>

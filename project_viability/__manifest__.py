@@ -3,7 +3,7 @@
 
 {
     "name": "Project Viability",
-    "version": "11.0.1.0.1",
+    "version": "11.0.1.0.2",
     "license": "AGPL-3",
     "depends": [
         "project",
@@ -22,6 +22,7 @@
         "views/project_viability_view.xml",
         "views/res_config_settings_view.xml",
         "data/project_viability_data.xml",
+        "reports/project_viability_report.xml",
     ],
     "installable": True,
 }
