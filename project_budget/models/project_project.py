@@ -57,20 +57,24 @@ class ProjectProject(models.Model):
         return [('id', operator, current_budgets.mapped('project_id').ids)]
 
     @api.multi
-    def create_initial_project_budget(self):
+    def create_initial_project_budget(self, date=False):
+        if not date:
+            date = fields.Date.context_today(self)
         budget_obj = self.env['crossovered.budget']
-        today = from_string(fields.Date.context_today(self))
-        date_from = to_string(today.replace(month=1, day=1))
-        date_to = to_string(today.replace(month=12, day=31))
+        budget_date = from_string(date)
+        date_from = to_string(budget_date.replace(month=1, day=1))
+        date_to = to_string(budget_date.replace(month=12, day=31))
         for record in self.filtered(lambda l: not any(l.budget_ids.filtered(
-                lambda b: b.initial and b.year == today.year))):
+                lambda b: b.initial and b.year == budget_date.year))):
             budget = budget_obj.create({
                 'name': _(
-                    u'Initial {} budget: {}').format(today.year, record.name),
+                    u'Initial {} budget: {}').format(budget_date.year,
+                                                     record.name),
                 'initial': True,
                 'creating_user_id': record.user_id.id,
                 'date_from': date_from,
                 'date_to': date_to,
+                'budget_date': budget_date,
                 'project_id': record.id,
             })
             budget.button_compute_lines()
