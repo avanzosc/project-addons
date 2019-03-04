@@ -26,6 +26,7 @@
         "views/project_project_view.xml",
         "views/account_analytic_account_view.xml",
         "views/res_config_settings_view.xml",
+        "wizards/project_initial_budget_view.xml",
     ],
     "installable": True,
 }

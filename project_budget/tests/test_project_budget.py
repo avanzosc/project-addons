@@ -14,6 +14,7 @@ class TestProjectBudget(common.SavepointCase):
     def setUpClass(cls):
         super(TestProjectBudget, cls).setUpClass()
         cls.project_model = cls.env['project.project']
+        cls.wizard = cls.env['project.initial.budget']
         set_param = cls.env['ir.config_parameter'].sudo().set_param
         set_param(
             'account_budget_template.budget_template_id',
@@ -97,3 +98,14 @@ class TestProjectBudget(common.SavepointCase):
         self.assertNotEquals(
             old_budget.crossovered_budget_line[:1].sum_amount,
             new_budget.crossovered_budget_line[:1].sum_amount)
+
+    def test_initial_budget_wizard(self):
+        today = from_string(fields.Date.today())
+        self.assertEquals(len(self.project.budget_ids), 1)
+        wizard = self.wizard.with_context(
+            active_ids=[self.project.id]).create({
+                'date': today.replace(year=today.year + 1),
+            })
+        self.assertIn(self.project, wizard.project_ids)
+        wizard.create_initial_project_budget()
+        self.assertEquals(len(self.project.budget_ids), 2)
