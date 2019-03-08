@@ -8,6 +8,7 @@ Project Closure
 
 This module enables a sheet on projects where to define technical and economical
 closures.
+New report project closing.
 
 Bug Tracker
 ===========
