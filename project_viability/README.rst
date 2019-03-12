@@ -10,6 +10,7 @@ Viability tables to estimate if a project is viable or not.
 
 * You can define a default viability template in project settings and also enable
   to change this template in each project.
+* New report project viability.
 
 Bug Tracker
 ===========
