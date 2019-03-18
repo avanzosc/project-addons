@@ -8,7 +8,16 @@
                 <br/>
                 <br/>
                 <div class="row">
-                    <div class="col-xs-4 text-center" />
+                    <div class="col-xs-12 text-center" style="font-size:28px;">
+                        <strong>TOTAL VIABILITY OF THE PROJECT OPPORTUNITY</strong>
+                    </div>
+                    <div class="col-xs-12 text-center" style="font-size:28px" >
+                        <strong><span t-field="doc.name" /></strong>
+                    </div>
+                </div>
+                <br/>
+                <br/>
+                <div class="row">
                     <div class="col-xs-4 text-left">
                         <table class="table table-condensed">
                             <caption><strong>AUTHOR</strong></caption>
@@ -21,17 +30,15 @@
                         <table class="table table-condensed">
                             <caption><strong>DATE</strong></caption>
                             <tbody>
-                                <tr><td><span t-field="doc.create_date"/></td></tr>
+                                <tr><td><span t-field="doc.create_date" t-field-options='{"widget": "date"}'/></td></tr>
                             </tbody>
                         </table>
                     </div>
+                    <div class="col-xs-4 text-center" />
                 </div>
                 <br/>
                 <br/>
                 <div class="row">
-                    <div class="col-xs-12 text-center" style="font-size:28px;">
-                        <strong>TOTAL VIABILITY OF THE PROJECT OPPORTUNITY</strong>
-                    </div>
                     <div class="col-xs-12">
                         <table class="table table-condensed" name="viability_categ">
                             <thead>
@@ -62,11 +69,20 @@
                         </table>
                     </div>
                 </div>
+                <br/>
+                <br/>
                 <div class="row">
                     <div class="col-xs-12 text-center" style="font-size:28px" name="final_decision">
-                        <strong><span t-field="doc.name" /><br/>
-                        FINAL DECISION: </strong><span t-field="doc.viability_decision_id.name" />
+                        <strong>FINAL DECISION: </strong><span t-field="doc.viability_decision_id.name" />
                         <strong>, FINAL ASSESSMENT (0-5): </strong><span t-field="doc.viability_score"/>
+                    </div>
+                    <div class="col-xs-12 text-left">
+                        <table class="table table-condensed">
+                            <caption><strong>Comments</strong></caption>
+                            <tbody>
+                                <tr><td><span t-field="doc.viability_comments"/></td></tr>
+                            </tbody>
+                        </table>
                     </div>
                     <div class="col-xs-12 text-center" style="font-size:28px">
                         <strong>VIABILITY BREAKDOWN</strong>

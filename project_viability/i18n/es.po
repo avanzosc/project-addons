@@ -504,3 +504,13 @@ msgstr "<strong>, VALORACIÓN FINAL (0-5): </strong>"
 msgid "<strong>VIABILITY BREAKDOWN</strong>"
 msgstr "<strong>DESGLOSE VIABILIDAD</strong>"
 
+#. module: project_viability
+#: model:ir.ui.view,arch_db:project_viability.report_project_viability_document
+msgid "<strong>Comments</strong>"
+msgstr "<strong>Comentarios</strong>"
+
+#. module: project_viability
+#: model:ir.ui.view,arch_db:project_viability.report_project_viability_document
+msgid "<strong>FINAL DECISION: </strong>"
+msgstr "<strong>DECISIÓN FINAL: </strong>"
+
