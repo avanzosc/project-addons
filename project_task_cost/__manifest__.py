@@ -20,6 +20,7 @@
         "views/project_task_view.xml",
         "views/project_task_calendar_view.xml",
         "report/project_task_resume_view.xml",
+        "wizards/project_task_calendar_creator_view.xml",
     ],
     "installable": True,
     "post_init_hook": "post_init_hook",
