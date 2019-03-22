@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <record id="hr_timesheet_accounting_wizard_view_form" model="ir.ui.view">
+        <field name="model">hr.timesheet.accounting</field>
+        <field name="arch" type="xml">
+            <form>
+                <group name="main">
+                    <field name="line_ids" nolabel="1" readonly="1">
+                        <tree decoration-muted="move_id != False">
+                            <field name="date" />
+                            <field name="name" />
+                            <field name="employee_id" />
+                            <field name="project_id" />
+                            <field name="task_id" />
+                            <field name="unit_amount" string="Time (Hours)" sum="Total time" widget="float_time"/>
+                            <field name="amount" sum="Total"/>
+                            <field name="move_id" invisible="True" />
+                        </tree>
+                    </field>
+                </group>
+                <footer>
+                    <button name="button_create_account_move" type="object"
+                            string="Apply" class="oe_highlight" />
+                    or
+                    <button string="Cancel" class="oe_link" special="cancel"/>
+                </footer>
+            </form>
+        </field>
+    </record>
+
+    <act_window id="action_hr_timesheet_accounting_wizard"
+                key2="client_action_multi"
+                name="Create account move"
+                res_model="hr.timesheet.accounting"
+                src_model="account.analytic.line"
+                view_mode="form"
+                target="new"
+                multi="1" />
+
+    <!--<record id="action_crossovered_budget_distribution" model="ir.actions.act_window">-->
+        <!--<field name="name">Distribute Budget</field>-->
+        <!--<field name="res_model">crossovered.budget.distribution</field>-->
+        <!--<field name="view_type">form</field>-->
+        <!--<field name="view_mode">form</field>-->
+        <!--<field name="view_id" ref="hr_timesheet_accounting_wizard_view_form" />-->
+        <!--<field name="target">new</field>-->
+    <!--</record>-->
+</odoo>
