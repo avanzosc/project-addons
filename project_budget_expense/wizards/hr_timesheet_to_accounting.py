@@ -16,7 +16,8 @@ class HrTimesheet2Accounting(models.TransientModel):
         defaults = super(HrTimesheet2Accounting, self).default_get(fields_list)
         active_lines = self.env['account.analytic.line'].browse(
             self.env.context.get('active_ids'))
-        lines = active_lines.filtered(lambda l: l.employee_id and not l.move_id)
+        lines = active_lines.filtered(
+            lambda l: l.employee_id and not l.move_id)
         defaults.update({
             'line_ids': [(6, 0, lines.ids)],
         })
@@ -27,16 +28,18 @@ class HrTimesheet2Accounting(models.TransientModel):
             lambda l: not l.move_id and l.employee_id)
         amount = abs(sum(lines.mapped('amount')))
         qty = sum(lines.mapped('unit_amount'))
+        payable_account = self.env.ref(
+            'project_budget_expense.account_account_employee_payable')
+        receivable_account = self.env.ref(
+            'project_budget_expense.account_account_employee_receivable')
         payable_line_vals = {
-            'account_id': self.env.ref(
-                'project_budget_expense.account_account_employee_payable').id,
+            'account_id': payable_account.id,
             'debit': amount,
             'quantity': qty,
             'analytic_line_ids': [(6, 0, lines.ids)],
         }
         receivable_line_vals = {
-            'account_id': self.env.ref(
-                'project_budget_expense.account_account_employee_receivable').id,
+            'account_id': receivable_account.id,
             'credit': amount,
             'quantity': qty,
         }
