@@ -1,11 +1,13 @@
 # Copyright 2019 Oihane Crucelaegui - AvanzOSC
 # License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl.html).
 
-from odoo import models
+from odoo import fields, models
 
 
 class AccountAnalyticLine(models.Model):
     _inherit = 'account.analytic.line'
+
+    move_id = fields.Many2one(ondelete='set null')
 
     def _timesheet_preprocess(self, vals):
         vals = super(AccountAnalyticLine, self)._timesheet_preprocess(vals)

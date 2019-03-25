@@ -9,6 +9,7 @@
     "author": "AvanzOSC",
     "website": "http://www.avanzosc.es",
     "depends": [
+        "account",
         "account_budget_expense",
         "project_budget",
         "project_task_cost",

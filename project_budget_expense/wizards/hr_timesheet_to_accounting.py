@@ -40,11 +40,12 @@ class HrTimesheet2Accounting(models.TransientModel):
             'credit': amount,
             'quantity': qty,
         }
-        self.env['account.move'].create({
+        move = self.env['account.move'].create({
             'date': fields.Date.context_today(self),
             'journal_id': self.env.ref(
                 'project_budget_expense.account_journal_employee').id,
             'line_ids': [(0, 0, payable_line_vals),
                          (0, 0, receivable_line_vals)]
         })
+        move.post()
         return True
