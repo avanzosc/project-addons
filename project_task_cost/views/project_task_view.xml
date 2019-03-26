@@ -89,4 +89,17 @@
         </field>
     </record>
 
+    <record id="project_task_recompute_cost_action"
+            model="ir.actions.server">
+        <field name="name">Recompute Costs</field>
+        <field name="type">ir.actions.server</field>
+        <field name="state">code</field>
+        <field name="model_id" ref="project.model_project_task" />
+        <field name="binding_model_id" ref="project.model_project_task" />
+        <field name="code">
+            if records:
+                records.button_recompute_costs()
+        </field>
+    </record>
+
 </odoo>
