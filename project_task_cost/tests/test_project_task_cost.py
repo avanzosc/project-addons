@@ -15,6 +15,7 @@ class TestProjectTaskCost(common.SavepointCase):
     def setUpClass(cls):
         super(TestProjectTaskCost, cls).setUpClass()
         cls.task_model = cls.env['project.task']
+        cls.creator_model = cls.env['project.task.calendar.creator']
         employee_model = cls.env['hr.employee']
         cls.project = cls.env['project.project'].create({
             'name': 'Test Project',
@@ -46,6 +47,7 @@ class TestProjectTaskCost(common.SavepointCase):
         month_gap = (datedelta.years * 12) + datedelta.months
         self.assertFalse(task.employee_cost)
         task._onchange_user()
+        self.project.button_recompute_costs()
         self.assertEquals(task.employee_cost, self.timesheet_cost)
         self.assertEquals(
             task.employee_cost * task.planned_hours, task.planned_cost)
@@ -81,3 +83,9 @@ class TestProjectTaskCost(common.SavepointCase):
                 'task_id': task.id,
                 'date': date_end + relativedelta(days=10),
             })
+        wiz = self.creator_model.create({})
+        wiz_response = wiz.button_create_calendar()
+        self.assertEquals(
+            wiz_response.get('res_model'), 'project.task.calendar')
+        tasks = self.task_model.search([])
+        self.assertTrue(len(tasks.mapped('calendar_ids')) > calendar_num)

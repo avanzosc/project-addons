@@ -14,3 +14,7 @@ class ProjectProject(models.Model):
     @api.multi
     def button_create_task_calendar(self):
         self.mapped('task_ids').button_create_calendar()
+
+    @api.multi
+    def button_recompute_costs(self):
+        self.mapped('task_ids').button_recompute_costs()
