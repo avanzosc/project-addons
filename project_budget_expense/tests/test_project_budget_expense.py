@@ -63,3 +63,7 @@ class TestProjectBudgetExpense(common.SavepointCase):
             abs(round(sum(budget.crossovered_budget_line.filtered(
                 lambda l: l.general_budget_id.expenses).mapped(
                 'planned_amount')), 2)))
+
+    def test_cron(self):
+        cron = self.env.ref('project_budget_expense_cron')
+        cron.method_direct_trigger()
