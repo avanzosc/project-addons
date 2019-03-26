@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 11.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-02-22 10:22+0000\n"
-"PO-Revision-Date: 2019-02-22 10:22+0000\n"
+"POT-Creation-Date: 2019-03-21 16:20+0000\n"
+"PO-Revision-Date: 2019-03-21 16:20+0000\n"
 "Last-Translator: <>\n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -33,6 +33,11 @@ msgid "Calendar"
 msgstr "Calendario"
 
 #. module: project_task_cost
+#: model:ir.ui.view,arch_db:project_task_cost.project_task_calendar_creator_view_form
+msgid "Cancel"
+msgstr "Cancelar"
+
+#. module: project_task_cost
 #: model:res.groups,name:project_task_cost.group_project_coordinator
 msgid "Coordinator"
 msgstr "Coordinador"
@@ -43,18 +48,31 @@ msgid "Cost Resume"
 msgstr "Resumen"
 
 #. module: project_task_cost
+#: model:ir.actions.server,name:project_task_cost.project_project_create_calendar_action
 #: model:ir.actions.server,name:project_task_cost.project_task_create_calendar_action
 #: model:ir.ui.view,arch_db:project_task_cost.project_task_time_form_view
 msgid "Create Calendar"
 msgstr "Crear calendario"
 
 #. module: project_task_cost
+#: model:ir.ui.view,arch_db:project_task_cost.project_task_calendar_creator_view_form
+msgid "Create Calendar for Task Without it"
+msgstr "Crear calendario para las tareas que no tengan"
+
+#. module: project_task_cost
+#: model:ir.ui.view,arch_db:project_task_cost.project_task_calendar_creator_view_form
+msgid "Create Calendar for all tasks"
+msgstr "Crear calendario para todas las tareas"
+
+#. module: project_task_cost
 #: model:ir.model.fields,field_description:project_task_cost.field_project_task_calendar_create_uid
+#: model:ir.model.fields,field_description:project_task_cost.field_project_task_calendar_creator_create_uid
 msgid "Created by"
 msgstr "Creado por"
 
 #. module: project_task_cost
 #: model:ir.model.fields,field_description:project_task_cost.field_project_task_calendar_create_date
+#: model:ir.model.fields,field_description:project_task_cost.field_project_task_calendar_creator_create_date
 msgid "Created on"
 msgstr "Creado el"
 
@@ -84,7 +102,6 @@ msgid "Date (week)"
 msgstr "Fecha (semana)"
 
 #. module: project_task_cost
-#: code:addons/project_task_cost/models/project_task_calendar.py:58
 #: code:addons/project_task_cost/models/project_task_calendar.py:60
 #, python-format
 msgid "Date must be between dates of task."
@@ -96,6 +113,7 @@ msgid "Day of Week"
 msgstr "Día de la semana"
 
 #. module: project_task_cost
+#: model:ir.model.fields,field_description:project_task_cost.field_project_task_calendar_creator_display_name
 #: model:ir.model.fields,field_description:project_task_cost.field_project_task_calendar_display_name
 #: model:ir.model.fields,field_description:project_task_cost.field_project_task_resume_display_name
 msgid "Display Name"
@@ -140,6 +158,7 @@ msgid "Hours Spent"
 msgstr "Horas dedicadas"
 
 #. module: project_task_cost
+#: model:ir.model.fields,field_description:project_task_cost.field_project_task_calendar_creator_id
 #: model:ir.model.fields,field_description:project_task_cost.field_project_task_calendar_id
 #: model:ir.model.fields,field_description:project_task_cost.field_project_task_resume_id
 msgid "ID"
@@ -152,19 +171,27 @@ msgstr "Horas iniciales planificadas"
 
 #. module: project_task_cost
 #: model:ir.model.fields,field_description:project_task_cost.field_project_task_calendar___last_update
+#: model:ir.model.fields,field_description:project_task_cost.field_project_task_calendar_creator___last_update
 #: model:ir.model.fields,field_description:project_task_cost.field_project_task_resume___last_update
 msgid "Last Modified on"
 msgstr "Última modificación en"
 
 #. module: project_task_cost
+#: model:ir.model.fields,field_description:project_task_cost.field_project_task_calendar_creator_write_uid
 #: model:ir.model.fields,field_description:project_task_cost.field_project_task_calendar_write_uid
 msgid "Last Updated by"
 msgstr "Última actualización de"
 
 #. module: project_task_cost
+#: model:ir.model.fields,field_description:project_task_cost.field_project_task_calendar_creator_write_date
 #: model:ir.model.fields,field_description:project_task_cost.field_project_task_calendar_write_date
 msgid "Last Updated on"
 msgstr "Última actualización en"
+
+#. module: project_task_cost
+#: model:ir.ui.view,arch_db:project_task_cost.project_task_calendar_creator_view_form
+msgid "Open Task Calendar"
+msgstr "Abrir calendario de tareas"
 
 #. module: project_task_cost
 #: model:ir.model.fields,field_description:project_task_cost.field_project_task_calendar_planned_cost
@@ -197,8 +224,9 @@ msgid "Project Costs"
 msgstr "Costes de proyecto"
 
 #. module: project_task_cost
+#: model:ir.actions.act_window,name:project_task_cost.action_upload_education_activity_type
 #: model:ir.actions.act_window,name:project_task_cost.project_task_calendar_action
-#: model:ir.ui.menu,name:project_task_cost.project_task_calendar_menuitem
+#: model:ir.ui.menu,name:project_task_cost.project_task_calendar_creator_menuitem
 msgid "Project Task Calendar"
 msgstr "Calendario de tareas"
 
@@ -214,6 +242,12 @@ msgstr "Resumen de tareas"
 #: model:ir.model.fields,field_description:project_task_cost.field_project_task_resume_effective_cost
 msgid "Real Cost"
 msgstr "Coste real"
+
+#. module: project_task_cost
+#: model:ir.actions.server,name:project_task_cost.project_project_recompute_task_cost_action
+#: model:ir.actions.server,name:project_task_cost.project_task_recompute_cost_action
+msgid "Recompute Costs"
+msgstr "Recalcular el coste"
 
 #. module: project_task_cost
 #: model:ir.model.fields,field_description:project_task_cost.field_project_task_calendar_project_code
@@ -299,6 +333,11 @@ msgstr "Actualizar coste de empleado"
 #: model:ir.ui.view,arch_db:project_task_cost.project_task_resume_search_view
 msgid "User"
 msgstr "Usuario"
+
+#. module: project_task_cost
+#: model:ir.model,name:project_task_cost.model_project_task_calendar_creator
+msgid "Wizard to Create Task Calendars"
+msgstr "Asistente para crear calendarios de tarea"
 
 #. module: project_task_cost
 #: model:ir.model.fields,field_description:project_task_cost.field_project_task_calendar_workhours

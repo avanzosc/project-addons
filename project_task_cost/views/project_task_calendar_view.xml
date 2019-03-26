@@ -96,8 +96,8 @@
         <field name="view_mode">tree,form,pivot</field>
     </record>
 
-    <menuitem id="project_task_calendar_menuitem"
-              parent="project.menu_project_report"
-              action="project_task_calendar_action"/>
+    <!--<menuitem id="project_task_calendar_menuitem"-->
+              <!--parent="project.menu_project_report"-->
+              <!--action="project_task_calendar_action"/>-->
 
 </odoo>

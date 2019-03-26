@@ -55,6 +55,13 @@ class ProjectTask(models.Model):
             task.employee_cost = employee.timesheet_cost
 
     @api.multi
+    def button_recompute_costs(self):
+        fields_list = ['effective_cost']
+        for field in fields_list:
+            self.env.add_todo(self._fields[field], self)
+        self.recompute()
+
+    @api.multi
     def button_create_calendar(self):
         for task in self.filtered(lambda t: t.date_start and t.date_end):
             task.calendar_ids.unlink()
