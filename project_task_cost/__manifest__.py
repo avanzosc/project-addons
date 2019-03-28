@@ -3,7 +3,7 @@
 
 {
     "name": "Project Task Cost",
-    "version": "11.0.2.2.0",
+    "version": "11.0.3.0.0",
     "license": "AGPL-3",
     "depends": [
         "project",
@@ -20,7 +20,6 @@
         "views/project_task_view.xml",
         "views/project_task_calendar_view.xml",
         "report/project_task_resume_view.xml",
-        "wizards/project_task_calendar_creator_view.xml",
     ],
     "installable": True,
     "post_init_hook": "post_init_hook",

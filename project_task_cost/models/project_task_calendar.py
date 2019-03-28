@@ -49,16 +49,6 @@ class ProjectTaskCalendar(models.Model):
     workhours = fields.Float(
         string='Workhours', compute='_compute_workhours', store=True)
 
-    @api.constrains('date', 'task_id')
-    def _check_date_task(self):
-        for line in self:
-            date_start = str2date(line.task_id.date_start)
-            date_end = str2date(line.task_id.date_end)
-            date = str2date(line.date)
-            if date < date_start or date > date_end:
-                raise exceptions.ValidationError(
-                    _('Date must be between dates of task.'))
-
     @api.depends('date')
     def _compute_dayofweek(self):
         for line in self.filtered('date'):
@@ -90,7 +80,7 @@ class ProjectTaskCalendar(models.Model):
                                   for a in attendances])
 
     @api.depends('user_leave', 'task_id', 'task_id.planned_hours',
-                 'task_id.calendar_ids')
+                 'task_id.calendar_ids', 'employee_cost')
     def _compute_planned_cost(self):
         employee_model = self.env['hr.employee']
         for line in self.filtered(lambda l: not l.user_leave):
@@ -99,9 +89,13 @@ class ProjectTaskCalendar(models.Model):
                 [('user_id', '=', user.id)], limit=1)
             weekdays = employee.resource_calendar_id.mapped(
                 'attendance_ids.dayofweek')
-            if line.dayofweek in weekdays:
+            if (line.dayofweek in weekdays and
+                    line.date >= line.task_id.date_start and
+                    line.date <= line.task_id.date_end):
                 line_count = len(line.task_id.calendar_ids.filtered(
-                    lambda l: l.dayofweek in weekdays and not l.user_leave))
+                    lambda l: l.dayofweek in weekdays and not l.user_leave and
+                    l.date >= l.task_id.date_start and
+                    l.date <= l.task_id.date_end))
                 line.planned_hours = (line.task_id.planned_hours /
                                       (line_count or 1))
                 line.planned_cost = line.planned_hours * line.employee_cost
