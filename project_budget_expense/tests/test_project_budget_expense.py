@@ -65,5 +65,21 @@ class TestProjectBudgetExpense(common.SavepointCase):
                 'planned_amount')), 2)))
 
     def test_cron(self):
-        cron = self.env.ref('project_budget_expense_cron')
+        self.task.write({
+            'timesheet_ids': [(0, 0, {
+                'date': self.task.date_start,
+                'user_id': self.task.user_id.id,
+                'unit_amount': 10.0,
+                'name': 'Timesheet Test',
+            })]
+        })
+        active_lines = self.task.mapped('timesheet_ids')
+        timesheets = active_lines.filtered(
+            lambda l: l.employee_id and not l.move_id)
+        self.assertTrue(len(timesheets) > 0)
+        cron = self.env.ref(
+            'project_budget_expense.project_budget_expense_cron')
         cron.method_direct_trigger()
+        timesheets = active_lines.filtered(
+            lambda l: l.employee_id and not l.move_id)
+        self.assertTrue(len(timesheets) == 0)
