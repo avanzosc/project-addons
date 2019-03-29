@@ -1,7 +1,7 @@
 # Copyright 2019 Oihane Crucelaegui - AvanzOSC
 # License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl.html).
 
-from odoo import api, fields, models
+from odoo import api, models
 
 
 class HrTimesheet(models.Model):
@@ -24,7 +24,7 @@ class HrTimesheet(models.Model):
                 ('id', 'not in', self.ids),
             ])
             if (not timesheets and (line.date > line.task_id.date_end or
-                    line.date < line.task_id.date_start)):
+                                    line.date < line.task_id.date_start)):
                 calendars = calendar_obj.search([
                     ('task_id', '=', line.task_id.id),
                     ('date', '=', line.date),

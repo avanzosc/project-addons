@@ -3,7 +3,7 @@
 
 from dateutil.relativedelta import relativedelta
 
-from odoo import exceptions, fields
+from odoo import fields
 from odoo.tests import common
 
 str2date = fields.Date.from_string
@@ -15,7 +15,6 @@ class TestProjectTaskCost(common.SavepointCase):
     def setUpClass(cls):
         super(TestProjectTaskCost, cls).setUpClass()
         cls.task_model = cls.env['project.task']
-        cls.creator_model = cls.env['project.task.calendar.creator']
         employee_model = cls.env['hr.employee']
         cls.project = cls.env['project.project'].create({
             'name': 'Test Project',
@@ -56,8 +55,6 @@ class TestProjectTaskCost(common.SavepointCase):
         task.invalidate_cache()
         self.assertEquals(
             task.planned_hours / (month_gap + 1), task.planned_monthly_hours)
-        self.assertFalse(task.calendar_ids)
-        self.project.button_create_task_calendar()
         calendar_num = (
             str2date(task.date_end) - str2date(task.date_start)).days + 1
         self.assertEquals(len(task.calendar_ids), calendar_num)
@@ -73,19 +70,18 @@ class TestProjectTaskCost(common.SavepointCase):
         self.assertEquals(
             round(sum(task.mapped('calendar_ids.effective_cost')), 2),
             round(task.effective_cost, 2))
-        with self.assertRaises(exceptions.ValidationError):
-            task.calendar_ids.create({
-                'task_id': task.id,
-                'date': date_start - relativedelta(days=10),
-            })
-        with self.assertRaises(exceptions.ValidationError):
-            task.calendar_ids.create({
-                'task_id': task.id,
-                'date': date_end + relativedelta(days=10),
-            })
-        wiz = self.creator_model.create({})
-        wiz_response = wiz.button_create_calendar()
-        self.assertEquals(
-            wiz_response.get('res_model'), 'project.task.calendar')
-        tasks = self.task_model.search([])
-        self.assertTrue(len(tasks.mapped('calendar_ids')) > calendar_num)
+        self.assertFalse(task.timesheet_ids)
+        task.write({
+            'timesheet_ids': [(0, 0, {
+                'date': str2date(task.date_end) + relativedelta(days=10),
+                'user_id': task.user_id.id,
+                'employee_id': self.employee.id,
+                'unit_amount': 10.0,
+                'name': 'Timesheet Test',
+                'account_id': self.project.analytic_account_id.id,
+                'project_id': self.project.id,
+            })]
+        })
+        self.assertTrue(len(task.calendar_ids) > calendar_num)
+        task.timesheet_ids.unlink()
+        self.assertEquals(len(task.calendar_ids), calendar_num)
