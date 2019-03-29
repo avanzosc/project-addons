@@ -19,5 +19,6 @@
         <field name="name">Employee Journal</field>
         <field name="type">general</field>
         <field name="code">EMP</field>
+        <field name="update_posted" eval="True" />
     </record>
 </odoo>

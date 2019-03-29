@@ -26,6 +26,7 @@ class TestProjectBudgetExpense(common.SavepointCase):
 
             })
         cls.project_model = cls.env['project.project']
+        cls.move_line_model = cls.env['account.move.line']
         cls.template = cls.env.ref('project_budget.project_budget_template')
         cls.template.write({
             'budget_post_ids': [(4, cls.position.id)]
@@ -46,6 +47,8 @@ class TestProjectBudgetExpense(common.SavepointCase):
             'date_end': date_end,
             'project_id': cls.project.id,
         })
+        cls.employee = cls.env['hr.employee'].search(
+            [('user_id', '=', cls.env.user.id)], limit=1)
 
     def test_budget_distribution(self):
         self.assertTrue(self.task.planned_cost)
@@ -69,8 +72,11 @@ class TestProjectBudgetExpense(common.SavepointCase):
             'timesheet_ids': [(0, 0, {
                 'date': self.task.date_start,
                 'user_id': self.task.user_id.id,
+                'employee_id': self.employee.id,
                 'unit_amount': 10.0,
                 'name': 'Timesheet Test',
+                'account_id': self.task.project_id.analytic_account_id.id,
+                'project_id': self.task.project_id.id,
             })]
         })
         active_lines = self.task.mapped('timesheet_ids')
@@ -83,3 +89,6 @@ class TestProjectBudgetExpense(common.SavepointCase):
         timesheets = active_lines.filtered(
             lambda l: l.employee_id and not l.move_id)
         self.assertTrue(len(timesheets) == 0)
+        active_lines.mapped('move_id.move_id').button_cancel()
+        active_lines.mapped('move_id.move_id').unlink()
+        self.assertTrue(active_lines)

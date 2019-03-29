@@ -10,12 +10,13 @@
     "website": "http://www.avanzosc.es",
     "depends": [
         "account",
+        "account_cancel",
         "account_budget_expense",
         "project_budget",
         "project_task_cost",
     ],
     "data": [
-        # "data/project_budget_expense_data.xml",
+        "data/project_budget_expense_data.xml",
         "data/project_budget_expense_cron.xml",
         "views/crossovered_budget_view.xml",
         "views/hr_employee_view.xml",

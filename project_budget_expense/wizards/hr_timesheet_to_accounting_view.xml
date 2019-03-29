@@ -36,13 +36,4 @@
                 view_mode="form"
                 target="new"
                 multi="1" />
-
-    <!--<record id="action_crossovered_budget_distribution" model="ir.actions.act_window">-->
-        <!--<field name="name">Distribute Budget</field>-->
-        <!--<field name="res_model">crossovered.budget.distribution</field>-->
-        <!--<field name="view_type">form</field>-->
-        <!--<field name="view_mode">form</field>-->
-        <!--<field name="view_id" ref="hr_timesheet_accounting_wizard_view_form" />-->
-        <!--<field name="target">new</field>-->
-    <!--</record>-->
 </odoo>
