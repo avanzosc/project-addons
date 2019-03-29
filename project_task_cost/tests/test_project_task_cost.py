@@ -54,7 +54,7 @@ class TestProjectTaskCost(common.SavepointCase):
             task.employee_cost * task.effective_hours, task.effective_cost)
         task.invalidate_cache()
         self.assertEquals(
-            task.planned_hours / (month_gap + 1), task.planned_monthly_hours)
+            task.planned_hours / month_gap, task.planned_monthly_hours)
         calendar_num = (
             str2date(task.date_end) - str2date(task.date_start)).days + 1
         self.assertEquals(len(task.calendar_ids), calendar_num)

@@ -43,7 +43,7 @@ class ProjectTask(models.Model):
         for task in self.filtered(lambda t: t.date_start and t.date_end):
             datedelta = relativedelta(
                 str2date(task.date_end), str2date(task.date_start))
-            months = (datedelta.years * 12) + datedelta.months + 1
+            months = (datedelta.years * 12) + datedelta.months
             task.planned_monthly_hours = task.planned_hours / (months or 1.0)
 
     @api.multi
