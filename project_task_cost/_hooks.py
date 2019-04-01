@@ -9,3 +9,5 @@ def post_init_hook(cr, pool):
     env = Environment(cr, SUPERUSER_ID, {})
     for task in env['project.task'].search([]):
         task._onchange_user()
+    env['account.analytic.line'].search([
+        ('employee_id', '!=', False)]).create_calendar()
