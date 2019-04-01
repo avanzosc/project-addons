@@ -43,7 +43,7 @@ class ProjectTask(models.Model):
         for task in self.filtered(lambda t: t.date_start and t.date_end):
             datedelta = relativedelta(
                 str2date(task.date_end), str2date(task.date_start))
-            months = (datedelta.years * 12) + datedelta.months + 1
+            months = (datedelta.years * 12) + datedelta.months
             task.planned_monthly_hours = task.planned_hours / (months or 1.0)
 
     @api.multi
@@ -72,3 +72,18 @@ class ProjectTask(models.Model):
             task.calendar_ids = [(0, 0, {
                 'date': x,
                 'task_id': task.id}) for x in date_list]
+        self.mapped('timesheet_ids').create_calendar()
+
+    @api.model
+    def create(self, vals):
+        task = super(ProjectTask, self).create(vals)
+        if 'date_start' in vals and 'date_end' in vals:
+            task.button_create_calendar()
+        return task
+
+    @api.multi
+    def write(self, vals):
+        result = super(ProjectTask, self).write(vals)
+        if 'date_start' in vals or 'date_end' in vals:
+            self.button_create_calendar()
+        return result
