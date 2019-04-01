@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <record id="hr_employee_view_form" model="ir.ui.view">
+        <field name="model">hr.employee</field>
+        <field name="inherit_id" ref="hr.view_employee_form" />
+        <field name="arch" type="xml">
+            <group name="work_permit" position="after">
+                <group string="Accounting Entries" name="accounting_entries"
+                       groups="account.group_account_user">
+                    <field name="property_account_receivable_id"/>
+                    <field name="property_account_payable_id"/>
+                </group>
+            </group>
+        </field>
+    </record>
+</odoo>

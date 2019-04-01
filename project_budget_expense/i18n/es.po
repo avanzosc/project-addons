@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 11.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-02-25 14:26+0000\n"
-"PO-Revision-Date: 2019-02-25 14:26+0000\n"
+"POT-Creation-Date: 2019-03-26 12:48+0000\n"
+"PO-Revision-Date: 2019-03-26 12:48+0000\n"
 "Last-Translator: <>\n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -16,12 +16,144 @@ msgstr ""
 "Plural-Forms: \n"
 
 #. module: project_budget_expense
+#: model:ir.model,name:project_budget_expense.model_account_move
+msgid "Account Entry"
+msgstr "Asiento Contable"
+
+#. module: project_budget_expense
+#: model:ir.model.fields,field_description:project_budget_expense.field_hr_employee_property_account_payable_id
+msgid "Account Payable"
+msgstr "Cuenta a pagar"
+
+#. module: project_budget_expense
+#: model:ir.model.fields,field_description:project_budget_expense.field_hr_employee_property_account_receivable_id
+msgid "Account Receivable"
+msgstr "Cuenta a cobrar"
+
+#. module: project_budget_expense
+#: model:ir.ui.view,arch_db:project_budget_expense.hr_employee_view_form
+msgid "Accounting Entries"
+msgstr "Asientos contables"
+
+#. module: project_budget_expense
+#: model:ir.model,name:project_budget_expense.model_account_analytic_line
+msgid "Analytic Line"
+msgstr "Línea Analítica"
+
+#. module: project_budget_expense
+#: model:ir.ui.view,arch_db:project_budget_expense.hr_timesheet_accounting_wizard_view_form
+msgid "Apply"
+msgstr "Aplicar"
+
+#. module: project_budget_expense
 #: model:ir.model,name:project_budget_expense.model_crossovered_budget
 msgid "Budget"
 msgstr "Presupuesto"
 
 #. module: project_budget_expense
+#: model:ir.ui.view,arch_db:project_budget_expense.hr_timesheet_accounting_wizard_view_form
+msgid "Cancel"
+msgstr "Cancelar"
+
+#. module: project_budget_expense
+#: model:ir.actions.act_window,name:project_budget_expense.action_hr_timesheet_accounting_wizard
+msgid "Create account move"
+msgstr "Contabilizar partes de hora"
+
+#. module: project_budget_expense
+#: model:ir.model.fields,field_description:project_budget_expense.field_hr_timesheet_accounting_create_uid
+msgid "Created by"
+msgstr "Creado por"
+
+#. module: project_budget_expense
+#: model:ir.model.fields,field_description:project_budget_expense.field_hr_timesheet_accounting_create_date
+msgid "Created on"
+msgstr "Creado el"
+
+#. module: project_budget_expense
+#: model:ir.model.fields,field_description:project_budget_expense.field_hr_timesheet_accounting_display_name
+msgid "Display Name"
+msgstr "Nombre mostrado"
+
+#. module: project_budget_expense
 #: model:ir.ui.view,arch_db:project_budget_expense.crossovered_budget_view_form
 msgid "Distribute Project Budget"
 msgstr "Distribuir costes de proyecto"
+
+#. module: project_budget_expense
+#: model:ir.model,name:project_budget_expense.model_hr_employee
+msgid "Employee"
+msgstr "Empleado"
+
+#. module: project_budget_expense
+#: model:ir.model.fields,field_description:project_budget_expense.field_hr_timesheet_accounting_id
+msgid "ID"
+msgstr "ID"
+
+#. module: project_budget_expense
+#: model:ir.model,name:project_budget_expense.model_account_move_line
+msgid "Journal Item"
+msgstr "Apunte contable"
+
+#. module: project_budget_expense
+#: model:ir.model.fields,field_description:project_budget_expense.field_hr_timesheet_accounting___last_update
+msgid "Last Modified on"
+msgstr "Última modificación en"
+
+#. module: project_budget_expense
+#: model:ir.model.fields,field_description:project_budget_expense.field_hr_timesheet_accounting_write_uid
+msgid "Last Updated by"
+msgstr "Última Actualización por"
+
+#. module: project_budget_expense
+#: model:ir.model.fields,field_description:project_budget_expense.field_hr_timesheet_accounting_write_date
+msgid "Last Updated on"
+msgstr "Última actualización en"
+
+#. module: project_budget_expense
+#: model:ir.actions.server,name:project_budget_expense.project_budget_expense_cron_ir_actions_server
+#: model:ir.cron,cron_name:project_budget_expense.project_budget_expense_cron
+#: model:ir.cron,name:project_budget_expense.project_budget_expense_cron
+msgid "Project Costs: create an account move from timesheets"
+msgstr "Costes de empleados: crear un asiento contable desde partes de hora"
+
+#. module: project_budget_expense
+#: model:ir.model.fields,help:project_budget_expense.field_hr_employee_property_account_payable_id
+msgid "This account will be used instead of the default one as the payable account for the current partner"
+msgstr "Esta cuenta se utilizará en lugar de la cuenta por defecto como la cuenta pendiente de pago del asociado actual."
+
+#. module: project_budget_expense
+#: model:ir.model.fields,help:project_budget_expense.field_hr_employee_property_account_receivable_id
+msgid "This account will be used instead of the default one as the receivable account for the current partner"
+msgstr "Esta cuenta se utilizará en lugar de la cuenta por defecto como la cuenta pendiente de cobro del asociado actual."
+
+#. module: project_budget_expense
+#: model:ir.ui.view,arch_db:project_budget_expense.hr_timesheet_accounting_wizard_view_form
+msgid "Time (Hours)"
+msgstr "Tiempo (horas)"
+
+#. module: project_budget_expense
+#: model:ir.model.fields,field_description:project_budget_expense.field_hr_timesheet_accounting_line_ids
+msgid "Timesheets"
+msgstr "Partes de horas"
+
+#. module: project_budget_expense
+#: model:ir.ui.view,arch_db:project_budget_expense.hr_timesheet_accounting_wizard_view_form
+msgid "Total"
+msgstr "Total"
+
+#. module: project_budget_expense
+#: model:ir.ui.view,arch_db:project_budget_expense.hr_timesheet_accounting_wizard_view_form
+msgid "Total time"
+msgstr "Tiempo total"
+
+#. module: project_budget_expense
+#: model:ir.model,name:project_budget_expense.model_hr_timesheet_accounting
+msgid "Wizard to make account move from timesheets"
+msgstr "Asistente para crear un asiento contable desde partes de hora"
+
+#. module: project_budget_expense
+#: model:ir.ui.view,arch_db:project_budget_expense.hr_timesheet_accounting_wizard_view_form
+msgid "or"
+msgstr "o"
 
