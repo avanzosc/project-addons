@@ -8,6 +8,6 @@ def migrate(cr, version):
     if not version:
         return
     env = api.Environment(cr, SUPERUSER_ID, {})
-    timesheets = env['account.analytic.account'].search([
+    timesheets = env['account.analytic.line'].search([
         ('employee_id', '!=', False)])
     timesheets.create_calendar()

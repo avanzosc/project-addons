@@ -90,8 +90,10 @@ class ProjectTaskCalendar(models.Model):
             weekdays = employee.resource_calendar_id.mapped(
                 'attendance_ids.dayofweek')
             if (line.dayofweek in weekdays and
-                    line.date >= line.task_id.date_start and
-                    line.date <= line.task_id.date_end):
+                    (line.task_id.date_start and
+                     line.date >= line.task_id.date_start) and
+                    (line.task_id.date_end and
+                     line.date <= line.task_id.date_end)):
                 line_count = len(line.task_id.calendar_ids.filtered(
                     lambda l: l.dayofweek in weekdays and not l.user_leave and
                     l.date >= l.task_id.date_start and
