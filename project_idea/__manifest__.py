@@ -8,6 +8,7 @@
     "depends": [
         "project",
         "hr",
+        "hr_expense",
     ],
     "author": "AvanzOSC",
     "website": "http://www.avanzosc.es",

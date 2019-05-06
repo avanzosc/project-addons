@@ -12,7 +12,8 @@ class MaterialResources(models.Model):
         string='Project', comodel_name='project.project',
         required=True, ondelete='cascade')
     product_id = fields.Many2one(
-        string='Product', comodel_name='product.product')
+        string='Product', comodel_name='product.product',
+        domain=[('can_be_expense', '=', False)])
     product_type = fields.Selection(
         string='Product Type', related='product_id.type', store=True)
     product_name = fields.Char(string='Product Name', required=True)

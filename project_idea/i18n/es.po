@@ -241,7 +241,7 @@ msgstr "Datos técnicos"
 #. module: project_idea
 #: selection:project.project,idea_type:0
 msgid "Training"
-msgstr "Formación"
+msgstr "Capacitación"
 
 #. module: project_idea
 #: selection:project.project,idea_type:0
