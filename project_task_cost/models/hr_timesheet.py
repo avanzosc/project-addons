@@ -17,14 +17,17 @@ class HrTimesheet(models.Model):
     @api.multi
     def unlink(self):
         calendar_obj = self.sudo().env['project.task.calendar']
-        for line in self:
+        for line in self.filtered('task_id'):
             timesheets = self.search([
                 ('task_id', '=', line.task_id.id),
                 ('date', '=', line.date),
                 ('id', 'not in', self.ids),
             ])
-            if (not timesheets and (line.date > line.task_id.date_end or
-                                    line.date < line.task_id.date_start)):
+            if (not timesheets and (
+                    (line.task_id.date_end and
+                     line.date > line.task_id.date_end) or
+                    (line.task_id.date_start and
+                     line.date < line.task_id.date_start))):
                 calendars = calendar_obj.search([
                     ('task_id', '=', line.task_id.id),
                     ('date', '=', line.date),
