@@ -44,7 +44,10 @@ class ProjectTask(models.Model):
             datedelta = relativedelta(
                 str2date(task.date_end), str2date(task.date_start))
             months = (datedelta.years * 12) + datedelta.months
-            task.planned_monthly_hours = task.planned_hours / (months or 1.0)
+            if months and datedelta.days >= 15:
+                months += 1
+            task.planned_monthly_hours = round(
+                task.planned_hours / (months or 1.0), 2)
 
     @api.multi
     def button_update_employee_cost(self):
