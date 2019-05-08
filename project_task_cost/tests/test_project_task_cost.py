@@ -2,6 +2,7 @@
 # License AGPL-3 - See http://www.gnu.org/licenses/agpl-3.0.html
 
 from dateutil.relativedelta import relativedelta
+import calendar
 
 from odoo import fields
 from odoo.tests import common
@@ -85,3 +86,52 @@ class TestProjectTaskCost(common.SavepointCase):
         self.assertTrue(len(task.calendar_ids) > calendar_num)
         task.timesheet_ids.unlink()
         self.assertEquals(len(task.calendar_ids), calendar_num)
+
+    def test_planned_monthly_hours(self):
+        today = str2date(fields.Date.today())
+        date_start = today.replace(day=1)
+        last_day = calendar.monthrange(today.year, today.month)[1]
+        date_end = today.replace(day=last_day)
+        task = self.task_model.create({
+            'name': 'Name',
+            'planned_hours': 30.0,
+            'user_id': self.env.user.id,
+            'date_start': date_start,
+            'date_end': date_end,
+            'project_id': self.project.id,
+        })
+        self.assertEquals(task.planned_hours, task.planned_monthly_hours)
+        date_end = date_start + relativedelta(months=1)
+        task.write({
+            'date_end': date_end,
+        })
+        self.assertNotEquals(date_start.month, date_end.month)
+        self.assertEquals(task.planned_hours, task.planned_monthly_hours)
+        last_day = calendar.monthrange(date_end.year, date_end.month)[1]
+        date_end = date_end.replace(day=last_day)
+        task.write({
+            'date_end': date_end,
+        })
+        self.assertNotEquals(date_start.month, date_end.month)
+        self.assertNotEquals(task.planned_hours, task.planned_monthly_hours)
+        self.assertEquals(round(task.planned_hours / 2, 2),
+                          task.planned_monthly_hours)
+        date_end = date_start + relativedelta(years=1)
+        task.write({
+            'date_end': date_end,
+        })
+        self.assertEquals(round(task.planned_hours / 12, 2),
+                          task.planned_monthly_hours)
+        date_end += relativedelta(days=1)
+        date_end = date_end.replace(day=15)
+        task.write({
+            'date_end': date_end
+        })
+        self.assertEquals(round(task.planned_hours / 12, 2),
+                          task.planned_monthly_hours)
+        date_end = date_end.replace(day=16)
+        task.write({
+            'date_end': date_end,
+        })
+        self.assertEquals(round(task.planned_hours / 13, 2),
+                          task.planned_monthly_hours)
