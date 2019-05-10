@@ -3,7 +3,7 @@
 
 {
     "name": "Project Bugdet",
-    "version": "11.0.4.0.0",
+    "version": "11.0.5.0.0",
     "category": "Project",
     "license": "AGPL-3",
     "author": "AvanzOSC",
@@ -26,6 +26,7 @@
         "views/project_project_view.xml",
         "views/account_analytic_account_view.xml",
         "views/res_config_settings_view.xml",
+        "wizards/project_budget_search_view.xml",
         "wizards/project_initial_budget_view.xml",
     ],
     "installable": True,
