@@ -206,7 +206,7 @@ msgstr "Presupuestos iniciales"
 #: model:ir.ui.view,arch_db:project_budget.crossovered_budget_form_view
 #: model:ir.ui.view,arch_db:project_budget.crossovered_budget_line_tree_view
 msgid "Initial Planned Amount"
-msgstr "Presupuesto inicial"
+msgstr "Importe planificado inicial"
 
 #. module: project_budget
 #: model:ir.ui.view,arch_db:project_budget.account_analytic_account_last_budget_lines_form_view
@@ -281,7 +281,7 @@ msgstr "Presupuesto de proyecto"
 #. module: project_budget
 #: model:ir.actions.server,name:project_budget.action_budget_line_compute_amount
 msgid "Recompute Amounts"
-msgstr "Recalcular valores"
+msgstr "Recalcular importes"
 
 #. module: project_budget
 #: model:ir.ui.view,arch_db:project_budget.crossovered_budget_form_view
@@ -291,7 +291,23 @@ msgstr "Actualizar importes reales"
 #. module: project_budget
 #: model:ir.actions.server,name:project_budget.action_budget_compute_amount
 msgid "Recompute Line Amounts"
-msgstr "Recalcular valores de las líneas"
+msgstr "Recalcular importes de línea"
+
+#. module: project_budget
+#: model:ir.ui.view,arch_db:project_budget.project_budget_search_view_form
+msgid "Search Projects With Budgets"
+msgstr "Buscar proyectos que contengan presupuesto"
+
+#. module: project_budget
+#: model:ir.ui.view,arch_db:project_budget.project_budget_search_view_form
+msgid "Search Projects Without Budgets"
+msgstr "Buscar proyectos que no contengan presupuesto"
+
+#. module: project_budget
+#: model:ir.actions.act_window,name:project_budget.action_project_budget_search
+#: model:ir.ui.menu,name:project_budget.project_budget_search_menuitem
+msgid "Search Projects by Budget Dates"
+msgstr "Busqueda de proyectos por fechas de presupuesto"
 
 #. module: project_budget
 #: model:ir.ui.view,arch_db:project_budget.project_budget_search_view_form

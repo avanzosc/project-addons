@@ -3,6 +3,7 @@
 
 from odoo.tests import common
 from odoo import exceptions, fields
+from odoo.tools.safe_eval import safe_eval
 
 from_string = fields.Date.from_string
 to_string = fields.Date.to_string
