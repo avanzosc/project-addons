@@ -37,7 +37,7 @@ class ProjectBudgetSearch(models.TransientModel):
             if record.initial_budget:
                 budget_domain = expression.AND([
                     [('initial', '=', True)],
-                    safe_eval(budget_domain)])
+                    budget_domain])
             budgets = budget_obj.search(budget_domain)
             projects |= budgets.mapped('project_id')
         domain = expression.AND([
