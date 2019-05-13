@@ -206,7 +206,7 @@ msgstr "Presupuestos iniciales"
 #: model:ir.ui.view,arch_db:project_budget.crossovered_budget_form_view
 #: model:ir.ui.view,arch_db:project_budget.crossovered_budget_line_tree_view
 msgid "Initial Planned Amount"
-msgstr "Importe planificado inicial"
+msgstr "Presupuesto inicial"
 
 #. module: project_budget
 #: model:ir.ui.view,arch_db:project_budget.account_analytic_account_last_budget_lines_form_view
@@ -281,7 +281,7 @@ msgstr "Presupuesto de proyecto"
 #. module: project_budget
 #: model:ir.actions.server,name:project_budget.action_budget_line_compute_amount
 msgid "Recompute Amounts"
-msgstr "Recalcular importes"
+msgstr "Recalcular valores"
 
 #. module: project_budget
 #: model:ir.ui.view,arch_db:project_budget.crossovered_budget_form_view
@@ -291,7 +291,7 @@ msgstr "Actualizar importes reales"
 #. module: project_budget
 #: model:ir.actions.server,name:project_budget.action_budget_compute_amount
 msgid "Recompute Line Amounts"
-msgstr "Recalcular importes de línea"
+msgstr "Recalcular valores de las líneas"
 
 #. module: project_budget
 #: model:ir.ui.view,arch_db:project_budget.project_budget_search_view_form
