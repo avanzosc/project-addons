@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <record id="project_budget_search_view_form" model="ir.ui.view">
+        <field name="model">project.budget.search</field>
+        <field name="arch" type="xml">
+            <form>
+                <group name="main">
+                    <field name="min_date" />
+                    <field name="max_date" />
+                    <field name="initial_budget" />
+                </group>
+                <footer>
+                    <button name="search_project_not_in_budget" type="object"
+                            string="Search Projects Without Budgets" class="oe_highlight" />
+                    or
+                    <button name="search_project_budget" type="object"
+                            string="Search Projects With Budgets" />
+                    or
+                    <button string="Cancel" class="oe_link" special="cancel" />
+                </footer>
+            </form>
+        </field>
+    </record>
+
+    <record id="action_project_budget_search" model="ir.actions.act_window">
+        <field name="name">Search Projects by Budget Dates</field>
+        <field name="res_model">project.budget.search</field>
+        <field name="view_type">form</field>
+        <field name="view_mode">form</field>
+        <field name="view_id" ref="project_budget_search_view_form" />
+        <field name="target">new</field>
+    </record>
+
+    <menuitem id="project_budget_search_menuitem"
+              parent="project.menu_project_management"
+              action="action_project_budget_search"
+              sequence="10" />
+</odoo>

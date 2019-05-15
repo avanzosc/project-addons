@@ -15,6 +15,7 @@ class TestProjectBudget(common.SavepointCase):
         super(TestProjectBudget, cls).setUpClass()
         cls.project_model = cls.env['project.project']
         cls.wizard = cls.env['project.initial.budget']
+        cls.search_model = cls.env['project.budget.search']
         set_param = cls.env['ir.config_parameter'].sudo().set_param
         set_param(
             'account_budget_template.budget_template_id',
@@ -109,3 +110,16 @@ class TestProjectBudget(common.SavepointCase):
         self.assertIn(self.project, wizard.project_ids)
         wizard.create_initial_project_budget()
         self.assertEquals(len(self.project.budget_ids), 2)
+
+    def test_search_project_budget(self):
+        wizard = self.search_model.create({
+            'min_date': fields.Date.today(),
+            'max_date': fields.Date.today(),
+            'initial_budget': True,
+        })
+        action_dict = wizard.search_project_not_in_budget()
+        self.assertIn(
+            ('id', 'not in', self.project.ids), action_dict.get('domain'))
+        action_dict = wizard.search_project_budget()
+        self.assertIn(
+            ('id', 'in', self.project.ids), action_dict.get('domain'))
