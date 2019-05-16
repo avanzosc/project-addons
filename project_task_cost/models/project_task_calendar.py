@@ -27,6 +27,9 @@ class ProjectTaskCalendar(models.Model):
     project_parent_id = fields.Many2one(
         comodel_name='res.partner', string='Customer',
         related='task_id.project_id.partner_id', store=True)
+    project_phase_id = fields.Many2one(
+        comodel_name='project.phase', string='Project Phase',
+        related='task_id.project_id.phase_id', store=True)
     date = fields.Date(string='Date', required=True)
     dayofweek = fields.Selection(
         selection='_get_selection_dayofweek', string='Day of Week', index=True,
