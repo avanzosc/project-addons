@@ -9,6 +9,7 @@
         "project",
         "hr",
         "sale_timesheet",
+        "project_phase",
     ],
     "author": "AvanzOSC",
     "website": "http://www.avanzosc.es",
