@@ -310,6 +310,22 @@ msgid "Search Projects by Budget Dates"
 msgstr "Busqueda de proyectos por fechas de presupuesto"
 
 #. module: project_budget
+#: model:ir.ui.view,arch_db:project_budget.project_budget_search_view_form
+msgid "Search Projects With Budgets"
+msgstr "Buscar proyectos que contengan presupuesto"
+
+#. module: project_budget
+#: model:ir.ui.view,arch_db:project_budget.project_budget_search_view_form
+msgid "Search Projects Without Budgets"
+msgstr "Buscar proyectos que no contengan presupuesto"
+
+#. module: project_budget
+#: model:ir.actions.act_window,name:project_budget.action_project_budget_search
+#: model:ir.ui.menu,name:project_budget.project_budget_search_menuitem
+msgid "Search Projects by Budget Dates"
+msgstr "Busqueda de proyectos por fechas de presupuesto"
+
+#. module: project_budget
 #: model:ir.ui.view,arch_db:project_budget.project_config_settings_form_view
 msgid "Show a smartbutton to access directly to current month budget."
 msgstr "Mostrar un smartbutton para acceder directamente al presupuesto del mes en curso."
