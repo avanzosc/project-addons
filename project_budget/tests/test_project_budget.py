@@ -120,6 +120,6 @@ class TestProjectBudget(common.SavepointCase):
         action_dict = wizard.search_project_not_in_budget()
         self.assertIn(
             ('id', 'not in', self.project.ids), action_dict.get('domain'))
-        action_dict = wizard.search_project_budget()
+        action_dict = wizard.search_project_in_budget()
         self.assertIn(
             ('id', 'in', self.project.ids), action_dict.get('domain'))
