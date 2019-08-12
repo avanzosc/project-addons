@@ -13,6 +13,9 @@ class CrossoveredBudget(models.Model):
     project_id = fields.Many2one(
         comodel_name='project.project', string='Project',
         states={'done': [('readonly', True)]}, ondelete='cascade')
+    project_user_id = fields.Many2one(
+        comodel_name='res.users', string='Project Manager',
+        related='project_id.user_id', store=True)
     initial = fields.Boolean(
         string='Initial', copy=False, states={'done': [('readonly', True)]})
     active = fields.Boolean(string='Active', default=True)
@@ -109,6 +112,9 @@ class CrossoveredBudgetLines(models.Model):
     project_id = fields.Many2one(
         comodel_name='project.project', string='Project',
         related='crossovered_budget_id.project_id', store=True)
+    project_user_id = fields.Many2one(
+        comodel_name='res.users', string='Project Manager',
+        related='crossovered_budget_id.project_id.user_id', store=True)
     sum_amount = fields.Float(
         string='Amount Sum', compute='_compute_sum_amount', store=True)
     budget_active = fields.Boolean(
