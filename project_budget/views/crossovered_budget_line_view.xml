@@ -95,6 +95,8 @@
                             context="{'group_by':'general_budget_id'}"/>
                     <filter name="group_by_project" string="Project"
                             context="{'group_by':'project_id'}"/>
+                    <filter name="group_by_project_user" string="Project Manager"
+                            context="{'group_by':'project_user_id'}"/>
                 </group>
             </search>
         </field>
