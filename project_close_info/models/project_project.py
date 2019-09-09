@@ -9,7 +9,7 @@ class ProjectProject(models.Model):
 
     criteria_ids = fields.One2many(
         string='Customer satisfaction', comodel_name='project.close.info',
-        inverse_name='project_id')
+        inverse_name='project_id',  context={'active_test': False})
     technical = fields.Selection(
         selection=[('Successful', 'Successful'),
                    ('Doubtful', 'Doubtful'),
