@@ -9,7 +9,7 @@
                 <page name="closing_info" string="Closing">
                     <group string="Closing Criteria">
                         <field name="criteria_ids" nolabel="1"
-                               context="{'default_project_id': active_id, 'active_test': True}"/>
+                               context="{'default_project_id': active_id}"/>
                     </group>
                     <group>
                         <field name="technical"/>
