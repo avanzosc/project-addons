@@ -1,6 +1,6 @@
 # Copyright 2018 Alfredo de la Fuente <alfredodelafuente@avanzosc.es>
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl).
-from odoo import api, fields, models
+from odoo import _, api, fields, models
 
 
 class ProjectProject(models.Model):
@@ -10,7 +10,8 @@ class ProjectProject(models.Model):
         comodel_name='res.partner', string='Location')
     participant_ids = fields.One2many(
         comodel_name='project.participant',
-        inverse_name='project_id', string='Participants', copy=True)
+        inverse_name='project_id', string='Participants', copy=True,
+        context={'active_test': False})
 
     @api.multi
     def write(self, vals):
@@ -40,6 +41,11 @@ class ProjectParticipant(models.Model):
     rol_id = fields.Many2one(
         comodel_name='project.participant.rol', string='Role')
     active = fields.Boolean(string='Active', default=True)
+
+    _sql_constraints = {
+        ('unique_project_partner', 'UNIQUE(project_id,partner_id)',
+         _('Partner can only have one rol in the project.'))
+    }
 
 
 class ProjectParticipantRol(models.Model):
