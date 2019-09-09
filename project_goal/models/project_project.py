@@ -9,7 +9,7 @@ class ProjectProject(models.Model):
 
     goal_ids = fields.One2many(
         comodel_name='project.goal', inverse_name='project_id',
-        string='Goals', copy=True)
+        string='Goals', copy=True, context={'active_test': False})
 
     @api.model
     def default_get(self, fields):

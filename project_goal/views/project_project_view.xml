@@ -10,7 +10,7 @@
                 <page name="goals" string="Goals">
                     <group name="goals" string="Goals">
                         <field name="goal_ids" nolabel="1"
-                               context="{'default_project_id':active_id, 'active_test': False}" />
+                               context="{'default_project_id':active_id}" />
                     </group>
                 </page>
             </notebook>
