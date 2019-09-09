@@ -43,9 +43,29 @@
                     <group name="moreinfo">
                         <field name="responsible_id"/>
                         <field name="date_due"/>
+                        <field name="active" invisible="True" />
                     </group>
                 </sheet>
             </form>
+        </field>
+    </record>
+    <record id="project_opportunity_table_view_search" model="ir.ui.view">
+        <field name="model">project.opportunity.table</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="project_id" />
+                <field name="opportunity_id" />
+                <field name="action_id" />
+                <filter string="Archived" name="inactive" domain="[('active','=',False)]"/>
+                <group expand="1" string="Group By">
+                    <filter string="Project" name="project_id"
+                            domain="[]" context="{'group_by':'project_id'}"/>
+                    <filter string="Opportunity" name="opportunity_id"
+                            domain="[]" context="{'group_by':'opportunity_id'}"/>
+                    <filter string="Action" name="action_id"
+                            domain="[]" context="{'group_by':'action_id'}"/>
+                </group>
+            </search>
         </field>
     </record>
     <record id="project_opportunity_table_action" model="ir.actions.act_window">

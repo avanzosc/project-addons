@@ -9,10 +9,10 @@ class ProjectProjectRisk(models.Model):
 
     risk_table_ids = fields.One2many(
         comodel_name='project.risk.table', inverse_name='project_id',
-        copy=True)
+        copy=True,  context={'active_test': False})
     risk_chance_table_ids = fields.One2many(
         comodel_name='project.opportunity.table', inverse_name='project_id',
-        copy=True)
+        copy=True,  context={'active_test': False})
 
     @api.multi
     def write(self, vals):
