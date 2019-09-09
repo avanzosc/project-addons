@@ -3,7 +3,7 @@
 
 {
     "name": "Project Goal",
-    "version": "11.0.1.3.0",
+    "version": "11.0.2.0.0",
     "license": "AGPL-3",
     "depends": [
         "project",
