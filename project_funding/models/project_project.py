@@ -9,7 +9,7 @@ class ProjectProject(models.Model):
 
     funding_ids = fields.One2many(
         comodel_name='funding.source.project', inverse_name='project_id',
-        string='Funding Sources', copy=True)
+        string='Funding Sources', copy=True, context={'active_test': False})
 
     @api.multi
     def write(self, vals):
