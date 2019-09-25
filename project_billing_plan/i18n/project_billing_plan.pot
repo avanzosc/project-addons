@@ -18,15 +18,15 @@ msgstr ""
 #. module: project_billing_plan
 #: model:ir.model.fields,field_description:project_billing_plan.field_project_project__billing_plan_count
 msgid "# Billing Plans"
-msgstr "Planes de facturación"
+msgstr ""
 
 #. module: project_billing_plan
 #: model_terms:ir.ui.view,arch_db:project_billing_plan.project_project_billing_plan_form_view
 msgid "Billing Plans"
-msgstr "Planes de facturación"
+msgstr ""
 
 #. module: project_billing_plan
 #: model:ir.model,name:project_billing_plan.model_project_project
 msgid "Project"
-msgstr "Proyecto"
+msgstr ""
 

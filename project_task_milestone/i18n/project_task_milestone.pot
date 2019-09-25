@@ -18,23 +18,23 @@ msgstr ""
 #. module: project_task_milestone
 #: model:ir.model.fields,field_description:project_task_milestone.field_project_task_phase__create_uid
 msgid "Created by"
-msgstr "Creado por"
+msgstr ""
 
 #. module: project_task_milestone
 #: model:ir.model.fields,field_description:project_task_milestone.field_project_task_phase__create_date
 msgid "Created on"
-msgstr "Creado el"
+msgstr ""
 
 #. module: project_task_milestone
 #: model:ir.model.fields,field_description:project_task_milestone.field_project_task_phase__display_name
 #: model:ir.model.fields,field_description:project_task_milestone.field_project_task_plan__display_name
 msgid "Display Name"
-msgstr "Nombre mostrado"
+msgstr ""
 
 #. module: project_task_milestone
 #: model:ir.model.fields,field_description:project_task_milestone.field_project_task_plan__end_date
 msgid "End Date"
-msgstr "Fecha finalización"
+msgstr ""
 
 #. module: project_task_milestone
 #: model:ir.model.fields,field_description:project_task_milestone.field_project_task_phase__id
@@ -46,83 +46,83 @@ msgstr ""
 #: model:ir.model.fields,field_description:project_task_milestone.field_project_task_phase____last_update
 #: model:ir.model.fields,field_description:project_task_milestone.field_project_task_plan____last_update
 msgid "Last Modified on"
-msgstr "Última modificación en"
+msgstr ""
 
 #. module: project_task_milestone
 #: model:ir.model.fields,field_description:project_task_milestone.field_project_task_phase__write_uid
 msgid "Last Updated by"
-msgstr "Última actualización por"
+msgstr ""
 
 #. module: project_task_milestone
 #: model:ir.model.fields,field_description:project_task_milestone.field_project_task_phase__write_date
 msgid "Last Updated on"
-msgstr "Última actualización el"
+msgstr ""
 
 #. module: project_task_milestone
 #: model:ir.model.fields,field_description:project_task_milestone.field_project_task__milestone
 #: model_terms:ir.ui.view,arch_db:project_task_milestone.project_task_search_view
 msgid "Milestone"
-msgstr "Hito"
+msgstr ""
 
 #. module: project_task_milestone
 #: model:ir.model.fields,field_description:project_task_milestone.field_project_task_phase__name
 msgid "Name"
-msgstr "Nombre"
+msgstr ""
 
 #. module: project_task_milestone
 #: model_terms:ir.ui.view,arch_db:project_task_milestone.project_task_search_view
 msgid "Not Milestone"
-msgstr "No hito"
+msgstr ""
 
 #. module: project_task_milestone
 #: model:ir.model.fields,field_description:project_task_milestone.field_project_task__phase_id
 #: model:ir.model.fields,field_description:project_task_milestone.field_project_task_plan__phase_id
 #: model_terms:ir.ui.view,arch_db:project_task_milestone.project_task_search_view
 msgid "Phase"
-msgstr "Fase"
+msgstr ""
 
 #. module: project_task_milestone
 #: model:ir.model.fields,field_description:project_task_milestone.field_project_project__plan_ids
 msgid "Phase Plan"
-msgstr "Plan por fases"
+msgstr ""
 
 #. module: project_task_milestone
 #: model:ir.model,name:project_task_milestone.model_project_task_phase
 msgid "Phases of Tasks"
-msgstr "Fases de tarea"
+msgstr ""
 
 #. module: project_task_milestone
 #: model:ir.model,name:project_task_milestone.model_project_project
 #: model:ir.model.fields,field_description:project_task_milestone.field_project_task_plan__project_id
 #: model_terms:ir.ui.view,arch_db:project_task_milestone.project_task_plan_search_view
 msgid "Project"
-msgstr "Proyecto"
+msgstr ""
 
 #. module: project_task_milestone
 #: model_terms:ir.ui.view,arch_db:project_task_milestone.project_task_shortcut_form_view
 msgid "Project Plan"
-msgstr "Plan de proyectos"
+msgstr ""
 
 #. module: project_task_milestone
 #: model:ir.actions.act_window,name:project_task_milestone.action_project_task_phase
 #: model:ir.ui.menu,name:project_task_milestone.project_task_phase_menuitem
 msgid "Project Task Phase"
-msgstr "Fases de tareas"
+msgstr ""
 
 #. module: project_task_milestone
 #: model:ir.actions.act_window,name:project_task_milestone.action_project_task_plan_view
 #: model:ir.model,name:project_task_milestone.model_project_task_plan
 #: model:ir.ui.menu,name:project_task_milestone.project_task_plan_option_view
 msgid "Project Task Plan"
-msgstr "Plan de proyectos"
+msgstr ""
 
 #. module: project_task_milestone
 #: model:ir.model.fields,field_description:project_task_milestone.field_project_task_plan__start_date
 msgid "Start Date"
-msgstr "Fecha de inicio"
+msgstr ""
 
 #. module: project_task_milestone
 #: model:ir.model,name:project_task_milestone.model_project_task
 msgid "Task"
-msgstr "Tarea"
+msgstr ""
 
