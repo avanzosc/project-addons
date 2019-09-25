@@ -18,30 +18,30 @@ msgstr ""
 #. module: project_task_milestone_billing_plan
 #: model:ir.model,name:project_task_milestone_billing_plan.model_account_analytic_billing_plan
 msgid "Billing plan"
-msgstr "Plan de facturación"
+msgstr ""
 
 #. module: project_task_milestone_billing_plan
 #: model:ir.model.fields,field_description:project_task_milestone_billing_plan.field_account_analytic_billing_plan__milestone_task_id
 msgid "Milestone"
-msgstr "Hito"
+msgstr ""
 
 #. module: project_task_milestone_billing_plan
 #: model_terms:ir.ui.view,arch_db:project_task_milestone_billing_plan.account_analytic_billing_plan_search_view
 msgid "Milestone Task"
-msgstr "Tarea hito"
+msgstr ""
 
 #. module: project_task_milestone_billing_plan
 #: model_terms:ir.ui.view,arch_db:project_task_milestone_billing_plan.account_analytic_billing_plan_search_view
 msgid "Milestone Task Stage"
-msgstr "Estado tarea hito"
+msgstr ""
 
 #. module: project_task_milestone_billing_plan
 #: model:ir.model.fields,field_description:project_task_milestone_billing_plan.field_account_analytic_billing_plan__project_ids
 msgid "Projects"
-msgstr "Proyectos"
+msgstr ""
 
 #. module: project_task_milestone_billing_plan
 #: model:ir.model.fields,field_description:project_task_milestone_billing_plan.field_account_analytic_billing_plan__task_stage_id
 msgid "Task Stage"
-msgstr "Estado tarea"
+msgstr ""
 
