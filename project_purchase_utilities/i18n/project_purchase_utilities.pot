@@ -19,50 +19,50 @@ msgstr ""
 #: model:ir.model.fields,field_description:project_purchase_utilities.field_project_project__purchase_count
 #: model:ir.model.fields,field_description:project_purchase_utilities.field_project_project__purchase_line_count
 msgid "# Purchase"
-msgstr "N.º de compras"
+msgstr ""
 
 #. module: project_purchase_utilities
 #: model:ir.model.fields,field_description:project_purchase_utilities.field_project_project__purchase_invoice_count
 #: model:ir.model.fields,field_description:project_purchase_utilities.field_project_project__purchase_invoice_line_count
 msgid "# Purchase Invoice"
-msgstr "N.º de facturas de compra"
+msgstr ""
 
 #. module: project_purchase_utilities
 #: model:ir.model,name:project_purchase_utilities.model_project_project
 msgid "Project"
-msgstr "Proyecto"
+msgstr ""
 
 #. module: project_purchase_utilities
 #: code:addons/project_purchase_utilities/models/project_project.py:86
 #: model_terms:ir.ui.view,arch_db:project_purchase_utilities.project_project_view_form
 #, python-format
 msgid "Purchase Invoice Lines"
-msgstr "Líneas de factura de compra"
+msgstr ""
 
 #. module: project_purchase_utilities
 #: model_terms:ir.ui.view,arch_db:project_purchase_utilities.project_project_view_form
 msgid "Purchase Invoices"
-msgstr "Facturas de compra"
+msgstr ""
 
 #. module: project_purchase_utilities
 #: model_terms:ir.ui.view,arch_db:project_purchase_utilities.project_project_view_form
 msgid "Purchase Lines"
-msgstr "Líneas de compra"
+msgstr ""
 
 #. module: project_purchase_utilities
 #: code:addons/project_purchase_utilities/models/project_project.py:46
 #, python-format
 msgid "Purchase Order"
-msgstr "Pedido de compra"
+msgstr ""
 
 #. module: project_purchase_utilities
 #: code:addons/project_purchase_utilities/models/project_project.py:59
 #, python-format
 msgid "Purchase Order Lines"
-msgstr "Líneas de pedido de compra"
+msgstr ""
 
 #. module: project_purchase_utilities
 #: model_terms:ir.ui.view,arch_db:project_purchase_utilities.project_project_view_form
 msgid "Purchases"
-msgstr "Compras"
+msgstr ""
 
