@@ -3,9 +3,6 @@
 
 from odoo import _, api, exceptions, fields, models
 
-to_string = fields.Date.to_string
-from_string = fields.Date.from_string
-
 
 class CrossoveredBudget(models.Model):
     _inherit = 'crossovered.budget'
@@ -26,7 +23,7 @@ class CrossoveredBudget(models.Model):
     @api.depends('date_from')
     def _compute_year(self):
         for record in self:
-            record.year = from_string(record.date_from).year
+            record.year = record.date_from.year
 
     @api.multi
     def action_create_period(self):
@@ -34,27 +31,21 @@ class CrossoveredBudget(models.Model):
         budget_line_obj = self.env['crossovered.budget.lines']
         for budget in self.filtered(lambda b: b.project_id and
                                     b.state == 'draft'):
-            budget.crossovered_budget_line.write({
-                'analytic_account_id':
-                budget.project_id.analytic_account_id.id,
-            })
             get_param = self.env['ir.config_parameter'].sudo().get_param
             if get_param('project_budget.summary_line',
                          'False').lower() == 'true':
                 budget_posts = budget.budget_tmpl_id.budget_post_ids
                 vals = {
-                    'analytic_account_id':
-                    budget.project_id.analytic_account_id.id,
                     'crossovered_budget_id': budget.id,
                     'planned_amount': 0.0,
                 }
-                ds = from_string(budget.date_from)
+                ds = budget.date_from
                 final_date = ds.replace(day=30, month=12)
-                if to_string(final_date) < budget.date_to:
+                if final_date < budget.date_to:
                     for budget_post in budget_posts:
                         vals.update({
-                            'date_from': to_string(final_date),
-                            'date_to': to_string(final_date),
+                            'date_from': final_date,
+                            'date_to': final_date,
                             'general_budget_id': budget_post.id,
                         })
                         budget_line_obj.create(vals)
@@ -82,14 +73,14 @@ class CrossoveredBudget(models.Model):
 
     @api.multi
     def button_recompute_line_amount(self):
-        self.mapped('crossovered_budget_line').button_recompute_amount()
+        self.mapped('crossovered_budget_line_ids').button_recompute_amount()
 
     @api.multi
     def open_pivot_view(self):
         self.ensure_one()
         self.button_recompute_line_amount()
         action = self.env.ref(
-            'account_budget.act_crossovered_budget_lines_view')
+            'account_budget_oca.act_crossovered_budget_lines_view')
         action_dict = action.read()[0]
         action_dict.update({
             'view_mode': 'pivot',

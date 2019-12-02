@@ -18,167 +18,167 @@ msgstr ""
 #. module: project_budget
 #: model:ir.model.fields,field_description:project_budget.field_project_project__budget_count
 msgid "# Budgets"
-msgstr "Presupuestos"
+msgstr ""
 
 #. module: project_budget
 #: model:ir.model.fields,field_description:project_budget.field_project_project__current_budget_count
 msgid "# Current Budgets"
-msgstr "Presupuesto actual"
+msgstr ""
 
 #. module: project_budget
 #: model_terms:ir.actions.act_window,help:project_budget.project_budget_action
 msgid "A budget is a forecast of your company's income and/or expenses expected for a period in the future. A budget is defined on some financial accounts and/or analytic accounts (that may represent projects, departments, categories of products, etc.)"
-msgstr "Un presupuesto es una proyección de los ingresos y/o gastos esperados en su compañía en un período en el futuro. Se define en varias cuentas financieras y/o analíticas (que pueden representar proyectos, departamentos, categorías de productos, etc)"
+msgstr ""
 
 #. module: project_budget
 #: model:ir.model.fields,field_description:project_budget.field_crossovered_budget__active
 #: model_terms:ir.ui.view,arch_db:project_budget.crossovered_budget_search_view
 msgid "Active"
-msgstr "Activo"
+msgstr ""
 
 #. module: project_budget
 #: model:ir.model.fields,field_description:project_budget.field_crossovered_budget_lines__sum_amount
 msgid "Amount Sum"
-msgstr "Previsión final"
+msgstr ""
 
 #. module: project_budget
 #: model:ir.model,name:project_budget.model_account_analytic_account
 #: model_terms:ir.ui.view,arch_db:project_budget.crossovered_budget_line_search_view
 msgid "Analytic Account"
-msgstr "Cuenta analítica"
+msgstr ""
 
 #. module: project_budget
 #: model_terms:ir.ui.view,arch_db:project_budget.crossovered_budget_search_view
 msgid "Archived"
-msgstr "Archivado"
+msgstr ""
 
 #. module: project_budget
 #: model:ir.model,name:project_budget.model_crossovered_budget
 #: model_terms:ir.ui.view,arch_db:project_budget.crossovered_budget_line_search_view
 msgid "Budget"
-msgstr "Presupuesto"
+msgstr ""
 
 #. module: project_budget
 #: model:ir.model.fields,field_description:project_budget.field_crossovered_budget_lines__budget_active
 msgid "Budget Active"
-msgstr "Presupuesto activado"
+msgstr ""
 
 #. module: project_budget
 #: model:ir.model.fields,field_description:project_budget.field_crossovered_budget__budget_date
 #: model:ir.model.fields,field_description:project_budget.field_crossovered_budget_lines__budget_date
 #: model:ir.model.fields,field_description:project_budget.field_project_initial_budget__date
 msgid "Budget Date"
-msgstr "Fecha del presupuesto"
+msgstr ""
 
 #. module: project_budget
 #: model:ir.model,name:project_budget.model_crossovered_budget_lines
 msgid "Budget Line"
-msgstr "Línea de Presupuesto"
+msgstr ""
 
 #. module: project_budget
 #: model:ir.model.fields,field_description:project_budget.field_account_analytic_account__crossovered_budget_line_ids
 #: model_terms:ir.ui.view,arch_db:project_budget.crossovered_budget_line_pivot_view
 msgid "Budget Lines"
-msgstr "Líneas de Presupuesto"
+msgstr ""
 
 #. module: project_budget
 #: model_terms:ir.ui.view,arch_db:project_budget.crossovered_budget_form_view
 msgid "Budget Lines Pivot Report"
-msgstr "Informe pivot"
+msgstr ""
 
 #. module: project_budget
 #: model_terms:ir.ui.view,arch_db:project_budget.crossovered_budget_line_search_view
 msgid "Budgetary Position"
-msgstr "Posición Presupuestaria"
+msgstr ""
 
 #. module: project_budget
 #: model_terms:ir.ui.view,arch_db:project_budget.project_project_search_view
 msgid "Budgeted"
-msgstr "Presupuestado"
+msgstr ""
 
 #. module: project_budget
 #: model:ir.actions.act_window,name:project_budget.project_budget_action
 #: model:ir.model.fields,field_description:project_budget.field_project_project__budget_ids
 #: model_terms:ir.ui.view,arch_db:project_budget.project_project_form_view
 msgid "Budgets"
-msgstr "Presupuestos"
+msgstr ""
 
 #. module: project_budget
 #: model_terms:ir.actions.act_window,help:project_budget.project_budget_action
 msgid "By keeping track of where your money goes, you may be less likely to overspend, and more likely to meet your financial goals. Forecast a budget by detailing the expected revenue per analytic account and monitor its evolution based on the actuals realised during that period."
-msgstr "Haciendo un seguimiento de dónde va su dinero, puede ser menos probable gastar demasiado, y más probable alcanzar sus metas financieras. Prevea un presupuesto detallando los ingresos esperados por cuenta analítica y monitorice su evolución basada en lo real obtenido durante ese periodo."
+msgstr ""
 
 #. module: project_budget
 #: model_terms:ir.ui.view,arch_db:project_budget.project_budget_search_view_form
 #: model_terms:ir.ui.view,arch_db:project_budget.project_initial_budget_view_form
 msgid "Cancel"
-msgstr "Cancelar"
+msgstr ""
 
 #. module: project_budget
 #: model:ir.model.fields,help:project_budget.field_project_budget_search__initial_budget
 msgid "Checking this will search only those with initial budgets"
-msgstr "Marcando este check solo buscará por presupuestos iniciales"
+msgstr ""
 
 #. module: project_budget
 #: model_terms:ir.actions.act_window,help:project_budget.project_budget_action
 msgid "Click to create a new budget."
-msgstr "Pulse para crear un nuevo presupuesto."
+msgstr ""
 
 #. module: project_budget
 #: model:ir.model,name:project_budget.model_res_config_settings
 msgid "Config Settings"
-msgstr "Opciones de Configuración"
+msgstr ""
 
 #. module: project_budget
 #: model:ir.actions.act_window,name:project_budget.project_initial_budget_wizard_action
-#: model:ir.ui.view,arch_db:project_budget.project_initial_budget_view_form
+#: model_terms:ir.ui.view,arch_db:project_budget.project_initial_budget_view_form
 msgid "Create Initial Budget"
-msgstr "Crear presupuesto inicial"
+msgstr ""
 
 #. module: project_budget
 #: model_terms:ir.ui.view,arch_db:project_budget.crossovered_budget_form_view
 msgid "Create Lines"
-msgstr "Crear elementos"
+msgstr ""
 
 #. module: project_budget
 #: model:ir.model.fields,field_description:project_budget.field_res_config_settings__summary_line
 msgid "Create a line on december 30th as summary"
-msgstr "Crear una línea el día 30 de diciembre como resumen"
+msgstr ""
 
 #. module: project_budget
 #: model:ir.model.fields,field_description:project_budget.field_project_budget_search__create_uid
 #: model:ir.model.fields,field_description:project_budget.field_project_initial_budget__create_uid
 msgid "Created by"
-msgstr "Creado por"
+msgstr ""
 
 #. module: project_budget
 #: model:ir.model.fields,field_description:project_budget.field_project_budget_search__create_date
 #: model:ir.model.fields,field_description:project_budget.field_project_initial_budget__create_date
 msgid "Created on"
-msgstr "Creado el"
+msgstr ""
 
 #. module: project_budget
 #: model:ir.model.fields,field_description:project_budget.field_project_project__current_budget_id
 #: model_terms:ir.ui.view,arch_db:project_budget.crossovered_budget_search_view
 #: model_terms:ir.ui.view,arch_db:project_budget.project_project_form_view2
 msgid "Current Budget"
-msgstr "Presupuesto actual"
+msgstr ""
 
 #. module: project_budget
 #: model:ir.model.fields,field_description:project_budget.field_project_budget_search__display_name
 #: model:ir.model.fields,field_description:project_budget.field_project_initial_budget__display_name
 msgid "Display Name"
-msgstr "Nombre mostrado"
+msgstr ""
 
 #. module: project_budget
 #: model_terms:ir.ui.view,arch_db:project_budget.crossovered_budget_line_search_view
 msgid "Group By"
-msgstr "Agrupar por"
+msgstr ""
 
 #. module: project_budget
 #: model:ir.model.fields,field_description:project_budget.field_project_project__has_current_budget
 msgid "Has Current Budget"
-msgstr "Tiene presupuesto actual"
+msgstr ""
 
 #. module: project_budget
 #: model:ir.model.fields,field_description:project_budget.field_project_budget_search__id
@@ -190,90 +190,90 @@ msgstr ""
 #: model:ir.model.fields,field_description:project_budget.field_crossovered_budget__initial
 #: model_terms:ir.ui.view,arch_db:project_budget.crossovered_budget_search_view
 msgid "Initial"
-msgstr "Inicial"
+msgstr ""
 
 #. module: project_budget
 #: model:ir.model.fields,field_description:project_budget.field_project_budget_search__initial_budget
 msgid "Initial Budget"
-msgstr "Presupuesto inicial"
+msgstr ""
 
 #. module: project_budget
 #: model:ir.model.fields,field_description:project_budget.field_crossovered_budget_lines__initial_budget_line_id
 msgid "Initial Budget Line"
-msgstr "Elemento de presupuesto inicial"
+msgstr ""
 
 #. module: project_budget
 #: model_terms:ir.ui.view,arch_db:project_budget.crossovered_budget_search_view
 msgid "Initial Budgets"
-msgstr "Presupuestos iniciales"
+msgstr ""
 
 #. module: project_budget
 #: model:ir.model.fields,field_description:project_budget.field_crossovered_budget_lines__initial_planned_amount
 #: model_terms:ir.ui.view,arch_db:project_budget.crossovered_budget_form_view
 #: model_terms:ir.ui.view,arch_db:project_budget.crossovered_budget_line_tree_view
 msgid "Initial Planned Amount"
-msgstr "Presupuesto inicial"
+msgstr ""
 
 #. module: project_budget
 #: model_terms:ir.ui.view,arch_db:project_budget.account_analytic_account_last_budget_lines_form_view
 msgid "Initial planned amount"
-msgstr "Importe planificado inicial"
+msgstr ""
 
 #. module: project_budget
 #: code:addons/project_budget/models/project_project.py:70
 #, python-format
 msgid "Initial {} budget: {}"
-msgstr "Presupuesto inicial {}: {}"
+msgstr ""
 
 #. module: project_budget
 #: model_terms:ir.ui.view,arch_db:project_budget.project_config_settings_form_view
 msgid "It will create a line on december 30th of the last year."
-msgstr "Creará una línea con fecha 30 de diciembre del último año."
+msgstr ""
 
 #. module: project_budget
 #: model:ir.model.fields,help:project_budget.field_res_config_settings__summary_line
 msgid "It will create a line on december 30th, if more than one year is selected only for the last year."
-msgstr "Creará una línea con fecha de 30 de diciembre, si se han seleccionado más de un año se pondrá en el último año."
+msgstr ""
 
 #. module: project_budget
 #: model:ir.model.fields,field_description:project_budget.field_project_budget_search____last_update
 #: model:ir.model.fields,field_description:project_budget.field_project_initial_budget____last_update
 msgid "Last Modified on"
-msgstr "Última modificación en"
+msgstr ""
 
 #. module: project_budget
 #: model:ir.model.fields,field_description:project_budget.field_project_budget_search__write_uid
 #: model:ir.model.fields,field_description:project_budget.field_project_initial_budget__write_uid
 msgid "Last Updated by"
-msgstr "Última actualización por"
+msgstr ""
 
 #. module: project_budget
 #: model:ir.model.fields,field_description:project_budget.field_project_budget_search__write_date
 #: model:ir.model.fields,field_description:project_budget.field_project_initial_budget__write_date
 msgid "Last Updated on"
-msgstr "Última actualización el"
+msgstr ""
 
 #. module: project_budget
 #: model:ir.model.fields,field_description:project_budget.field_project_budget_search__max_date
 msgid "Max. Date"
-msgstr "Fecha máx."
+msgstr ""
 
 #. module: project_budget
 #: model:ir.model.fields,field_description:project_budget.field_project_budget_search__min_date
 msgid "Min. Date"
-msgstr "Fecha min."
+msgstr ""
 
 #. module: project_budget
 #: model:ir.model.fields,field_description:project_budget.field_crossovered_budget_lines__notes
 #: model_terms:ir.ui.view,arch_db:project_budget.crossovered_budget_form_view
 #: model_terms:ir.ui.view,arch_db:project_budget.crossovered_budget_line_form_view
 msgid "Notes"
-msgstr "Notas"
+msgstr ""
 
 #. module: project_budget
 #: model:ir.model.fields,field_description:project_budget.field_crossovered_budget_lines__practical_amount
 msgid "Practical Amount"
-msgstr "Importe Real"
+msgstr ""
 
 #. module: project_budget
 #: model:ir.model,name:project_budget.model_project_project
@@ -282,106 +282,106 @@ msgstr "Importe Real"
 #: model:ir.model.fields,field_description:project_budget.field_project_initial_budget__project_ids
 #: model_terms:ir.ui.view,arch_db:project_budget.crossovered_budget_line_search_view
 msgid "Project"
-msgstr "Proyecto"
+msgstr ""
 
 #. module: project_budget
 #: model_terms:ir.ui.view,arch_db:project_budget.project_config_settings_form_view
 msgid "Project Budget"
-msgstr "Presupuesto de proyecto"
+msgstr ""
 
 #. module: project_budget
 #: model:ir.model.fields,field_description:project_budget.field_crossovered_budget__project_user_id
 #: model:ir.model.fields,field_description:project_budget.field_crossovered_budget_lines__project_user_id
 #: model_terms:ir.ui.view,arch_db:project_budget.crossovered_budget_line_search_view
 msgid "Project Manager"
-msgstr "Responsable de proyecto"
+msgstr ""
 
 #. module: project_budget
 #: model:ir.actions.server,name:project_budget.action_budget_line_compute_amount
 msgid "Recompute Amounts"
-msgstr "Recalcular importes"
+msgstr ""
 
 #. module: project_budget
 #: model_terms:ir.ui.view,arch_db:project_budget.crossovered_budget_form_view
 msgid "Recompute Line Amount"
-msgstr "Recalcular importe de línea"
+msgstr ""
 
 #. module: project_budget
 #: model:ir.actions.server,name:project_budget.action_budget_compute_amount
 msgid "Recompute Line Amounts"
-msgstr "Recalcular importes de línea"
+msgstr ""
 
 #. module: project_budget
 #: model_terms:ir.ui.view,arch_db:project_budget.project_budget_search_view_form
 msgid "Search Projects With Budgets"
-msgstr "Buscar proyectos que contengan presupuesto"
+msgstr ""
 
 #. module: project_budget
 #: model_terms:ir.ui.view,arch_db:project_budget.project_budget_search_view_form
 msgid "Search Projects Without Budgets"
-msgstr "Buscar proyectos que no contengan presupuesto"
+msgstr ""
 
 #. module: project_budget
 #: model:ir.actions.act_window,name:project_budget.action_project_budget_search
 #: model:ir.ui.menu,name:project_budget.project_budget_search_menuitem
 msgid "Search Projects by Budget Dates"
-msgstr "Busqueda de proyectos por fechas de presupuesto"
+msgstr ""
 
 #. module: project_budget
 #: model_terms:ir.ui.view,arch_db:project_budget.project_config_settings_form_view
 msgid "Show a smartbutton to access directly to current month budget."
-msgstr "Mostrar un smartbutton para acceder directamente al presupuesto del mes en curso."
+msgstr ""
 
 #. module: project_budget
 #: model:ir.model.fields,field_description:project_budget.field_res_config_settings__group_smartbutton_actual_budget
 #: model:res.groups,name:project_budget.smartbutton_actual_budget
 msgid "Smartbutton To Current Month Budget"
-msgstr "Smartbutton a presupuesto del mes en curso"
+msgstr ""
 
 #. module: project_budget
 #: model_terms:ir.ui.view,arch_db:project_budget.project_config_settings_form_view
 msgid "Specific Settings For Project Budget"
-msgstr "Ajustes de presupuesto de proyecto"
+msgstr ""
 
 #. module: project_budget
 #: model_terms:ir.ui.view,arch_db:project_budget.crossovered_budget_form_view
 msgid "Sum Amount Total"
-msgstr "Total previsión final"
+msgstr ""
 
 #. module: project_budget
 #: code:addons/project_budget/models/crossovered_budget.py:62
 #, python-format
 msgid "There can only be one initial budget per project and year."
-msgstr "Sólo puede haber un presupuesto inicial por proyecto y año."
+msgstr ""
 
 #. module: project_budget
 #: model_terms:ir.ui.view,arch_db:project_budget.crossovered_budget_form_view
 msgid "This will recompute all 'Practical Amount' and 'Amount Sum', are you sure?"
-msgstr "Esto recalculará las columnas 'Contabilizado' y 'Previsión final', está seguro?"
+msgstr ""
 
 #. module: project_budget
 #: model_terms:ir.ui.view,arch_db:project_budget.project_project_search_view
 msgid "Unbudgeted"
-msgstr "Sin presupuestar"
+msgstr ""
 
 #. module: project_budget
 #: model:ir.model,name:project_budget.model_project_budget_search
 msgid "Wizard to Search Project by Budget Dates"
-msgstr "Asistente para busqueda de proyecto por fecha de presupuesto"
+msgstr ""
 
 #. module: project_budget
 #: model:ir.model,name:project_budget.model_project_initial_budget
 msgid "Wizard to create initial budget"
-msgstr "Asistente para crear presupuesto inicial"
+msgstr ""
 
 #. module: project_budget
 #: model:ir.model.fields,field_description:project_budget.field_crossovered_budget__year
 msgid "Year"
-msgstr "Año"
+msgstr ""
 
 #. module: project_budget
 #: model_terms:ir.ui.view,arch_db:project_budget.project_budget_search_view_form
 #: model_terms:ir.ui.view,arch_db:project_budget.project_initial_budget_view_form
 msgid "or"
-msgstr "o"
+msgstr ""
 

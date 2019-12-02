@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <odoo>
-    <record id="account_budget.act_crossovered_budget_lines_view" model="ir.actions.act_window">
+    <record id="account_budget_oca.act_crossovered_budget_lines_view" model="ir.actions.act_window">
         <field name="view_mode">tree,form,pivot</field>
         <field name="domain">[('budget_active','=',True)]</field>
     </record>
@@ -8,7 +8,7 @@
     <record model="ir.ui.view" id="crossovered_budget_line_form_view">
         <field name="name">crossovered.budget.line.form</field>
         <field name="model">crossovered.budget.lines</field>
-        <field name="inherit_id" ref="account_budget.view_crossovered_budget_line_form"/>
+        <field name="inherit_id" ref="account_budget_oca.view_crossovered_budget_line_form"/>
         <field name="arch" type="xml">
             <field name="planned_amount" position="before">
                 <field name="initial_planned_amount" widget="monetary"
@@ -23,7 +23,7 @@
             <field name="paid_date" position="attributes">
                 <attribute name="invisible">True</attribute>
             </field>
-            <field name="theoritical_amount" position="attributes">
+            <field name="theoretical_amount" position="attributes">
                 <attribute name="invisible">True</attribute>
             </field>
             <field name="percentage" position="attributes">
@@ -40,7 +40,7 @@
     <record model="ir.ui.view" id="crossovered_budget_line_tree_view">
         <field name="name">crossovered.budget.line.tree</field>
         <field name="model">crossovered.budget.lines</field>
-        <field name="inherit_id" ref="account_budget.view_crossovered_budget_line_tree"/>
+        <field name="inherit_id" ref="account_budget_oca.view_crossovered_budget_line_tree"/>
         <field name="arch" type="xml">
             <field name="analytic_account_id" position="after">
                 <field name="project_id" readonly="True" />
@@ -61,7 +61,7 @@
             <field name="paid_date" position="attributes">
                 <attribute name="invisible">True</attribute>
             </field>
-            <field name="theoritical_amount" position="attributes">
+            <field name="theoretical_amount" position="attributes">
                 <attribute name="invisible">True</attribute>
             </field>
             <field name="percentage" position="attributes">
@@ -76,7 +76,7 @@
     <record model="ir.ui.view" id="crossovered_budget_line_search_view">
         <field name="name">crossovered.budget.line.search</field>
         <field name="model">crossovered.budget.lines</field>
-        <field name="inherit_id" ref="account_budget.view_crossovered_budget_line_search"/>
+        <field name="inherit_id" ref="account_budget_oca.view_crossovered_budget_line_search"/>
         <field name="arch" type="xml">
             <field name="analytic_account_id" position="before">
                 <field name="crossovered_budget_id" />
@@ -120,8 +120,8 @@
         <field name="name">Recompute Amounts</field>
         <field name="type">ir.actions.server</field>
         <field name="state">code</field>
-        <field name="model_id" ref="account_budget.model_crossovered_budget_lines" />
-        <field name="binding_model_id" ref="account_budget.model_crossovered_budget_lines" />
+        <field name="model_id" ref="account_budget_oca.model_crossovered_budget_lines" />
+        <field name="binding_model_id" ref="account_budget_oca.model_crossovered_budget_lines" />
         <field name="code">
 if records:
     action = records.button_recompute_amount()

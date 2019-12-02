@@ -18,5 +18,5 @@ class AccountAnalyticAccount(models.Model):
             else [])
         return domain
 
-    crossovered_budget_line = fields.One2many(
+    crossovered_budget_line_ids = fields.One2many(
         domain=lambda self: self._domain_budget_line())

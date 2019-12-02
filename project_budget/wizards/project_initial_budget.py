@@ -24,4 +24,4 @@ class ProjectInitialBudget(models.TransientModel):
     @api.multi
     def create_initial_project_budget(self):
         self.ensure_one()
-        self.project_ids.create_initial_project_budget(date=self.date)
+        self.project_ids.create_initial_project_budget(budget_date=self.date)

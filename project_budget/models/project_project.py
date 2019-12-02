@@ -4,9 +4,6 @@
 from odoo import _, api, fields, models
 import calendar
 
-to_string = fields.Date.to_string
-from_string = fields.Date.from_string
-
 
 class ProjectProject(models.Model):
     _inherit = 'project.project'
@@ -27,10 +24,10 @@ class ProjectProject(models.Model):
 
     @api.multi
     def _compute_budget_count(self):
-        today = from_string(fields.Date.context_today(self))
-        month_start = to_string(today.replace(day=1))
-        month_end = \
-            to_string(today.replace(
+        today = fields.Date.context_today(self)
+        month_start = today.replace(day=1)
+        month_end = (
+            today.replace(
                 day=calendar.monthrange(today.year, today.month)[1]))
         for record in self:
             record.budget_count = len(
@@ -43,10 +40,10 @@ class ProjectProject(models.Model):
 
     @api.multi
     def _search_current_budget(self, operator, value):
-        today = from_string(fields.Date.context_today(self))
-        month_start = to_string(today.replace(day=1))
-        month_end = \
-            to_string(today.replace(
+        today = fields.Date.context_today(self)
+        month_start = today.replace(day=1)
+        month_end = (
+            today.replace(
                 day=calendar.monthrange(today.year, today.month)[1]))
         current_budgets = self.env['crossovered.budget'].search([
             ('project_id', '<>', False),
@@ -57,13 +54,12 @@ class ProjectProject(models.Model):
         return [('id', operator, current_budgets.mapped('project_id').ids)]
 
     @api.multi
-    def create_initial_project_budget(self, date=False):
-        if not date:
-            date = fields.Date.context_today(self)
+    def create_initial_project_budget(self, budget_date=False):
+        if not budget_date:
+            budget_date = fields.Date.context_today(self)
         budget_obj = self.env['crossovered.budget']
-        budget_date = from_string(date)
-        date_from = to_string(budget_date.replace(month=1, day=1))
-        date_to = to_string(budget_date.replace(month=12, day=31))
+        date_from = budget_date.replace(month=1, day=1)
+        date_to = budget_date.replace(month=12, day=31)
         for record in self.filtered(lambda l: not any(l.budget_ids.filtered(
                 lambda b: b.initial and b.year == budget_date.year))):
             budget = budget_obj.create({

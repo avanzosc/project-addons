@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <odoo>
-    <record id="account_budget.act_crossovered_budget_view" model="ir.actions.act_window">
+    <record id="account_budget_oca.act_crossovered_budget_view" model="ir.actions.act_window">
         <field name="context">{'active_test': False}</field>
     </record>
 
@@ -8,12 +8,12 @@
         <field name="name">crossovered.budget.form</field>
         <field name="model">crossovered.budget</field>
         <field name="inherit_id"
-               ref="account_budget.crossovered_budget_view_form" />
+               ref="account_budget_oca.crossovered_budget_view_form" />
         <field name="arch" type="xml">
             <button name="action_budget_confirm" position="before">
                 <button string="Create Lines" name="action_create_period"
                         type="object"
-                        attrs="{'invisible': ['|','|',('state','not in',['draft']),('project_id','=',False),'!',('crossovered_budget_line','=',[])]}" />
+                        attrs="{'invisible': ['|','|',('state','not in',['draft']),('project_id','=',False),'!',('crossovered_budget_line_ids','=',[])]}" />
             </button>
             <field name="state" position="before">
                 <button name="button_recompute_line_amount" type="object"
@@ -24,9 +24,8 @@
                     <button name="toggle_active" type="object" class="oe_stat_button" icon="fa-archive">
                         <field name="active" widget="boolean_button"/>
                     </button>
-                    <button name="open_pivot_view" type="object" class="oe_stat_button" icon="fa-archive">
-                        <label string="Budget Lines Pivot Report" />
-                    </button>
+                    <button name="open_pivot_view" type="object" class="oe_stat_button" icon="fa-archive"
+                            string="Budget Lines Pivot Report" />
                 </div>
             </div>
             <field name="creating_user_id" position="after">
@@ -37,30 +36,30 @@
                        options="{'no_create': True}"/>
                 <field name="initial" readonly="True" invisible="True" />
             </field>
-            <xpath expr="//field[@name='crossovered_budget_line']/tree//field[@name='planned_amount']" position="before">
+            <xpath expr="//field[@name='crossovered_budget_line_ids']/tree//field[@name='planned_amount']" position="before">
                 <field name="initial_planned_amount" widget="monetary"
                        sum="Initial Planned Amount"/>
             </xpath>
-            <xpath expr="//field[@name='crossovered_budget_line']/tree//field[@name='practical_amount']" position="after">
+            <xpath expr="//field[@name='crossovered_budget_line_ids']/tree//field[@name='practical_amount']" position="after">
                 <field name="sum_amount" widget="monetary"
                        sum="Sum Amount Total" />
             </xpath>
-            <xpath expr="//field[@name='crossovered_budget_line']/tree//field[@name='paid_date']" position="attributes">
+            <xpath expr="//field[@name='crossovered_budget_line_ids']/tree//field[@name='paid_date']" position="attributes">
                 <attribute name="invisible">True</attribute>
             </xpath>
-            <xpath expr="//field[@name='crossovered_budget_line']/tree//field[@name='theoritical_amount']" position="attributes">
+            <xpath expr="//field[@name='crossovered_budget_line_ids']/tree//field[@name='theoretical_amount']" position="attributes">
                 <attribute name="invisible">True</attribute>
             </xpath>
-            <xpath expr="//field[@name='crossovered_budget_line']/tree//field[@name='percentage']" position="attributes">
+            <xpath expr="//field[@name='crossovered_budget_line_ids']/tree//field[@name='percentage']" position="attributes">
                 <attribute name="invisible">True</attribute>
             </xpath>
-            <xpath expr="//field[@name='crossovered_budget_line']/tree//field[@name='percentage']" position="after">
+            <xpath expr="//field[@name='crossovered_budget_line_ids']/tree//field[@name='percentage']" position="after">
                 <field name="notes" />
             </xpath>
-            <xpath expr="//field[@name='crossovered_budget_line']/form//field[@name='paid_date']" position="attributes">
+            <xpath expr="//field[@name='crossovered_budget_line_ids']/form//field[@name='paid_date']" position="attributes">
                 <attribute name="invisible">True</attribute>
             </xpath>
-            <xpath expr="//field[@name='crossovered_budget_line']/form//field[@name='company_id']/.." position="after">
+            <xpath expr="//field[@name='crossovered_budget_line_ids']/form//field[@name='company_id']/.." position="after">
                 <separator string="Notes" colspan="4" />
                 <field name="notes" nolabel="True" colspan="4" />
             </xpath>
@@ -71,7 +70,7 @@
         <field name="name">crossovered.budget.tree</field>
         <field name="model">crossovered.budget</field>
         <field name="inherit_id"
-               ref="account_budget.crossovered_budget_view_tree" />
+               ref="account_budget_oca.crossovered_budget_view_tree" />
         <field name="arch" type="xml">
             <tree position="attributes">
                 <attribute name="decoration-danger">initial</attribute>
@@ -92,7 +91,7 @@
         <field name="name">crossovered.budget.search</field>
         <field name="model">crossovered.budget</field>
         <field name="inherit_id"
-               ref="account_budget.view_crossovered_budget_search" />
+               ref="account_budget_oca.view_crossovered_budget_search" />
         <field name="arch" type="xml">
             <field name="state" position="before">
                 <separator />
@@ -116,8 +115,8 @@
         <field name="name">Recompute Line Amounts</field>
         <field name="type">ir.actions.server</field>
         <field name="state">code</field>
-        <field name="model_id" ref="account_budget.model_crossovered_budget" />
-        <field name="binding_model_id" ref="account_budget.model_crossovered_budget" />
+        <field name="model_id" ref="account_budget_oca.model_crossovered_budget" />
+        <field name="binding_model_id" ref="account_budget_oca.model_crossovered_budget" />
         <field name="code">
 if records:
     action = records.buttom_recompute_line_amount()
