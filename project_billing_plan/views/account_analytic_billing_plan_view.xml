@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <menuitem action="account_analytic_billing_plan.action_account_analytic_billing_plan"
+              id="account_analytic_billing_plan_project_option"
+              parent="project.menu_project_management"
+              groups="account_analytic_billing_plan.group_billing_plan_user"
+              sequence="15" />
+</odoo>
