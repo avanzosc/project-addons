@@ -36,7 +36,8 @@ class TestProjectBudgetExpense(common.SavepointCase):
         })
         cls.task_model = cls.env['project.task']
         month_gap = 2
-        date_start = str2date(fields.Datetime.now()) + relativedelta(days=1)
+        date_start = (str2date(fields.Datetime.now()).replace(month=3) +
+                      relativedelta(days=1))
         date_end = date_start + relativedelta(months=month_gap)
         cls.task = cls.task_model.create({
             'name': 'Name',
