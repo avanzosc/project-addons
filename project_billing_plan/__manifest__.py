@@ -14,6 +14,7 @@
     ],
     "data": [
         "views/project_project_view.xml",
+        "views/account_analytic_billing_plan_view.xml",
     ],
     "installable": True,
     "auto_install": True,
