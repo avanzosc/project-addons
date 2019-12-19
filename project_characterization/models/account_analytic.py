@@ -47,16 +47,17 @@ class AccountAnalyticAccount(models.Model):
 
     @api.model
     def create(self, values):
-        area_id = values.get('res_area_id')
-        type_id = values.get('res_area_type_id')
-        num_code = values.get('num_code')
-        if area_id and type_id:
-            values.update({
-                'code': '{}.{}.{}'.format(
-                    self.env['res.area'].browse(area_id).code or '',
-                    self.env['res.area.type'].browse(type_id).code or '',
-                    num_code or '')
-            })
+        if not values.get('code'):
+            area_id = values.get('res_area_id')
+            type_id = values.get('res_area_type_id')
+            num_code = values.get('num_code')
+            if area_id and type_id:
+                values.update({
+                    'code': '{}.{}.{}'.format(
+                        self.env['res.area'].browse(area_id).code or '',
+                        self.env['res.area.type'].browse(type_id).code or '',
+                        num_code or '')
+                })
         return super(AccountAnalyticAccount, self).create(values)
 
 
