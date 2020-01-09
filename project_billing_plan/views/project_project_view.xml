@@ -3,6 +3,7 @@
     <record id="project_project_billing_plan_form_view" model="ir.ui.view">
         <field name="model">project.project</field>
         <field name="inherit_id" ref="project.edit_project" />
+        <field name="groups_id" eval="[(4, ref('account_analytic_billing_plan.group_billing_plan_user'))]" />
         <field name="arch" type="xml">
             <button name="toggle_active" position="before">
                 <button class="oe_stat_button" type="object" name="button_open_billing_plan" icon="fa-pencil-square-o">
