@@ -8,6 +8,7 @@
     "depends": [
         "project",
         "hr",
+        "hr_timesheet",
         "sale_timesheet",
         "project_phase",
     ],

@@ -28,9 +28,6 @@
         <field name="model">project.task</field>
         <field name="inherit_id" ref="project.view_task_form2" />
         <field name="arch" type="xml">
-            <field name="planned_hours" position="after">
-                <field name="planned_monthly_hours" widget="float_time" />
-            </field>
             <field name="user_id" position="after">
                 <field name="employee_cost" invisible="True" />
                 <field name="date_start" />
@@ -43,6 +40,16 @@
                     <field name="calendar_ids" context="{'default_task_id': active_id}"/>
                 </page>
             </notebook>
+        </field>
+    </record>
+
+    <record id="project_task_timesheet_form_view" model="ir.ui.view">
+        <field name="model">project.task</field>
+        <field name="inherit_id" ref="hr_timesheet.view_task_form2_inherited" />
+        <field name="arch" type="xml">
+            <field name="planned_hours" position="after">
+                <field name="planned_monthly_hours" widget="float_time" />
+            </field>
         </field>
     </record>
 
@@ -74,7 +81,6 @@
                 records.button_update_employee_cost()
         </field>
     </record>
-
 
     <record id="project_task_create_calendar_action"
             model="ir.actions.server">
