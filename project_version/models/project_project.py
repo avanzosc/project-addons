@@ -74,3 +74,6 @@ class ProjectProject(models.Model):
             'historical_date': fields.Date.today(),
             'historical_user_id': self.env.user.id,
         })
+        copy.with_context(active_test=False).analytic_account_id.write({
+            'active': copy.active,
+        })
