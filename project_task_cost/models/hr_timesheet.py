@@ -25,9 +25,9 @@ class HrTimesheet(models.Model):
             ])
             if (not timesheets and (
                     (line.task_id.date_end and
-                     line.date > line.task_id.date_end) or
+                     line.date > line.task_id.date_end.date()) or
                     (line.task_id.date_start and
-                     line.date < line.task_id.date_start))):
+                     line.date < line.task_id.date_start.date()))):
                 calendars = calendar_obj.search([
                     ('task_id', '=', line.task_id.id),
                     ('date', '=', line.date),
