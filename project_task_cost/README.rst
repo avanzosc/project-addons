@@ -3,11 +3,11 @@
    :alt: License: AGPL-3
 
 =================
-Project Task Cost
+Project task cost
 =================
 
-With this module you can estimate the cost of a task. Cost are only visible for
-coordinator users, a new group above project manager.
+* With this module you can estimate the cost of a task. Cost are only visible
+  for coordinator users, a new group above project manager.
 
 Bug Tracker
 ===========

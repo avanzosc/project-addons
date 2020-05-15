@@ -94,13 +94,13 @@ class ProjectTaskCalendar(models.Model):
                 'attendance_ids.dayofweek')
             if (line.dayofweek in weekdays and
                     (line.task_id.date_start and
-                     line.date >= line.task_id.date_start) and
+                     line.date >= line.task_id.date_start.date()) and
                     (line.task_id.date_end and
-                     line.date <= line.task_id.date_end)):
+                     line.date <= line.task_id.date_end.date())):
                 line_count = len(line.task_id.calendar_ids.filtered(
                     lambda l: l.dayofweek in weekdays and not l.user_leave and
-                    l.date >= l.task_id.date_start and
-                    l.date <= l.task_id.date_end))
+                    l.date >= l.task_id.date_start.date() and
+                    l.date <= l.task_id.date_end.date()))
                 line.planned_hours = (line.task_id.planned_hours /
                                       (line_count or 1))
                 line.planned_cost = line.planned_hours * line.employee_cost

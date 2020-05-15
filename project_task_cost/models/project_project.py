@@ -10,6 +10,8 @@ class ProjectProject(models.Model):
     resume_ids = fields.One2many(
         string='Resume', comodel_name='project.task.resume',
         inverse_name='project_id', readonly=True)
+    code = fields.Char(
+        string='Reference', track_visibility='onchange', index=True)
 
     @api.multi
     def button_create_task_calendar(self):
