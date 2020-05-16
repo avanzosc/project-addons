@@ -22,8 +22,10 @@ env:
   - VERSION="12.0" TESTS="0" LINT_CHECK="0"
   matrix:
   - LINT_CHECK="1"
-  - TESTS="1" ODOO_REPO="OCA/OCB"
-  - TESTS="1" ODOO_REPO="odoo/odoo"
+  - TESTS="1" ODOO_REPO="OCA/OCB" EXCLUDE='project_task_cost'
+  - TESTS="1" ODOO_REPO="odoo/odoo" EXCLUDE='project_task_cost'
+  - TESTS="1" ODOO_REPO="OCA/OCB" INCLUDE='project_task_cost'
+  - TESTS="1" ODOO_REPO="odoo/odoo" INCLUDE='project_task_cost'
 
 
 install:

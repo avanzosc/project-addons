@@ -226,7 +226,8 @@ msgid "Recompute Costs"
 msgstr "Recalcular el coste"
 
 #. module: project_task_cost
-#: model:ir.model.fields,field_description:project_task_cost.field_project_task_calendar_project_code
+#: model:ir.model.fields,field_description:project_task_cost.field_project_project__code
+#: model:ir.model.fields,field_description:project_task_cost.field_project_task_calendar__project_code
 msgid "Reference"
 msgstr "Referencia"
 

@@ -135,3 +135,21 @@ class TestProjectTaskCost(common.SavepointCase):
         })
         self.assertEquals(round(task.planned_hours / 13, 2),
                           task.planned_monthly_hours)
+
+    def test_button_create_task_calendar(self):
+        month_gap = 2
+        date_start = str2date(fields.Datetime.now()) + relativedelta(days=1)
+        date_end = date_start + relativedelta(months=month_gap)
+        task = self.task_model.create({
+            'name': 'Name',
+            'planned_hours': 30.0,
+            'user_id': self.env.user.id,
+            'date_start': date_start,
+            'date_end': date_end,
+            'project_id': self.project.id,
+        })
+        self.project.button_create_task_calendar()
+        min_date = min(task.calendar_ids, key=lambda x: x.date)
+        max_date = max(task.calendar_ids, key=lambda x: x.date)
+        self.assertEquals(min_date.date, date_start)
+        self.assertEquals(max_date.date, date_end)
