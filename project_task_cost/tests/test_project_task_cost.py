@@ -10,6 +10,8 @@ from odoo.tests import common
 str2date = fields.Date.from_string
 
 
+@common.at_install(False)
+@common.post_install(True)
 class TestProjectTaskCost(common.SavepointCase):
 
     @classmethod
