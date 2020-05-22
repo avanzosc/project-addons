@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="project_task_time_tree_view" model="ir.ui.view">
+        <field name="model">project.task</field>
+        <field name="inherit_id" ref="project.view_task_tree2" />
+        <field name="arch" type="xml">
+            <field name="remaining_hours" position="after">
+                <field name="planned_monthly_hours" widget="float_time" />
+            </field>
+        </field>
+    </record>
+
+    <record id="project_task_cost_tree_view" model="ir.ui.view">
+        <field name="model">project.task</field>
+        <field name="inherit_id" ref="project_task_cost.project_task_time_tree_view" />
+        <field name="groups_id"
+               eval="[(4, ref('project_task_cost.group_project_coordinator'))]" />
+        <field name="arch" type="xml">
+            <field name="planned_monthly_hours" position="after">
+                <field name="employee_cost"  invisible="True" />
+                <field name="planned_cost" sum="Total Planned Cost"/>
+                <field name="effective_cost" sum="Total Cost"/>
+            </field>
+        </field>
+    </record>
+
+    <record id="project_task_time_form_view" model="ir.ui.view">
+        <field name="model">project.task</field>
+        <field name="inherit_id" ref="project.view_task_form2" />
+        <field name="arch" type="xml">
+            <field name="user_id" position="after">
+                <field name="employee_cost" invisible="True" />
+                <field name="date_start" />
+                <field name="date_end" />
+            </field>
+            <notebook position="inside">
+                <page string="Calendar"
+                      attrs="{'invisible': ['|',('date_start','=',False),('date_end','=',False)]}">
+                    <button name="button_create_calendar" type="object" string="Create Calendar" />
+                    <field name="calendar_ids" context="{'default_task_id': active_id}"/>
+                </page>
+            </notebook>
+        </field>
+    </record>
+
+    <record id="project_task_timesheet_form_view" model="ir.ui.view">
+        <field name="model">project.task</field>
+        <field name="inherit_id" ref="hr_timesheet.view_task_form2_inherited" />
+        <field name="arch" type="xml">
+            <field name="planned_hours" position="after">
+                <field name="planned_monthly_hours" widget="float_time" />
+            </field>
+        </field>
+    </record>
+
+    <record id="project_task_cost_form_view" model="ir.ui.view">
+        <field name="model">project.task</field>
+        <field name="inherit_id" ref="project_task_cost.project_task_time_form_view" />
+        <field name="groups_id"
+               eval="[(4, ref('project_task_cost.group_project_coordinator'))]" />
+        <field name="arch" type="xml">
+            <field name="employee_cost" position="attributes">
+                <attribute name="invisible" />
+            </field>
+            <field name="employee_cost" position="after">
+                <field name="planned_cost" />
+                <field name="effective_cost" />
+            </field>
+        </field>
+    </record>
+
+    <record id="action_update_project_task_employee_cost"
+            model="ir.actions.server">
+        <field name="name">Update Employee Cost</field>
+        <field name="type">ir.actions.server</field>
+        <field name="state">code</field>
+        <field name="model_id" ref="project.model_project_task" />
+        <field name="binding_model_id" ref="project.model_project_task" />
+        <field name="code">
+            if records:
+                records.button_update_employee_cost()
+        </field>
+    </record>
+
+    <record id="project_task_create_calendar_action"
+            model="ir.actions.server">
+        <field name="name">Create Calendar</field>
+        <field name="type">ir.actions.server</field>
+        <field name="state">code</field>
+        <field name="model_id" ref="project.model_project_task" />
+        <field name="binding_model_id" ref="project.model_project_task" />
+        <field name="code">
+            if records:
+                records.button_create_calendar()
+        </field>
+    </record>
+
+    <record id="project_task_recompute_cost_action"
+            model="ir.actions.server">
+        <field name="name">Recompute Costs</field>
+        <field name="type">ir.actions.server</field>
+        <field name="state">code</field>
+        <field name="model_id" ref="project.model_project_task" />
+        <field name="binding_model_id" ref="project.model_project_task" />
+        <field name="code">
+            if records:
+                records.button_recompute_costs()
+        </field>
+    </record>
+
+</odoo>

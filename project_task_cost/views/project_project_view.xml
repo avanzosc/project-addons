@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <record id="project_project_resume_view_form" model="ir.ui.view">
+        <field name="model">project.project</field>
+        <field name="inherit_id" ref="project.edit_project" />
+        <field name="arch" type="xml">
+            <notebook position="inside">
+                <page name="cost_resume" string="Project Costs">
+                    <group name="resume" string="Cost Resume">
+                        <field name="resume_ids" nolabel="1"/>
+                    </group>
+                </page>
+            </notebook>
+            <field name="partner_id" position="before">
+                <field name="code" />
+            </field>
+        </field>
+    </record>
+
+    <record id="view_project_project_filter" model="ir.ui.view">
+        <field name="model">project.project</field>
+        <field name="inherit_id" ref="project.view_project_project_filter" />
+        <field name="arch" type="xml">
+            <field name="name" position="after">
+                <field name="code" />
+            </field>
+        </field>
+    </record>
+
+    <record id="view_project" model="ir.ui.view">
+        <field name="model">project.project</field>
+        <field name="inherit_id" ref="project.view_project" />
+        <field name="arch" type="xml">
+            <field name="name" position="after">
+                <field name="code" />
+            </field>
+        </field>
+    </record>
+
+    <record id="project_project_create_calendar_action"
+            model="ir.actions.server">
+        <field name="name">Create Calendar</field>
+        <field name="type">ir.actions.server</field>
+        <field name="state">code</field>
+        <field name="model_id" ref="project.model_project_project" />
+        <field name="binding_model_id" ref="project.model_project_project" />
+        <field name="code">
+            if records:
+                records.button_create_task_calendar()
+        </field>
+    </record>
+
+    <record id="project_project_recompute_task_cost_action"
+            model="ir.actions.server">
+        <field name="name">Recompute Costs</field>
+        <field name="type">ir.actions.server</field>
+        <field name="state">code</field>
+        <field name="model_id" ref="project.model_project_project" />
+        <field name="binding_model_id" ref="project.model_project_project" />
+        <field name="code">
+            if records:
+                records.button_recompute_costs()
+        </field>
+    </record>
+</odoo>
