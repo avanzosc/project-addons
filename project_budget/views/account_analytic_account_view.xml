@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record model="ir.ui.view" id="account_analytic_account_last_budget_lines_form_view">
+        <field name="name">account.analytic.account.last_budget_lines.form</field>
+        <field name="model">account.analytic.account</field>
+        <field name="inherit_id" ref="account_budget_oca.view_account_analytic_account_form_inherit_budget"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='crossovered_budget_line_ids']/tree//field[@name='planned_amount']" position="before">
+                <field name="initial_planned_amount" sum="Initial planned amount" widget="monetary" readonly="1"/>
+            </xpath>
+            <xpath expr="//field[@name='crossovered_budget_line_ids']/tree//field[@name='percentage']" position="after">
+                <field name="notes" />
+            </xpath>
+            <xpath expr="//field[@name='crossovered_budget_line_ids']/tree//field[@name='paid_date']" position="attributes">
+                <attribute name="invisible">True</attribute>
+            </xpath>
+            <xpath expr="//field[@name='crossovered_budget_line_ids']/tree//field[@name='theoretical_amount']" position="attributes">
+                <attribute name="invisible">True</attribute>
+            </xpath>
+            <xpath expr="//field[@name='crossovered_budget_line_ids']/tree//field[@name='percentage']" position="attributes">
+                <attribute name="invisible">True</attribute>
+            </xpath>
+        </field>
+    </record>
+</odoo>

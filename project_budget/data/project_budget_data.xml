@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo noupdate="1">
+    <record id="account_account_income" model="account.account">
+        <field name="code">000</field>
+        <field name="name">Income</field>
+        <field name="user_type_id" ref="account.data_account_type_revenue" />
+        <field name="deprecated">True</field>
+    </record>
+
+    <record id="account_account_expenses" model="account.account">
+        <field name="code">001</field>
+        <field name="name">Expenses</field>
+        <field name="user_type_id" ref="account.data_account_type_expenses" />
+        <field name="deprecated">True</field>
+    </record>
+
+    <record id="budget_post_income" model="account.budget.post">
+        <field name="name">Income</field>
+        <field name="account_ids"
+               eval="[(4, ref('account_account_income'))]" />
+    </record>
+
+    <record id="budget_post_postcome" model="account.budget.post">
+        <field name="name">Outcome</field>
+        <field name="account_ids"
+               eval="[(4, ref('account_account_expenses'))]" />
+    </record>
+
+    <record id="project_budget_template" model="crossovered.budget.template">
+        <field name="name">Income / Outcome monthly</field>
+        <field name="budget_post_ids"
+               eval="[(4, ref('budget_post_income')),(4, ref('budget_post_postcome'))]" />
+        <field name="periodicity">monthly</field>
+    </record>
+</odoo>
