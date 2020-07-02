@@ -30,7 +30,7 @@ class ProjectTaskCalendar(models.Model):
     project_phase_id = fields.Many2one(
         comodel_name='project.phase', string='Project Phase',
         related='task_id.project_id.phase_id', store=True)
-    date = fields.Date(string='Date', required=True)
+    date = fields.Date(string='Date', required=True, index=True)
     dayofweek = fields.Selection(
         selection='_get_selection_dayofweek', string='Day of Week', index=True,
         compute='_compute_dayofweek', store=True)
@@ -110,7 +110,7 @@ class ProjectTaskCalendar(models.Model):
                  'task_id.timesheet_ids.unit_amount',
                  'task_id.timesheet_ids.amount')
     def _compute_effective_cost(self):
-        for line in self:
+        for line in self.filtered(lambda l: l.task_id.timesheet_ids):
             timesheets = line.task_id.timesheet_ids.filtered(
                 lambda t: t.date == line.date)
             line.effective_hours = sum(timesheets.mapped('unit_amount'))

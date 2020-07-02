@@ -75,10 +75,14 @@ class ProjectTask(models.Model):
             date_end = str2date(task.date_end)
             date_list = [date_start + timedelta(days=d)
                          for d in range((date_end - date_start).days + 1)]
-            task.calendar_ids = [(0, 0, {
-                'date': x,
-                'task_id': task.id}) for x in date_list]
-        self.mapped('timesheet_ids').create_calendar()
+            task.write({
+                "calendar_ids": [(0, 0, {
+                    "date": x,
+                    "task_id": task.id}) for x in date_list],
+            })
+            timesheets = task.timesheet_ids.filtered(
+                lambda s: s.date < task.date_start or s.date > task.date_end)
+            timesheets.create_calendar()
 
     @api.multi
     def _cleanup_calendar(self):
