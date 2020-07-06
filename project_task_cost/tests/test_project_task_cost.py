@@ -10,6 +10,8 @@ from odoo.tests import common
 str2date = fields.Date.from_string
 
 
+@common.at_install(False)
+@common.post_install(True)
 class TestProjectTaskCost(common.SavepointCase):
 
     @classmethod
@@ -47,6 +49,8 @@ class TestProjectTaskCost(common.SavepointCase):
         month_gap = (datedelta.years * 12) + datedelta.months
         self.assertFalse(task.employee_cost)
         task._onchange_user()
+        self.project.button_create_task_calendar()
+        self.assertTrue(task.calendar_ids)
         self.project.button_recompute_costs()
         self.assertEquals(task.employee_cost, self.timesheet_cost)
         self.assertEquals(
@@ -135,3 +139,31 @@ class TestProjectTaskCost(common.SavepointCase):
         })
         self.assertEquals(round(task.planned_hours / 13, 2),
                           task.planned_monthly_hours)
+
+    def test_task_calendar_cron(self):
+        month_gap = 2
+        date_start = str2date(fields.Datetime.now()) + relativedelta(days=1)
+        date_end = date_start + relativedelta(months=month_gap)
+        task = self.task_model.create({
+            'name': 'Name',
+            'planned_hours': 30.0,
+            'user_id': self.env.user.id,
+            'date_start': date_start,
+            'date_end': date_end,
+            'project_id': self.project.id,
+            'timesheet_ids': [(0, 0, {
+                'date': date_end + relativedelta(days=10),
+                'user_id':  self.env.user.user_id.id,
+                'employee_id': self.employee.id,
+                'unit_amount': 10.0,
+                'name': 'Timesheet Test',
+                'account_id': self.project.analytic_account_id.id,
+                'project_id': self.project.id,
+            })]
+        })
+        calendar_num = (
+            str2date(task.date_end) - str2date(task.date_start)).days + 2
+        self.assertEquals(len(task.calendar_ids), calendar_num)
+        cron = self.env.ref('project_task_cost.project_task_cost_cron')
+        cron.method_direct_trigger()
+        self.assertEquals(len(task.calendar_ids), calendar_num)

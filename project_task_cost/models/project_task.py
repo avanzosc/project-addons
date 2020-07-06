@@ -5,6 +5,9 @@ from dateutil.relativedelta import relativedelta
 from datetime import timedelta
 from odoo import api, fields, models
 
+import logging
+
+logger = logging.getLogger(__name__)
 str2date = fields.Date.from_string
 
 
@@ -76,6 +79,26 @@ class ProjectTask(models.Model):
                 'date': x,
                 'task_id': task.id}) for x in date_list]
         self.mapped('timesheet_ids').create_calendar()
+
+    @api.multi
+    def _cleanup_calendar(self):
+        logger.info('Cleanup Task Calendar.')
+        date_tasks = self.search([
+            ('date_start', '!=', False),
+            ('date_end', '!=', False),
+            ('timesheet_ids', '!=', False),
+            ('calendar_ids', '!=', False)
+        ])
+        calendars = calendar_obj = self.env["project.task.calendar"]
+        for task in date_tasks:
+            calendars |= calendar_obj.search([
+                ("task_id", "=", task.id),
+                '|', ("date", "<", task.date_start),
+                ("date", ">", task.date_end),
+                ("date", "not in", task.mapped("timesheet_ids.date")),
+            ])
+        calendars.unlink()
+        logger.info('Task Calendar cleanup finished.')
 
     @api.model
     def create(self, vals):

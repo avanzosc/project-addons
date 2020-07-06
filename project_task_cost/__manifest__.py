@@ -22,6 +22,7 @@
         "views/project_task_view.xml",
         "views/project_task_calendar_view.xml",
         "report/project_task_resume_view.xml",
+        "data/project_task_cost_cron.xml",
     ],
     "installable": True,
     "post_init_hook": "post_init_hook",

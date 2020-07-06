@@ -15,6 +15,13 @@ class HrTimesheet(models.Model):
         return line
 
     @api.multi
+    def write(self, vals):
+        res = super(HrTimesheet, self).write(vals)
+        if 'date' or 'unit_amount' or 'task_id' in vals:
+            self.filtered("task_id").create_calendar()
+        return res
+
+    @api.multi
     def unlink(self):
         calendar_obj = self.sudo().env['project.task.calendar']
         for line in self.filtered('task_id'):

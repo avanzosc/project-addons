@@ -106,6 +106,7 @@ class ProjectTaskCalendar(models.Model):
                 line.planned_cost = line.planned_hours * line.employee_cost
 
     @api.depends('task_id', 'task_id.timesheet_ids',
+                 'task_id.timesheet_ids.date',
                  'task_id.timesheet_ids.unit_amount',
                  'task_id.timesheet_ids.amount')
     def _compute_effective_cost(self):
