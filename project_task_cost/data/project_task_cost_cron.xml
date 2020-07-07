@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo noupdate="True">
+    <record id="project_task_cost_cron" model="ir.cron" forcecreate="True">
+        <field name="name">Project Calendar Cleanup</field>
+        <field name="model_id" ref="project.model_project_task"/>
+        <field name="state">code</field>
+        <field name="code">model._cleanup_calendar()</field>
+        <field name="interval_number">1</field>
+        <field name="interval_type">weeks</field>
+        <field name="numbercall">-1</field>
+        <field name="nextcall" eval="(DateTime.now() + timedelta(days=+7)).strftime('%Y-%m-%d 1:00:00')"/>
+        <field name="doall" eval="False"/>
+    </record>
+</odoo>
