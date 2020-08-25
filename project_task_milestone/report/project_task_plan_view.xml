@@ -56,7 +56,6 @@
     <record id="action_project_task_plan_view" model="ir.actions.act_window">
         <field name="name">Project Task Plan</field>
         <field name="res_model">project.task.plan</field>
-        <field name="view_type">form</field>
         <field name="view_mode">tree,form,gantt</field>
         <field name="context">{
             'hide_project_id': False,

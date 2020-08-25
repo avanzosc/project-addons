@@ -2,7 +2,7 @@
 # License AGPL-3 - See http://www.gnu.org/licenses/agpl-3.0.html
 
 from odoo import tools
-from odoo import api, fields, models
+from odoo import fields, models
 
 
 class ProjectTaskPlan(models.Model):
@@ -16,7 +16,6 @@ class ProjectTaskPlan(models.Model):
     start_date = fields.Date()
     end_date = fields.Date()
 
-    @api.model_cr
     def init(self):
         tools.drop_view_if_exists(self.env.cr, self._table)
         self.env.cr.execute("""
@@ -25,7 +24,7 @@ class ProjectTaskPlan(models.Model):
               row_number() OVER () AS id,
               project_id,
               phase_id,
-              CAST(MIN(date_start) as date) as start_date,
+              CAST(MIN(date_assign) as date) as start_date,
               CAST(MAX(date_end) as date) as end_date
             FROM
               project_task
