@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <record id="project_task_shortcut_form_view" model="ir.ui.view">
+        <field name="name">project.task.shortcut.form</field>
+        <field name="model">project.project</field>
+        <field name="inherit_id" ref="project.edit_project" />
+        <field name="arch" type="xml">
+            <notebook position="inside">
+                <page name="phaseplan" string="Project Plan">
+                    <field name="plan_ids" />
+                </page>
+            </notebook>
+        </field>
+    </record>
+</odoo>
