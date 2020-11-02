@@ -4,6 +4,20 @@
 from odoo import api, models
 
 
+class AccountMove(models.Model):
+    _inherit = "account.move"
+
+    @api.multi
+    def button_cancel(self):
+        """ This is required after ff6dd36 """
+        for move in self:
+            move.mapped('line_ids.analytic_line_ids').filtered(
+                lambda l: l.employee_id).write({
+                    "move_id": False
+                })
+        return super(AccountMove, self).button_cancel()
+
+
 class AccountMoveLine(models.Model):
     _inherit = 'account.move.line'
 
@@ -37,6 +51,8 @@ class AccountMoveLine(models.Model):
             * if user tries to bypass access rules for unlink on the requested
               object
         :raise UserError: if the record is default property for other records
+
+        This will work until ff6dd36
 
         """
         analytic_lines = self.env['account.analytic.line'].search([

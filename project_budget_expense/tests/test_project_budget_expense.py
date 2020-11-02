@@ -92,6 +92,8 @@ class TestProjectBudgetExpense(common.SavepointCase):
         timesheets = active_lines.filtered(
             lambda l: l.employee_id and not l.move_id)
         self.assertTrue(len(timesheets) == 0)
-        active_lines.mapped('move_id.move_id').button_cancel()
-        active_lines.mapped('move_id.move_id').unlink()
+        expense_account_moves = active_lines.mapped('move_id.move_id')
+        expense_account_moves.button_cancel()
+        if expense_account_moves:
+            expense_account_moves.unlink()
         self.assertTrue(active_lines)
