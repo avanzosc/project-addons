@@ -30,7 +30,8 @@ class ProjectProject(models.Model):
     def _compute_purchase_invoice_count(self):
         for project in self:
             invoice_lines = self.env['account.invoice.line'].search([
-                ('account_analytic_id', '=', project.analytic_account_id.id)])
+                ('account_analytic_id', '=', project.analytic_account_id.id),
+                ("invoice_type", "=", "in_invoice")])
             project.purchase_invoice_count = len(
                 invoice_lines.mapped('invoice_id'))
             project.purchase_invoice_line_count = len(invoice_lines)
