@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <record id="account_invoice_sale_line_tree_view" model="ir.ui.view">
+        <field name="model">account.invoice.line</field>
+        <field name="arch" type="xml">
+            <tree create="false" delete="false" edit="false">
+                <field name="invoice_id" />
+                <field name="product_id" domain="[('sale_ok','=',True)]"/>
+                <field name="layout_category_id" groups="sale.group_sale_layout"/>
+                <field name="origin" invisible="1"/>
+                <field name="is_rounding_line" invisible="1"/>
+                <field name="name"/>
+                <field name="company_id" invisible="1"/>
+                <field name="account_id" groups="account.group_account_user" />
+                <field name="account_analytic_id" groups="analytic.group_analytic_accounting"/>
+                <field name="analytic_tag_ids" groups="analytic.group_analytic_accounting" widget="many2many_tags" options="{'color_field': 'color'}"/>
+                <field name="quantity"/>
+                <field name="uom_id" groups="product.group_uom"/>
+                <field name="price_unit"/>
+                <field name="discount" groups="sale.group_discount_per_so_line"/>
+                <field name="invoice_line_tax_ids" widget="many2many_tags" options="{'no_create': True}" context="{'type':parent.type}" domain="[('type_tax_use','=','sale'),('company_id', '=', parent.company_id)]"/>
+                <field string="Subtotal" name="price_subtotal" groups="sale.group_show_price_subtotal"/>
+                <field string="Total" name="price_total" groups="sale.group_show_price_total"/>
+                <field name="price_subtotal_signed" sum="Subtotal Signed"/>
+                <field name="currency_id" invisible="1"/>
+            </tree>
+        </field>
+    </record>
+</odoo>
