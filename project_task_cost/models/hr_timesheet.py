@@ -44,14 +44,13 @@ class HrTimesheet(models.Model):
 
     @api.multi
     def create_calendar(self):
-        calendar_obj = self.sudo().env['project.task.calendar']
-        for line in self.filtered('task_id'):
-            calendar = calendar_obj.search([
-                ('task_id', '=', line.task_id.id),
-                ('date', '=', line.date),
-            ])
-            if not calendar:
-                calendar_obj.create({
-                    'task_id': line.task_id.id,
-                    'date': line.date,
-                })
+        for task in self.mapped("task_id"):
+            lines = self.filtered(
+                lambda l: l.task_id == task and
+                (l.date < task.date_start or l.date > task.date_end)
+                and l.date not in task.mapped("calendar_ids.date"))
+            task.write({
+                "calendar_ids": [(0, 0, {
+                    "date": x,
+                    "task_id": task.id}) for x in lines.mapped("date")],
+            })
