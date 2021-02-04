@@ -44,7 +44,8 @@ class HrTimesheet(models.Model):
 
     @api.multi
     def create_calendar(self):
-        for task in self.mapped("task_id"):
+        for task in self.mapped("task_id").filtered(
+                lambda t: t.date_start and t.date_end):
             lines = self.filtered(
                 lambda l: l.task_id == task and
                 (l.date < task.date_start or l.date > task.date_end)
