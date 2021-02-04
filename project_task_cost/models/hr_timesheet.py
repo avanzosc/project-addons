@@ -18,7 +18,8 @@ class HrTimesheet(models.Model):
     def write(self, vals):
         res = super(HrTimesheet, self).write(vals)
         if 'date' or 'unit_amount' or 'task_id' in vals:
-            self.filtered("task_id").create_calendar()
+            self.filtered(lambda l: l.task_id and l.task_id.date_start and
+                          l.task_id.date_end).create_calendar()
         return res
 
     @api.multi
