@@ -7,14 +7,24 @@ from odoo import api, fields, models
 
 import logging
 
-logger = logging.getLogger(__name__)
+_logger = logging.getLogger(__name__)
 str2date = fields.Date.from_string
+
+try:
+    from odoo.addons.queue_job.job import job
+except ImportError:
+    _logger.debug('Can not `import queue_job`.')
+    import functools
+
+    def empty_decorator_factory(*argv, **kwargs):
+        return functools.partial
+    job = empty_decorator_factory
 
 
 class ProjectTask(models.Model):
     _inherit = 'project.task'
 
-    employee_cost = fields.Float(string='Employee Cost')
+    employee_cost = fields.Float(string='Employee Cost', copy=False)
     planned_cost = fields.Float(
         string='Estimated Cost', compute='_compute_planned_cost', store=True)
     effective_cost = fields.Float(
@@ -31,12 +41,12 @@ class ProjectTask(models.Model):
         self.button_update_employee_cost()
         return res
 
-    @api.depends('employee_cost', 'planned_hours')
+    @api.depends('user_id', 'employee_cost', 'planned_hours')
     def _compute_planned_cost(self):
         for task in self.filtered('user_id'):
             task.planned_cost = task.planned_hours * task.employee_cost
 
-    @api.depends('timesheet_ids', 'timesheet_ids.amount')
+    @api.depends('user_id', 'timesheet_ids', 'timesheet_ids.amount')
     def _compute_effective_cost(self):
         for task in self.filtered('user_id'):
             task.effective_cost = abs(sum(task.mapped('timesheet_ids.amount')))
@@ -67,7 +77,7 @@ class ProjectTask(models.Model):
             self.env.add_todo(self._fields[field], self)
         self.recompute()
 
-    @api.multi
+    @job()
     def button_create_calendar(self):
         for task in self.filtered(lambda t: t.date_start and t.date_end):
             task.calendar_ids.unlink()
@@ -108,12 +118,12 @@ class ProjectTask(models.Model):
     def create(self, vals):
         task = super(ProjectTask, self).create(vals)
         if 'date_start' in vals and 'date_end' in vals:
-            task.button_create_calendar()
+            task.with_delay().button_create_calendar()
         return task
 
     @api.multi
     def write(self, vals):
         result = super(ProjectTask, self).write(vals)
         if 'date_start' in vals or 'date_end' in vals:
-            self.button_create_calendar()
+            self.with_delay().button_create_calendar()
         return result

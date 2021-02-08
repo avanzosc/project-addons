@@ -1,5 +1,6 @@
 # List the OCA project dependencies, one per line
 hr
+queue
 
 # Add a repository url and branch if you need a forked version
 odoo-addons https://github.com/avanzosc/odoo-addons.git
