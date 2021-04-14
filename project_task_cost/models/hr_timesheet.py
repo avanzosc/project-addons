@@ -3,6 +3,20 @@
 
 from odoo import api, models
 
+import logging
+
+_logger = logging.getLogger(__name__)
+
+try:
+    from odoo.addons.queue_job.job import job
+except ImportError:
+    _logger.debug('Can not `import queue_job`.')
+    import functools
+
+    def empty_decorator_factory(*argv, **kwargs):
+        return functools.partial
+    job = empty_decorator_factory
+
 
 class HrTimesheet(models.Model):
     _inherit = 'account.analytic.line'
@@ -11,15 +25,14 @@ class HrTimesheet(models.Model):
     def create(self, vals):
         line = super(HrTimesheet, self).create(vals)
         if 'task_id' in vals:
-            line.create_calendar()
+            line.with_delay().create_calendar()
         return line
 
     @api.multi
     def write(self, vals):
         res = super(HrTimesheet, self).write(vals)
         if 'date' or 'unit_amount' or 'task_id' in vals:
-            self.filtered(lambda l: l.task_id and l.task_id.date_start and
-                          l.task_id.date_end).create_calendar()
+            self.filtered("task_id").with_delay().create_calendar()
         return res
 
     @api.multi
@@ -43,14 +56,12 @@ class HrTimesheet(models.Model):
                 calendars.unlink()
         return super(HrTimesheet, self).unlink()
 
-    @api.multi
+    @job()
     def create_calendar(self):
-        for task in self.mapped("task_id").filtered(
-                lambda t: t.date_start and t.date_end):
+        for task in self.mapped("task_id"):
             lines = self.filtered(
                 lambda l: l.task_id == task and
-                (l.date < task.date_start or l.date > task.date_end)
-                and l.date not in task.mapped("calendar_ids.date"))
+                l.date not in task.mapped("calendar_ids.date"))
             task.write({
                 "calendar_ids": [(0, 0, {
                     "date": x,

@@ -11,6 +11,7 @@
         "hr_timesheet",
         "sale_timesheet",
         "project_phase",
+        "queue_job",
     ],
     "author": "AvanzOSC",
     "website": "http://www.avanzosc.es",
