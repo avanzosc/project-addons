@@ -7,7 +7,7 @@ from odoo import fields, models
 class ProjectTask(models.Model):
     _inherit = 'project.task'
 
-    type_id = fields.Many2one(
+    type2_id = fields.Many2one(
         comodel_name='project.task.type2', string='Type')
 
 
