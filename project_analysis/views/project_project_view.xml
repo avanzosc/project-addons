@@ -1,0 +1,157 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <record id="project_project_form_view" model="ir.ui.view">
+        <field name="name">project.project.form</field>
+        <field name="model">project.project</field>
+        <field name="inherit_id" ref="project.edit_project" />
+        <field name="arch" type="xml">
+            <notebook position="inside">
+                <page name="summary" string="Summary">
+                    <group>
+                        <group string="Monthly Hours" name="monthly_hour_group">
+                            <button type="object" name="button_compute_monthly_hour"
+                                    string="Get monthly hours"/>
+                            <field name="monthly_hour_ids" nolabel="1" colspan="4"
+                                   context="{'default_project_id': active_id}">
+                                <tree>
+                                    <field name="timesheet_date" />
+                                    <field name="employee_id" />
+                                    <field name="unit_amount" />
+                                </tree>
+                            </field>
+                        </group>
+                        <group string="Monthly Cost/Revenue" name="monthly_line_group">
+                            <button type="object" name="button_compute_monthly_line"
+                                    string="Get monthly lines"/>
+                            <field name="monthly_line_ids" nolabel="1" colspan="4"
+                                   context="{'default_project_id': active_id}">
+                                <tree>
+                                    <field name="timesheet_date" />
+                                    <field name="amount" />
+                                    <field name="payroll" />
+                                </tree>
+                            </field>
+                        </group>
+                        <group string="Non Operative Monthly Cost/Revenue" name="monthly_nonoperative">
+                            <button type="object" name="button_compute_monthly_nonoperative"
+                                    string="Get monthly nonoperative"/>
+                            <field name="monthly_nonoperative_ids" nolabel="1" colspan="4"
+                                   context="{'default_project_id': active_id}">
+                                <tree>
+                                    <field name="timesheet_date" />
+                                    <field name="amount" />
+                                </tree>
+                            </field>
+                        </group>
+                    </group>
+                    <button type="object" name="button_compute_summary"
+                            string="Get monthly hours"/>
+                    <field name="resume_ids"
+                           context="{'default_project_id': active_id}">
+                        <tree>
+                            <field name="timesheet_date" />
+                            <field name="employee_id" />
+                            <field name="unit_amount" widget="float_time" />
+                            <field name="percent_amount" />
+                            <field name="monthly_amount" widget="float_time" />
+                            <field name="payroll" />
+                            <field name="percent_payroll" />
+                            <field name="monthly_payroll" />
+                        </tree>
+                    </field>
+                </page>
+            </notebook>
+        </field>
+    </record>
+
+    <record id="project_analytic_summary_tree_view" model="ir.ui.view">
+        <field name="name">project.analytic.summary.tree</field>
+        <field name="model">project.analytic.summary</field>
+        <field name="arch" type="xml">
+            <tree string="Summary">
+                <field name="timesheet_date" />
+                <field name="project_id" />
+                <field name="employee_id" />
+                <field name="unit_amount" widget="float_time" />
+                <field name="percent_amount" />
+                <field name="monthly_amount" widget="float_time" />
+                <field name="payroll" />
+                <field name="monthly_payroll" />
+            </tree>
+        </field>
+    </record>
+
+    <record id="action_compute_summary" model="ir.actions.server"
+            forcecreate="True">
+        <field name="name">Compute Summary</field>
+        <field name="type">ir.actions.server</field>
+        <field name="state">code</field>
+        <field name="model_id" ref="project_analysis.model_project_analytic_summary" />
+        <field name="code">model.compute_all()</field>
+        <field name="binding_model_id" ref="project_analysis.model_project_analytic_summary"/>
+    </record>
+
+    <record id="action_compute_monthly_hour" model="ir.actions.server">
+        <field name="name">Compute Monthly Hour</field>
+        <field name="type">ir.actions.server</field>
+        <field name="state">code</field>
+        <field name="model_id" ref="project.model_project_project" />
+        <field name="binding_model_id" ref="project.model_project_project" />
+        <field name="code">
+if records:
+    action = records.button_compute_all_monthly_hour()
+        </field>
+    </record>
+
+    <record id="action_compute_monthly_line" model="ir.actions.server">
+        <field name="name">Compute Monthly Line</field>
+        <field name="type">ir.actions.server</field>
+        <field name="state">code</field>
+        <field name="model_id" ref="project.model_project_project" />
+        <field name="binding_model_id" ref="project.model_project_project" />
+        <field name="code">
+if records:
+    action = records.button_compute_all_monthly_line()
+        </field>
+    </record>
+
+    <record id="action_compute_monthly_nonoperative" model="ir.actions.server">
+        <field name="name">Compute Monthly Line</field>
+        <field name="type">ir.actions.server</field>
+        <field name="state">code</field>
+        <field name="model_id" ref="project.model_project_project" />
+        <field name="binding_model_id" ref="project.model_project_project" />
+        <field name="code">
+if records:
+    action = records.button_compute_all_monthly_nonoperative()
+        </field>
+    </record>
+
+    <record id="action_compute_all_summary" model="ir.actions.server">
+        <field name="name">Compute All Summary</field>
+        <field name="type">ir.actions.server</field>
+        <field name="state">code</field>
+        <field name="model_id" ref="project.model_project_project" />
+        <field name="binding_model_id" ref="project.model_project_project" />
+        <field name="code">
+if records:
+    action = records.button_compute_all_summary()
+        </field>
+    </record>
+
+    <record id="action_compute_all" model="ir.actions.server">
+        <field name="name">Compute All</field>
+        <field name="type">ir.actions.server</field>
+        <field name="state">code</field>
+        <field name="model_id" ref="project.model_project_project" />
+        <field name="binding_model_id" ref="project.model_project_project" />
+        <field name="code">
+if records:
+    action = records.button_compute_all_monthly_hour()
+    action = records.button_compute_all_monthly_line()
+    action = records.button_compute_all_monthly_nonoperative()
+    action = records.button_compute_all_summary()
+        </field>
+    </record>
+
+</odoo>

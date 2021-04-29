@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <record id="hr_employee_form_view" model="ir.ui.view">
+        <field name="name">hr.employee.form</field>
+        <field name="model">hr.employee</field>
+        <field name="inherit_id" ref="hr.view_employee_form" />
+        <field name="arch" type="xml">
+            <field name="notes" position="before">
+                <group attrs="{'invisible': [('address_id', '=', False)]}">
+                    <button name="button_compute_monthly_payroll" type="object"
+                            string="Compute Payroll" />
+                    <field name="payroll_ids"
+                           context="{'default_employee_id': active_id}">
+                        <tree>
+                            <field name="date" />
+                            <field name="payroll" />
+                        </tree>
+                    </field>
+                </group>
+            </field>
+        </field>
+    </record>
+
+    <record id="action_compute_monthly_payroll" model="ir.actions.server">
+        <field name="name">Compute Monthly Payroll</field>
+        <field name="type">ir.actions.server</field>
+        <field name="state">code</field>
+        <field name="model_id" ref="hr.model_hr_employee" />
+        <field name="binding_model_id" ref="hr.model_hr_employee" />
+        <field name="code">
+if records:
+    action = records.button_compute_all_monthly_payroll()
+        </field>
+    </record>
+</odoo>
