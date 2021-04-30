@@ -96,7 +96,7 @@ class ProjectTask(models.Model):
 
     @api.multi
     def _cleanup_calendar(self):
-        logger.info('Cleanup Task Calendar.')
+        _logger.info('Cleanup Task Calendar.')
         date_tasks = self.search([
             ('date_start', '!=', False),
             ('date_end', '!=', False),
@@ -112,7 +112,7 @@ class ProjectTask(models.Model):
                 ("date", "not in", task.mapped("timesheet_ids.date")),
             ])
         calendars.unlink()
-        logger.info('Task Calendar cleanup finished.')
+        _logger.info('Task Calendar cleanup finished.')
 
     @api.model
     def create(self, vals):
