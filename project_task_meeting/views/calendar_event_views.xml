@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <record id="view_calendar_event_tree" model="ir.ui.view">
+        <field name="model">calendar.event</field>
+        <field name="inherit_id" ref="calendar.view_calendar_event_tree" />
+        <field name="arch" type="xml">
+            <field name="stop" position="after">
+                <field name="task_id" />
+            </field>
+        </field>
+    </record>
+    <record id="view_calendar_event_form" model="ir.ui.view">
+        <field name="model">calendar.event</field>
+        <field name="inherit_id" ref="calendar.view_calendar_event_form" />
+        <field name="arch" type="xml">
+            <field name="allday" position="after">
+                <field name="task_id" />
+            </field>
+        </field>
+    </record>
+    <record id="view_calendar_event_form_popup" model="ir.ui.view">
+        <field name="model">calendar.event</field>
+        <field name="inherit_id" ref="calendar.view_calendar_event_form_popup" />
+        <field name="arch" type="xml">
+            <field name="allday" position="after">
+                <field name="task_id" />
+            </field>
+        </field>
+    </record>
+    <record id="view_calendar_event_search" model="ir.ui.view">
+        <field name="model">calendar.event</field>
+        <field name="inherit_id" ref="calendar.view_calendar_event_search" />
+        <field name="arch" type="xml">
+            <field name="user_id" position="after">
+                <field name="task_id" />
+            </field>
+            <filter name="privacy" position="after">
+                <filter string="Task" name="group-task" domain="[]" context="{'group_by':'task_id'}"/>
+            </filter>
+        </field>
+    </record>
+</odoo>
