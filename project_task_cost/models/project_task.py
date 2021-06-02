@@ -125,5 +125,6 @@ class ProjectTask(models.Model):
     def write(self, vals):
         result = super(ProjectTask, self).write(vals)
         if 'date_start' in vals or 'date_end' in vals:
-            self.with_delay().button_create_calendar()
+            for task in self:
+                task.with_delay().button_create_calendar()
         return result

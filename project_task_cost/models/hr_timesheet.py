@@ -31,8 +31,9 @@ class HrTimesheet(models.Model):
     @api.multi
     def write(self, vals):
         res = super(HrTimesheet, self).write(vals)
-        if 'date' or 'unit_amount' or 'task_id' in vals:
-            self.filtered("task_id").with_delay().create_calendar()
+        if ('date' or 'unit_amount' or 'task_id') in vals:
+            for line in self.filtered("task_id"):
+                line.with_delay().create_calendar()
         return res
 
     @api.multi
