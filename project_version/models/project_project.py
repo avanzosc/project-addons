@@ -69,11 +69,14 @@ class ProjectProject(models.Model):
         self.ensure_one()
         if self.historical_date or self.historical_user_id or not self.active:
             return False
-        copy = self._copy_project()
+        copy = self.with_context(historify=True)._copy_project()
         copy.write({
             'historical_date': fields.Date.today(),
             'historical_user_id': self.env.user.id,
         })
         copy.with_context(active_test=False).analytic_account_id.write({
+            'active': copy.active,
+        })
+        copy.with_context(active_test=False).task_ids.write({
             'active': copy.active,
         })
