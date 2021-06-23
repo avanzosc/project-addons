@@ -6,14 +6,13 @@
 Project task service partner
 ============================
 
-* Create date in partner and project task.
-* Patient in project and task.
+* Create date in res partner and project task. Patient in project and task.
 
 Bug Tracker
 ===========
 
 Bugs are tracked on `GitHub Issues
-<https://github.com/avanzosc/project-addons/issues>`_. In case of trouble,
+<https://github.com/avanzosc/odoo-addons/issues>`_. In case of trouble,
 please check there if your issue has already been reported. If you spotted
 it first, help us smash it by providing detailed and welcomed feedback.
 
