@@ -1,11 +1,10 @@
 # Copyright 2021 Afredo de la Fuente - AvanzOSC
 # License AGPL-3 - See http://www.gnu.org/licenses/agpl-3.0.html
-from odoo.tests import common
+from odoo.tests import common, tagged
 from odoo import fields
 
 
-@common.at_install(False)
-@common.post_install(True)
+@tagged("post_install", "-at_install")
 class TestProjectTaskEvent(common.SavepointCase):
 
     @classmethod
@@ -25,5 +24,5 @@ class TestProjectTaskEvent(common.SavepointCase):
         context = result.get('context')
         self.assertEqual(result.get('res_model'), 'calendar.event')
         self.assertEqual(context.get('default_name'), self.task.name)
-        domain = [('id', 'in', [self.task.id])]
+        domain = [('id', 'in', [self.meeting.id])]
         self.assertEqual(result.get('domain'), domain)
