@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<odoo>
+
+    <record id="project_task_framework_tree_view" model="ir.ui.view">
+        <field name="name">project.task.framework.tree</field>
+        <field name="model">project.task.framework</field>
+        <field name="arch" type="xml">
+            <tree string="Framework" editable="bottom">
+                <field name="name"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="action_project_task_framework" model="ir.actions.act_window">
+         <field name="name">Framework</field>
+         <field name="type">ir.actions.act_window</field>
+         <field name="view_mode">tree</field>
+         <field name="res_model">project.task.framework</field>
+         <field name="domain">[]</field>
+         <field name="context">{}</field>
+    </record>
+
+    <menuitem id="menu_project_task_framework"
+        action="action_project_task_framework"
+        name="Framework" parent="project.menu_project_config"
+        sequence="4"/>
+
+</odoo>
