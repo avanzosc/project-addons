@@ -7,5 +7,5 @@ class ProjectTask(models.Model):
     _inherit = 'project.task'
 
     partner_shipping_id = fields.Many2one(
-        string='Patient', comodel_name='res.partner',
+        string='Delivery Address', comodel_name='res.partner',
         related='project_id.partner_shipping_id', store=True)

@@ -6,8 +6,9 @@
 Project task service partner
 ============================
 
-* Create date in partner and project task.
-* Patient in project and task.
+When a project is related to a sale order link it to the delivery address.
+
+Also show create date in task and contacts list views.
 
 Bug Tracker
 ===========
