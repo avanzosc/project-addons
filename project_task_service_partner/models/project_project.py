@@ -7,5 +7,5 @@ class ProjectProject(models.Model):
     _inherit = 'project.project'
 
     partner_shipping_id = fields.Many2one(
-        string='Patient', comodel_name='res.partner',
+        string='Delivery Address', comodel_name='res.partner',
         related='sale_order_id.partner_shipping_id', store=True)
