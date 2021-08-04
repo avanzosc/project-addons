@@ -62,6 +62,10 @@ class ProjectTask(models.Model):
             task.planned_monthly_hours = round(
                 task.planned_hours / (months or 1.0), 2)
 
+    def action_assign_to_me(self):
+        super(ProjectTask, self).action_assign_to_me()
+        self.button_update_employee_cost()
+
     @api.multi
     def button_update_employee_cost(self):
         employee_model = self.env['hr.employee']
