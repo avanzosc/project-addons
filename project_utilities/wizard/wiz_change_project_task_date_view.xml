@@ -5,7 +5,16 @@
         <field name="arch" type="xml">
             <form string="Change task date">
                 <group string="Enter days to add or subtract">
-                    <field name="days"/>
+                    <label for="days" />
+                    <field name="days" />
+                    <group attrs="{'invisible': [('days','!=',0)]}">
+                        <field name="start_days" attrs="{'invisible': [('start_date','!=',False)]}"/>
+                        <field name="end_days" attrs="{'invisible': [('end_date','!=',False)]}" />
+                    </group>
+                    <group attrs="{'invisible': [('days','!=',0)]}">
+                        <field name="start_date" attrs="{'invisible': [('start_days','!=',0)]}" />
+                        <field name="end_date" attrs="{'invisible': [('end_days','!=',0)]}" />
+                    </group>
                 </group>
                 <footer>
                     <button name="button_change_project_task_date" type="object"
