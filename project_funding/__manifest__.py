@@ -15,6 +15,7 @@
     "data": [
         "security/project_funding_security.xml",
         "security/ir.model.access.csv",
+        "data/project_funding_data.xml",
         "views/funding_source_project_view.xml",
         "views/project_project_view.xml",
         "views/project_funding_view.xml",

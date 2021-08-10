@@ -14,4 +14,14 @@
              </notebook>
         </field>
     </record>
+
+    <record id="project_project_view_search" model="ir.ui.view">
+        <field name="model">project.project</field>
+        <field name="inherit_id" ref="project.view_project_project_filter" />
+        <field name="arch" type="xml">
+            <field name="partner_id" position="after">
+                <field name="funding_ids" />
+            </field>
+        </field>
+    </record>
 </odoo>
