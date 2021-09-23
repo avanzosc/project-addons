@@ -20,7 +20,17 @@ class ProjectTack(models.Model):
 
     def action_to_calendar_event(self):
         context = self.env.context.copy()
-        context['default_name'] = self.name
+        if 'params' in context:
+            params = context.get('params', {})
+            if 'model' in params and params.get('model', 'a') == 'sale.order':
+                context.pop('params')
+        context.update({
+            'search_default_task_id': self.id,
+            'default_task_id': self.id,
+            'default_name': self.name,
+            'active_model': 'project.task',
+            'active_id': self.id,
+            'active_ids': self.ids})
         return {
             'name': _('Meetings'),
             'type': 'ir.actions.act_window',
