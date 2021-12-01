@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <record id="account_analytic_billing_plan_tree_view" model="ir.ui.view">
+        <field name="model">account.analytic.billing.plan</field>
+        <field name="inherit_id"
+               ref="account_analytic_billing_plan.account_analytic_billing_plan_tree_view" />
+        <field name="arch" type="xml">
+            <field name="analytic_account_id" position="after">
+                <field name="allowed_task_ids" invisible="1" />
+                <field name="task_id"
+                       domain="[('id' ,'in', allowed_task_ids)]"
+                       attrs="{'readonly': [('invoice_id','!=',False)]}" />
+            </field>
+        </field>
+    </record>
+</odoo>
