@@ -13,10 +13,20 @@ class ProjectProject(models.Model):
         compute='_compute_purchase_count', string='# Purchase')
     purchase_line_count = fields.Integer(
         compute='_compute_purchase_count', string='# Purchase')
-    purchase_invoice_count = fields.Integer(
-        compute='_compute_purchase_invoice_count', string='# Purchase Invoice')
-    purchase_invoice_line_count = fields.Integer(
-        compute='_compute_purchase_invoice_count', string='# Purchase Invoice')
+    in_invoice_count = fields.Integer(
+        compute="_compute_in_invoiced", string="# Purchase Invoice")
+    in_invoiced = fields.Monetary(
+        compute="_compute_in_invoiced", string="In Invoiced")
+
+    @api.multi
+    def _get_in_invoices(self, domain=False):
+        filter_domain = [
+            ('account_analytic_id', 'in', self.mapped("analytic_account_id").ids),
+            ('invoice_id.type', 'in', ['in_invoice', 'in_refund'])]
+        if domain:
+            return filter_domain
+        invoice_lines = self.env['account.invoice.line'].search(filter_domain)
+        return invoice_lines
 
     @api.multi
     def _compute_purchase_count(self):
@@ -27,13 +37,11 @@ class ProjectProject(models.Model):
             project.purchase_line_count = len(purchase_lines)
 
     @api.multi
-    def _compute_purchase_invoice_count(self):
+    def _compute_in_invoiced(self):
         for project in self:
-            invoice_lines = self.env['account.invoice.line'].search([
-                ('account_analytic_id', '=', project.analytic_account_id.id)])
-            project.purchase_invoice_count = len(
-                invoice_lines.mapped('invoice_id'))
-            project.purchase_invoice_line_count = len(invoice_lines)
+            invoice_lines = project._get_in_invoices()
+            project.in_invoice_count = len(invoice_lines.mapped('invoice_id'))
+            project.in_invoiced = sum(invoice_lines.mapped("price_subtotal_signed"))
 
     @api.multi
     def button_open_purchase_order(self):
@@ -66,11 +74,9 @@ class ProjectProject(models.Model):
     @api.multi
     def button_open_purchase_invoice(self):
         self.ensure_one()
-        action = self.env.ref('purchase.action_invoice_pending')
+        action = self.env.ref('account.action_invoice_tree')
         action_dict = action.read()[0] if action else {}
-        lines = self.env['account.invoice.line'].search([
-            ('account_analytic_id', 'in',
-             self.mapped('analytic_account_id').ids)])
+        lines = self._get_in_invoices()
         domain = expression.AND([
             [('id', 'in', lines.mapped('invoice_id').ids)],
             safe_eval(action.domain or '[]')])
@@ -80,8 +86,7 @@ class ProjectProject(models.Model):
     @api.multi
     def button_open_purchase_invoice_line(self):
         self.ensure_one()
-        domain = [('account_analytic_id', 'in',
-                   self.mapped('analytic_account_id').ids)]
+        domain = self._get_in_invoices(domain=True)
         return {
             'name': _('Purchase Invoice Lines'),
             'domain': domain,
