@@ -15,8 +15,6 @@ class TestProjectSaleUtilities(common.SavepointCase):
         super(TestProjectSaleUtilities, cls).setUpClass()
         cls.products = OrderedDict([
             ('prod_order', cls.env.ref('product.product_order_01')),
-            ('serv_del', cls.env.ref('product.service_delivery')),
-            ('serv_order', cls.env.ref('product.service_order_01')),
             ('prod_del', cls.env.ref('product.product_delivery_01')),
         ])
         cls.partner = cls.env["res.partner"].create({
@@ -51,15 +49,15 @@ class TestProjectSaleUtilities(common.SavepointCase):
              self.project.mapped("analytic_account_id").ids),
             ("invoice_type", "in", ["out_invoice", "out_refund"])]
         lines = self.env["account.invoice.line"].search(line_domain)
-        invoice_action = self.browse_ref(
-            "account.action_invoice_refund_out_tree")
+        invoice_action = self.browse_ref("account.action_invoice_tree")
         invoice_domain = expression.AND([
             [("id", "in", lines.mapped("invoice_id").ids)],
             safe_eval(invoice_action.domain or "[]")])
         invoice_dict = self.project.button_open_out_invoice()
         self.assertEquals(invoice_dict.get("domain"), invoice_domain)
-        line_dict = self.project.button_open_out_invoice_line()
-        self.assertEquals(line_dict.get("domain"), line_domain)
+        invoice_line_domain = self.project._get_out_invoices(domain=True)
+        invoice_line_dict = self.project.button_open_out_invoice_line()
+        self.assertEquals(invoice_line_dict.get("domain"), invoice_line_domain)
 
     def create_invoice_from_sale_order(self):
         self.assertTrue(self.sale.state == "draft")
@@ -72,7 +70,7 @@ class TestProjectSaleUtilities(common.SavepointCase):
             self.sale.invoice_status == "no",
             'Sale: SO status after invoicing should be "nothing to invoice"')
         self.assertEqual(
-            len(inv.invoice_line_ids), 2, "Sale: invoice is missing lines")
+            len(inv.invoice_line_ids), 1, "Sale: invoice is missing lines")
         self.assertTrue(
             len(self.sale.invoice_ids) == 1, "Sale: invoice is missing")
         return inv
