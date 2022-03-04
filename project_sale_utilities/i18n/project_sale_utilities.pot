@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 12.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-03-04 11:52+0000\n"
-"PO-Revision-Date: 2022-03-04 11:52+0000\n"
+"POT-Creation-Date: 2022-03-04 11:51+0000\n"
+"PO-Revision-Date: 2022-03-04 11:51+0000\n"
 "Last-Translator: <>\n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -18,27 +18,27 @@ msgstr ""
 #. module: project_sale_utilities
 #: model:ir.model.fields,field_description:project_sale_utilities.field_project_project__out_invoice_count
 msgid "# Sale Invoice"
-msgstr "N.º de facturas de venta"
+msgstr ""
 
 #. module: project_sale_utilities
 #: code:addons/project_sale_utilities/models/project_project.py:51
 #: model_terms:ir.ui.view,arch_db:project_sale_utilities.project_project_view_form
 #, python-format
 msgid "Out Invoice Lines"
-msgstr "Lineas de facturas de venta"
+msgstr ""
 
 #. module: project_sale_utilities
 #: model:ir.model.fields,field_description:project_sale_utilities.field_project_project__out_invoiced
 msgid "Out Invoiced"
-msgstr "Facturado en ventas"
+msgstr ""
 
 #. module: project_sale_utilities
 #: model_terms:ir.ui.view,arch_db:project_sale_utilities.project_project_view_form
 msgid "Out Invoices"
-msgstr "Facturas de venta"
+msgstr ""
 
 #. module: project_sale_utilities
 #: model:ir.model,name:project_sale_utilities.model_project_project
 msgid "Project"
-msgstr "Proyecto"
+msgstr ""
 
