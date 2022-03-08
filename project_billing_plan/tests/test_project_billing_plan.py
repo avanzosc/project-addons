@@ -3,8 +3,11 @@
 
 from odoo.addons.account_analytic_billing_plan.tests.\
     test_account_analytic_billing_plan import TestAccountAnalyticBillingPlan
+from odoo.tests import common
 
 
+@common.at_install(False)
+@common.post_install(True)
 class TestProjectBillingPlan(TestAccountAnalyticBillingPlan):
 
     @classmethod
