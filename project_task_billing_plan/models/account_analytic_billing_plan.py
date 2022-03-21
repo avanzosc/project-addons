@@ -8,10 +8,16 @@ class AccountAnalyticBillingPlan(models.Model):
     _inherit = "account.analytic.billing.plan"
 
     allowed_task_ids = fields.Many2many(
+        string="Allowed Tasks",
         comodel_name="project.task",
         compute="_compute_allowed_task_ids",
-        store=True)
-    task_id = fields.Many2one(comodel_name="project.task")
+        store=True,
+        compute_sudo=True)
+    task_id = fields.Many2one(
+        string="Task",
+        comodel_name="project.task",
+        index=True,
+        copy=False)
 
     @api.depends("analytic_account_id",
                  "analytic_account_id.project_ids",
