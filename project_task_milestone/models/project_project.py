@@ -5,8 +5,11 @@ from odoo import fields, models
 
 
 class ProjectProject(models.Model):
-    _inherit = 'project.project'
+    _inherit = "project.project"
 
     plan_ids = fields.One2many(
-        string='Phase Plan', comodel_name='project.task.plan',
-        inverse_name='project_id', readonly=True)
+        string="Phase Plan",
+        comodel_name="project.task.plan",
+        inverse_name="project_id",
+        readonly=True,
+    )
