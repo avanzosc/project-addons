@@ -3,13 +3,14 @@
 
 {
     "name": "Project Task Milestone",
-    "version": "12.0.1.1.0",
+    "version": "14.0.1.0.0",
     "license": "AGPL-3",
     "depends": [
         "project",
+        "project_timeline",
     ],
     "author": "AvanzOSC",
-    "website": "http://www.avanzosc.es",
+    "website": "https://github.com/avanzosc/project-addons",
     "category": "Project",
     "data": [
         "security/ir.model.access.csv",

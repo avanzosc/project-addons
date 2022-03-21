@@ -5,7 +5,7 @@ from odoo import fields, models
 
 
 class ProjectTaskPhase(models.Model):
-    _name = 'project.task.phase'
-    _description = 'Phases of Tasks'
+    _name = "project.task.phase"
+    _description = "Phases of Tasks"
 
-    name = fields.Char(string='Name', translate=True, required=True)
+    name = fields.Char(string="Name", translate=True, required=True)

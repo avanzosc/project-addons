@@ -5,8 +5,7 @@ from odoo import fields, models
 
 
 class ProjectTask(models.Model):
-    _inherit = 'project.task'
+    _inherit = "project.task"
 
-    milestone = fields.Boolean(string='Milestone')
-    phase_id = fields.Many2one(
-        string='Phase', comodel_name='project.task.phase')
+    milestone = fields.Boolean(string="Milestone")
+    phase_id = fields.Many2one(string="Phase", comodel_name="project.task.phase")

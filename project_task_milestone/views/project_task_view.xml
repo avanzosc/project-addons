@@ -35,14 +35,23 @@
             </field>
             <filter name="inactive" position="after">
                 <separator />
-                <filter string="Milestone" name="milestone_filter"
-                        domain="[('milestone','=',True)]"/>
-                <filter string="Not Milestone" name="nomilestone_filter"
-                        domain="[('milestone','=',False)]"/>
+                <filter
+          string="Milestone"
+          name="milestone_filter"
+          domain="[('milestone','=',True)]"
+        />
+                <filter
+          string="Not Milestone"
+          name="nomilestone_filter"
+          domain="[('milestone','=',False)]"
+        />
             </filter>
             <filter name="stage" position="after">
-                <filter name="group_phase" string="Phase"
-                        context="{'group_by': 'phase_id'}" />
+                <filter
+          name="group_phase"
+          string="Phase"
+          context="{'group_by': 'phase_id'}"
+        />
             </filter>
         </field>
     </record>
