@@ -8,4 +8,9 @@ class AccounAnalyticLine(models.Model):
 
     vehicle_id = fields.Many2one(
         string='Vehicle', comodel_name='fleet.vehicle',
-        related='project_id.vehicle_id', store=True)
+        compute='_compute_vehicle_id')
+
+    def _compute_vehicle_id(self):
+        for analytic in self:
+            analytic.vehicle_id = (
+                analytic.account_id.project_ids[:1].vehicle_id)

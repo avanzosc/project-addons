@@ -6,7 +6,7 @@
 Project vehicle
 ===============
 
-* Vehicle field in project and account analytic line.
+* Vehicle field in project, task and account analytic line.
 
 Bug Tracker
 ===========
