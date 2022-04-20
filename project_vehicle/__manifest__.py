@@ -9,11 +9,12 @@
     "depends": [
         "project",
         "fleet",
-        "hr_timesheet"
+        "hr_timesheet",
     ],
     "data": [
         "views/account_analytic_line_views.xml",
         "views/project_project_views.xml",
+        "views/project_task_views.xml",
     ],
     "license": "AGPL-3",
     'installable': True,
