@@ -4,12 +4,11 @@
 from collections import OrderedDict
 
 from odoo.osv import expression
-from odoo.tests import common
+from odoo.tests import common, tagged
 from odoo.tools.safe_eval import safe_eval
 
 
-@common.at_install(False)
-@common.post_install(True)
+@tagged("post_install", "-at_install")
 class TestProjectSaleUtilities(common.SavepointCase):
     @classmethod
     def setUpClass(cls):
@@ -23,7 +22,6 @@ class TestProjectSaleUtilities(common.SavepointCase):
         cls.partner = cls.env["res.partner"].create(
             {
                 "name": "Test Customer",
-                "customer": True,
             }
         )
         cls.project = cls.env["project.project"].create(
@@ -32,6 +30,7 @@ class TestProjectSaleUtilities(common.SavepointCase):
                 "partner_id": cls.partner.id,
             }
         )
+        cls.project._create_analytic_account()
         cls.sale_model = cls.env["sale.order"]
         cls.sale = cls.sale_model.create(
             {
@@ -53,44 +52,43 @@ class TestProjectSaleUtilities(common.SavepointCase):
                 ],
             }
         )
-        cls.invoice_model = cls.env["account.invoice"]
+        cls.invoice_model = cls.env["account.move"]
 
     def test_project_sale_out_invoice(self):
         inv = self.create_invoice_from_sale_order()
-        self.assertEquals(self.project.out_invoice_count, 1.0)
-        self.assertEquals(
+        self.assertEqual(self.project.out_invoice_count, 1.0)
+        self.assertEqual(
             self.project.out_invoiced,
             sum(inv.mapped("invoice_line_ids.price_subtotal")),
         )
         line_domain = [
             (
-                "account_analytic_id",
+                "analytic_account_id",
                 "in",
                 self.project.mapped("analytic_account_id").ids,
             ),
-            ("invoice_type", "in", ["out_invoice", "out_refund"]),
+            ("move_id.move_type", "=", "out_invoice"),
         ]
-        lines = self.env["account.invoice.line"].search(line_domain)
-        invoice_action = self.browse_ref("account.action_invoice_tree")
+        invoice_lines = self.env["account.move.line"].search(line_domain)
+        invoice_action = self.browse_ref("account.action_move_out_invoice_type")
         invoice_domain = expression.AND(
             [
-                [("id", "in", lines.mapped("invoice_id").ids)],
+                [("id", "in", invoice_lines.mapped("move_id").ids)],
                 safe_eval(invoice_action.domain or "[]"),
             ]
         )
         invoice_dict = self.project.button_open_out_invoice()
-        self.assertEquals(invoice_dict.get("domain"), invoice_domain)
-        invoice_line_domain = self.project._get_out_invoices(domain=True)
+        self.assertEqual(invoice_dict.get("domain"), invoice_domain)
+        invoice_line_domain = self.project._get_out_invoiced(domain=True)
         invoice_line_dict = self.project.button_open_out_invoice_line()
-        self.assertEquals(invoice_line_dict.get("domain"), invoice_line_domain)
+        self.assertEqual(invoice_line_dict.get("domain"), invoice_line_domain)
 
     def create_invoice_from_sale_order(self):
         self.assertTrue(self.sale.state == "draft")
         self.sale.action_confirm()
         self.assertTrue(self.sale.state == "sale")
         self.assertTrue(self.sale.invoice_status == "to invoice")
-        inv_id = self.sale.action_invoice_create()
-        inv = self.invoice_model.browse(inv_id)
+        inv = self.sale._create_invoices()
         self.assertTrue(
             self.sale.invoice_status == "no",
             'Sale: SO status after invoicing should be "nothing to invoice"',
