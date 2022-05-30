@@ -6,7 +6,7 @@
     "category": "Project",
     "license": "AGPL-3",
     "author": "AvanzOSC",
-    "website": "http://www.avanzosc.es",
+    "website": "https://github.com/avanzosc/project-addons",
     "depends": [
         "calendar",
         "project",

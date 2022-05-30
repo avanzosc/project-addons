@@ -11,7 +11,10 @@
     </record>
     <record id="project_task_view_tree_activity" model="ir.ui.view">
         <field name="model">project.task</field>
-        <field name="inherit_id" ref="project.project_task_view_tree_activity" />
+        <field
+      name="inherit_id"
+      ref="project.project_task_view_tree_activity"
+    />
         <field name="arch" type="xml">
             <field name="project_id" position="after">
                 <field name="count_calendar_event" />
@@ -23,10 +26,18 @@
         <field name="inherit_id" ref="project.view_task_form2" />
         <field name="arch" type="xml">
             <div name="button_box" position="inside">
-                <button name="action_to_calendar_event" type="object"
-                            class="oe_stat_button" icon="fa-tasks"
-                            context="{'search_default_task_id': active_id, 'default_task_id': active_id}" >
-                    <field string="Meetings" name="count_calendar_event" widget="statinfo"/>
+                <button
+          name="action_to_calendar_event"
+          type="object"
+          class="oe_stat_button"
+          icon="fa-tasks"
+          context="{'search_default_task_id': active_id, 'default_task_id': active_id}"
+        >
+                    <field
+            string="Meetings"
+            name="count_calendar_event"
+            widget="statinfo"
+          />
                 </button>
             </div>
         </field>
