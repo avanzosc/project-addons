@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <record id="project_project_view_form" model="ir.ui.view">
+        <field name="model">project.project</field>
+        <field name="inherit_id" ref="project.edit_project" />
+        <field
+      name="groups_id"
+      eval="[(4, ref('purchase.group_purchase_user'))]"
+    />
+        <field name="arch" type="xml">
+            <div name="button_box" position="inside">
+                <button
+          class="oe_stat_button"
+          name="button_open_purchase_order"
+          type="object"
+          icon="fa-shopping-cart"
+        >
+                    <field
+            string="Purchases"
+            name="purchase_count"
+            widget="statinfo"
+          />
+                </button>
+                <button
+          class="oe_stat_button"
+          name="button_open_purchase_order_line"
+          type="object"
+          icon="fa-shopping-cart"
+        >
+                    <field
+            string="Purchase Lines"
+            name="purchase_line_count"
+            widget="statinfo"
+          />
+                </button>
+                <button
+          class="oe_stat_button"
+          name="button_open_in_invoice"
+          type="object"
+          icon="fa-pencil-square-o"
+        >
+                    <field
+            string="In Invoices"
+            name="in_invoice_count"
+            widget="statinfo"
+          />
+                </button>
+                <button
+          class="oe_stat_button"
+          name="button_open_in_invoice_line"
+          type="object"
+          icon="fa-pencil-square-o"
+        >
+                    <field
+            string="In Invoice Lines"
+            name="in_invoiced"
+            widget="statinfo"
+          />
+                </button>
+                <button
+          class="oe_stat_button"
+          name="button_open_in_refund"
+          type="object"
+          icon="fa-pencil-square-o"
+        >
+                    <field
+            string="In Refund"
+            name="in_refund_count"
+            widget="statinfo"
+          />
+                </button>
+                <button
+          class="oe_stat_button"
+          name="button_open_in_refund_line"
+          type="object"
+          icon="fa-pencil-square-o"
+        >
+                    <field
+            string="In Refund Lines"
+            name="in_refund"
+            widget="statinfo"
+          />
+                </button>
+            </div>
+        </field>
+    </record>
+</odoo>
