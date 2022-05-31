@@ -11,7 +11,7 @@
         "hr_timesheet",
     ],
     "author": "AvanzOSC",
-    "website": "http://www.avanzosc.es",
+    "website": "https://github.com/avanzosc/project-addons",
     "category": "Project",
     "data": [
         "views/project_project_view.xml",
