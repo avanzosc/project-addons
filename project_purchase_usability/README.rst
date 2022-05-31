@@ -3,7 +3,7 @@
    :alt: License: AGPL-3
 
 ==========================
-Project Purchase Utilities
+Project Purchase Usability
 ==========================
 
 With this module you can access to purchase orders and invoices related to the
