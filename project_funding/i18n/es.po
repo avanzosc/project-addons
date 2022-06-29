@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 11.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-08-25 09:38+0000\n"
-"PO-Revision-Date: 2021-08-25 09:38+0000\n"
+"POT-Creation-Date: 2022-07-06 08:46+0000\n"
+"PO-Revision-Date: 2022-07-06 08:46+0000\n"
 "Last-Translator: <>\n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -56,6 +56,11 @@ msgid "Display Name"
 msgstr "Nombre mostrado"
 
 #. module: project_funding
+#: model:ir.ui.view,arch_db:project_funding.project_project_form_view
+msgid "Funding"
+msgstr "Financiación"
+
+#. module: project_funding
 #: model:ir.model.fields,field_description:project_funding.field_res_config_settings_group_funding_account
 msgid "Funding Account Visible"
 msgstr "Cuenta contable de financiación visible"
@@ -81,6 +86,7 @@ msgstr "Cuenta contable"
 #. module: project_funding
 #: model:ir.actions.act_window,name:project_funding.funding_source_project_action
 #: model:ir.model,name:project_funding.model_funding_source_project
+#: model:ir.ui.menu,name:project_funding.funding_source_project_config_menuitem
 #: model:ir.ui.menu,name:project_funding.funding_source_project_menuitem
 #: model:ir.ui.view,arch_db:project_funding.funding_source_project_tree_view
 msgid "Funding Source Project"
@@ -93,7 +99,6 @@ msgstr "Tipo de programa de financiación"
 
 #. module: project_funding
 #: model:ir.model.fields,field_description:project_funding.field_project_project_funding_ids
-#: model:ir.ui.view,arch_db:project_funding.project_project_form_view
 msgid "Funding Sources"
 msgstr "Programas de financiación"
 
@@ -128,14 +133,12 @@ msgid "Percentage (%)"
 msgstr "Porcentaje (%)"
 
 #. module: project_funding
-#: code:addons/project_funding/models/funding_source_project.py:34
 #: code:addons/project_funding/models/funding_source_project.py:43
 #, python-format
 msgid "Percentage must be bigger than 0"
 msgstr "El porcentaje debe ser mayor que 0"
 
 #. module: project_funding
-#: code:addons/project_funding/models/funding_source_project.py:37
 #: code:addons/project_funding/models/funding_source_project.py:46
 #, python-format
 msgid "Percentage should be less or equal to 100"
