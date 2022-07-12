@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <record id="view_task_form2" model="ir.ui.view">
+        <field name="model">project.task</field>
+        <field name="inherit_id" ref="project.view_task_form2" />
+        <field name="arch" type="xml">
+            <field name='date_deadline' position='before'>
+                <field name='date_end' />
+            </field>
+            <field name='date_deadline' position='after'>
+                <field name='task_delay' />
+            </field>
+        </field>
+    </record>
+
+    <record id="view_task_tree2" model="ir.ui.view">
+        <field name="model">project.task</field>
+        <field name="inherit_id" ref="project.view_task_tree2" />
+        <field name="arch" type="xml">
+            <field name='remaining_hours' position='after'>
+                <field name='date_end' />
+                <field name='date_deadline' />
+                <field name='task_delay' />
+            </field>
+        </field>
+    </record>
+
+    <record model="ir.ui.view" id="view_project_task_pivot">
+        <field name="model">project.task</field>
+        <field name="inherit_id" ref="project.view_project_task_pivot"/>
+        <field name="arch" type="xml">
+            <pivot>
+                <field name="task_delay" type="measure" />
+            </pivot>
+        </field>
+    </record>
+</odoo>
