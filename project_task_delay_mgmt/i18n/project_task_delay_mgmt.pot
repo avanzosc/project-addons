@@ -1,0 +1,52 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+#	* project_task_delay_mgmt
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 12.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2022-07-12 08:08+0000\n"
+"PO-Revision-Date: 2022-07-12 08:08+0000\n"
+"Last-Translator: <>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: project_task_delay_mgmt
+#: model:ir.model.fields,field_description:project_task_delay_mgmt.field_project_project__date_limit
+msgid "Date limit"
+msgstr ""
+
+#. module: project_task_delay_mgmt
+#: model_terms:ir.ui.view,arch_db:project_task_delay_mgmt.view_task_form2
+msgid "Ending date - Deadline"
+msgstr ""
+
+#. module: project_task_delay_mgmt
+#: model:ir.model.fields,field_description:project_task_delay_mgmt.field_project_project__global_delay
+msgid "Global delay (days)"
+msgstr ""
+
+#. module: project_task_delay_mgmt
+#: model:ir.model,name:project_task_delay_mgmt.model_project_project
+msgid "Project"
+msgstr ""
+
+#. module: project_task_delay_mgmt
+#: model:ir.model,name:project_task_delay_mgmt.model_project_task
+msgid "Task"
+msgstr ""
+
+#. module: project_task_delay_mgmt
+#: model:ir.model.fields,field_description:project_task_delay_mgmt.field_project_task__task_delay
+msgid "Task delay (days)"
+msgstr ""
+
+#. module: project_task_delay_mgmt
+#: model_terms:ir.ui.view,arch_db:project_task_delay_mgmt.edit_project
+msgid "Tasks Time management"
+msgstr ""
+
