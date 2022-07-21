@@ -14,7 +14,7 @@ class ProjectProject(models.Model):
         readonly=True
         )
     global_delay = fields.Integer(
-        string='Global delay (days)', compute='_compute_global_delay',
+        string='Tasks global delay (days)', compute='_compute_global_delay',
         copy=False,
         store=True,
         readonly=True
