@@ -4,10 +4,10 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: Odoo Server 12.0\n"
+"Project-Id-Version: Odoo Server 12.0+e\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-07-12 08:09+0000\n"
-"PO-Revision-Date: 2022-07-12 08:09+0000\n"
+"POT-Creation-Date: 2022-07-21 12:47+0000\n"
+"PO-Revision-Date: 2022-07-21 12:47+0000\n"
 "Last-Translator: <>\n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -17,18 +17,9 @@ msgstr ""
 
 #. module: project_task_delay_mgmt
 #: model:ir.model.fields,field_description:project_task_delay_mgmt.field_project_project__date_limit
+#: model_terms:ir.ui.view,arch_db:project_task_delay_mgmt.view_project_project_filter
 msgid "Date limit"
 msgstr "Fecha límite"
-
-#. module: project_task_delay_mgmt
-#: model_terms:ir.ui.view,arch_db:project_task_delay_mgmt.view_task_form2
-msgid "Ending date - Deadline"
-msgstr "Fecha de fin - Fecha límite"
-
-#. module: project_task_delay_mgmt
-#: model:ir.model.fields,field_description:project_task_delay_mgmt.field_project_project__global_delay
-msgid "Global delay (days)"
-msgstr "Retraso global (días)"
 
 #. module: project_task_delay_mgmt
 #: model:ir.model,name:project_task_delay_mgmt.model_project_project
@@ -48,5 +39,10 @@ msgstr "Retraso tarea (días)"
 #. module: project_task_delay_mgmt
 #: model_terms:ir.ui.view,arch_db:project_task_delay_mgmt.edit_project
 msgid "Tasks Time management"
-msgstr "Gestión tiempo de Tareas"
+msgstr "Gestión tiempo de Tareas."
+
+#. module: project_task_delay_mgmt
+#: model:ir.model.fields,field_description:project_task_delay_mgmt.field_project_project__global_delay
+msgid "Tasks global delay (days)"
+msgstr "Retraso global tareas (días)"
 
