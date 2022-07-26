@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <record id="project_task_timeline" model="ir.ui.view">
+        <field name="model">project.task</field>
+        <field name="inherit_id" ref="project_timeline.project_task_timeline" />
+        <field name="arch" type="xml">
+            <field name="user_id" position="replace">
+                <field name="employee_id" />
+            </field>
+             <img t-if="record.user_id" position="replace">
+                <img t-if="record.employee_id"
+                     t-attf-src="/web/image/hr.employee/#{record.employee_id[0]}/image/24x24"
+                     t-att-title="record.employee_id[1]" width="24" height="24" class="mr8"/>
+             </img>
+        </field>
+    </record>
+</odoo>
