@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <record id="view_task_form2" model="ir.ui.view">
+        <field name="model">project.task</field>
+        <field name="inherit_id" ref="project.view_task_form2" />
+        <field name="arch" type="xml">
+            <field name="user_id" position="after">
+                <field name="employee_id" />
+            </field>
+        </field>
+    </record>
+
+    <record id="view_task_tree2" model="ir.ui.view">
+        <field name="model">project.task</field>
+        <field name="inherit_id" ref="project.view_task_tree2" />
+        <field name="arch" type="xml">
+            <field name="user_id" position="after">
+                <field name="employee_id" />
+            </field>
+        </field>
+    </record>
+
+    <record model="ir.ui.view" id="view_task_search_form">
+        <field name="model">project.task</field>
+        <field name="inherit_id" ref="project.view_task_search_form"/>
+        <field name="arch" type="xml">
+            <field name="user_id" position="after">
+                <field name="employee_id" />
+            </field>
+            <filter name="user" position="after">
+                <filter string="Employee" name="employee" context="{'group_by':'employee_id'}"/>
+            </filter>
+        </field>
+    </record>
+
+    <record id="view_task_calendar" model="ir.ui.view">
+        <field name="model">project.task</field>
+        <field name="inherit_id" ref="project.view_task_calendar" />
+        <field name="arch" type="xml">
+            <calendar position="attributes">
+                <attribute name="color">employee_id</attribute>
+            </calendar>
+        </field>
+    </record>
+</odoo>
