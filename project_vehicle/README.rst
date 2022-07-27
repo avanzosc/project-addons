@@ -3,10 +3,10 @@
     :alt: License: AGPL-3
 
 ===============
-Project vehicle
+Project Vehicle
 ===============
 
-* Vehicle field in project, task and account analytic line.
+Add link to vehicle in analytic account and project in order to link timesheets to it.
 
 Bug Tracker
 ===========
