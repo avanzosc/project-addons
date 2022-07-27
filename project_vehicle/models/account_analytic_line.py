@@ -7,9 +7,8 @@ class AccounAnalyticLine(models.Model):
     _inherit = "account.analytic.line"
 
     vehicle_id = fields.Many2one(
-        string="Vehicle", comodel_name="fleet.vehicle", compute="_compute_vehicle_id"
+        string="Vehicle",
+        comodel_name="fleet.vehicle",
+        related="account_id.vehicle_id",
+        store=True,
     )
-
-    def _compute_vehicle_id(self):
-        for analytic in self:
-            analytic.vehicle_id = analytic.account_id.project_ids[:1].vehicle_id
