@@ -61,3 +61,10 @@ msgstr "Proyecto"
 #: model_terms:ir.ui.view,arch_db:project_analytic_sale_type.view_project_project_filter
 msgid "Sale type"
 msgstr "Tipo venta"
+
+#. module: project_analytic_sale_type
+#: model:ir.model.fields,field_description:project_analytic_sale_type.field_account_analytic_line__sale_journal_id
+#: model_terms:ir.ui.view,arch_db:project_analytic_sale_type.view_account_analytic_line_filter
+msgid "Sale journal"
+msgstr "Diario ventas"
+
