@@ -35,6 +35,12 @@ class ProjectTack(models.Model):
                 "active_ids": self.ids,
             }
         )
+        if self.user_id:
+            context.update(
+                {"default_user_id": self.user_id.id})
+        if self.partner_id:
+            context.update(
+                {"default_partner_ids": [(6, 0, self.partner_id.ids)]})
         return {
             "name": _("Meetings"),
             "type": "ir.actions.act_window",
