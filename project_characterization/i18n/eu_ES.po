@@ -1,0 +1,300 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+#	* project_characterization
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 12.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2023-04-03 14:12+0000\n"
+"PO-Revision-Date: 2023-04-03 14:12+0000\n"
+"Last-Translator: <>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: project_characterization
+#: model:ir.ui.menu,name:project_characterization.res_activity_menu
+msgid "Activity"
+msgstr "Jarduera"
+
+#. module: project_characterization
+#: model:ir.ui.menu,name:project_characterization.res_activity_type_menu
+msgid "Activity Type"
+msgstr "Jarduera-mota"
+
+#. module: project_characterization
+#: model:ir.model.fields,field_description:project_characterization.field_res_config_settings__manual_code
+msgid "Add number manually to compose account code"
+msgstr "Kontu-koderako zenbakia eskuz gehitzea"
+
+#. module: project_characterization
+#: model:ir.model,name:project_characterization.model_account_analytic_account
+msgid "Analytic Account"
+msgstr "Kontu analitikoa"
+
+#. module: project_characterization
+#: model:ir.model,name:project_characterization.model_account_analytic_line
+msgid "Analytic Line"
+msgstr "Lerro analitikoa"
+
+#. module: project_characterization
+#: model:ir.model.fields,field_description:project_characterization.field_account_analytic_account__res_area_id
+#: model:ir.model.fields,field_description:project_characterization.field_project_project__res_area_id
+#: model:ir.ui.menu,name:project_characterization.res_area_menu
+#: model_terms:ir.ui.view,arch_db:project_characterization.project_project_view_search
+msgid "Area"
+msgstr "Arloa"
+
+#. module: project_characterization
+#: model:ir.ui.menu,name:project_characterization.res_area_specialization_menu
+msgid "Area Specialization"
+msgstr "Espezializazio arloa"
+
+#. module: project_characterization
+#: model:ir.ui.menu,name:project_characterization.res_area_type_menu
+msgid "Area Type"
+msgstr "Arlo-mota"
+
+#. module: project_characterization
+#: model:ir.model.fields,field_description:project_characterization.field_account_analytic_account__res_area_type_id
+#: model:ir.model.fields,field_description:project_characterization.field_project_project__res_area_type_id
+#: model_terms:ir.ui.view,arch_db:project_characterization.project_project_view_search
+msgid "Area type"
+msgstr "Arlo-mota"
+
+#. module: project_characterization
+#: model:ir.model,name:project_characterization.model_res_area_type
+msgid "Area types"
+msgstr "Arlo-motak"
+
+#. module: project_characterization
+#: model:ir.model,name:project_characterization.model_res_area
+#: model_terms:ir.ui.view,arch_db:project_characterization.view_account_analytic_account_search_inh_project_char
+msgid "Areas"
+msgstr "Arloak"
+
+#. module: project_characterization
+#: model:ir.model.fields,field_description:project_characterization.field_account_analytic_account__res_character_id
+#: model:ir.model.fields,field_description:project_characterization.field_project_project__res_character_id
+#: model:ir.ui.menu,name:project_characterization.res_character_menu
+#: model_terms:ir.ui.view,arch_db:project_characterization.project_project_view_search
+msgid "Character"
+msgstr "Natura"
+
+#. module: project_characterization
+#: model:ir.ui.menu,name:project_characterization.project_characterization_config_menu
+#: model_terms:ir.ui.view,arch_db:project_characterization.project_project_view_form
+msgid "Characterization"
+msgstr "Karakterizazioa"
+
+#. module: project_characterization
+#: model_terms:ir.ui.view,arch_db:project_characterization.view_account_analytic_account_search_inh_project_char
+msgid "Characters"
+msgstr "Natura"
+
+#. module: project_characterization
+#: model:ir.ui.menu,name:project_characterization.res_committee_menu
+msgid "Committee"
+msgstr "Batzordea"
+
+#. module: project_characterization
+#: model:ir.model,name:project_characterization.model_res_config_settings
+msgid "Config Settings"
+msgstr "Konfigurazio ezarpenak"
+
+#. module: project_characterization
+#: model:ir.model.fields,field_description:project_characterization.field_project_task_type2__create_uid
+msgid "Created by"
+msgstr "Nork sortua"
+
+#. module: project_characterization
+#: model:ir.model.fields,field_description:project_characterization.field_project_task_type2__create_date
+msgid "Created on"
+msgstr "Noiz sortua"
+
+#. module: project_characterization
+#: model:ir.model.fields,field_description:project_characterization.field_project_task_type2__description
+msgid "Description"
+msgstr "Deskribapena"
+
+#. module: project_characterization
+#: model:ir.model.fields,field_description:project_characterization.field_project_task_type2__display_name
+msgid "Display Name"
+msgstr "Izena erakutsi"
+
+#. module: project_characterization
+#: model_terms:ir.ui.view,arch_db:project_characterization.project_project_view_form
+#: model_terms:ir.ui.view,arch_db:project_characterization.project_project_view_search
+#: model_terms:ir.ui.view,arch_db:project_characterization.project_project_view_tree
+msgid "End Date"
+msgstr "Amaiera Data"
+
+#. module: project_characterization
+#: model:ir.model.fields,field_description:project_characterization.field_project_project__funding_ids
+msgid "Funding Sources"
+msgstr "Finantziazio iturriak"
+
+#. module: project_characterization
+#: model:ir.model.fields,field_description:project_characterization.field_project_task_type2__id
+msgid "ID"
+msgstr ""
+
+#. module: project_characterization
+#: model_terms:ir.ui.view,arch_db:project_characterization.project_project_view_form
+msgid "Initial Date"
+msgstr "Hasiera data"
+
+#. module: project_characterization
+#: model:ir.model.fields,field_description:project_characterization.field_account_analytic_account__justification_deadline
+#: model:ir.model.fields,field_description:project_characterization.field_project_project__justification_deadline
+msgid "Justification Deadline"
+msgstr "Azken egunaren justifikazioa"
+
+#. module: project_characterization
+#: model:ir.model.fields,field_description:project_characterization.field_project_task_type2____last_update
+msgid "Last Modified on"
+msgstr "Azken aldaketa"
+
+#. module: project_characterization
+#: model:ir.model.fields,field_description:project_characterization.field_project_task_type2__write_uid
+msgid "Last Updated by"
+msgstr "Azkenengoz eguneratu zuena"
+
+#. module: project_characterization
+#: model:ir.model.fields,field_description:project_characterization.field_project_task_type2__write_date
+msgid "Last Updated on"
+msgstr "Azken eguneraketa noiz"
+
+#. module: project_characterization
+#: model_terms:ir.ui.view,arch_db:project_characterization.project_config_settings_view_form
+msgid "Manual Code for Analytic Accounts"
+msgstr "Kontu analitikorako eskuzko kodea"
+
+#. module: project_characterization
+#: model:ir.model.fields,field_description:project_characterization.field_project_task_type2__name
+msgid "Name"
+msgstr "Izena"
+
+#. module: project_characterization
+#: model:ir.model.fields,field_description:project_characterization.field_account_analytic_account__nonoperative
+#: model:ir.model.fields,field_description:project_characterization.field_account_analytic_line__nonoperative
+#: model:ir.model.fields,field_description:project_characterization.field_project_project__nonoperative
+#: model:ir.model.fields,field_description:project_characterization.field_res_area__nonoperative
+#: model_terms:ir.ui.view,arch_db:project_characterization.account_analytic_line_view_search
+#: model_terms:ir.ui.view,arch_db:project_characterization.project_project_view_search
+#: model_terms:ir.ui.view,arch_db:project_characterization.res_area_operative_view_search
+#: model_terms:ir.ui.view,arch_db:project_characterization.view_account_analytic_account_search_inh_project_char
+msgid "Non Operative"
+msgstr "Ez dabil"
+
+#. module: project_characterization
+#: model:ir.model.fields,field_description:project_characterization.field_account_analytic_account__num_code
+#: model:ir.model.fields,field_description:project_characterization.field_project_project__num_code
+msgid "Number"
+msgstr "Zenbakia "
+
+#. module: project_characterization
+#: model_terms:ir.ui.view,arch_db:project_characterization.account_analytic_line_view_search
+#: model_terms:ir.ui.view,arch_db:project_characterization.project_project_view_search
+#: model_terms:ir.ui.view,arch_db:project_characterization.res_area_operative_view_search
+#: model_terms:ir.ui.view,arch_db:project_characterization.view_account_analytic_account_search_inh_project_char
+msgid "Operative"
+msgstr "Operatiboa"
+
+#. module: project_characterization
+#: model:ir.model.fields,field_description:project_characterization.field_account_analytic_account__op_space_id
+#: model:ir.model.fields,field_description:project_characterization.field_project_project__op_space_id
+#: model_terms:ir.ui.view,arch_db:project_characterization.project_project_view_search
+msgid "Opportunity Space"
+msgstr "Aukerako espazioa"
+
+#. module: project_characterization
+#: model:ir.ui.menu,name:project_characterization.res_opportunity_space_menu
+#: model_terms:ir.ui.view,arch_db:project_characterization.view_account_analytic_account_search_inh_project_char
+msgid "Opportunity Spaces"
+msgstr "Aukerako espazioak"
+
+#. module: project_characterization
+#: model_terms:ir.ui.view,arch_db:project_characterization.project_task_view_form
+msgid "Period"
+msgstr "Aldiak"
+
+#. module: project_characterization
+#: model:ir.model,name:project_characterization.model_project_project
+msgid "Project"
+msgstr "Proiektua"
+
+#. module: project_characterization
+#: model_terms:ir.ui.view,arch_db:project_characterization.project_task_type2_view_form
+msgid "Project Task Type"
+msgstr "Proiektuko ataza motak"
+
+#. module: project_characterization
+#: model:ir.model.fields,field_description:project_characterization.field_res_area_type__project_ids
+msgid "Projects"
+msgstr "Proiektuak "
+
+#. module: project_characterization
+#: model:ir.model.fields,field_description:project_characterization.field_res_area__related_operative_area_ids
+msgid "Related Operative Area"
+msgstr "Arlo operatiboak"
+
+#. module: project_characterization
+#: model_terms:ir.ui.view,arch_db:project_characterization.project_config_settings_view_form
+msgid "Select number to compose analytic account code"
+msgstr "Hautatu zenbaki bat kontu analitikoaren kodea lortzeko"
+
+#. module: project_characterization
+#: model:ir.ui.menu,name:project_characterization.res_structure_menu
+msgid "Structures"
+msgstr "Egiturak"
+
+#. module: project_characterization
+#: model:ir.model.fields,field_description:project_characterization.field_account_analytic_account__res_target_id
+#: model:ir.model.fields,field_description:project_characterization.field_project_project__res_target_id
+#: model:ir.ui.menu,name:project_characterization.res_target_menu
+#: model_terms:ir.ui.view,arch_db:project_characterization.project_project_view_search
+msgid "Target"
+msgstr "Sektore objektiboa"
+
+#. module: project_characterization
+#: model_terms:ir.ui.view,arch_db:project_characterization.view_account_analytic_account_search_inh_project_char
+msgid "Targets"
+msgstr "Sektore objektiboak"
+
+#. module: project_characterization
+#: model:ir.model,name:project_characterization.model_project_task
+msgid "Task"
+msgstr "Zeregina"
+
+#. module: project_characterization
+#: model:ir.model,name:project_characterization.model_project_task_type2
+msgid "Task Type"
+msgstr "Ataza mota"
+
+#. module: project_characterization
+#: model:ir.model.fields,field_description:project_characterization.field_account_analytic_account__res_team_id
+#: model:ir.model.fields,field_description:project_characterization.field_project_project__res_team_id
+#: model:ir.ui.menu,name:project_characterization.res_team_menu
+#: model_terms:ir.ui.view,arch_db:project_characterization.project_project_view_search
+msgid "Team"
+msgstr "Taldea"
+
+#. module: project_characterization
+#: model_terms:ir.ui.view,arch_db:project_characterization.view_account_analytic_account_search_inh_project_char
+msgid "Teams"
+msgstr "Taldeak"
+
+#. module: project_characterization
+#: model:ir.model.fields,help:project_characterization.field_res_config_settings__manual_code
+msgid "This will disable automatic number adding to create analytic account code in projects."
+msgstr "Honek zenbakien gehiketa automatikoa desgaituko du proiektuetan kontu analitikoa sortzeko."
+
+#. module: project_characterization
+#: model:ir.model.fields,field_description:project_characterization.field_project_task__type2_id
+msgid "Type"
+msgstr "Mota"
+
