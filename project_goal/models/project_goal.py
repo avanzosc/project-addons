@@ -4,7 +4,7 @@
 from odoo import api, fields, models
 
 
-class ProjectObjetive(models.Model):
+class ProjectGoal(models.Model):
     _name = "project.goal"
     _description = "Goals of Projects"
     _order = "project_id,sequence"

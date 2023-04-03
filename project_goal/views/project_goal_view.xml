@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <odoo>
-    <record id="project_goal_form_view" model="ir.ui.view">
+    <record id="project_goal_view_form" model="ir.ui.view">
         <field name="model">project.goal</field>
         <field name="arch" type="xml">
             <form>
@@ -19,7 +19,7 @@
         </field>
     </record>
 
-    <record id="project_goal_tree_view" model="ir.ui.view">
+    <record id="project_goal_view_tree" model="ir.ui.view">
         <field name="model">project.goal</field>
         <field name="arch" type="xml">
             <tree editable="top"
@@ -37,7 +37,7 @@
         </field>
     </record>
 
-    <record id="project_goal_tree_view_type" model="ir.ui.view">
+    <record id="project_goal_type_view_tree" model="ir.ui.view">
         <field name="model">project.goal.type</field>
         <field name="arch" type="xml">
             <tree editable="top">
@@ -77,7 +77,7 @@
         </field>
     </record>
 
-    <record id="project_goal_search_view" model="ir.ui.view">
+    <record id="project_goal_view_search" model="ir.ui.view">
         <field name="model">project.goal</field>
         <field name="arch" type="xml">
             <search>
