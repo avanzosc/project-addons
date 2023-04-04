@@ -39,8 +39,8 @@
             'hide_project_id': False,
         }</field>
         <field name="view_id"
-               ref="funding_source_project_tree_view" />
+               ref="funding_source_project_view_tree" />
         <field name="search_view_id"
-               ref="funding_source_project_search_view"/>
+               ref="funding_source_project_view_search"/>
     </record>
 </odoo>
