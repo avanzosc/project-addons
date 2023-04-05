@@ -3,7 +3,7 @@
     <record id="res_area_operative_view_form" model="ir.ui.view">
         <field name="name">res.area.operative.form</field>
         <field name="model">res.area</field>
-        <field name="inherit_id" ref="base_characterization.res_area_form_view" />
+        <field name="inherit_id" ref="base_characterization.res_area_view_form" />
         <field name="arch" type="xml">
             <label for="description" position="before">
                 <group>
@@ -22,7 +22,7 @@
     <record id="res_area_operative_view_search" model="ir.ui.view">
         <field name="name">res.area.operative.search</field>
         <field name="model">res.area</field>
-        <field name="inherit_id" ref="base_characterization.res_area_search_view" />
+        <field name="inherit_id" ref="base_characterization.res_area_view_search" />
         <field name="arch" type="xml">
             <field name="description" position="after">
                 <filter name="nonoperative" string="Non Operative"

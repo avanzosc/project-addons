@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 12.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-04-03 13:55+0000\n"
-"PO-Revision-Date: 2023-04-03 13:55+0000\n"
+"POT-Creation-Date: 2023-04-05 13:49+0000\n"
+"PO-Revision-Date: 2023-04-05 13:49+0000\n"
 "Last-Translator: <>\n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -16,12 +16,12 @@ msgstr ""
 "Plural-Forms: \n"
 
 #. module: project_characterization
-#: model:ir.ui.menu,name:project_characterization.res_activity_menuitem
+#: model:ir.ui.menu,name:project_characterization.res_activity_menu
 msgid "Activity"
 msgstr "Actividad"
 
 #. module: project_characterization
-#: model:ir.ui.menu,name:project_characterization.res_activity_type_menuitem
+#: model:ir.ui.menu,name:project_characterization.res_activity_type_menu
 msgid "Activity Type"
 msgstr "Tipo de actividad"
 
@@ -43,25 +43,25 @@ msgstr "Línea Analítica"
 #. module: project_characterization
 #: model:ir.model.fields,field_description:project_characterization.field_account_analytic_account__res_area_id
 #: model:ir.model.fields,field_description:project_characterization.field_project_project__res_area_id
-#: model:ir.ui.menu,name:project_characterization.res_area_menuitem
-#: model_terms:ir.ui.view,arch_db:project_characterization.project_project_search_view
+#: model:ir.ui.menu,name:project_characterization.res_area_menu
+#: model_terms:ir.ui.view,arch_db:project_characterization.project_project_view_search
 msgid "Area"
 msgstr "Área"
 
 #. module: project_characterization
-#: model:ir.ui.menu,name:project_characterization.res_area_specialization_menuitem
+#: model:ir.ui.menu,name:project_characterization.res_area_specialization_menu
 msgid "Area Specialization"
 msgstr "Área de especialización"
 
 #. module: project_characterization
-#: model:ir.ui.menu,name:project_characterization.res_area_type_menuitem
+#: model:ir.ui.menu,name:project_characterization.res_area_type_menu
 msgid "Area Type"
 msgstr "Tipo de proyecto"
 
 #. module: project_characterization
 #: model:ir.model.fields,field_description:project_characterization.field_account_analytic_account__res_area_type_id
 #: model:ir.model.fields,field_description:project_characterization.field_project_project__res_area_type_id
-#: model_terms:ir.ui.view,arch_db:project_characterization.project_project_search_view
+#: model_terms:ir.ui.view,arch_db:project_characterization.project_project_view_search
 msgid "Area type"
 msgstr "Tipo de área"
 
@@ -79,14 +79,14 @@ msgstr "Áreas"
 #. module: project_characterization
 #: model:ir.model.fields,field_description:project_characterization.field_account_analytic_account__res_character_id
 #: model:ir.model.fields,field_description:project_characterization.field_project_project__res_character_id
-#: model:ir.ui.menu,name:project_characterization.res_character_menuitem
-#: model_terms:ir.ui.view,arch_db:project_characterization.project_project_search_view
+#: model:ir.ui.menu,name:project_characterization.res_character_menu
+#: model_terms:ir.ui.view,arch_db:project_characterization.project_project_view_search
 msgid "Character"
 msgstr "Naturaleza"
 
 #. module: project_characterization
-#: model:ir.ui.menu,name:project_characterization.project_characterization_config_menuitem
-#: model_terms:ir.ui.view,arch_db:project_characterization.project_project_form_view
+#: model:ir.ui.menu,name:project_characterization.project_characterization_config_menu
+#: model_terms:ir.ui.view,arch_db:project_characterization.project_project_view_form
 msgid "Characterization"
 msgstr "Caracterización"
 
@@ -96,7 +96,7 @@ msgid "Characters"
 msgstr "Naturaleza"
 
 #. module: project_characterization
-#: model:ir.ui.menu,name:project_characterization.res_committee_menuitem
+#: model:ir.ui.menu,name:project_characterization.res_committee_menu
 msgid "Committee"
 msgstr "Comité"
 
@@ -126,16 +126,16 @@ msgid "Display Name"
 msgstr "Nombre mostrado"
 
 #. module: project_characterization
-#: model_terms:ir.ui.view,arch_db:project_characterization.project_project_form_view
-#: model_terms:ir.ui.view,arch_db:project_characterization.project_project_search_view
-#: model_terms:ir.ui.view,arch_db:project_characterization.project_project_tree_view
+#: model_terms:ir.ui.view,arch_db:project_characterization.project_project_view_form
+#: model_terms:ir.ui.view,arch_db:project_characterization.project_project_view_search
+#: model_terms:ir.ui.view,arch_db:project_characterization.project_project_view_tree
 msgid "End Date"
 msgstr "Fecha finalización"
 
 #. module: project_characterization
 #: model:ir.model.fields,field_description:project_characterization.field_project_project__funding_ids
 msgid "Funding Sources"
-msgstr ""
+msgstr "Programas de financiación"
 
 #. module: project_characterization
 #: model:ir.model.fields,field_description:project_characterization.field_project_task_type2__id
@@ -143,7 +143,7 @@ msgid "ID"
 msgstr ""
 
 #. module: project_characterization
-#: model_terms:ir.ui.view,arch_db:project_characterization.project_project_form_view
+#: model_terms:ir.ui.view,arch_db:project_characterization.project_project_view_form
 msgid "Initial Date"
 msgstr "Fecha inicial"
 
@@ -169,7 +169,7 @@ msgid "Last Updated on"
 msgstr "Última actualización el"
 
 #. module: project_characterization
-#: model_terms:ir.ui.view,arch_db:project_characterization.project_config_settings_form_view
+#: model_terms:ir.ui.view,arch_db:project_characterization.project_config_settings_view_form
 msgid "Manual Code for Analytic Accounts"
 msgstr "Código manual para cuentas analíticas"
 
@@ -183,9 +183,9 @@ msgstr "Nombre"
 #: model:ir.model.fields,field_description:project_characterization.field_account_analytic_line__nonoperative
 #: model:ir.model.fields,field_description:project_characterization.field_project_project__nonoperative
 #: model:ir.model.fields,field_description:project_characterization.field_res_area__nonoperative
-#: model_terms:ir.ui.view,arch_db:project_characterization.account_analytic_line_search_view
-#: model_terms:ir.ui.view,arch_db:project_characterization.project_project_search_view
-#: model_terms:ir.ui.view,arch_db:project_characterization.res_area_operative_search_view
+#: model_terms:ir.ui.view,arch_db:project_characterization.account_analytic_line_view_search
+#: model_terms:ir.ui.view,arch_db:project_characterization.project_project_view_search
+#: model_terms:ir.ui.view,arch_db:project_characterization.res_area_operative_view_search
 #: model_terms:ir.ui.view,arch_db:project_characterization.view_account_analytic_account_search_inh_project_char
 msgid "Non Operative"
 msgstr "No operativo"
@@ -197,9 +197,9 @@ msgid "Number"
 msgstr "Número"
 
 #. module: project_characterization
-#: model_terms:ir.ui.view,arch_db:project_characterization.account_analytic_line_search_view
-#: model_terms:ir.ui.view,arch_db:project_characterization.project_project_search_view
-#: model_terms:ir.ui.view,arch_db:project_characterization.res_area_operative_search_view
+#: model_terms:ir.ui.view,arch_db:project_characterization.account_analytic_line_view_search
+#: model_terms:ir.ui.view,arch_db:project_characterization.project_project_view_search
+#: model_terms:ir.ui.view,arch_db:project_characterization.res_area_operative_view_search
 #: model_terms:ir.ui.view,arch_db:project_characterization.view_account_analytic_account_search_inh_project_char
 msgid "Operative"
 msgstr "Operativo"
@@ -207,18 +207,18 @@ msgstr "Operativo"
 #. module: project_characterization
 #: model:ir.model.fields,field_description:project_characterization.field_account_analytic_account__op_space_id
 #: model:ir.model.fields,field_description:project_characterization.field_project_project__op_space_id
-#: model_terms:ir.ui.view,arch_db:project_characterization.project_project_search_view
+#: model_terms:ir.ui.view,arch_db:project_characterization.project_project_view_search
 msgid "Opportunity Space"
 msgstr "Espacio de oportunidad"
 
 #. module: project_characterization
-#: model:ir.ui.menu,name:project_characterization.res_opportunity_space_menuitem
+#: model:ir.ui.menu,name:project_characterization.res_opportunity_space_menu
 #: model_terms:ir.ui.view,arch_db:project_characterization.view_account_analytic_account_search_inh_project_char
 msgid "Opportunity Spaces"
 msgstr "Espacios de oportunidad"
 
 #. module: project_characterization
-#: model_terms:ir.ui.view,arch_db:project_characterization.project_task_form_view
+#: model_terms:ir.ui.view,arch_db:project_characterization.project_task_view_form
 msgid "Period"
 msgstr "Período"
 
@@ -228,9 +228,9 @@ msgid "Project"
 msgstr "Proyecto"
 
 #. module: project_characterization
-#: model_terms:ir.ui.view,arch_db:project_characterization.project_task_type2_form_view
+#: model_terms:ir.ui.view,arch_db:project_characterization.project_task_type2_view_form
 msgid "Project Task Type"
-msgstr "Tipo de tarea del proyecto"
+msgstr ""
 
 #. module: project_characterization
 #: model:ir.model.fields,field_description:project_characterization.field_res_area_type__project_ids
@@ -243,20 +243,20 @@ msgid "Related Operative Area"
 msgstr "Área Operativa Relacionada"
 
 #. module: project_characterization
-#: model_terms:ir.ui.view,arch_db:project_characterization.project_config_settings_form_view
+#: model_terms:ir.ui.view,arch_db:project_characterization.project_config_settings_view_form
 msgid "Select number to compose analytic account code"
 msgstr "Seleccione el número para componer el código de la cuenta analítica"
 
 #. module: project_characterization
-#: model:ir.ui.menu,name:project_characterization.res_structure_menuitem
+#: model:ir.ui.menu,name:project_characterization.res_structure_menu
 msgid "Structures"
 msgstr "Estructuras"
 
 #. module: project_characterization
 #: model:ir.model.fields,field_description:project_characterization.field_account_analytic_account__res_target_id
 #: model:ir.model.fields,field_description:project_characterization.field_project_project__res_target_id
-#: model:ir.ui.menu,name:project_characterization.res_target_menuitem
-#: model_terms:ir.ui.view,arch_db:project_characterization.project_project_search_view
+#: model:ir.ui.menu,name:project_characterization.res_target_menu
+#: model_terms:ir.ui.view,arch_db:project_characterization.project_project_view_search
 msgid "Target"
 msgstr "Sector Objetivo"
 
@@ -278,8 +278,8 @@ msgstr "Tipo de tarea"
 #. module: project_characterization
 #: model:ir.model.fields,field_description:project_characterization.field_account_analytic_account__res_team_id
 #: model:ir.model.fields,field_description:project_characterization.field_project_project__res_team_id
-#: model:ir.ui.menu,name:project_characterization.res_team_menuitem
-#: model_terms:ir.ui.view,arch_db:project_characterization.project_project_search_view
+#: model:ir.ui.menu,name:project_characterization.res_team_menu
+#: model_terms:ir.ui.view,arch_db:project_characterization.project_project_view_search
 msgid "Team"
 msgstr "Equipo"
 
