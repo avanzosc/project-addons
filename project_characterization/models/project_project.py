@@ -16,41 +16,47 @@ class ProjectProject(models.Model):
         comodel_name="res.area",
         string="Area",
         related="analytic_account_id.res_area_id",
-        readonly="False",
+        readonly=False,
     )
     op_space_id = fields.Many2one(
         comodel_name="res.opportunity.space",
         string="Opportunity Space",
         related="analytic_account_id.op_space_id",
+        readonly=False,
     )
     res_character_id = fields.Many2one(
         comodel_name="res.character",
         string="Character",
         related="analytic_account_id.res_character_id",
+        readonly=False,
     )
     justification_deadline = fields.Date(
         string="Justification Deadline",
         related="analytic_account_id.justification_deadline",
+        readonly=False,
     )
     res_area_type_id = fields.Many2one(
         comodel_name="res.area.type",
         string="Area type",
         related="analytic_account_id.res_area_type_id",
+        readonly=False,
     )
     res_team_id = fields.Many2one(
         comodel_name="res.team",
         string="Team",
         related="analytic_account_id.res_team_id",
+        readonly=False,
     )
     res_target_id = fields.Many2one(
         comodel_name="res.target",
         string="Target",
         related="analytic_account_id.res_target_id",
+        readonly=False,
     )
     nonoperative = fields.Boolean(
         string="Non Operative", related="res_area_id.nonoperative", store=True
     )
-    num_code = fields.Char(string="Number", related="analytic_account_id.num_code")
+    num_code = fields.Char(string="Number", related="analytic_account_id.num_code", readonly=False,)
 
     @api.onchange("res_area_id")
     def _onchange_area_id(self):
