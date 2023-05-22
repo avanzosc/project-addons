@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <menuitem id="project_characterization_config_menu"
+              parent="project.menu_project_config"
+              name="Characterization" />
+    <menuitem id="res_area_menu"
+              parent="project_characterization_config_menu"
+              action="base_characterization.res_area_action" />
+    <menuitem id="res_area_type_menu"
+              parent="project_characterization_config_menu"
+              action="base_characterization.res_area_type_action" />
+    <menuitem id="res_character_menu"
+              parent="project_characterization_config_menu"
+              action="base_characterization.res_character_action" />
+    <menuitem id="res_team_menu"
+              parent="project_characterization_config_menu"
+              action="base_characterization.res_team_action" />
+    <menuitem id="res_target_menu"
+              parent="project_characterization_config_menu"
+              action="base_characterization.res_target_action" />
+    <menuitem id="res_committee_menu"
+              parent="project_characterization_config_menu"
+              action="base_characterization.res_committee_action" />
+    <menuitem id="res_structure_menu"
+              parent="project_characterization_config_menu"
+              action="base_characterization.res_structure_action" />
+    <menuitem id="res_opportunity_space_menu"
+              parent="project_characterization_config_menu"
+              action="base_characterization.res_opportunity_space_action" />
+    <menuitem id="res_area_specialization_menu"
+              parent="project_characterization_config_menu"
+              action="base_characterization.res_area_specialization_action" />
+    <menuitem id="res_activity_menu"
+              parent="project_characterization_config_menu"
+              action="base_characterization.res_activity_action" />
+    <menuitem id="res_activity_type_menu"
+              parent="project_characterization_config_menu"
+              action="base_characterization.res_activity_type_action" />
+</odoo>

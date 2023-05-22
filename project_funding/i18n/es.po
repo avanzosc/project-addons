@@ -1,0 +1,166 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+#	* project_funding
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 12.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2023-04-03 14:11+0000\n"
+"PO-Revision-Date: 2023-04-03 14:11+0000\n"
+"Last-Translator: <>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: project_funding
+#: model:ir.model.fields,field_description:project_funding.field_funding_source_project__active
+msgid "Active"
+msgstr "Activo"
+
+#. module: project_funding
+#: model_terms:ir.ui.view,arch_db:project_funding.funding_source_project_view_search
+msgid "Archived"
+msgstr "Archivado"
+
+#. module: project_funding
+#: model:ir.model,name:project_funding.model_res_config_settings
+msgid "Config Settings"
+msgstr "Opciones de Configuración"
+
+#. module: project_funding
+#: model:ir.model.fields,field_description:project_funding.field_funding_source_project__create_uid
+msgid "Created by"
+msgstr "Creado por"
+
+#. module: project_funding
+#: model:ir.model.fields,field_description:project_funding.field_funding_source_project__create_date
+msgid "Created on"
+msgstr "Creado el"
+
+#. module: project_funding
+#: model:ir.model.fields,field_description:project_funding.field_funding_source_project__display_name
+msgid "Display Name"
+msgstr "Nombre mostrado"
+
+#. module: project_funding
+#: model:ir.model.fields,field_description:project_funding.field_res_config_settings__group_funding_account
+msgid "Funding Account Visible"
+msgstr "Cuenta contable de financiación visible"
+
+#. module: project_funding
+#: model:ir.model.fields,field_description:project_funding.field_funding_source_project__funding_date
+msgid "Funding Date"
+msgstr "Fecha de financiación"
+
+#. module: project_funding
+#: model:ir.model.fields,field_description:project_funding.field_funding_source_project__source_id
+#: model:ir.ui.menu,name:project_funding.funding_source_config_menu
+#: model:ir.ui.menu,name:project_funding.funding_source_menu
+msgid "Funding Source"
+msgstr "Programa de financiación"
+
+#. module: project_funding
+#: model:ir.model.fields,field_description:project_funding.field_funding_source_project__account_id
+msgid "Funding Source Account"
+msgstr "Cuenta de fuente de financiación"
+
+#. module: project_funding
+#: model:ir.actions.act_window,name:project_funding.funding_source_project_action
+#: model:ir.model,name:project_funding.model_funding_source_project
+#: model:ir.ui.menu,name:project_funding.funding_source_project_menu
+#: model_terms:ir.ui.view,arch_db:project_funding.funding_source_project_view_tree
+msgid "Funding Source Project"
+msgstr "Financiación de proyecto"
+
+#. module: project_funding
+#: model:ir.ui.menu,name:project_funding.funding_source_type_menu
+msgid "Funding Source Type"
+msgstr "Tipo de programa de financiación"
+
+#. module: project_funding
+#: model:ir.model.fields,field_description:project_funding.field_project_project__funding_ids
+#: model_terms:ir.ui.view,arch_db:project_funding.project_project_view_form
+msgid "Funding Sources"
+msgstr "Programas de financiación"
+
+#. module: project_funding
+#: model:ir.model.fields,field_description:project_funding.field_funding_source_project__id
+msgid "ID"
+msgstr ""
+
+#. module: project_funding
+#: model:ir.model.fields,field_description:project_funding.field_funding_source_project____last_update
+msgid "Last Modified on"
+msgstr "Última modificación en"
+
+#. module: project_funding
+#: model:ir.model.fields,field_description:project_funding.field_funding_source_project__write_uid
+msgid "Last Updated by"
+msgstr "Última actualización por"
+
+#. module: project_funding
+#: model:ir.model.fields,field_description:project_funding.field_funding_source_project__write_date
+msgid "Last Updated on"
+msgstr "Última actualización el"
+
+#. module: project_funding
+#: model:ir.model.fields,field_description:project_funding.field_funding_source_project__percentage
+msgid "Percentage (%)"
+msgstr "Porcentaje (%)"
+
+#. module: project_funding
+#: code:addons/project_funding/models/funding_source_project.py:38
+#, python-format
+msgid "Percentage must be bigger than 0"
+msgstr "El porcentaje debe ser mayor que 0"
+
+#. module: project_funding
+#: code:addons/project_funding/models/funding_source_project.py:40
+#, python-format
+msgid "Percentage should be less or equal to 100"
+msgstr "El porcentaje debe ser menor o igual a 100"
+
+#. module: project_funding
+#: model:ir.model,name:project_funding.model_project_project
+#: model:ir.model.fields,field_description:project_funding.field_funding_source_project__project_id
+msgid "Project"
+msgstr "Proyecto"
+
+#. module: project_funding
+#: model_terms:ir.ui.view,arch_db:project_funding.project_config_settings_view_form
+msgid "Project Funding"
+msgstr "Financiación de proyecto"
+
+#. module: project_funding
+#: model_terms:ir.ui.view,arch_db:project_funding.funding_source_project_view_search
+msgid "Search Funding Source Project"
+msgstr "Buscar financiación de proyecto"
+
+#. module: project_funding
+#: model:res.groups,name:project_funding.group_funding_account
+msgid "Show Project Funding Account"
+msgstr "Mostrar cuenta contable"
+
+#. module: project_funding
+#: model_terms:ir.ui.view,arch_db:project_funding.project_config_settings_view_form
+msgid "Show related funding account on project funding."
+msgstr "Muestra la cuenta contable asociada a la financiación de proyecto."
+
+#. module: project_funding
+#: model_terms:ir.ui.view,arch_db:project_funding.project_config_settings_view_form
+msgid "Specific Settings For Project Funding"
+msgstr "Ajustes de la financiación de proyecto"
+
+#. module: project_funding
+#: model:ir.model.fields,field_description:project_funding.field_funding_source_project__year
+msgid "Year"
+msgstr "Año"
+
+#. module: project_funding
+#: model:ir.model.fields,field_description:project_funding.field_funding_source_project__yearly_amount
+msgid "Yearly Amount"
+msgstr "Importe anual"
+

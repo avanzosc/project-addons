@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <record id="project_goal_view_form" model="ir.ui.view">
+        <field name="model">project.goal</field>
+        <field name="arch" type="xml">
+            <form>
+                <group name="main">
+                    <field name="project_id" invisible="context.get('hide_project_id',True)"/>
+                    <field name="sequence"/>
+                    <field name="type_id" options="{'no_create': True, 'no_create_edit': True}"/>
+                    <field name="goal_id" options="{'no_create': True, 'no_create_edit': True}"/>
+                    <field name="name"/>
+                    <field name="acceptance_range"/>
+                    <field name="compliance"/>
+                    <field name="remark"/>
+                    <field name="active" invisible="True"/>
+                </group>
+            </form>
+        </field>
+    </record>
+
+    <record id="project_goal_view_tree" model="ir.ui.view">
+        <field name="model">project.goal</field>
+        <field name="arch" type="xml">
+            <tree editable="top"
+                  decoration-muted="not active">
+                <field name="sequence" widget="handle"/>
+                <field name="project_id" invisible="context.get('hide_project_id',True)"/>
+                <field name="type_id" options="{'no_create': True, 'no_create_edit': True}"/>
+                <field name="goal_id" options="{'no_create': True, 'no_create_edit': True}"/>
+                <field name="name"/>
+                <field name="acceptance_range"/>
+                <field name="compliance"/>
+                <field name="remark"/>
+                <field name="active" invisible="True"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="project_goal_type_view_tree" model="ir.ui.view">
+        <field name="model">project.goal.type</field>
+        <field name="arch" type="xml">
+            <tree editable="top">
+                <field name="name"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="project_goal_goal_view_tree" model="ir.ui.view">
+        <field name="model">project.goal.goal</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="name"/>
+                <field name="description"/>
+                <field name="type_id"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="project_goal_goal_view_form" model="ir.ui.view">
+        <field name="model">project.goal.goal</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group name="main">
+                        <group name="left">
+                            <field name="name"/>
+                            <field name="type_id" options="{'no_create': True, 'no_create_edit': True}"/>
+                        </group>
+                        <group name="right" attrs="{'invisible': [('type_id', '=', False)]}">
+                            <field name="default_goal"/>
+                        </group>
+                    </group>
+                    <field name="description"/>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="project_goal_view_search" model="ir.ui.view">
+        <field name="model">project.goal</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="project_id"/>
+                <field name="name"/>
+                <field name="type_id"/>
+                <field name="goal_id"/>
+                <field name="acceptance_range"/>
+                <field name="compliance"/>
+                <field name="remark"/>
+                <separator/>
+                <filter string="Archived" name="inactive" domain="[('active','=',False)]"/>
+                <group name="group_by" expand="0">
+                    <filter name="group_project" string="Project"
+                            context="{'group_by': 'project_id'}"/>
+                    <filter name="group_type" string="Type"
+                            context="{'group_by': 'type_id'}"/>
+                    <filter name="group_goal" string="Type"
+                            context="{'group_by': 'goal_id'}"/>
+                </group>
+            </search>
+        </field>
+    </record>
+</odoo>
