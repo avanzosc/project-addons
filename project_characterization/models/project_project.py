@@ -17,18 +17,21 @@ class ProjectProject(models.Model):
         string="Area",
         related="analytic_account_id.res_area_id",
         readonly=False,
+        store=True,
     )
     op_space_id = fields.Many2one(
         comodel_name="res.opportunity.space",
         string="Opportunity Space",
         related="analytic_account_id.op_space_id",
         readonly=False,
+        store=True,
     )
     res_character_id = fields.Many2one(
         comodel_name="res.character",
         string="Character",
         related="analytic_account_id.res_character_id",
         readonly=False,
+        store=True,
     )
     justification_deadline = fields.Date(
         string="Justification Deadline",
@@ -40,18 +43,21 @@ class ProjectProject(models.Model):
         string="Area type",
         related="analytic_account_id.res_area_type_id",
         readonly=False,
+        store=True,
     )
     res_team_id = fields.Many2one(
         comodel_name="res.team",
         string="Team",
         related="analytic_account_id.res_team_id",
         readonly=False,
+        store=True,
     )
     res_target_id = fields.Many2one(
         comodel_name="res.target",
         string="Target",
         related="analytic_account_id.res_target_id",
         readonly=False,
+        store=True,
     )
     nonoperative = fields.Boolean(
         string="Non Operative", related="res_area_id.nonoperative", store=True
