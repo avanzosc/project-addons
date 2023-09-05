@@ -5,7 +5,7 @@
         <field name="inherit_id" ref="project.edit_project" />
         <field name="arch" type="xml">
             <field name="partner_id" position="after">
-                <field name="partner_shipping_id" />
+                <field name="partner_shipping_id" widget="res_partner_many2one" />
             </field>
         </field>
     </record>
@@ -13,8 +13,8 @@
         <field name="model">project.project</field>
         <field name="inherit_id" ref="project.view_project" />
         <field name="arch" type="xml">
-            <field name="name" position="after">
-                <field name="partner_shipping_id" />
+            <field name="partner_id" position="after">
+                <field name="partner_shipping_id" optional="hide" />
             </field>
         </field>
     </record>

@@ -4,8 +4,9 @@
         <field name="model">project.task</field>
         <field name="inherit_id" ref="project.view_task_form2" />
         <field name="arch" type="xml">
-            <field name="project_privacy_visibility" position="before">
-                <field name="partner_shipping_id" />
+            <field name="partner_id" position="after">
+                <field name="partner_shipping_id" widget="res_partner_many2one"
+                       class="o_task_customer_field"/>
             </field>
         </field>
     </record>
@@ -13,9 +14,8 @@
         <field name="model">project.task</field>
         <field name="inherit_id" ref="project.view_task_tree2" />
         <field name="arch" type="xml">
-            <field name="name" position="after">
-                <field name="create_date" />
-                <field name="partner_shipping_id" />
+            <field name="partner_id" position="after">
+                <field name="partner_shipping_id" optional="hide" />
             </field>
         </field>
     </record>
