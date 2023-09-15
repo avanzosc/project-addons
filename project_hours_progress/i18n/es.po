@@ -1,0 +1,62 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* project_hours_progress
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 16.0+e\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2023-09-08 07:01+0000\n"
+"PO-Revision-Date: 2023-09-08 07:01+0000\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: project_hours_progress
+#: model:ir.model.fields,field_description:project_hours_progress.field_project_project__all_task_ids
+msgid "All task"
+msgstr "Todas las tareas"
+
+#. module: project_hours_progress
+#: model:ir.model.fields,field_description:project_hours_progress.field_project_project__tasks_planned_hours
+msgid "Initially Tasks Planned Hours"
+msgstr "Horas tareas planificadas iniciales"
+
+#. module: project_hours_progress
+#: model:ir.model.fields,field_description:project_hours_progress.field_project_project__milestones_progress
+#: model:ir.model.fields,field_description:project_hours_progress.field_project_update__milestones_progress
+msgid "Milestones Progress"
+msgstr "Progreso hitos"
+
+#. module: project_hours_progress
+#: model:ir.model,name:project_hours_progress.model_project_project
+msgid "Project"
+msgstr "Proyecto"
+
+#. module: project_hours_progress
+#: model:ir.model,name:project_hours_progress.model_project_update
+msgid "Project Update"
+msgstr "Actualización del proyecto"
+
+#. module: project_hours_progress
+#: model:ir.model.fields,field_description:project_hours_progress.field_project_project__tasks_progress
+msgid "Tasks Progress"
+msgstr "Progreso tareas"
+
+#. module: project_hours_progress
+#: model:ir.model.fields,field_description:project_hours_progress.field_project_project__tasks_real_hours
+msgid "Tasks Real Hours"
+msgstr "Horas tareas reales"
+
+#. module: project_hours_progress
+#: model:ir.model.fields,field_description:project_hours_progress.field_project_project__milestones_percentages
+msgid "Total milestones percentages"
+msgstr "Total porcentanjes hitos"
+
+#. module: project_hours_progress
+#: model:ir.model.fields,field_description:project_hours_progress.field_project_project__milestones_percentages_solved
+msgid "Total milestones percentages solved"
+msgstr "Total porcentajes hitos solucionados"
