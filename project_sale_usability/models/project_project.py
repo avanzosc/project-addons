@@ -12,29 +12,54 @@ class ProjectProject(models.Model):
     out_invoice_count = fields.Integer(
         compute="_compute_out_invoiced", string="# Sale Invoice"
     )
-    out_invoiced = fields.Monetary(
-        compute="_compute_out_invoiced", string="Out Invoiced"
-    )
+    out_invoiced = fields.Monetary(compute="_compute_out_invoiced")
     out_refund_count = fields.Integer(
         compute="_compute_out_refund", string="# Sale Refund"
     )
-    out_refund = fields.Monetary(compute="_compute_out_refund", string="Out Refund")
+    out_refund = fields.Monetary(compute="_compute_out_refund")
+
+    def _domain_sale_invoice_line(self):
+        query = self.env["account.move.line"]._search(
+            [
+                ("move_id.state", "!=", "cancel"),
+                ("move_id.move_type", "in", ["out_invoice", "out_refund"]),
+            ]
+        )
+        # check if analytic_distribution contains id of analytic account
+        query.add_where(
+            "account_move_line.analytic_distribution ?| array[%s]",
+            [str(project.analytic_account_id.id) for project in self],
+        )
+        query.order = None
+        query_string, query_param = query.select(
+            "account_move_line.id as id",
+        )
+        self._cr.execute(query_string, query_param)
+        purchase_invoice_lines_ids = [
+            int(record.get("id")) for record in self._cr.dictfetchall()
+        ]
+        domain = [("id", "in", purchase_invoice_lines_ids)]
+        return domain
 
     def _get_out_invoiced(self, domain=False):
-        filter_domain = [
-            ("analytic_account_id", "in", self.mapped("analytic_account_id").ids),
-            ("move_id.move_type", "=", "out_invoice"),
-        ]
+        filter_domain = expression.AND(
+            [
+                [("move_id.move_type", "=", "out_invoice")],
+                self._domain_sale_invoice_line(),
+            ]
+        )
         if domain:
             return filter_domain
         invoice_lines = self.env["account.move.line"].search(filter_domain)
         return invoice_lines
 
     def _get_out_refund(self, domain=False):
-        filter_domain = [
-            ("analytic_account_id", "in", self.mapped("analytic_account_id").ids),
-            ("move_id.move_type", "=", "out_refund"),
-        ]
+        filter_domain = expression.AND(
+            [
+                [("move_id.move_type", "=", "out_refund")],
+                self._domain_sale_invoice_line(),
+            ]
+        )
         if domain:
             return filter_domain
         invoice_lines = self.env["account.move.line"].search(filter_domain)
@@ -54,31 +79,47 @@ class ProjectProject(models.Model):
 
     def button_open_out_invoice(self):
         self.ensure_one()
-        action = self.env.ref("account.action_move_out_invoice_type")
-        action_dict = action.read()[0] if action else {}
         lines = self._get_out_invoiced()
+        action = self.env["ir.actions.actions"]._for_xml_id(
+            "account.action_move_out_invoice_type"
+        )
         domain = expression.AND(
             [
                 [("id", "in", lines.mapped("move_id").ids)],
-                safe_eval(action.domain or "[]"),
+                safe_eval(action.get("domain") or "[]"),
             ]
         )
-        action_dict.update({"domain": domain})
-        return action_dict
+        context = safe_eval(action.get("context") or "{}")
+        context.update({"group_by": ["payment_state"]})
+        action.update(
+            {
+                "domain": domain,
+                "context": context,
+            }
+        )
+        return action
 
     def button_open_out_refund(self):
         self.ensure_one()
-        action = self.env.ref("account.action_move_out_refund_type")
-        action_dict = action.read()[0] if action else {}
         lines = self._get_out_refund()
+        action = self.env["ir.actions.actions"]._for_xml_id(
+            "account.action_move_out_refund_type"
+        )
         domain = expression.AND(
             [
                 [("id", "in", lines.mapped("move_id").ids)],
-                safe_eval(action.domain or "[]"),
+                safe_eval(action.get("domain") or "[]"),
             ]
         )
-        action_dict.update({"domain": domain})
-        return action_dict
+        context = safe_eval(action.get("context") or "{}")
+        context.update({"group_by": ["payment_state"]})
+        action.update(
+            {
+                "domain": domain,
+                "context": context,
+            }
+        )
+        return action
 
     def button_open_out_invoice_line(self):
         self.ensure_one()

@@ -4,10 +4,10 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: Odoo Server 14.0\n"
+"Project-Id-Version: Odoo Server 16.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-05-30 16:02+0000\n"
-"PO-Revision-Date: 2022-05-30 16:02+0000\n"
+"POT-Creation-Date: 2023-10-09 12:11+0000\n"
+"PO-Revision-Date: 2023-10-09 12:11+0000\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -26,21 +26,7 @@ msgid "# Sale Refund"
 msgstr "N.º de rectificativas de venta"
 
 #. module: project_sale_usability
-#: model:ir.model.fields,field_description:project_sale_usability.field_project_project__display_name
-msgid "Display Name"
-msgstr "Nombre mostrado"
-
-#. module: project_sale_usability
-#: model:ir.model.fields,field_description:project_sale_usability.field_project_project__id
-msgid "ID"
-msgstr ""
-
-#. module: project_sale_usability
-#: model:ir.model.fields,field_description:project_sale_usability.field_project_project____last_update
-msgid "Last Modified on"
-msgstr "Última modificación el"
-
-#. module: project_sale_usability
+#. odoo-python
 #: code:addons/project_sale_usability/models/project_project.py:0
 #: model_terms:ir.ui.view,arch_db:project_sale_usability.project_project_view_form
 #, python-format
@@ -64,6 +50,7 @@ msgid "Out Refund"
 msgstr "Rectificado en venta"
 
 #. module: project_sale_usability
+#. odoo-python
 #: code:addons/project_sale_usability/models/project_project.py:0
 #: model_terms:ir.ui.view,arch_db:project_sale_usability.project_project_view_form
 #, python-format
