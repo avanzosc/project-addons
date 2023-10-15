@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo noupdate="True">
+    <record id="employee_payroll_account" model="account.analytic.account">
+        <field name="name">Employees Payroll</field>
+    </record>
+
+</odoo>
