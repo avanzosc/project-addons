@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <record id="account_budget_oca.act_crossovered_budget_view" model="ir.actions.act_window">
+        <field name="context">{'active_test': False}</field>
+    </record>
+
+    <record id="crossovered_budget_form_view" model="ir.ui.view">
+        <field name="name">crossovered.budget.form</field>
+        <field name="model">crossovered.budget</field>
+        <field name="inherit_id"
+               ref="account_budget_oca.crossovered_budget_view_form" />
+        <field name="arch" type="xml">
+            <button name="action_budget_confirm" position="before">
+                <button string="Create Lines" name="action_create_period"
+                        type="object"
+                        attrs="{'invisible': ['|','|',('state','not in',['draft']),('project_id','=',False),'!',('crossovered_budget_line_ids','=',[])]}" />
+            </button>
+            <field name="state" position="before">
+                <button name="button_recompute_line_amount" type="object"
+                        string="Recompute Line Amount" confirm="This will recompute all 'Practical Amount' and 'Amount Sum', are you sure?"/>
+            </field>
+            <div class="oe_title" position="after">
+                <div class="oe_button_box" name="button_box">
+                    <button name="toggle_active" type="object" class="oe_stat_button" icon="fa-archive">
+                        <field name="active" widget="boolean_button"/>
+                    </button>
+                    <button name="open_pivot_view" type="object" class="oe_stat_button" icon="fa-archive"
+                            string="Budget Lines Pivot Report" />
+                </div>
+            </div>
+            <field name="creating_user_id" position="after">
+                <field name="budget_date" />
+            </field>
+            <field name="company_id" position="before">
+                <field name="project_id" groups="project.group_project_user"
+                       options="{'no_create': True}"/>
+                <field name="initial" readonly="True" invisible="True" />
+            </field>
+            <xpath expr="//field[@name='crossovered_budget_line_ids']/tree//field[@name='planned_amount']" position="before">
+                <field name="initial_planned_amount" widget="monetary"
+                       sum="Initial Planned Amount"/>
+            </xpath>
+            <xpath expr="//field[@name='crossovered_budget_line_ids']/tree//field[@name='practical_amount']" position="after">
+                <field name="sum_amount" widget="monetary"
+                       sum="Sum Amount Total" />
+            </xpath>
+            <xpath expr="//field[@name='crossovered_budget_line_ids']/tree//field[@name='paid_date']" position="attributes">
+                <attribute name="invisible">True</attribute>
+            </xpath>
+            <xpath expr="//field[@name='crossovered_budget_line_ids']/tree//field[@name='theoretical_amount']" position="attributes">
+                <attribute name="invisible">True</attribute>
+            </xpath>
+            <xpath expr="//field[@name='crossovered_budget_line_ids']/tree//field[@name='percentage']" position="attributes">
+                <attribute name="invisible">True</attribute>
+            </xpath>
+            <xpath expr="//field[@name='crossovered_budget_line_ids']/tree//field[@name='percentage']" position="after">
+                <field name="notes" />
+            </xpath>
+            <xpath expr="//field[@name='crossovered_budget_line_ids']/form//field[@name='paid_date']" position="attributes">
+                <attribute name="invisible">True</attribute>
+            </xpath>
+            <xpath expr="//field[@name='crossovered_budget_line_ids']/form//field[@name='company_id']/.." position="after">
+                <separator string="Notes" colspan="4" />
+                <field name="notes" nolabel="True" colspan="4" />
+            </xpath>
+        </field>
+    </record>
+
+    <record id="crossovered_budget_tree_view" model="ir.ui.view">
+        <field name="name">crossovered.budget.tree</field>
+        <field name="model">crossovered.budget</field>
+        <field name="inherit_id"
+               ref="account_budget_oca.crossovered_budget_view_tree" />
+        <field name="arch" type="xml">
+            <tree position="attributes">
+                <attribute name="decoration-danger">initial</attribute>
+                <attribute name="decoration-it">active == False</attribute>
+            </tree>
+            <field name="date_from" position="before">
+                <field name="budget_date" />
+            </field>
+            <field name="company_id" position="before">
+                <field name="project_id" />
+                <field name="initial" invisible="True" />
+                <field name="active" invisible="True" />
+            </field>
+        </field>
+    </record>
+
+    <record id="crossovered_budget_search_view" model="ir.ui.view">
+        <field name="name">crossovered.budget.search</field>
+        <field name="model">crossovered.budget</field>
+        <field name="inherit_id"
+               ref="account_budget_oca.view_crossovered_budget_search" />
+        <field name="arch" type="xml">
+            <field name="state" position="before">
+                <separator />
+                <filter name="initial_filter" string="Initial"
+                        domain="[('initial','=',True)]"
+                        help="Initial Budgets"/>
+                <filter string="Active" name="active_filter"
+                        domain="[('active','=',True)]"/>
+                <filter string="Archived" name="inactive_filter"
+                        domain="[('active','=',False)]"/>
+                <filter string="Current Budget" name="current_budget_filter"
+                        domain="[('active','=',True),
+                                 ('budget_date','&lt;',(context_today()+relativedelta(months=1)).strftime('%%Y-%%m-01')),
+                                 ('budget_date','&gt;=',context_today().strftime('%%Y-%%m-01'))]" />
+                <field name="project_id"/>
+            </field>
+        </field>
+    </record>
+
+    <record id="action_budget_compute_amount" model="ir.actions.server">
+        <field name="name">Recompute Line Amounts</field>
+        <field name="type">ir.actions.server</field>
+        <field name="state">code</field>
+        <field name="model_id" ref="account_budget_oca.model_crossovered_budget" />
+        <field name="binding_model_id" ref="account_budget_oca.model_crossovered_budget" />
+        <field name="code">
+if records:
+    action = records.buttom_recompute_line_amount()
+        </field>
+    </record>
+</odoo>
