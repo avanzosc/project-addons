@@ -1,0 +1,67 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* project_purchase_usability
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 16.0+e\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2023-11-06 08:50+0000\n"
+"PO-Revision-Date: 2023-11-06 08:50+0000\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: project_purchase_usability
+#: model:ir.model.fields,field_description:project_purchase_usability.field_project_project__in_invoice_count
+msgid "# Purchase Invoice"
+msgstr ""
+
+#. module: project_purchase_usability
+#: model:ir.model.fields,field_description:project_purchase_usability.field_project_project__in_refund_count
+msgid "# Purchase Refund"
+msgstr ""
+
+#. module: project_purchase_usability
+#. odoo-python
+#: code:addons/project_purchase_usability/models/project_project.py:0
+#: model_terms:ir.ui.view,arch_db:project_purchase_usability.project_project_view_form
+#, python-format
+msgid "In Invoice Lines"
+msgstr ""
+
+#. module: project_purchase_usability
+#: model_terms:ir.ui.view,arch_db:project_purchase_usability.project_project_view_form
+msgid "In Invoices"
+msgstr ""
+
+#. module: project_purchase_usability
+#: model_terms:ir.ui.view,arch_db:project_purchase_usability.project_project_view_form
+msgid "In Refund"
+msgstr ""
+
+#. module: project_purchase_usability
+#. odoo-python
+#: code:addons/project_purchase_usability/models/project_project.py:0
+#: model_terms:ir.ui.view,arch_db:project_purchase_usability.project_project_view_form
+#, python-format
+msgid "In Refund Lines"
+msgstr ""
+
+#. module: project_purchase_usability
+#: model:ir.model.fields,field_description:project_purchase_usability.field_project_project__in_invoiced
+msgid "In invoices invoiced"
+msgstr ""
+
+#. module: project_purchase_usability
+#: model:ir.model.fields,field_description:project_purchase_usability.field_project_project__in_refund
+msgid "In invoices refund"
+msgstr ""
+
+#. module: project_purchase_usability
+#: model:ir.model,name:project_purchase_usability.model_project_project
+msgid "Project"
+msgstr ""
