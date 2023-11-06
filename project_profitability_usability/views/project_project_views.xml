@@ -7,43 +7,71 @@
             <field name="date" position="after">
                 <field
           name="revenue_invoiced_amount"
-          optional="hide"
+          optional="show"
           string="Invoiced (Revenues)"
           widget="monetary"
           options="{'currency_field': 'currency_id'}"
         />
                 <field
           name="revenue_to_invoice_amount"
-          optional="hide"
+          optional="show"
           string="To Bill (Revenues)"
           widget="monetary"
           options="{'currency_field': 'currency_id'}"
         />
                 <field
           name="cost_invoiced_amount"
-          optional="hide"
+          optional="show"
           string="Invoiced (Costs)"
           widget="monetary"
           options="{'currency_field': 'currency_id'}"
         />
                 <field
           name="cost_to_invoice_amount"
-          optional="hide"
+          optional="show"
           string="To Bill (Costs)"
           widget="monetary"
           options="{'currency_field': 'currency_id'}"
         />
                 <field
           name="profitability_done_amount"
-          optional="hide"
+          optional="show"
           string="Invoiced"
           widget="monetary"
           options="{'currency_field': 'currency_id'}"
         />
                 <field
           name="profitability_pending_amount"
-          optional="hide"
+          optional="show"
           string="To Bill"
+          widget="monetary"
+          options="{'currency_field': 'currency_id'}"
+        />
+                <field
+          name="out_invoice_amount_total"
+          optional="show"
+          string="Total out invoice with tax"
+          widget="monetary"
+          options="{'currency_field': 'currency_id'}"
+        />
+                <field
+          name="amount_collected"
+          optional="show"
+          string="Amount collected"
+          widget="monetary"
+          options="{'currency_field': 'currency_id'}"
+        />
+               <field
+          name="in_invoice_amount_total"
+          optional="show"
+          string="aTotal in invoice with tax"
+          widget="monetary"
+          options="{'currency_field': 'currency_id'}"
+        />
+               <field
+          name="amount_paid"
+          optional="show"
+          string="bAmount paid"
           widget="monetary"
           options="{'currency_field': 'currency_id'}"
         />

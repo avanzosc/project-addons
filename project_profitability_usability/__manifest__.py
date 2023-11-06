@@ -3,12 +3,17 @@
 
 {
     "name": "Project Profitability",
-    "version": "16.0.1.0.0",
+    "version": "16.0.1.1.0",
     "category": "Hidden",
     "license": "AGPL-3",
     "author": "AvanzOSC",
     "website": "https://github.com/avanzosc/project-addons",
-    "depends": ["project"],
-    "data": ["views/project_project_views.xml"],
+    "depends": [
+        "project",
+        "sale_project",
+        ],
+    "data": [
+        "views/project_project_views.xml"
+    ],
     "installable": True,
 }
