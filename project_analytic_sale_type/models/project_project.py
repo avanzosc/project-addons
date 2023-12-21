@@ -7,5 +7,9 @@ class ProjectProject(models.Model):
     _inherit = "project.project"
 
     sale_type_id = fields.Many2one(
-        string="Sale type", comodel_name="sale.order.type",
-        related="sale_order_id.type_id", store=True, copy=False)
+        string="Sale type",
+        comodel_name="sale.order.type",
+        related="sale_order_id.type_id",
+        store=True,
+        copy=False,
+    )
