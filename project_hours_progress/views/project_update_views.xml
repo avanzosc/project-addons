@@ -5,7 +5,11 @@
         <field name="inherit_id" ref="project.project_update_view_form" />
         <field name="arch" type="xml">
             <field name="progress" position="after">
-                <field name="milestones_progress" widget="progressbar" options="{'editable': true}"/>
+                <field
+          name="milestones_progress"
+          widget="progressbar"
+          options="{'editable': true}"
+        />
             </field>
         </field>
     </record>
@@ -15,7 +19,11 @@
         <field name="inherit_id" ref="project.project_update_view_tree" />
         <field name="arch" type="xml">
             <field name="progress_percentage" position="after">
-                <field name="milestones_progress" widget="progressbar" optional="show"/>
+                <field
+          name="milestones_progress"
+          widget="progressbar"
+          optional="show"
+        />
             </field>
         </field>
     </record>
