@@ -12,7 +12,7 @@ from odoo.tools.safe_eval import safe_eval
 class TestProjectPurchaseUtilities(common.SavepointCase):
     @classmethod
     def setUpClass(cls):
-        super(TestProjectPurchaseUtilities, cls).setUpClass()
+        super().setUpClass()
         cls.products = OrderedDict(
             [
                 ("prod_order", cls.env.ref("product.product_order_01")),
