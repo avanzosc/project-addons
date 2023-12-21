@@ -30,7 +30,7 @@
                 <field name="sale_type_id" />
                 <field name="sale_journal_id" />
             </field>
-            <filter name="account_id" position="after">
+            <filter name="group_by_analytic_account" position="after">
                 <filter
           string="Sale type"
           name="sale-type"
