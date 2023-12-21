@@ -3,10 +3,9 @@
     <record id="project_project_view_form" model="ir.ui.view">
         <field name="model">project.project</field>
         <field name="inherit_id" ref="project.edit_project" />
-        <field name="groups_id" eval="[(4, ref('purchase.group_purchase_user'))]" />
         <field name="arch" type="xml">
             <div name="button_box" position="inside">
-                <button
+                <button groups="purchase.group_purchase_user"
           class="oe_stat_button"
           name="button_open_purchase_order"
           type="object"
@@ -14,7 +13,7 @@
         >
                     <field string="Purchases" name="purchase_count" widget="statinfo" />
                 </button>
-                <button
+                <button groups="purchase.group_purchase_user"
           class="oe_stat_button"
           name="button_open_purchase_order_line"
           type="object"
@@ -26,7 +25,7 @@
             widget="statinfo"
           />
                 </button>
-                <button
+                <button groups="purchase.group_purchase_user"
           class="oe_stat_button"
           name="button_open_in_invoice"
           type="object"
@@ -38,7 +37,7 @@
             widget="statinfo"
           />
                 </button>
-                <button
+                <button groups="purchase.group_purchase_user"
           class="oe_stat_button"
           name="button_open_in_invoice_line"
           type="object"
@@ -50,7 +49,7 @@
             widget="statinfo"
           />
                 </button>
-                <button
+                <button groups="purchase.group_purchase_user"
           class="oe_stat_button"
           name="button_open_in_refund"
           type="object"
@@ -62,7 +61,7 @@
             widget="statinfo"
           />
                 </button>
-                <button
+                <button groups="purchase.group_purchase_user"
           class="oe_stat_button"
           name="button_open_in_refund_line"
           type="object"
