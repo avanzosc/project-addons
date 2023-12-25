@@ -25,7 +25,7 @@
             <field name="user_id" position="after">
                 <field name="task_id" />
             </field>
-            <filter name="availability" position="after">
+            <filter name="responsible" position="after">
                 <filter
           string="Task"
           name="group-task"
