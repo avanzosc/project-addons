@@ -8,7 +8,7 @@ from odoo.tests import common, tagged
 class TestProjectTaskEvent(common.SavepointCase):
     @classmethod
     def setUpClass(cls):
-        super(TestProjectTaskEvent, cls).setUpClass()
+        super().setUpClass()
         cls.task = cls.env.ref("project.project_task_1")
         meeting_vals = {
             "name": cls.task.name,

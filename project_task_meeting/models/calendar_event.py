@@ -10,6 +10,6 @@ class CalendarEvent(models.Model):
 
     @api.model
     def _get_public_fields(self):
-        result = super(CalendarEvent, self)._get_public_fields()
+        result = super()._get_public_fields()
         result |= {"task_id"}
         return result
