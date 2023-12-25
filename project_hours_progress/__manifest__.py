@@ -7,11 +7,7 @@
     "license": "AGPL-3",
     "author": "AvanzOSC",
     "website": "https://github.com/avanzosc/project-addons",
-    "depends": [
-        "project",
-        "sale_project",
-        "hr_timesheet"
-    ],
+    "depends": ["project", "sale_project", "hr_timesheet"],
     "data": [
         "views/project_project_views.xml",
         "views/project_update_views.xml",
