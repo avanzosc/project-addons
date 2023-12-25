@@ -4,7 +4,7 @@
         <field name="model">project.project</field>
         <field name="inherit_id" ref="project.edit_project" />
         <field name="arch" type="xml">
-            <field name="partner_email" position="after">
+            <field name="user_id" position="after">
                 <field name="vehicle_id" />
             </field>
         </field>

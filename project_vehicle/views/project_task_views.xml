@@ -27,7 +27,7 @@
             <field name="partner_id" position="after">
                 <field name="vehicle_id" />
             </field>
-            <filter name="project" position="after">
+            <filter name="customer" position="after">
                 <filter
           string="Vehicle"
           name="vehicle"

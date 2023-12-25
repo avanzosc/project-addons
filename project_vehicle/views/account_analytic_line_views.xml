@@ -27,7 +27,7 @@
             <field name="account_id" position="after">
                 <field name="vehicle_id" />
             </field>
-            <filter name="account_id" position="after">
+            <filter name="group_by_analytic_account" position="after">
                 <filter
           string="Vehicle"
           name="vehicle"
