@@ -7,16 +7,22 @@
             <notebook position="before">
                 <group>
                     <group>
-                        <field name="tasks_planned_hours"
-                            class="o_field_float_time oe_inline ms-2" widget="timesheet_uom_no_toggle"/>
-                        <field name="tasks_real_hours"
-                            class="o_field_float_time oe_inline ms-2" widget="timesheet_uom_no_toggle"/>
-                        <field name="tasks_progress" widget="progressbar"/>
+                        <field
+              name="tasks_planned_hours"
+              class="o_field_float_time oe_inline ms-2"
+              widget="timesheet_uom_no_toggle"
+            />
+                        <field
+              name="tasks_real_hours"
+              class="o_field_float_time oe_inline ms-2"
+              widget="timesheet_uom_no_toggle"
+            />
+                        <field name="tasks_progress" widget="progressbar" />
                     </group>
                     <group>
-                        <field name="milestones_percentages"/>
-                        <field name="milestones_percentages_solved"/>
-                        <field name="milestones_progress" widget="progressbar"/>
+                        <field name="milestones_percentages" />
+                        <field name="milestones_percentages_solved" />
+                        <field name="milestones_progress" widget="progressbar" />
                     </group>
                 </group>
             </notebook>
@@ -28,8 +34,12 @@
         <field name="inherit_id" ref="project.view_project" />
         <field name="arch" type="xml">
             <field name="user_id" position="after">
-                <field name="tasks_progress" widget="progressbar" optional="show"/>
-                <field name="milestones_progress" widget="progressbar" optional="show"/>
+                <field name="tasks_progress" widget="progressbar" optional="show" />
+                <field
+          name="milestones_progress"
+          widget="progressbar"
+          optional="show"
+        />
             </field>
         </field>
     </record>
