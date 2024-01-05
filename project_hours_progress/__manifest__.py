@@ -10,7 +10,7 @@
     "depends": [
         "project",
         "sale_project",
-        "hr_timesheet"
+        "hr_timesheet",
     ],
     "data": [
         "views/project_project_views.xml",
