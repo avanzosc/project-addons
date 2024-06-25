@@ -1,0 +1,17 @@
+<?xml version="1.0"?>
+<odoo>
+    <data>
+        <record id="view_task_form_inherit" model="ir.ui.view">
+            <field name="name">project.task.form.inherit</field>
+            <field name="model">project.task</field>
+            <field name="inherit_id" ref="project.view_task_form2"/>
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='partner_id']" position="after">
+                    <field name="sale_order_id" invisible="1"/>
+                    <field name="mrp_production_id" domain="['|',('sale_id', '=', sale_order_id),  ('sale_id', '=', False)]"/>
+                    <field name="product_id"/>
+                </xpath>
+            </field>
+        </record>
+    </data>
+</odoo>
