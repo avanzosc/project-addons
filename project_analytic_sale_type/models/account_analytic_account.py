@@ -7,10 +7,14 @@ class AccountAnalyticAccount(models.Model):
     _inherit = "account.analytic.account"
 
     sale_type_id = fields.Many2one(
-        string="Sale type", comodel_name="sale.order.type",
-        compute="_compute_sale_type_id", store=True, copy=False)
+        string="Sale type",
+        comodel_name="sale.order.type",
+        compute="_compute_sale_type_id",
+        store=True,
+        copy=False,
+    )
 
-    @api.depends('project_ids', 'project_ids.sale_type_id')
+    @api.depends("project_ids", "project_ids.sale_type_id")
     def _compute_sale_type_id(self):
         for account in self:
             if account.project_ids and account.project_ids[0].sale_type_id:

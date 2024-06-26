@@ -1,4 +1,4 @@
-from odoo import models, fields
+from odoo import fields, models
 
 
 class ProjectTask(models.Model):
@@ -9,7 +9,5 @@ class ProjectTask(models.Model):
         string="Manufacturing Order",
     )
     product_id = fields.Many2one(
-        related="mrp_production_id.product_id",
-        string="Product",
-        store=True
+        related="mrp_production_id.product_id", string="Product", store=True
     )

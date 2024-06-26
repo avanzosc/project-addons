@@ -9,15 +9,15 @@
         "project",
         "sale_order_type",
     ],
-    "author":  "AvanzOSC",
+    "author": "AvanzOSC",
     "license": "AGPL-3",
     "summary": """Project Analytic Sale Type""",
-    "website": "https://github.com/avanzosc/sale-addons",
+    "website": "https://github.com/avanzosc/project-addons",
     "data": [
         "views/account_analytic_account_views.xml",
         "views/account_analytic_line_views.xml",
         "views/project_project_views.xml",
-        ],
+    ],
     "installable": True,
     "auto_install": False,
 }

@@ -1,24 +1,32 @@
-<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8" ?>
 <odoo>
     <record id="view_project" model="ir.ui.view">
         <field name="model">project.project</field>
-        <field name="inherit_id" ref="project.view_project"/>
+        <field name="inherit_id" ref="project.view_project" />
         <field name="arch" type="xml">
             <field name="partner_id" position="after">
-                <field name="sale_type_id" optional="show"/>
+                <field name="sale_type_id" optional="show" />
             </field>
         </field>
     </record>
 
     <record id="edit_project" model="ir.ui.view">
         <field name="model">project.project</field>
-        <field name="inherit_id" ref="project.edit_project"/>
+        <field name="inherit_id" ref="project.edit_project" />
         <field name="arch" type="xml">
             <div name="options_active" position="after">
                 <div name="sale-type">
                     <div>
-                        <label for="sale_type_id" class="oe_inline" string="Sale type"/>
-                        <field name="sale_type_id" class="oe_inline oe_input_align" readonly="1"/>
+                        <label
+              for="sale_type_id"
+              class="oe_inline"
+              string="Sale type"
+            />
+                        <field
+              name="sale_type_id"
+              class="oe_inline oe_input_align"
+              readonly="1"
+            />
                     </div>
                 </div>
             </div>
@@ -27,13 +35,17 @@
 
     <record id="view_project_project_filter" model="ir.ui.view">
         <field name="model">project.project</field>
-        <field name="inherit_id" ref="project.view_project_project_filter"/>
+        <field name="inherit_id" ref="project.view_project_project_filter" />
         <field name="arch" type="xml">
             <field name="partner_id" position="after">
                 <field name="sale_type_id" />
             </field>
             <filter name="Partner" position="after">
-                <filter string="Sale type" name="sale-type" context="{'group_by': 'sale_type_id'}"/>
+                <filter
+          string="Sale type"
+          name="sale-type"
+          context="{'group_by': 'sale_type_id'}"
+        />
             </filter>
         </field>
     </record>

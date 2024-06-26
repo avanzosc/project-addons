@@ -7,9 +7,17 @@ class AccountAnalyticLine(models.Model):
     _inherit = "account.analytic.line"
 
     sale_type_id = fields.Many2one(
-        string="Sale type", comodel_name="sale.order.type",
-        related="account_id.sale_type_id", store=True, copy=False)
+        string="Sale type",
+        comodel_name="sale.order.type",
+        related="account_id.sale_type_id",
+        store=True,
+        copy=False,
+    )
     sale_journal_id = fields.Many2one(
-        comodel_name="account.journal", string="Sale journal",
-        check_company=True, related="sale_type_id.journal_id", store=True,
-        copy=False)
+        comodel_name="account.journal",
+        string="Sale journal",
+        check_company=True,
+        related="sale_type_id.journal_id",
+        store=True,
+        copy=False,
+    )

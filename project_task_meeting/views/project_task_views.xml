@@ -11,10 +11,7 @@
     </record>
     <record id="project_task_view_tree_activity" model="ir.ui.view">
         <field name="model">project.task</field>
-        <field
-      name="inherit_id"
-      ref="project.project_task_view_tree_activity"
-    />
+        <field name="inherit_id" ref="project.project_task_view_tree_activity" />
         <field name="arch" type="xml">
             <field name="project_id" position="after">
                 <field name="count_calendar_event" />

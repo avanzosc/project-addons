@@ -1,8 +1,8 @@
 {
     "name": "Project MRP Integration",
-    "version": "1.0",
+    "version": "14.0.1.1.0",
     "category": "Project",
-    "website": "http://www.avanzosc.es",
+    "website": "https://github.com/avanzosc/project-addons",
     "license": "AGPL-3",
     "author": "AvanzOSC",
     "depends": ["base", "project", "mrp", "sale", "mrp_sale_info"],
