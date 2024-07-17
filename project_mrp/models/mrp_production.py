@@ -1,4 +1,4 @@
-from odoo import fields, models
+from odoo import api, fields, models
 
 
 class MrpProduction(models.Model):
@@ -6,6 +6,10 @@ class MrpProduction(models.Model):
 
     task_ids = fields.One2many(
         "project.task", "mrp_production_id", string="Related Tasks"
+    )
+
+    task_count = fields.Integer(
+        string="Task Count", compute="_compute_task_count", store=True
     )
 
     def action_view_related_tasks(self):
@@ -18,3 +22,11 @@ class MrpProduction(models.Model):
             "default_mrp_production_id": self.id,
         }
         return action
+
+    @api.depends("task_ids")
+    def _compute_task_count(self):
+        for record in self:
+            action = record.action_view_related_tasks()
+            domain = action.get("domain", [])
+            tasks = self.env["project.task"].search(domain)
+            record.task_count = len(tasks)

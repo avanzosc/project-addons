@@ -15,12 +15,22 @@
                 </page>
             </xpath>
             <xpath expr="//div[@name='button_box']" position="inside">
+
                 <button
-          name="action_view_related_tasks"
           type="object"
-          string="Related Tasks"
-          class="oe_highlight"
-        />
+          name="action_view_related_tasks"
+          class="oe_stat_button"
+          icon="fa-tasks"
+          options="{}"
+        >
+                    <field
+            name="delivery_count"
+            widget="statinfo"
+            string="Related Tasks"
+            modifiers="{'readonly':true}"
+          />
+                </button>
+
             </xpath>
         </field>
     </record>
