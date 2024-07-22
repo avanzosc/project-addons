@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <record model="ir.ui.view" id="project_task_verification_criteria_tree_view">
+        <field name="name">project.task.verification.criteria.tree.view</field>
+        <field name="model">project.task.verification.criteria</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="task_id" optional="show" />
+                <field name="dimensions" optional="show" />
+                <field name="nominal_value" optional="show" />
+                <field name="real_value" optional="show" />
+                <field name="initial_measurement" optional="show" />
+                <field name="average_measurement" optional="show" />
+                <field name="final_measurement" optional="show" />
+                <field name="date_hour" optional="show" />
+                <field name="responsible_inspection_id" optional="show" />
+            </tree>
+        </field>
+    </record>
+
+    <record model="ir.ui.view" id="project_task_verification_criteria_form_view">
+        <field name="name">project.task.verification.criteria.form.view</field>
+        <field name="model">project.task.verification.criteria</field>
+        <field name="arch" type="xml">
+            <form string="Verification Criteria">
+                <sheet>
+                    <group name="details">
+                        <field name="task_id" />
+                        <field name="dimensions" />
+                        <field name="real_value" />
+                        <field name="nominal_value" />
+                        <field name="initial_measurement" />
+                        <field name="average_measurement" />
+                        <field name="final_measurement" />
+                        <field name="date_hour" />
+                        <field name="responsible_inspection_id" />
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record model="ir.ui.view" id="project_task_verification_criteria_search_view">
+        <field name="name">project.task.verification.criteria.search.view</field>
+        <field name="model">project.task.verification.criteria</field>
+        <field name="arch" type="xml">
+            <search string="Search Verification Criteria">
+                <field name="task_id" />
+                <field name="responsible_inspection_id" />
+                <group expand="0" string="Group By...">
+                    <filter
+            string="Task"
+            name="task"
+            domain="[]"
+            context="{'group_by':'task_id'}"
+          />
+                    <filter
+            string="Responsible inspection"
+            name="responsible-inspection"
+            domain="[]"
+            context="{'group_by':'responsible_inspection_id'}"
+          />
+                </group>
+            </search>
+        </field>
+    </record>
+
+    <record
+    model="ir.actions.act_window"
+    id="project_task_verification_criteria_action"
+  >
+        <field name="name">Verification Criteria</field>
+        <field name="res_model">project.task.verification.criteria</field>
+        <field name="view_mode">tree,form</field>
+        <field name="context" />
+        <field name="help" type="html">
+            <p class="oe_view_nocontent_create">
+                Create Verification Criteria.
+            </p>
+        </field>
+    </record>
+
+    <menuitem
+    name="Verification Criteria"
+    id="menu_project_task_verification_criteria"
+    parent="project.menu_main_pm"
+    action="project_task_verification_criteria_action"
+    sequence="3"
+    groups="base.group_no_one,project.group_project_user"
+  />
+</odoo>
