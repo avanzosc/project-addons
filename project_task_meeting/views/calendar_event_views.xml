@@ -8,7 +8,7 @@
                 <field name="task_id" />
             </field>
             <xpath expr="//tree" position="inside">
-                <field name="attendee_status" optional="show" />
+                <field name="attendee_status" optional="hide" />
                 <field name="task_partner_id" optional="show" />
             </xpath>
         </field>
@@ -28,6 +28,7 @@
         <field name="arch" type="xml">
             <field name="user_id" position="after">
                 <field name="task_id" />
+                <field name="state" />
             </field>
             <filter name="availability" position="after">
                 <filter
@@ -36,6 +37,7 @@
           domain="[]"
           context="{'group_by':'task_id'}"
         />
+                <filter name="group-state" domain="[]" context="{'group_by':'state'}" />
             </filter>
         </field>
     </record>

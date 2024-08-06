@@ -1,19 +1,14 @@
 # Copyright 2021 Alfredo de la Fuente - AvanzOSC
 # License AGPL-3 - See http://www.gnu.org/licenses/agpl-3.0.html
 from odoo import api, fields, models
+from odoo.exceptions import AccessError
+from odoo.tools.translate import _
 
-from odoo.addons.calendar.models.calendar_attendee import Attendee
+from odoo.addons.calendar.models.calendar_event import Meeting
 
 
 class CalendarEvent(models.Model):
     _inherit = "calendar.event"
-
-    attendee_status = fields.Selection(
-        Attendee.STATE_SELECTION,
-        string="Attendee Status",
-        compute="_compute_attendee",
-        store="True",
-    )
 
     task_id = fields.Many2one(
         string="Task",
@@ -32,3 +27,32 @@ class CalendarEvent(models.Model):
         result = super(CalendarEvent, self)._get_public_fields()
         result |= {"task_id"}
         return result
+
+    def read_group(
+        self, domain, fields, groupby, offset=0, limit=None, orderby=False, lazy=True
+    ):
+        groupby = [groupby] if isinstance(groupby, str) else groupby
+        grouped_fields = {group_field.split(":")[0] for group_field in groupby}
+        private_fields = grouped_fields - self._get_public_fields()
+        private_fields.discard("state")
+        if not self.env.su and private_fields:
+            raise AccessError(
+                _(
+                    "Grouping by %s is not allowed.",
+                    ", ".join(
+                        [
+                            self._fields[field_name].string
+                            for field_name in private_fields
+                        ]
+                    ),
+                )
+            )
+        return super(Meeting, self).read_group(
+            domain,
+            fields,
+            groupby,
+            offset=offset,
+            limit=limit,
+            orderby=orderby,
+            lazy=lazy,
+        )
