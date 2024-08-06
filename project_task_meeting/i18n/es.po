@@ -35,8 +35,8 @@ msgstr "Nombre mostrado"
 #: code:addons/project_task_meeting/models/calendar_event.py:0
 #: code:addons/temp-addons/project_task_meeting/models/calendar_event.py:0
 #, python-format
-msgid "Grouping by %s is not allowed."
 msgstr "Agrupar por %s no está permitido."
+msgid "Grouping by %s is not allowed."
 
 #. module: project_task_meeting
 #: model:ir.model.fields,field_description:project_task_meeting.field_calendar_event__id

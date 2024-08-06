@@ -1,0 +1,28 @@
+<odoo>
+    <record id="view_task_form2" model="ir.ui.view">
+        <field name="model">project.task</field>
+        <field name="inherit_id" ref="project.view_task_form2" />
+        <field name="arch" type="xml">
+            <field name="partner_id" position="after">
+                <field name="sheet_number_id" />
+            </field>
+            <page name="extra_info" position="after">
+                <page name="verification-criteria" string="Verification Criteria">
+                    <field name="verification_criteria_ids" nolabel="1">
+                        <tree editable="top">
+                            <field name="task_id" invisible="1" />
+                            <field name="dimensions" optional="show" />
+                            <field name="nominal_value" optional="show" />
+                            <field name="real_value" optional="show" />
+                            <field name="initial_measurement" optional="show" />
+                            <field name="average_measurement" optional="show" />
+                            <field name="final_measurement" optional="show" />
+                            <field name="date_hour" optional="show" />
+                            <field name="responsible_inspection_id" optional="show" />
+                        </tree>
+                    </field>
+                </page>
+            </page>
+        </field>
+    </record>
+</odoo>

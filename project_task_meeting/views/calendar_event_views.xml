@@ -8,7 +8,7 @@
                 <field name="task_id" />
             </field>
             <xpath expr="//tree" position="inside">
-                <field name="attendee_status" optional="hide" />
+                <field name="state" optional="show" />
                 <field name="task_partner_id" optional="show" />
             </xpath>
         </field>
