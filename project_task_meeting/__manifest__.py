@@ -10,7 +10,6 @@
     "depends": [
         "calendar",
         "project",
-        "calendar_timesheet",
     ],
     "data": [
         "views/project_task_views.xml",

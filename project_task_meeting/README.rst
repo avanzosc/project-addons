@@ -6,7 +6,54 @@
 Project Task Meeting
 ====================
 
-New shortcut from tasks to meetings.
+Overview
+========
+
+The **Project Task Meeting** module enhances the Odoo project management system by linking project tasks with calendar events. It provides a seamless connection between tasks and their related meetings, allowing users to efficiently manage and track their project activities.
+
+Features
+========
+
+- **Link Tasks to Calendar Events**:
+  - Adds a Many2one field in calendar events to reference the related project task.
+  - Displays the task's customer information in the calendar event form.
+
+- **Task-Related Meeting Count**:
+  - Shows the count of related calendar events directly on the project task form and list views.
+
+- **Navigation Shortcut**:
+  - Adds a button in the project task form to quickly navigate to related calendar events.
+
+- **Enhanced Calendar Views**:
+
+  - **Calendar Event Views**:
+    - Adds task-related fields to calendar event forms, tree views, and search views.
+  - **Project Task Views**:
+    - Includes a field to display the number of related calendar events in task forms and tree views.
+
+Usage
+=====
+
+After installing the module, you will see:
+
+- **Calendar Events**:
+  - A new field to link each calendar event to a project task.
+  - The task's customer information will be displayed in the calendar event form.
+
+- **Project Tasks**:
+  - A new field to display the count of related calendar events.
+  - A button labeled "Meetings" to open the related calendar events directly from the project task form.
+
+
+Testing
+=======
+
+The module includes automated tests to ensure functionality:
+
+- **TestProjectTaskEvent**:
+  - Verifies that the count of calendar events is correctly displayed.
+  - Checks that the navigation to calendar events from a task works as expected.
+
 
 Bug Tracker
 ===========
