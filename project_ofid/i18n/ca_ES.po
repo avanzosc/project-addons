@@ -1,0 +1,89 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* project_ofid
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 16.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2024-11-13 07:11+0000\n"
+"PO-Revision-Date: 2024-11-13 07:11+0000\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: project_ofid
+#: model_terms:ir.actions.act_window,help:project_ofid.action_private_project
+msgid ""
+"Create projects to organize your tasks. Define a different workflow for each"
+" project."
+msgstr ""
+
+#. module: project_ofid
+#: model_terms:ir.ui.view,arch_db:project_ofid.project_type_search
+msgid "Is NOT Private Project"
+msgstr ""
+
+#. module: project_ofid
+#: model_terms:ir.ui.view,arch_db:project_ofid.project_type_search
+msgid "Is Private Project"
+msgstr ""
+
+#. module: project_ofid
+#: model:ir.model.fields,field_description:project_ofid.field_project_project__private_project
+#: model:ir.model.fields,field_description:project_ofid.field_project_task__private_project
+#: model:ir.model.fields,field_description:project_ofid.field_project_type__private_project
+msgid "Is Private Project?"
+msgstr ""
+
+#. module: project_ofid
+#: model:ir.actions.act_window,name:project_ofid.action_view_all_task_private
+#: model:ir.ui.menu,name:project_ofid.menu_my_private_tasks
+msgid "My Private Tasks"
+msgstr ""
+
+#. module: project_ofid
+#: model_terms:ir.actions.act_window,help:project_ofid.action_private_project
+msgid "No projects found. Let's create one!"
+msgstr ""
+
+#. module: project_ofid
+#: model_terms:ir.actions.act_window,help:project_ofid.action_view_all_task_private
+msgid "No tasks found. Let's create one!"
+msgstr ""
+
+#. module: project_ofid
+#: model_terms:ir.actions.act_window,help:project_ofid.action_view_all_task_private
+msgid ""
+"Organize your tasks by dispatching them across the pipeline.<br>\n"
+"                Collaborate efficiently by chatting in real-time or via email."
+msgstr ""
+
+#. module: project_ofid
+#: model:ir.ui.menu,name:project_ofid.menu_private_project
+msgid "Private Project"
+msgstr ""
+
+#. module: project_ofid
+#: model:ir.actions.act_window,name:project_ofid.action_private_project
+msgid "Private Projects"
+msgstr ""
+
+#. module: project_ofid
+#: model:ir.model,name:project_ofid.model_project_project
+msgid "Project"
+msgstr "Projecte"
+
+#. module: project_ofid
+#: model:ir.model,name:project_ofid.model_project_type
+msgid "Project Type"
+msgstr "Tipus de Projectes"
+
+#. module: project_ofid
+#: model:ir.model,name:project_ofid.model_project_task
+msgid "Task"
+msgstr "Tasca"
+

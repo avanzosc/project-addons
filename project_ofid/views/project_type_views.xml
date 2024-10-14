@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <record model="ir.ui.view" id="project_type_tree">
+        <field name="model">project.type</field>
+        <field name="inherit_id" ref="project_type_sequence.project_type_tree" />
+        <field name="arch" type="xml">
+            <field name="sequence_id" position="after">
+                <field name="private_project" optional="show" />
+            </field>
+        </field>
+    </record>
+
+    <record model="ir.ui.view" id="project_type_form">
+        <field name="model">project.type</field>
+        <field name="inherit_id" ref="project_type_sequence.project_type_form" />
+        <field name="arch" type="xml">
+            <field name="sequence_id" position="after">
+                <field name="private_project" />
+            </field>
+        </field>
+    </record>
+
+    <record model="ir.ui.view" id="project_type_search">
+        <field name="model">project.type</field>
+        <field name="inherit_id" ref="project_type.project_type_search" />
+        <field name="arch" type="xml">
+            <filter name="task_ok" position="after">
+                <filter
+          name="isprivateproject"
+          string="Is Private Project"
+          domain="[('private_project','=',True)]"
+        />
+                <filter
+          name="isnotprivate_project"
+          string="Is NOT Private Project"
+          domain="[('private_project','=',False)]"
+        />
+            </filter>
+        </field>
+    </record>
+</odoo>

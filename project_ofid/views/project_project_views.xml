@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <record id="project_form" model="ir.ui.view">
+        <field name="model">project.project</field>
+        <field name="inherit_id" ref="project_type.project_form" />
+        <field name="arch" type="xml">
+            <field name="type_id" position="after">
+                <field name="private_project" readonly="1" />
+            </field>
+        </field>
+    </record>
+
+    <record id="project_project_view_form_simplified" model="ir.ui.view">
+        <field name="model">project.project</field>
+        <field
+      name="inherit_id"
+      ref="project_type_sequence.project_project_view_form_simplified"
+    />
+        <field name="arch" type="xml">
+            <div name="project-type" position="after">
+                <field name="private_project" invisible="1" />
+            </div>
+        </field>
+    </record>
+
+    <record id="project.open_view_project_all" model="ir.actions.act_window">
+        <field name="name">OFID Projects</field>
+        <field name="res_model">project.project</field>
+        <field name="domain">[('private_project', '=', False)]</field>
+        <field name="view_mode">kanban,tree,form</field>
+        <field name="view_id" ref="project.view_project_kanban" />
+        <field name="search_view_id" ref="project.view_project_project_filter" />
+        <field name="target">main</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                No projects found. Let's create one!
+            </p>
+            <p>
+                Create projects to organize your tasks. Define a different workflow for each project.
+            </p>
+        </field>
+    </record>
+
+    <menuitem
+    id="project.menu_projects"
+    action="project.open_view_project_all"
+    name="OFID Projects"
+    parent="project.menu_main_pm"
+    sequence="1"
+  />
+
+    <record
+    id="project.open_view_project_all_group_stage"
+    model="ir.actions.act_window"
+  >
+        <field name="name">OFID Projects</field>
+        <field name="res_model">project.project</field>
+        <field name="context">{'search_default_groupby_stage': 1,'ofid': False}</field>
+        <field name="domain">[('private_project', '=', False)]</field>
+        <field name="view_mode">kanban,tree,form,calendar,activity</field>
+        <field name="view_id" ref="project.view_project_kanban" />
+        <field name="search_view_id" ref="project.view_project_project_filter" />
+        <field name="target">main</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                No projects found. Let's create one!
+            </p>
+            <p>
+                Projects contain tasks on the same topic, and each has its own dashboard.
+            </p>
+        </field>
+    </record>
+
+    <menuitem
+    id="project.menu_projects_group_stage"
+    action="project.open_view_project_all_group_stage"
+    name="OFID Projects"
+    parent="project.menu_main_pm"
+    sequence="1"
+    groups="project.group_project_stages"
+  />
+
+    <record id="action_private_project" model="ir.actions.act_window">
+        <field name="name">Private Projects</field>
+        <field name="res_model">project.project</field>
+        <field name="domain">[('private_project', '=', True)]</field>
+        <field name="view_mode">kanban,tree,form,calendar,activity</field>
+        <field name="view_id" ref="project.view_project_kanban" />
+        <field name="search_view_id" ref="project.view_project_project_filter" />
+        <field name="target">main</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                No projects found. Let's create one!
+            </p>
+            <p>
+                Create projects to organize your tasks. Define a different workflow for each project.
+            </p>
+        </field>
+    </record>
+
+    <menuitem
+    name="Private Project"
+    id="menu_private_project"
+    parent="project.menu_main_pm"
+    sequence="2"
+    action="action_private_project"
+  />
+</odoo>

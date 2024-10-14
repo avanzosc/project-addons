@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <record id="project.action_view_all_task" model="ir.actions.act_window">
+        <field name="name">My OFID Tasks</field>
+        <field name="res_model">project.task</field>
+        <field name="view_mode">kanban,tree,form,calendar,pivot,graph,activity</field>
+        <field
+      name="context"
+    >{'search_default_my_tasks': 1, 'search_default_open_tasks': 1, 'all_task': 0, 'default_user_ids': [(4, uid)]}</field>
+        <field name="domain">[('private_project', '=', False)]</field>
+        <field name="search_view_id" ref="project.view_task_search_form_extended" />
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                No tasks found. Let's create one!
+            </p>
+            <p>
+                Organize your tasks by dispatching them across the pipeline.<br />
+                Collaborate efficiently by chatting in real-time or via email.
+            </p>
+        </field>
+    </record>
+
+    <menuitem
+    name="My OFID Tasks"
+    id="project.menu_project_management"
+    parent="project.menu_main_pm"
+    action="project.action_view_all_task"
+    sequence="2"
+    groups="base.group_no_one,project.group_project_user"
+  />
+
+    <record id="action_view_all_task_private" model="ir.actions.act_window">
+        <field name="name">My Private Tasks</field>
+        <field name="res_model">project.task</field>
+        <field name="view_mode">kanban,tree,form,calendar,pivot,graph,activity</field>
+        <field
+      name="context"
+    >{'search_default_my_tasks': 1, 'search_default_open_tasks': 1, 'all_task': 0, 'default_user_ids': [(4, uid)]}</field>
+        <field name="domain">[('private_project', '=', True)]</field>
+        <field name="search_view_id" ref="project.view_task_search_form_extended" />
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                No tasks found. Let's create one!
+            </p>
+            <p>
+                Organize your tasks by dispatching them across the pipeline.<br />
+                Collaborate efficiently by chatting in real-time or via email.
+            </p>
+        </field>
+    </record>
+
+    <menuitem
+    name="My Private Tasks"
+    id="menu_my_private_tasks"
+    parent="project.menu_main_pm"
+    action="action_view_all_task_private"
+    sequence="3"
+    groups="base.group_no_one,project.group_project_user"
+  />
+</odoo>
