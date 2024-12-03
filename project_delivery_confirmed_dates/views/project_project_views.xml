@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <record id="edit_project" model="ir.ui.view">
+        <field name="model">project.project</field>
+        <field name="inherit_id" ref="project.edit_project" />
+        <field name="arch" type="xml">
+            <notebook position="before">
+                <group name="delivery-validation-dates" colspan="4" col="6">
+                    <group colspan="2">
+                        <field name="confirmed_delivery_date" />
+                    </group>
+                    <group colspan="2">
+                        <field name="real_delivery_date" />
+                    </group>
+                    <group colspan="2">
+                        <field name="validation_date" />
+                    </group>
+                </group>
+            </notebook>
+        </field>
+    </record>
+
+    <record id="view_project" model="ir.ui.view">
+        <field name="model">project.project</field>
+        <field name="inherit_id" ref="project.view_project" />
+        <field name="arch" type="xml">
+            <field name="date" position="after">
+                <field name="confirmed_delivery_date" optional="show" />
+                <field name="real_delivery_date" optional="show" />
+                <field name="validation_date" optional="show" />
+            </field>
+        </field>
+    </record>
+
+    <record id="view_project_project_filter" model="ir.ui.view">
+        <field name="model">project.project</field>
+        <field name="inherit_id" ref="project.view_project_project_filter" />
+        <field name="arch" type="xml">
+            <field name="stage_id" position="after">
+                <field name="confirmed_delivery_date" />
+                <field name="real_delivery_date" />
+                <field name="validation_date" />
+            </field>
+            <filter name="groupby_stage" position="after">
+                <filter
+          string="Confirmed Delivery Date"
+          name="groupby_confirmed_delivery_date"
+          context="{'group_by': 'confirmed_delivery_date'}"
+        />
+                <filter
+          string="Real Delivery Date"
+          name="groupby_real_delivery_date"
+          context="{'group_by': 'real_delivery_date'}"
+        />
+                <filter
+          string="Validation Date"
+          name="groupby_validation_date"
+          context="{'group_by': 'validation_date'}"
+        />
+            </filter>
+        </field>
+    </record>
+</odoo>
