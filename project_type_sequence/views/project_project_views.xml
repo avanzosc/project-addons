@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <record model="ir.ui.view" id="project_sequence_form_view">
+        <field name="model">project.project</field>
+        <field name="inherit_id" ref="project_sequence.project_sequence_form_view" />
+        <field name="arch" type="xml">
+            <div name="sequence_code" position="attributes">
+                <attribute name="invisible">1</attribute>
+            </div>
+        </field>
+    </record>
+
+    <record model="ir.ui.view" id="project_sequence_tree_view">
+        <field name="model">project.project</field>
+        <field name="inherit_id" ref="project_sequence.project_sequence_tree_view" />
+        <field name="arch" type="xml">
+            <field name="sequence_code" position="attributes">
+                <attribute name="invisible">1</attribute>
+            </field>
+        </field>
+    </record>
+
+    <record model="ir.ui.view" id="project_sequence.project_sequence_search_view">
+         <field name="active">False</field>
+    </record>
+
+    <record model="ir.ui.view" id="project_project_view_form_simplified">
+        <field name="model">project.project</field>
+        <field name="inherit_id" ref="project.project_project_view_form_simplified" />
+        <field name="arch" type="xml">
+            <field name="user_id" position="before">
+                <div name="project-type">
+                    <label
+            for="type_id"
+            class="oe_inline mt-4"
+            string="Type of project"
+          />
+                    <field name="type_id" />
+                </div>
+            </field>
+        </field>
+    </record>
+
+    <record model="ir.ui.view" id="edit_project">
+        <field name="model">project.project</field>
+        <field name="inherit_id" ref="project.edit_project" />
+        <field name="arch" type="xml">
+            <xpath expr="//h1/.." position="before">
+                <label for="sequence_code" string="Sequence Code" />
+                <field name="sequence_code" readonly="1" />
+            </xpath>
+            <field name="label_tasks" position="before">
+                <field name="display_name" invisible="1" />
+            </field>
+        </field>
+    </record>
+
+    <record model="ir.ui.view" id="view_project_project_filter">
+        <field name="model">project.project</field>
+        <field name="inherit_id" ref="project.view_project_project_filter" />
+        <field name="arch" type="xml">
+            <field name="name" position="after">
+                <field name="display_name" string="Project" />
+            </field>
+            <field name="name" position="attributes">
+                <attribute name="invisible">1</attribute>
+            </field>
+        </field>
+    </record>
+</odoo>
