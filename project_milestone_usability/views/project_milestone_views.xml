@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+  <record id="view_project_milestone_tree_enhanced" model="ir.ui.view">
+    <field name="name">project.milestone.tree.enhanced</field>
+    <field name="model">project.milestone</field>
+    <field name="inherit_id" ref="project.project_milestone_view_tree" />
+    <field name="arch" type="xml">
+      <xpath expr="//list/button" position="before">
+        <field name="allow_billable" optional="show" />
+        <field name="can_be_marked_as_done" optional="show" />
+        <field name="task_count" string="Tasks" optional="show" />
+        <field name="done_task_count" string="Done Tasks" optional="show" />
+        <field name="tasks_missing" string="Missing Tasks" optional="show" />
+        <field name="product_uom" optional="show" />
+        <field name="product_uom_qty" optional="show" />
+        <field name="project_id" optional="show" readonly="1" />
+        <field
+          name="project_partner_id"
+          string="Customer"
+          optional="show"
+          readonly="1"
+        />
+        <field name="quantity_percentage" optional="show" />
+        <field name="reached_date" optional="show" />
+        <field name="sale_line_display_name" optional="show" />
+        <field name="is_deadline_exceeded" optional="show" />
+        <field name="is_deadline_future" optional="show" />
+      </xpath>
+    </field>
+  </record>
+
+  <record id="view_project_milestone_search_enhanced" model="ir.ui.view">
+    <field name="name">project.milestone.search.enhanced</field>
+    <field name="model">project.milestone</field>
+    <field name="arch" type="xml">
+      <search string="Milestones">
+        <field name="project_id" />
+        <field name="project_partner_id" string="Customer" />
+        <filter
+          name="missing_tasks"
+          string="Has Missing Tasks"
+          domain="[('tasks_missing', '>', 0)]"
+        />
+        <separator />
+        <filter
+          name="group_project"
+          string="Project"
+          context="{'group_by': 'project_id'}"
+        />
+        <filter
+          name="group_customer"
+          string="Customer"
+          context="{'group_by': 'project_partner_id'}"
+        />
+      </search>
+    </field>
+  </record>
+
+  <record id="action_project_milestone" model="ir.actions.act_window">
+    <field name="name">Milestones</field>
+    <field name="res_model">project.milestone</field>
+    <field name="view_mode">list,form</field>
+    <field name="view_id" ref="project.project_milestone_view_tree" />
+    <field name="search_view_id" ref="view_project_milestone_search_enhanced" />
+  </record>
+
+  <menuitem
+    id="menu_project_milestone"
+    name="Milestones"
+    parent="project.menu_project_management"
+    action="action_project_milestone"
+    sequence="40"
+  />
+</odoo>
