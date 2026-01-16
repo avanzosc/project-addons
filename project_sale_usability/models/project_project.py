@@ -28,7 +28,11 @@ class ProjectProject(models.Model):
         # check if analytic_distribution contains id of analytic account
         query.add_where(
             "account_move_line.analytic_distribution ?| array[%s]",
-            [str(project.analytic_account_id.id) for project in self],
+            [
+                str(project.account_id.id)
+                for project in self
+                if project.account_id
+            ],
         )
         query.order = None
         query_string, query_param = query.select(
