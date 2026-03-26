@@ -9,6 +9,7 @@
                 <group string="Inspection">
                     <field name="inspection_date" />
                     <field name="next_inspection_date" />
+                    <field name="correction_date" />
                 </group>
             </field>
         </field>
