@@ -6,3 +6,4 @@ class ProjectTask(models.Model):
 
     inspection_date = fields.Date()
     next_inspection_date = fields.Date()
+    correction_date = fields.Date()
