@@ -1,0 +1,27 @@
+.o_kanban_renderer.o_project_kanban {
+  .o_kanban_record
+    > div
+    .o_kanban_primary_left
+    .o_primary
+    > .o_text_overflow:not(.text-muted) {
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    white-space: normal;
+    word-break: break-word;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+}
+
+.o_kanban_renderer.o_kanban_project_tasks {
+  .o_kanban_record .o_kanban_record_title {
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    white-space: normal;
+    word-break: break-word;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+}
