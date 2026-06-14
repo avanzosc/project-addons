@@ -9,6 +9,7 @@
           name="milestones_progress"
           widget="progressbar"
           options="{'editable': true}"
+          groups="project.group_project_milestone"
         />
             </field>
         </field>
@@ -23,6 +24,7 @@
           name="milestones_progress"
           widget="progressbar"
           optional="show"
+          groups="project.group_project_milestone"
         />
             </field>
         </field>

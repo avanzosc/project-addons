@@ -20,9 +20,9 @@
                         <field name="tasks_progress" widget="progressbar" />
                     </group>
                     <group>
-                        <field name="milestones_percentages" />
-                        <field name="milestones_percentages_solved" />
-                        <field name="milestones_progress" widget="progressbar" />
+                        <field name="milestones_percentages" groups="project.group_project_milestone"/>
+                        <field name="milestones_percentages_solved" groups="project.group_project_milestone"/>
+                        <field name="milestones_progress" groups="project.group_project_milestone" widget="progressbar" />
                     </group>
                 </group>
             </notebook>
@@ -39,6 +39,7 @@
           name="milestones_progress"
           widget="progressbar"
           optional="show"
+          groups="project.group_project_milestone"
         />
             </field>
         </field>
