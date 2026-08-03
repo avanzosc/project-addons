@@ -28,7 +28,7 @@ class ProjectProject(models.Model):
         # check if analytic_distribution contains id of analytic account
         query.add_where(
             "account_move_line.analytic_distribution ?| array[%s]",
-            [str(project.account_id.id) for project in self if project.account_id],
+            [str(project.account_id.id) for project in self],
         )
         query.order = None
         query_string, query_param = query.select(
@@ -128,7 +128,7 @@ class ProjectProject(models.Model):
             "name": _("Out Invoice Lines"),
             "domain": domain,
             "type": "ir.actions.act_window",
-            "view_mode": "tree",
+            "view_mode": "list",
             "res_model": "account.move.line",
         }
 
@@ -139,6 +139,6 @@ class ProjectProject(models.Model):
             "name": _("Out Refund Lines"),
             "domain": domain,
             "type": "ir.actions.act_window",
-            "view_mode": "tree",
+            "view_mode": "list",
             "res_model": "account.move.line",
         }
